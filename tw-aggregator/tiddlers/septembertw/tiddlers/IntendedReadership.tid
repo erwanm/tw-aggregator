@@ -1,0 +1,16 @@
+created: 20140920154421694
+creator: AcD
+modified: 20140920163750364
+modifier: AcD
+title: IntendedReadership
+tags: TiddlyDocs DesignDocs
+source-wiki: http://septembertw.tiddlyspot.com/#IntendedReadership
+
+Official docs on [[TiddliWiki.com|http://TiddlyWiki.com]] could benefit from being presented on a basis of IntendedReadership, ie :
+
+* TiddlyNoobie (self-explanatory)<br><br>
+* TiddlyAuthor (goal-oriented users who want to GetStuffDone with minimal plumbing toil)<br><br>
+* TiddlyTinker (tech literate users who don't mind getting a bit dirty to tune up the engine and mend the bodywork)<br><br>
+* TiddlyHacker (plugin creators and power users who enjoy building nuke-powered tricycle from a stack of alarm clocks and an old combine harvester)<br><br>
+
+In addition, sub-categories could apply, such as OldCoot (for returning users whose experience is informed by TiddlyWikiClassic assumptions).

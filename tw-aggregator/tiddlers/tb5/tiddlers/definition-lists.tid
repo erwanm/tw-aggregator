@@ -1,0 +1,21 @@
+created: 20141203172724146
+creator: Tobias Beer
+modified: 20141203172735788
+modifier: Tobias Beer
+title: definition-lists
+tags: Markup
+source-wiki: http://tb5.tiddlyspot.com#definition-lists
+
+<dt>
+
+```
+;definition
+:term
+```
+</dt>
+
+<dd>
+
+;definition
+:term
+</dd>

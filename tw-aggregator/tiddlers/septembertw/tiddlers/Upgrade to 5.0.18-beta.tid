@@ -1,0 +1,33 @@
+created: 20140919201015934
+creator: AcD
+modified: 20140921021130749
+modifier: AcD
+title: Upgrade to 5.0.18-beta
+tw-version: 5.0.18-beta
+tags: LogBook ReleaseComments 5.0.18-beta
+source-wiki: http://septembertw.tiddlyspot.com/#Upgrade%20to%205.0.18-beta
+
+"""
+After a small scare with TiddlySpot (auto backups FTW!) I finally got around to upgrade from b16 to 18, just a day before gold release.
+Talk about being on top of things, me !
+
+Anyhow, you can read all about the changes [[on the official TW|http://tiddlywiki.com/#Release%205.0.18-beta]], and there's a lot of good stuff.
+
+I'll only comment on the points I'm somewhat familiar with (I haven't had time to explore every new bit yet):
+"""
+
+* First pass at an easy [[ListMacro|http://tiddlywiki.com/#ListMacro]], which I suspect addresses most of the concerns I touched on in ListSelf, here.<br> I suspect we have [[@pmario|https://github.com/pmario]] to thank for that one, and I'll add a couple of HowTos about its use for AbsoluteBeginners shortly after release.<br><br>
+
+* Speaking of lists and macros, the TimelineMacro won itself a subfilter for easy restricted timelines ! <br>Exciting, if a bit a dicey atm, what with both the //limit// and //subfilter// seemingly ignored (check the local test in TimelineMacroTest or the examples provided in [[TimelineMacro|http://tiddlywiki.com/#TimelineMacro]] itself to see what I mean).<br><br>
+
+* Support for MarkDown import added (requires a PlugIn, apparently). This has me excited not just because I use MarkDown a lot (I really dig [[Writer|https://play.google.com/store/apps/details?id=com.jamesmc.writer&hl=en]]) but beacuse it is a testimony to the insane dedication of the CoreDev team that it got added within a day of bringing it up as a GoodIdea in [[hangout|Going public]].<br><br> 
+ 
+With regards to all the cool things underway to make easier for the community to share and contribute to the documentation and codebase of TiddlyWiki, the more adventurous types may now hit the //Edit// button of any tiddler on [[TiddlyWIki.com|http://TiddlyWIki.com]] to submit additions/edits/fixes via GitHub with (relatively) minimal fuss -- see how to go about it [[here|http://tiddlywiki.com/#Improving%20TiddlyWiki%20Documentation]].
+
+Well, that's it for now -- I'll return with an update around Saturday's [[BigLaunch !|https://plus.google.com/app/basic/events/c906mgb32gk0esvpjk851k9bkvs]]
+
+  
+
+
+
+

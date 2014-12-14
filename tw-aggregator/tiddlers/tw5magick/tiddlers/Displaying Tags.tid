@@ -1,0 +1,18 @@
+created: 20140111142426218
+creator: Stephan Hradek
+description: How to display a tag in a tiddler
+modified: 20140111145837150
+modifier: Stephan Hradek
+title: Displaying Tags
+tags: toc
+source-wiki: http://tw5magick.tiddlyspot.com/#Displaying%20Tags
+
+For my [[Table of Content creation]] tiddler, I wanted to display a tag in the code. I did this with a template tiddler called [[showtag]]. A tag is then displayed using the code `{{tagname||showtag}}`. [[showtag]]'s code is:
+
+{{showtag||code}}
+
+This tiddler simmply calls the wikitext macro `_showtag` passing on the value of the context tiddler's color field. As the context of the [[showtag]] tiddler is the tiddler //tagname//, the value is not taken from  of the tiddler [[showtag]] but from the transcluded tiddler //tagname//. It is a TiddlyWiki standard to have, for every tag an optional tiddler which may contain a field name "color" defining the HTML value of the desired color.
+
+So for my tag {{toc||showtag}} I also have a tiddler called [[toc]] which has just that color field containing the text ''<$view tiddler="toc" field="color"/>''.
+
+The `_showtag` macro just displays the context tiddler's title (''not'' "showtext" but the title of the transcluded tiddler!) wrapped in an HTML span defining the background color as the color passed as a parameter. It's also setting the standard TiddlyWiki class for labels.

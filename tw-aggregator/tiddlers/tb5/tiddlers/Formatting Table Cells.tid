@@ -1,0 +1,22 @@
+created: 20141117160331106
+creator: Tobias Beer
+modified: 20141117160923771
+modifier: Tobias Beer
+title: Formatting Table Cells
+tags: Solutions Styles Tables
+source-wiki: http://tb5.tiddlyspot.com#Formatting%20Table%20Cells
+
+As of yet, no dedicated wiki syntax exists for formatting a table cell. In the meantime, you can wrap the cell contents in a `div` with a custom css class:
+
+```
+|!head|!row|
+|<div class="cell pink">pink</div>|plain|
+```
+
+renders as:
+
+|!head|!row|
+|<div class="cell pink">pink</div>|plain|
+
+<br>
+<<source $:/styles/tablecell>>

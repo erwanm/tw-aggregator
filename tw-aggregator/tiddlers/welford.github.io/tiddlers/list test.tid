@@ -1,0 +1,32 @@
+created: 20140103173954731
+creator: ジェームス
+list: 
+modified: 20141102011007914
+modifier: ジェームス
+revision: 0
+title: list test
+type: text/vnd.tiddlywiki
+tags: twexample
+source-wiki: http://welford.github.io/#list%20test
+
+<$list filter="[!is[system]has[type]each[type]sort[type]]">
+<div class="tc-menu-list-item">
+<$view field="type"/>
+<$list filter="[type{!!type}!is[system]sort[title]]">
+<div class="tc-menu-list-subitem">
+<$link to={{!!title}}><$view field="title"/></$link>
+</div>
+</$list>
+</div>
+</$list>
+
+<$list filter="[!is[system]has[modified]!sort[modified]limit[100]eachday[modified]]" itemClass="tc-menu-list-item">
+<div class="tc-menu-list-item">
+<$view field="modified" format="date" template="DDth MMM YYYY"/>
+<$list filter="[sameday{!!modified}!is[system]!sort[modified]]" itemClass="tc-menu-list-subitem">
+<div class="tc-menu-list-subitem">
+<$link to={{!!title}}><$view field="title"/></$link>
+</div>
+</$list>
+</div>
+</$list>

@@ -1,0 +1,16 @@
+created: 20140412142215643
+modified: 20140413163702042
+title: TiddlyMix
+type: application/json
+source-wiki: http://bjtools.tiddlyspot.com/#TiddlyMix
+
+{
+"parserrules":{
+"pragmaRuleList":[],
+"blockRuleList":[ "html"],
+"inlineRuleList":[ "html", "entity",  "extlink","filteredtranscludeinline",
+		 "macrocallinline", "prettylink", "styleinline","transcludeinline", "wikilink"]
+},
+"baserules":"",
+"preparser":"text/x-tiddlywiki>text/html"
+}

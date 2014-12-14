@@ -1,0 +1,16 @@
+caption: text buttons
+created: 20141003234456028
+creator: EucalyJ
+modified: 20141004003452054
+modifier: EucalyJ
+title: TWC: text buttons
+type: text/vnd.tiddlywiki
+tags: [[TWC: TW5 native]]
+source-wiki: http://eucaly-tw5.tiddlyspot.com/#TWC_%20text%20buttons
+
+!!! TiddlyWikiClassic
+* text buttons instead of just the icons (and so it can be more compact)
+* source: https://groups.google.com/forum/#!topic/tiddlywiki/UzpJuWdlE9g
+
+!!! ~TiddlyWiki 5
+* [[$:/ControlPanel]] > Settings > Toolbar Buttons, or  [[direct link|$:/core/ui/ControlPanel/Settings/ToolbarButtons]]

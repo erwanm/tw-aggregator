@@ -1,0 +1,13 @@
+created: 20131121215309757
+creator: Stephan Hradek
+modified: 20131121215358095
+modifier: Stephan Hradek
+title: List unfinished Questions
+source-wiki: http://tw5magick.tiddlyspot.com/#List%20unfinished%20Questions
+
+<$list filter="[tag[Quiz]!search[@@.answer]tags[]] -Quiz +[sort[title]]">
+! <$view field="title"/>
+<$list filter="[is[current]tagging[]] +[tag[Quiz]!search[@@.answer]] +[sort[title]]">
+<$link><$view field="title"/></$link>
+</$list>
+</$list>

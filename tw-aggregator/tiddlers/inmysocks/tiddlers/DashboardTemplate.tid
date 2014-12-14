@@ -1,0 +1,8 @@
+caption: Main Dashboard
+created: 20141203194541067
+modified: 20141206183412684
+title: DashboardTemplate
+tags: Templates
+source-wiki: http://inmysocks.tiddlyspot.com/#DashboardTemplate
+
+<<toc-tabbed-internal-nav tag:"Dashboard" selectedTiddler:"$:/temp/toc/selectedTiddler" unselectedText:"Select a topic in the table of contents. Click the arrow to expand a topic.">>

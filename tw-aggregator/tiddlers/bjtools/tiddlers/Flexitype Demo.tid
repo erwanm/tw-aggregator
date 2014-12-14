@@ -1,0 +1,10 @@
+created: 20140409032518794
+modified: 20141028175522859
+title: Flexitype Demo
+type: text/vnd.twbase<htmlp
+source-wiki: http://bjtools.tiddlyspot.com/#Flexitype%20Demo
+
+<h1>Example illustrating the use of 'flexitype'</h1>
+<h2>Wikiwords html</h2>
+<p>The visual editor produces html type tiddlers. This type can be extended to include elements of wikitext yet remain editable visually, in this case adding transclusion, prettylinks and wikiwords. [[this tiddler is an example|Flexitype Demo]] - it's type is <strong>text/vnd.twbase&lt;htmlp</strong></p>
+<p>!!Only links are wikified</p>

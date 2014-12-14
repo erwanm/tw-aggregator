@@ -1,0 +1,10 @@
+created: 20140910015343719
+creator: EucalyJ
+modified: 20140910015422017
+modifier: EucalyJ
+title: PopupTagger
+type: text/vnd.tiddlywiki
+tags: my_plugin
+source-wiki: http://eucaly-tw5.tiddlyspot.com/#PopupTagger
+
+<<eucaly-plunin-page "$:/plugins/eucaly/popuptagger">>

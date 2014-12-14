@@ -1,0 +1,15 @@
+created: 20131202130743991
+creator: Stephan Hradek
+modified: 20131202130810826
+modifier: Stephan Hradek
+title: linktest
+source-wiki: http://tw5magick.tiddlyspot.com/#linktest
+
+\define join3(l, m, r)
+$l$$m$$r$
+\end
+\define new_link()
+<$link to=<<join3 "Comment for '" {{!!title}} "'">>><<join3 "Comment for '" {{!!title}} "'">></$link>
+\end
+
+<<new_link>>

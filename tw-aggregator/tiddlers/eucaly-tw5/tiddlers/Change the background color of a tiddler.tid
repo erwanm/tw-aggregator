@@ -1,0 +1,20 @@
+created: 20140921090416246
+creator: EucalyJ
+modified: 20140921094805637
+modifier: EucalyJ
+title: Change the background color of a tiddler
+type: text/vnd.tiddlywiki
+tags: tips
+source-wiki: http://eucaly-tw5.tiddlyspot.com/#Change%20the%20background%20color%20of%20a%20tiddler
+
+* source : https://groups.google.com/d/msg/tiddlywiki/CLHKpOtLu24/WALQYkIaur4J
+* by : Stephan Hradek
+
+Create a tiddler on ~TiddlyWiki.com containing:
+
+```
+div.tc-tagged-TableOfContents {
+    background-color: pink;
+}
+```
+tag that tiddler with `$:/tags/Stylesheet` and observe all tiddlers tagged `TableOfContents` turning pink.

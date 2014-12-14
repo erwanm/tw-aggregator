@@ -1,0 +1,23 @@
+created: 20131118030500002
+modified: 20131118034000001
+title: Create a workstation for research on a topic
+tags: Lists Note-taking
+source-wiki: http://www.giffmex.org/tw5mall.htm#Create%20a%20workstation%20for%20research%20on%20a%20topic
+
+I just discovered a great way to record the results of my research on a topic using ~TiddlyWiki 5. I create a research workstation using the following code:
+
+```
+[[Sources for zzz]]
+
+''<$count filter="[tag[zzz]]"/> things to know about zzz'' - <$button message="tw-new-tiddler" class="bluebutton" param="zzz">Add note</$button>
+
+<$list filter="[tag[zzz]sort[title]]">
+
+<$link to={{!!title}}>@</$link><$transclude/>
+
+<hr></$list>
+```
+
+I replace zzz five times with the topic/tag I will use. The result is a workstation that shows an automatically updating count of the number of tiddlers for that topic, a button to create new tiddlers with that topic, the content of each tiddler, and ampersands which serve as links to each tiddler, in case they need to be edited. The final product looks like this:
+
+{{researchlist.jpg}}

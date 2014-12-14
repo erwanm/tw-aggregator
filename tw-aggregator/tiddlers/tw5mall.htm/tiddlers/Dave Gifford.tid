@@ -1,0 +1,12 @@
+created: 20131103144000000
+email: someemail@someaddress.org
+modified: 20131118003800001
+photo: <img src="http://www.giffmex.org/images/gifford2011famphoto.jpg">
+telephone: (00) 1234-5678
+title: Dave Gifford
+tags: personalcontacts
+source-wiki: http://www.giffmex.org/tw5mall.htm#Dave%20Gifford
+
+<$transclude field="photo"/>
+|<$transclude field="email"/>|
+|<$transclude field="telephone"/>|

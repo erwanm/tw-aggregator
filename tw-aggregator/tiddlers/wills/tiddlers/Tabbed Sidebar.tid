@@ -1,0 +1,41 @@
+caption: Sidebar
+created: 20140430132900937
+creator: Matabele
+modified: 20140510161859663
+modifier: Matabele
+revision: 0
+title: Tabbed Sidebar
+type: text/vnd.tiddlywiki
+wills: documentation
+source-wiki: http://wills.tiddlyspot.com/#Tabbed%20Sidebar
+
+!.myTitle Left Sidebar Slider
+
+The leftmenu toggles with the top left hamburger button -- this function has been added into `$:/core/ui/TopBar/menu`. Also needed are the two 'leftmenu' stylesheets that operate the slider mechanism. Several images are needed for buttons, and the other stylesheet contains styles required for prettying up the menus and for styling the gTiD display panels (also some additions for printing the story river.)
+
+{{{  [[$:/_leftmenuedit]] [!field:left-menu[tab]has[left-menu]]  }}}
+
+;The Tabs
+
+The tabs may be filled by tagging any tiddler with `$:/tags/leftmenu` -- checkboxes are available in the 'Edit' tab to toggle this tag for tabs created from the template. I have provided five examples which contain: the main 'gTaB' menu, a 'Help' tab (any tiddler tagged '$:/_help' will be listed here), a 'Recent' tab, a 'Search' tab, and an 'Edit' tab to edit the menu itself.  A button has been provided on the 'gTaB' menu to restore the 'Edit' tab should it becomes toggled off. 
+
+{{{ [!field:qad-gtd[tab]field:left-menu[tab]sort[title]] }}}
+
+;Elements
+
+Elements used in any of the panels can be combined to modify the menu system:
+
+*the filterList() macro expects two parameters representing a label and a filter expression. 
+*the editTiddler() macro expects two parameters representing a label and the title of the tiddler to be edited.
+*new menu tabs may be created with the 'New Menu' button -- a new menu has the caption 'New' -- this may be changed by editing the caption field.
+
+;Settings
+
+*the height of the full-height scrollbar boxes (applied in the 'Tasks', 'Recent' and 'Help' tabs) has been set to 600px in `$:/_stylesheet/mystyles` -- this may be adjusted for your desktop by editing the //''div.fulltab''// style
+*the height of the half-height scrollbar boxes has been set to 600px in `$:/_stylesheet/mystyles` -- this may be adjusted for your desktop by editing the //''div.half''// style
+*the width of the scrollbars has been set to 12px  in `$:/_stylesheet/mystyles` for webkit based browsers -- this may be adjusted
+*the width of the menu has been set to 25% and the borders of the story river to 23% and 77% in `$:/_stylesheet/leftmenu-show` -- this width may be adjusted by editing the //''.story-river''// and //''.tw-leftmenu''// styles (fixed widths may be preferred in some situations.)
+*the width of the input boxes on the 'Tasks' and 'Edit' tabs have been set to 220px and 150px  respectively in `$:/_stylesheet/mystyles` -- these will need adjusting to fit the width of the leftmenu.
+
+Settings may be edited using the settings section of the 'Edit' tab.
+

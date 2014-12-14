@@ -1,0 +1,20 @@
+created: 20131103142100000
+modified: 20131118004400008
+title: Use TW5 as a contact list (overview)
+tags: Contacts
+source-wiki: http://www.giffmex.org/tw5mall.htm#Use%20TW5%20as%20a%20contact%20list%20(overview)
+
+Here is a sample contact tiddler: [[Dave Gifford]]. It has our family photo, and a table for an email and phone #. If you had to create each contact tiddler separately, it would be time-consuming. There is a way to shorten the process: with a template tiddler from which you create new contact tiddlers with a click of a button.
+
+There are three steps involved: 
+
+#Create a template for your contact tiddlers
+#Add a 'new contact' button which you will click to create new contact tiddlers
+#Create contact lists as needed, which grab the data from the contact tiddlers.
+
+See the steps here:
+
+*[[How to create a template tiddler for contacts]]
+*[[How to create a 'New contact' button to add new contacts]]
+*[[How to create a list of contacts based on contact tiddlers]]
+

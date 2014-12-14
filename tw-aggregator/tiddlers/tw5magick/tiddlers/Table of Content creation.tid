@@ -1,0 +1,18 @@
+created: 20140111134920141
+creator: Stephan Hradek
+description: Showing how the table of content was created.
+modified: 20140116120421419
+modifier: Stephan Hradek
+title: Table of Content creation
+tags: toc
+source-wiki: http://tw5magick.tiddlyspot.com/#Table%20of%20Content%20creation
+
+For the table of content I simply used list transclusion. This is the code of the [[Content]] tiddler:
+
+{{Content||code}}
+
+The tiddlers which should appear in the table simply need to be labeled {{toc||showtag}}. Additionally they have an optional field "description" which describe in some words the purpose of the tiddler.
+
+Every tiddlertitle is transcluded using the [[tocEntry]] template:
+
+{{tocEntry || code}}

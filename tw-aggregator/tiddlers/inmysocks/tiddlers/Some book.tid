@@ -1,0 +1,21 @@
+modified: 20141209200534121
+subject: 
+title: Some book
+tags: Citations
+source-wiki: http://inmysocks.tiddlyspot.com/#Some%20book
+
+Subject: {{!!subject}}<br>
+
+Abstract:<br>
+
+<$view tiddler='Some book_Abstract
+' field='text'/>
+
+Bibtex:
+
+---
+
+<$view tiddler='Some book_BibTex
+' field='text'/>
+
+---

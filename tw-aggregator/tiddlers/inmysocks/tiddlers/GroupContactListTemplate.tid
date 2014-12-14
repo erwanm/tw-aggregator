@@ -1,0 +1,37 @@
+button_type: 
+caption: Contacts List
+created: 20141104210944699
+creator: inmysocks
+display_name: Sort Contacts By Group
+modified: 20141204202638404
+modifier: inmysocks
+no_edit: true
+settings_tiddler: GroupContactListTemplate Settings
+text_style: ''
+title: GroupContactListTemplate
+tags: Templates ContactListTemplate
+source-wiki: http://inmysocks.tiddlyspot.com/#GroupContactListTemplate
+
+\define allButtonMacro()
+
+<$reveal type="nomatch" state="$:/state/GroupContactListTemplateAll" text="show">
+
+!!<$button set="$:/state/GroupContactListTemplateAll" setTo="show" class={{GroupContactListTemplate!!button_type}}>{{$:/core/images/right-arrow}}$(textstyle)$All$(textstyle)$</$button>
+</$reveal>
+<$reveal type="match" state="$:/state/GroupContactListTemplateAll" text="show">
+
+!!<$button set="$:/state/GroupContactListTemplateAll" setTo="hide" class={{GroupContactListTemplate!!button_type}}>{{$:/core/images/down-arrow}}$(textstyle)$All$(textstyle)$</$button>
+<$list filter="[tag[Contacts]!tag[Templates]]" template={{Contacts!!contact_display_template}}>
+</$reveal>
+
+</$list>
+
+\end
+
+<$list filter="[tag[Contacts]sort[group]each[group]]" template="GroupContactListGroupTemplate">
+<$view field="group"/>
+</$list>
+
+<$set name="textstyle" value={{GroupContactListTemplate!!text_style}}>
+<<allButtonMacro>>
+</$set>

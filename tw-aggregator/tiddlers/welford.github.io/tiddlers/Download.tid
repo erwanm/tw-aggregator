@@ -1,0 +1,24 @@
+created: 20131119194500000
+list: 
+modified: 20141123161535747
+revision: 0
+title: Download
+type: text/vnd.tiddlywiki
+source-wiki: http://welford.github.io/#Download
+
+Download single file editions of version ''<<version>>'' of TiddlyWiki:
+
+|{{$:/editions/twnotes/snippets/download-empty-button}}|Get started with an empty wiki |
+|{{$:/snippets/download-wiki-button}}|Download a full copy of this site|
+|{{$:/editions/twnotes/snippets/download-wiki-button}}|Download a full copy of this site (minus tiddlyweb and filestyem plugins) |
+|{{$:/editions/twnotes/save_blog_button}}|Download Blog |
+
+For more advanced configurations, you can run [[TiddlyWiki on Node.js]].
+
+!!Definitions of the download tiddlers can be found here
+[[$:/editions/twnotes/download-empty]]
+
+[[$:/editions/twnotes/download-partial]]
+
+[[$:/editions/twnotes/download-wiki]]
+

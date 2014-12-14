@@ -1,0 +1,23 @@
+created: 20131215114816800
+modified: 20140104013800514
+title: Overview
+type: text/vnd.tiddlywiki
+source-wiki: http://cjhunt.github.io/#Overview
+
+These pages document aspects ~TiddlyWiki5 programming, sharing "lessons learned" to help developers to get started with ~TiddlyWiki5 customization and extension. 
+
+There are currently two articles in this wiki:
+
+:[[A Simple Widget]]
+
+:[[A More Complex Widget]]
+
+This wiki is not a definitive reference for ~TiddlyWiki5 coding, but every effort is made to be as accurate as possible. 
+
+Of course, THE definitive ~TiddlyWiki5 reference is Jeremy Ruston's repo here: 
+
+:https://github.com/Jermolene/TiddlyWiki5
+
+and the main ~TiddlyWiki5 site here:
+
+:http://www.tiddlywiki.com/

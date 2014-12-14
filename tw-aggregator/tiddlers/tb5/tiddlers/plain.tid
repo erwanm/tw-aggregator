@@ -1,0 +1,8 @@
+created: 20141124103900351
+creator: Tobias Beer
+modified: 20141210081644024
+modifier: Tobias Beer
+title: plain
+source-wiki: http://tb5.tiddlyspot.com#plain
+
+<$view field="title"/>

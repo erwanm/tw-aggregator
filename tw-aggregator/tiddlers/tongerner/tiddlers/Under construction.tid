@@ -1,0 +1,9 @@
+created: 20140421191631362
+creator: TonGerner
+modified: 20141127132527017
+modifier: TonGerner
+title: Under construction
+tags: documentation
+source-wiki: http://tongerner.tiddlyspot.com/#Under%20construction
+
+|{{Under_construction.gif}}|^''This guide is under construction.''<br>@@.RED This guide has to be upgraded from TW v5.1.4 to TW v<<version>>@@.<br>Check this page or the tab 'Latest news' for news about the upgrade process.|

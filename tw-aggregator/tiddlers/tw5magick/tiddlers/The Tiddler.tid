@@ -1,0 +1,12 @@
+created: 20140104043312437
+creator: Stephan Hradek
+modified: 20140104043434763
+modifier: Stephan Hradek
+title: The Tiddler
+source-wiki: http://tw5magick.tiddlyspot.com/#The%20Tiddler
+
+<<mysamplemacro>>
+
+<<mysamplemacro "Donald Duck">>
+
+<<mysamplemacro "Mickey Mouse" "Mouse House">>

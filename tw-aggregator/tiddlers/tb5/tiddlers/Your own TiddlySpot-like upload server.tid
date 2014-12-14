@@ -1,0 +1,38 @@
+created: 20141205144438932
+creator: Tobias Beer
+modified: 20141211173424458
+modifier: Tobias Beer
+title: Your own TiddlySpot-like upload server
+tags: Solutions Hosting Upload Saving TiddlySpot Server
+source-wiki: http://tb5.tiddlyspot.com#Your%20own%20TiddlySpot-like%20upload%20server
+
+As [[decribed on tiddlywiki.com|http://tiddlywiki.com/#Saving%20on%20a%20PHP%20Server]] it is easy to run TiddlyWiki as your own website while editing and saving entirely online without a need for [[an offline ftp client|https://filezilla-project.org]], using a script that enabled users for a long time to upload [[TiddlyWiki classic|http://classic.tiddlywiki.com/]] to any php-powered server.
+
+All you need to do is...
+
+# download [[store.php|https://code.google.com/p/bidix/source/browse/trunk/TiddlyHome/_th/lib/store.php]]
+# edit the file in a text editor, adding the desired usernames and passwords
+# upload it via an [[some ftp client|https://filezilla-project.org]] or your hoster's web interface to your php-server
+# open the ''Saving'' tab of TiddlyWiki's [[control panel|$:/ControlPanel]] and enter:
+#; Server URL
+#: http://your.domain.com/folder/store.php
+#; Wiki Name
+#: a valid username as specified in 2.
+#; Password
+#: the password for that user
+
+Optionally, you can specify further upload settings differing from the defaults:
+
+; Upload Filename
+: the filename used to save the TiddlyWiki, default: ''index.html''
+; Upload Directory
+: the relative path from ''store.php'' to the directory used for saving the file
+; Backup Directory
+: the relative path from ''store.php'' to the directory used for backups
+
+To provide this capability for a number of folders, simply repeat the above steps.
+
+''Note:'' With passwords stored in plain-text, be sure to be the only one with access to it.
+
+!!GitHub Pages
+If you want to use TiddlyWiki alongside your TiddlyWiki related GitHub Projects or any other project, you can use [[GitHub Pages|https://pages.github.com]].

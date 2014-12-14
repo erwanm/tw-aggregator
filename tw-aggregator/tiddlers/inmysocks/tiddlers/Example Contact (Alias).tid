@@ -1,0 +1,23 @@
+blurb: A quick description
+cell_phone_number: 1-234-567-8910
+city: city
+country: Westros
+created: 20141103183802679
+first_name: Example
+group: Example Group
+home_phone_number: 555-555-0123
+last_name: Contact
+modified: 20141204011636458
+nick_name: Alias
+other_email_address: other@something.com
+personal_email_address: thing@thing.com
+state_or_provence: state
+street_address: 777 somewhere
+title: Example Contact (Alias)
+work_email_address: otherthing@otherthing.com
+work_phone_number: 
+zip_code: 99999
+tags: Contacts
+source-wiki: http://inmysocks.tiddlyspot.com/#Example%20Contact%20(Alias)
+
+Notes go here

@@ -1,0 +1,16 @@
+changecount: 1
+created: 20130711191100000
+creator: BJ
+modified: 20140907155218003
+modifier: BJ
+title: SnapRule
+type: null
+tags: TiddlyClipConfig clippedtid
+source-wiki: http://tiddlyclip.tiddlyspot.com/#SnapRule
+
+\rules only table wikilink prettylink
+
+|!Title|!Body|!Tags|!Fields modifiers|!field initials|!Modes|
+|((*@pageTitle*))/thumbprint|((*@snap*))|ClippedImage||{"$type":"image/png"}||
+|((*@pageTitle*))|{{((*@pageTitle*))/thumbprint}}\n\n((*@pageRef*))|ClipIntrest||||
+

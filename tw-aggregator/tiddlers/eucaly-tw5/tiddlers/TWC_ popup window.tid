@@ -1,0 +1,18 @@
+caption: popup window
+created: 20141004010330302
+creator: EucalyJ
+modified: 20141004050121575
+modifier: EucalyJ
+title: TWC: popup window
+type: text/vnd.tiddlywiki
+tags: [[TWC: TW5 native]]
+source-wiki: http://eucaly-tw5.tiddlyspot.com/#TWC_%20popup%20window
+
+!!! TiddlyWikiClassic
+* ~ShowPopupPlugin
+* ~StickyPopupPlugin
+
+!!! ~TiddlyWiki 5
+* [[PopupMechanism|http://tiddlywiki.com/#PopupMechanism]]
+* [[AlertMechanism|http://tiddlywiki.com/#AlertMechanism]], [[wizards, notifications|http://tiddlywiki.com/#Features]]
+

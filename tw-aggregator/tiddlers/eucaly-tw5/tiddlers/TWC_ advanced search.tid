@@ -1,0 +1,17 @@
+caption: advanced search
+created: 20141004010100729
+creator: EucalyJ
+modified: 20141004010257409
+modifier: EucalyJ
+title: TWC: advanced search
+type: text/vnd.tiddlywiki
+tags: [[TWC: TW5 native]]
+source-wiki: http://eucaly-tw5.tiddlyspot.com/#TWC_%20advanced%20search
+
+!!! TiddlyWikiClassic
+* ~SearchOptionsPlugin
+** http://www.tiddlytools.com/#SearchOptionsPlugin
+
+!!! ~TiddlyWiki 5
+* [[$:/AdvancedSearch]]
+{{$:/AdvancedSearch}}

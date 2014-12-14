@@ -1,0 +1,8 @@
+created: 20140213102722316
+creator: Stephan Hradek
+modified: 20140213103123147
+modifier: Stephan Hradek
+title: footnote
+source-wiki: http://tiddlystuff.tiddlyspot.com/#footnote
+
+<span class="footnote" title={{!!title}}>*</span>

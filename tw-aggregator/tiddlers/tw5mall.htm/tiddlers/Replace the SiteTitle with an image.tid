@@ -1,0 +1,14 @@
+created: 20131002133200000
+modified: 20131117150200008
+title: Replace the SiteTitle with an image
+tags: Images [[Page layout]]
+source-wiki: http://www.giffmex.org/tw5mall.htm#Replace%20the%20SiteTitle%20with%20an%20image
+
+To replace the text of the ~SiteTitle with an image, for example with the logo of a company, just add an html image link to the SiteTitle tiddler.
+
+```
+<img src="http://www.giffmex.org/images/giffmexicon.ico">
+```
+When you do, this image will appear instead of the words 'TW5 mall'.
+
+<img src="http://www.giffmex.org/images/giffmexicon.ico">

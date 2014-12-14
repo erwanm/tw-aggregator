@@ -1,0 +1,10 @@
+created: 20140121214435599
+creator: Stephan Hradek
+description: A small template transcluding just the tiddler title as a linked Level 2 headline
+modified: 20140121221558973
+modifier: Stephan Hradek
+title: justTitle
+tags: template
+source-wiki: http://tw5magick.tiddlyspot.com/#justTitle
+
+!!<$link><$view field="title"/></$link>

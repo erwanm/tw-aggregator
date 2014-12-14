@@ -1,0 +1,47 @@
+created: 20140722083949483
+creator: BJ
+modified: 20140909115606806
+modifier: BJ
+title: Building Configurations -Part 1
+type: text/vnd.tiddlywiki
+tags: [[Beyond The Basics]]
+source-wiki: http://tiddlyclip.tiddlyspot.com/#Building%20Configurations%20-Part%201
+
+!A Simple Example
+
+Configurations will be explained by way of an example
+<<tabsheader "[[The TiddlyClipConfig]] [[The RuleTid]]" "The TiddlyClipConfig"">>
+<!---------------------------------------------------------------------------------------------------------------->
+<$reveal type='match' state='$:/state/tab<<currentTiddler>>' default='The TiddlyClipConfig' text='The TiddlyClipConfig'>
+
+An example  ~TiddlyClipConfig tiddler is shown below.
+
+The ~TiddlyClipConfig tiddler is the starting point for defining tiddlyclip operations, it contains a number of tables (at least one), with each table preceded by  section title (In the example below, the section is 'default').  
+The TiddlyClipConfig tiddler is copied from the tiddlywiki into the browser addon. Section titles and Categories appear in the context menu of the browser.
+Sections appear under 'tiddlyclip sets' [[add screenshot]] , the currently selected section has a * in front of it, and Category entries from its corresponding table appear in the 'tiddlyclip as' entry [[add screen shot]].
+
+This example shows a configuration that captures a screen shot of a webpage.In the mode snap30 'snap' is the instruction to take a screen shot and 30 in the linear % size for the resultant image. See the next tab for a description of the Rule Tid.
+<hr style="border-style: dotted;" />
+
+!default
+|!Category|!Tip|!Tags|!Rule Tid|!Modes|
+|Capture|||CaptureRule|snap30|
+</$reveal>
+<!---------------------------------------------------------------------------------------------------->
+<$reveal type='match' state='$:/state/tab<<currentTiddler>>' text='The RuleTid'>
+
+The Rule Tid has a single rules table. The contents of a rules table define how tiddlyclip creates/modifies tiddlers, and how a clip is placed into these tiddlers along with  tiddlywiki text. Each rule table is placed into a separate tiddler.
+
+In this example the title of the tiddler will take its name from the name of then webpage that we are clipping. 
+The "Field Initals" entry sets tiddler fields when the tiddler is created, here the type of the tiddler is set. Next we see that a tag 'clippedimage' is to be applied to the tiddler. 
+
+!!Contents of the tiddler CaptureRule:
+<hr style="border-style: dotted;" />
+
+{{CaptureRule}}
+!!!See also: [[Building Configurations -Part 2]]
+</$reveal>
+
+----
+
+

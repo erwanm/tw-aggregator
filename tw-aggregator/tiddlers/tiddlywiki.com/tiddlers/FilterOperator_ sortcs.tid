@@ -1,0 +1,16 @@
+caption: sortcs
+created: 20140410103123179
+modified: 20140410103123179
+title: FilterOperator: sortcs
+type: text/vnd.tiddlywiki
+tags: Filters
+source-wiki: http://tiddlywiki.com#FilterOperator_%20sortcs
+
+The ''sortcs'' filter operator sorts the current list case sensitively (upper and lower case letters are considered different), along the field specified in the operand (which defaults to `title`). Preceding the operator with `!` reverses the sort order.
+
+For example:
+
+|!Filter String |!Description |
+|`one two Three four +[sortcs[]]` |Returns `Three`, `four`, `one`, `two` |
+
+See also [[FilterOperator: sort]], [[FilterOperator: nsort]] and [[FilterOperator: nsortcs]].

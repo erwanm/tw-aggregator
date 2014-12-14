@@ -1,0 +1,13 @@
+created: 20131024230700000
+modified: 20131117150300002
+title: Why my CSS includes html body.tw-body
+tags: [[Page layout]]
+source-wiki: http://www.giffmex.org/tw5mall.htm#Why%20my%20CSS%20includes%20html%20body.tw-body
+
+Some have wondered why the CSS in [[$:/StyleSheet]] has 'html body.tw-body' before every element.
+
+This is because ~TiddlyWiki 5 currently does things a little backwards. Here is what ~TiddlyWiki creator Jeremy Ruston writes in a thread on the ~TiddlyWiki Google group (https://groups.google.com/d/msg/tiddlywiki/234ImB9EP_o/80DaE1c1D0MJ):
+
+```
+"The problem is that stylesheets generated from the stylesheet tiddlers are being added to the DOM in the wrong order, with the base stylesheet going last. That means that rules from the base stylesheet can only be overridden with rules of higher specificity. Adding the html and/or body elements is a simple hack to give the rule great specificity."
+```

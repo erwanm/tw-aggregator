@@ -1,0 +1,24 @@
+created: 20140203085544593
+creator: TonGerner
+modified: 20141205164956380
+modifier: TonGerner
+title: Left + top menu
+tags: documentation guide
+source-wiki: http://tongerner.tiddlyspot.com/#Left%20+%20top%20menu
+
+@@.brown ''How to create a left menu + top menu''@@
+
+{{Under construction_}}
+{{Upgraded}}
+This guide describes how to add a top menu and a left menu to a TW5.
+
+Steps:
+
+* add a top menu
+* add tag pill based entries in a top menu
+* add a left menu (with different kinds of entries)
+* add a button in a top menu to toggle the left menu on/off.
+
+It shows the relevant code and styles involved.
+
+''Guide at ~TiddlySpot:''<br>[[How to make a top menu, and a left menu that can be toggled on/off|http://tw5topleft.tiddlyspot.com/]]

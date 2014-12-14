@@ -1,0 +1,41 @@
+created: 20141203172545280
+creator: Tobias Beer
+modified: 20141203172617727
+modifier: Tobias Beer
+title: blockquotes
+tags: Markup
+source-wiki: http://tb5.tiddlyspot.com#blockquotes
+
+<dt>
+
+```
+> block
+>> quotes
+>>> are </dd>easy
+```
+</dt>
+
+<dd>
+
+> block
+>> quotes
+>>> are <br>easy
+</dd>
+
+<dt>
+
+```
+<<<
+real
+easy
+<<<
+```
+</dt>
+
+<dd>
+
+<<<
+real
+easy
+<<<
+</dd>

@@ -1,0 +1,47 @@
+created: 20141007053130884
+modified: 20141007094622661
+title: Restart tiddlywikis automatically after each rsync
+type: text/vnd.tiddlywiki
+tags: [[Wiki sync+server start]]
+source-wiki: http://larigot.avarts.ionio.gr/users/iani/wikis/tw5square.html#Restart%20tiddlywikis%20automatically%20after%20each%20rsync
+
+It is possible to configure ``launchd`` so as to restart each tiddlywiki whenever anything in that tiddlywiki's directory has changed. That way, whenever ``rsync`` updates the data of any of the tiddlywikis on ``larigot``, that tiddlywiki will restart in order to load the changed file data (changed tiddlers, added or removed tiddlers, changed configuration).  The mechanism for doing this has the following parts: 
+
+#For each tiddlywiki, define a launchd plist ``reload-wiki`` which watches both the tiddliwiki's top folder and tiddlers folder, using the ``WatchPaths`` key.
+
+#The ``reload-wiki`` launchd daemon runs a script that uses ``pkill -f ...`` to kill the corresponding tiddlywiki server process.  Another launchd daemon is used to keep that server process alive by restarting it (using the ``KeepAlive`` key).  Thus, the tiddlywiki server process automatically restarts as soon as it is killed by the ``reload-wiki`` daemon.  
+
+!! Example script using ``WatchPaths``
+
+Following was tested successfully.  Whenever a file inside the folder ``/Users/iani/test/`` was changed, the script ``cat-test.sh`` was triggered by launch daemon ``org.earlab.cat.test``. 
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>Label</key>
+  <string>org.earlab.cat.test</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/sh</string>
+    <string>/Users/iani/.shell-commands/cat-test.sh</string>
+  </array>
+  <key>KeepAlive</key>
+  <false/>
+  <key>WatchPaths</key>
+  <array>
+      <string>/Users/iani/test</string>
+  </array>
+</dict>
+</plist>
+```
+
+
+!! ``pkill`` script to call with ``WatchPath`` activated daemon
+
+``pkill -f tiddlywiki`` should be called by the above ``WatchPath`` activated launch daemon.  This would kill (and thus reset, via ``KeepAlive``) all tiddlywikis.  A variant of this using a longer part of the path of the wiki could be used to restart only those wikis that changed. 
+
+See http://stackoverflow.com/questions/14108471/launchd-watchpaths-will-not-trigger-simple-hello-world-script-os-x-10-8 and http://paul.annesley.cc/2012/09/mac-os-x-launchd-is-cool/

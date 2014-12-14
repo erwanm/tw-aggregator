@@ -1,0 +1,34 @@
+created: 20141111154716564
+creator: AcD
+modified: 20141111162744370
+modifier: AcD
+title: 11th November 2014
+tags: Journal
+source-wiki: http://septembertw.tiddlyspot.com/#11th%20November%202014
+
+Only minutes before [[TiddlyWiki Hangout #68|https://plus.google.com/u/0/events/cuek4r3dmto6n3haq1na4vh4t6s]] -- because life's busy like that -- I'm going over my notes from the [[last one|https://plus.google.com/u/0/events/c56iifeavm3806arbc2gu5nu9jo]], and here's a quick summary of what's in there :
+
+---
+''“It’s like a hypertext card index system from the future.”''<br>
+I'm very happy with this quote of [[Jermolene]] in [[this video introduction to TiddlyWiki|https://www.youtube.com/watch?v=KtCUr83XgyE]], as it encapsules much of what makes TiddlyWiki exciting in my view.
+Microcontent that organically re-arranges itself into //deep content// and (ideally) can be seamlessly shared across platforms.
+
+''WYSIWYG layout tool''<br>
+Both a good and terrible idea, worth pondering.
+
+''Automatic feedback to tell which plugins are used ?''<br>
+Data reporting from TWs to TW.com goes a bit against the //unplugged// nature of TW, but could be a tremendous help to figure what plugins / hacks / extensions people are using, especially in combos, and thus factor those into future development and support.
+
+''Recommended packages''<br>
+Following on the configuration data gathering idea, being able to make recommendations for packages of plugins / hacks that work well together in typical UseCases seems like it could add flexibility to the //editions// philosophy that's been embraced with TW5.
+
+''Teach through example''<br>
+ How is that tiddler made ?
+—> Canonical ways to do stuff
+
+''Canonical ways to do stuff''<br>
+(wrapping, quotations, so on)
+There are so many ways to get stuff done that it can easily gets confusing for non-coders at times. <br>
+On the other hand, we want to encourage people experimenting and learning as they go. <br>
+Are there ways to devise rules of thumb that could help best arbiter this conundrum ?
+

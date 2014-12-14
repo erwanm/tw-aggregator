@@ -1,0 +1,20 @@
+created: 20140315191620665
+modified: 20140929012338772
+title: Knowledge Base
+source-wiki: http://dl.dropboxusercontent.com/u/118970/wiki/tw5tribalknowledge.html#Knowledge%20Base
+
+\define MyFilter()
+[tag[$(MyTag)$]subtopic{!!subtopic}sort[title]]
+\end
+
+<$set name="MyTag" value={{!!title}}>
+<$list filter="[is[current]tagging[]has[subtopic]each[subtopic]sort[subtopic]]">
+<div class="tc-menu-list-item">
+<strong><$view field="subtopic"/></strong>
+</div>
+<$list filter=<<MyFilter>>>
+<div class="tc-menu-list-subitem">
+<$link to={{!!title}}><$view field="title"/></$link><br>
+<div class="tc-menu-list-subitem">
+<$transclude field="blurb"/>
+</div></div></$list></$list></$set>

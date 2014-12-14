@@ -1,0 +1,31 @@
+caption: References
+created: 20141116150120833
+creator: Tobias Beer
+icon: $:/core/images/globe
+menu: main
+menu-icon: {{$:/core/images/globe}}
+modified: 20141205151632890
+modifier: Tobias Beer
+summary: tw5 resources to achieve greateness
+title: References
+tags: GettingStarted
+source-wiki: http://tb5.tiddlyspot.com#References
+
+!!@@float:right;text-align:right;color:blue; [[Customizations]] «@@
+!!Main Resources
+<dl>
+<$list filter="[tag[Main]] +[sort[title]]">
+<dt><$link>{{!!title}}</$link></dt>
+<dd>{{!!url}}</dd>
+<dd>{{!!summary}}</dd>
+</$list>
+</dl>
+
+!!Community
+<dl>
+<<list-search
+"[tag[Community]][tag[References]]+[sort[title]]"
+"search:summary"
+"$:/temp/tb/list-refernces"
+"$:/.tb/templates/list-link-summary">>
+</dl>

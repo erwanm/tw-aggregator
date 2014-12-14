@@ -1,0 +1,16 @@
+created: 20131223223615293
+creator: Stephan Hradek
+modified: 20131223224111459
+modifier: Stephan Hradek
+title: testing replace pragma
+source-wiki: http://tiddlystuff.tiddlyspot.com/#testing%20replace%20pragma
+
+\replace /#\n[ \t]*/<br>/
+
+* line item 1
+* line item 2#
+  continuation of line item 2#
+  another continuation of line item 2#
+  even more continuation of line item 2#
+  end of continuation of line item 2
+* line titem 3

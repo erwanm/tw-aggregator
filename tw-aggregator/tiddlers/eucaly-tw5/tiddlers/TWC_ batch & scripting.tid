@@ -1,0 +1,17 @@
+caption: batch & scripting
+created: 20141004005421217
+creator: EucalyJ
+modified: 20141004080019582
+modifier: EucalyJ
+title: TWC: batch & scripting
+type: text/vnd.tiddlywiki
+tags: [[TWC: TW5 native]]
+source-wiki: http://eucaly-tw5.tiddlyspot.com/#TWC_%20batch%20&%20scripting
+
+!!! TiddlyWikiClassic
+* ~ForEachTiddlerPlugin
+* ~InlineJavascriptPlugin
+
+!!! ~TiddlyWiki 5
+* `<$list>`
+* user-macro `\define` ... `\end`

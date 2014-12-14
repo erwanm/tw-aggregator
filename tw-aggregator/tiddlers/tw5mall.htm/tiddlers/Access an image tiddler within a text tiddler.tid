@@ -1,0 +1,15 @@
+created: 20130922001900000
+modified: 20131118025700003
+title: Access an image tiddler within a text tiddler
+tags: Images
+source-wiki: http://www.giffmex.org/tw5mall.htm#Access%20an%20image%20tiddler%20within%20a%20text%20tiddler
+
+Images get saved as image tiddlers when you drag them into ~TiddlyWiki. But you can transclude the body of any tiddler into any other tiddler.
+
+In the example below, the image tiddler giffmexpainter.JPG has been transcluded using this code
+
+```
+{{giffmexpainter.JPG}}
+
+```
+{{giffmexpainter.JPG}}

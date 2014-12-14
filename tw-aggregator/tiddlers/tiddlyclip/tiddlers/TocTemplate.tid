@@ -1,0 +1,7 @@
+created: 20140731170756774
+modified: 20140904085723809
+title: TocTemplate
+type: text/vnd.tiddlywiki
+source-wiki: http://tiddlyclip.tiddlyspot.com/#TocTemplate
+
+<$link><span class="tw-taglist"><$view field="title"/></span></$link><$fieldmangler><$button  param= {{tcc1}} message="tm-remove-tag" class="tc-btn-invisible">{{$:/core/images/cancel-button}}</$button></$fieldmangler>

@@ -1,0 +1,17 @@
+created: 20141003233302266
+creator: EucalyJ
+modified: 20141004073009566
+modifier: EucalyJ
+title: TiddlyWikiClassic
+type: text/vnd.tiddlywiki
+tags: toc
+source-wiki: http://eucaly-tw5.tiddlyspot.com/#TiddlyWikiClassic
+
+Yes, it should be OK to [[stick in TiddlyWikiClassic|https://groups.google.com/forum/#!topic/tiddlywiki/UzpJuWdlE9g]]
+
+While, since ~TiddlyWiki 5 [[out-of-beta in 201409|http://tiddlywiki.com/#Releases]], it will be helpful to collect some ''TWC to TW5 user stories'' for who considering to make a switch.
+I create this TiddlyWikiClassic section in my own tiddlyspot. And would like to [[invite the community to share you stories too|https://groups.google.com/forum/#!topic/tiddlywiki/IkK6Ey--C3g]].
+
+<div class='tc-table-of-contents'>
+<<toc-selective-expandable "TiddlyWikiClassic" "sort[title]">>
+</div>

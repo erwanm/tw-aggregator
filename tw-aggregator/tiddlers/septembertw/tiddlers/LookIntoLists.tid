@@ -1,0 +1,19 @@
+color: #019292
+created: 20140917161340034
+creator: AcD
+modified: 20140920001029428
+modifier: AcD
+title: LookIntoLists
+type: text/vnd.tiddlywiki
+tags: ToDo ListSelf
+source-wiki: http://septembertw.tiddlyspot.com/#LookIntoLists
+
+Smart macro style.
+
+ListMacro is supposed to bring back easy lists to TW5, but there seems to be quite a bit of confusion between ways to make lists happen, between :
+
+* WikiText, via ListMacro 
+* JS macro, via list field (??)
+* Node.js edition may take for granted tricks that don't translate in standalone TW.
+
+''See : ListSelf''

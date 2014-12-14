@@ -1,0 +1,11 @@
+created: 20140801123132954
+list: [[Adding Tags]] [[Clip Action]] [[Rich Clip Template]] RuleTiddler Operations [[The TiddlyClipConfig]]
+modified: 20140907065114959
+title: How It Works
+type: text/vnd.tiddlywiki
+tags: ToC
+source-wiki: http://tiddlyclip.tiddlyspot.com/#How%20It%20Works
+
+ <$set name="loop1" value=<<qualify "$:/temp/taglist">>>
+<$taglist class="btn btn-primary" template=taglisttemplate>taglisttemplate</$taglist>
+</$set>

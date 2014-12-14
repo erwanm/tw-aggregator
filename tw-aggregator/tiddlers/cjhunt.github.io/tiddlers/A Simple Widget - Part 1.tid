@@ -1,0 +1,39 @@
+created: 20131206050359213
+modified: 20131218233516070
+title: A Simple Widget - Part 1
+type: text/vnd.tiddlywiki
+source-wiki: http://cjhunt.github.io/#A%20Simple%20Widget%20-%20Part%201
+
+!Introduction
+The purpose of a widget is (usually) to render; it is a tool by which "authors" can create rich and dynamic wiki content quickly. Widgets are one of the mechanisms by which ~TiddlyWiki5 becomes a "generative" writing tool as opposed to mere static. While there are out-of-the-box widgets which provide the rich authoring capabilities which most people need, there is also an infrastructure for writing widgets to either extend or specialize ~TiddlyWiki5. The purpose of this document is to give new ~TiddlyWiki5 developers some understanding of how widgets work and how to create their own.
+
+By way of example we'll look at a custom widget developed for a recent project. That widget provides a "select" mechanism, allowing users to choose from a drop-down list of items; the item selected is passed to the "child" macros and widgets of the widget. Thus:
+
+```
+<$select list="A B C" name="selection"> The current selection is: <<selection>></$select>
+```
+Renders as: 
+
+<$select list="A B C" name="selection"> The current selection is: <<selection>></$select>
+
+The widget itself can be found here: 
+
+:[[$:/editions/codingForTiddlyWiki5/widgets/selectWidget]]
+
+~TiddlyWiki5's drag-drop-update mechanism makes it possible for you to drag the above widget link and drop it into your own wiki to use, as-is, for your own projects.
+
+!Getting Started
+Probably the best way to learn about writing widgets is to read the ~JavaScript of the ~TiddlyWiki5 core widgets, and of those it is worth starting with widget.js:
+
+:[[$:/core/modules/widgets/widget.js]]. 
+
+Studying widget.js really helps in understanding the core widget mechanisms needed for the design and implementation of new widgets. 
+
+For our `<$select....>` widget, the core ~JavaScript from `<$checkbox....>` is useful as an example of how to generate an HTML Form, DOM node within a widget:
+
+:[[$:/core/modules/widgets/checkbox.js]]
+
+To understand how widgets work it is important to understand their core data structures; the next part of this guide provides an overview.
+
+[[A Simple Widget - Part 2 - Core Data Structures|A Simple Widget - Part 2]]
+

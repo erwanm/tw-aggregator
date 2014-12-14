@@ -1,0 +1,26 @@
+created: 20140130231834708
+creator: Danielo Rodriguez
+modified: 20140725111254060
+modifier: Danielo Rodriguez
+title: Index
+source-wiki: http://braintest.tiddlyspot.com/#Index
+
+\define bulletList(tag)
+<!--{{$tag$}}-->
+<$list filter="[tag[$tag$]tags[]sort[title]] -$tag$">
+    <div class="column">
+
+    !! <$view field="title"/>
+    <ul>
+        <$list filter="[all[current]tagging[]]+[tag[$tag$]sort[title]]">
+            <li><$link><$view field="title"/></$link><br>{{!!description}}</li>
+        </$list>
+    </ul>
+	</div>
+</$list>
+\end
+
+
+!Here are the main tiddlers to navigate from:
+
+<<bulletList index>>

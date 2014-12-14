@@ -1,0 +1,24 @@
+created: 20140210124908681
+creator: TonGerner
+modified: 20140304105251080
+modifier: TonGerner
+title: Breadcrumbs info
+tags: documentation
+source-wiki: http://tongerner.tiddlyspot.com/#Breadcrumbs%20info
+
+@@.sliderBG
+<div>
+
+Breadcrumbs are a list of links to tiddlers opened during a session, creating a 'trail of breadcrumbs' from one tiddler to the next.<br>
+The number of breadcrumbs will be limited to the last ''x'' opened tiddlers (''x'' to be set in [[$:/_breadcrumbsmenu]]).
+
+<<<
+''Note:''<br>
+The term breadcrumbs comes from the trail of breadcrumbs left by Hansel and Gretel in the popular fairytale by the Brothers Grimm.
+<<<
+
+---
+
+</div>
+
+@@

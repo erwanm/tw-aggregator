@@ -1,0 +1,24 @@
+created: 20140223083542113
+creator: Matabele
+modified: 20140512161638343
+modifier: Matabele
+revision: 0
+title: A Work In Progress
+type: text/vnd.tiddlywiki
+wills: intro
+source-wiki: http://wills.tiddlyspot.com/#A%20Work%20In%20Progress
+
+!.myTitle Wills Q&D gTiD  
+
+This is my work in progress version of TW5, incorporating various features and ideas as and when they intrigue me. To grab any feature you may wish to try, drag the listed tiddlers across to the dropzone of an empty ~TiddlyWiki <<version>> 
+
+The layout has been designed on a laptop in Chromium, and displays well in this environment (less well in Firefox.) The layout has not been tested on mobile phone nor android. 
+
+<<tabs "[field:wills[documentation]sort[created]]" "[[Customising the Theme]]" "$:/state/docs">>
+
+---
+;Thanks to
+://[[TonGerner|http://tw5custom.tiddlyspot.com/]]//
+://[[Stephan Hradek|http://tw5magick.tiddlyspot.com/]]//
+://[[David Gifford |http://www.giffmex.org/tw5mall.htm]]//
+://[[Danielo Rodríguez|http://braintest.tiddlyspot.com]]//

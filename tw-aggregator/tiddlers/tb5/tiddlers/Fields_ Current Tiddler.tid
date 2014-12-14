@@ -1,0 +1,29 @@
+awesome: indeed
+caption: current tiddler
+created: 20141118194904902
+creator: Tobias Beer
+modified: 20141119013634810
+modifier: Tobias Beer
+title: Fields: Current Tiddler
+tags: Fields Lists Filters
+source-wiki: http://tb5.tiddlyspot.com#Fields_%20Current%20Tiddler
+
+all custom [[fields|Fields: Current Tiddler]] of the current tiddler:
+
+<ul>
+<$list filter="[all[current]fields[]sort[title]]-[all[shadows]removeprefix[$:/language/Docs/Fields/]]" mode="block">
+<li>{{!!title}}</li>
+</$list>
+</ul>
+
+rendered via:
+
+```
+<ul>
+<$list filter="[all[current]fields[]sort[title]]-[all[shadows]removeprefix[$:/language/Docs/Fields/]]" mode="block">
+<li>{{!!title}}</li>
+</$list>
+</ul>
+```
+
+''Note:'' The current tiddler here is not the transcluded one but the one transcluded into!

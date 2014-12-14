@@ -1,0 +1,15 @@
+created: 20141203171720222
+creator: Tobias Beer
+modified: 20141203171843156
+modifier: Tobias Beer
+title: italics
+tags: Markup
+source-wiki: http://tb5.tiddlyspot.com#italics
+
+<dt>
+
+```
+//italics//
+```
+</dt>
+<dd>//italics//</dd>

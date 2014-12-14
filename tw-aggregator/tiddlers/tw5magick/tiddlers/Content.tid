@@ -1,0 +1,12 @@
+created: 20140111082439142
+creator: Stephan Hradek
+modified: 20140116120212189
+modifier: Stephan Hradek
+title: Content
+source-wiki: http://tw5magick.tiddlyspot.com/#Content
+
+I've already collected some stuff here and so I felt it's about time to organize it a bit better.
+
+So here we now have a new Table of Content
+
+<dl>{{{ [tag[toc]] || tocEntry }}}</dl>

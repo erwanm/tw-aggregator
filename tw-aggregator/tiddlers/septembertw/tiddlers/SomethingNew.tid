@@ -1,0 +1,15 @@
+color: #fe9328
+created: 20140910033411937
+creator: AcD
+modified: 20140921021701514
+modifier: AcD
+title: SomethingNew
+type: text/vnd.tiddlywiki
+tags: SomethingNew AbsoluteBeginner aboot
+source-wiki: http://septembertw.tiddlyspot.com/#SomethingNew
+
+SomethingNew tags entries about aspects of TiddlyWiki5 that may prove counterintuitive or difficult for users with prior experience of TiddlyWikiClassic, on account of learned habits and preconceptions that no longer apply.
+
+While those may often overlap with HowTo and tips targeted at fresh noobies of TW, SomethingNew tagging only applies to tiddlers that highlight differences between the old ways and the right way of doing things. ;)
+
+<<list-links filter:"[all[current]tagging[]]">>

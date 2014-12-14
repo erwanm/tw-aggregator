@@ -1,0 +1,11 @@
+created: 20140113125522369
+creator: Stephan Hradek
+modified: 20140113144823802
+modifier: Stephan Hradek
+title: Persons by town
+source-wiki: http://tw5magick.tiddlyspot.com/#Persons%20by%20town
+
+<$list filter="[tag[person]!town[]each[town]sort[town]]">
+! <$view field="town"/>
+<ul><$list filter="[town{!!town}]"><li>{{!!title||personEntry}}</li></$list></ul>
+</$list>

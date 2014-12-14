@@ -1,0 +1,18 @@
+caption: sidebar tweak
+created: 20141004012332230
+creator: EucalyJ
+modified: 20141004012918174
+modifier: EucalyJ
+title: TWC: sidebar tweak
+type: text/vnd.tiddlywiki
+tags: [[TWC: plugins]]
+source-wiki: http://eucaly-tw5.tiddlyspot.com/#TWC_%20sidebar%20tweak
+
+!!! TiddlyWikiClassic
+* http://www.TiddlyTools.com/#ToggleRightSidebar
+* [[How to use TiddlyWiki as a Website?|http://tiddlywiki.tiddlyspace.com/How%20to%20use%20TiddlyWiki%20as%20a%20Website%3F]]
+
+!!! ~TiddlyWiki 5
+* FlexWidth
+* TW5 tristate Sidebar
+** http://tw5tristate.tiddlyspot.com/

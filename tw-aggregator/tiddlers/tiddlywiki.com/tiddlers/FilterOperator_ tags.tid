@@ -1,0 +1,17 @@
+caption: tags
+created: 20140410103123179
+modified: 20140410103123179
+title: FilterOperator: tags
+type: text/vnd.tiddlywiki
+tags: Filters
+source-wiki: http://tiddlywiki.com#FilterOperator_%20tags
+
+The ''tags'' filter operator returns all the tags present on the tiddlers in the current list.
+
+For example:
+
+|!Filter String |!Description |
+|`[[mytiddler]tags[]]` |Returns all tags for the tiddler `mytiddler` |
+|`[all[shadows+tiddlers]tags[]]` |Returns all the tags used on ShadowTiddlers or non-ShadowTiddlers |
+
+See also [[FilterOperator: tag]], [[FilterOperator: tagging]] and [[FilterOperator: untagged]].

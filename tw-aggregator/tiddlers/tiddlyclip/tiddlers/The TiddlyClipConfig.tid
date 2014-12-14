@@ -1,0 +1,35 @@
+changecount: 18
+created: 20131128014900000
+creator: Your Name
+modified: 20140909115720537
+modifier: BJ
+title: The TiddlyClipConfig
+type: null
+tags: TCdoc CKEditor [[How It Works]]
+source-wiki: http://tiddlyclip.tiddlyspot.com/#The%20TiddlyClipConfig
+
+When the Addon  docks to a tiddlywiki it reads the TiddlyClipConfig tiddler, and uses its contents to populate the TC entry in the browsers context menu, forming the TC interface.The section headings form list in the context menu from which one is selected as the Current Section; a star appears before the Current Section. The categories names from the Current Section table are also listed within the context menu, and click one will start a Clip Action.
+Within the //~TiddlyClipConfig// tid, sections are used to refer to configuration tables and visual break the //~TiddlyClipConfig// into manageable units. A section begins with 'title' line, the first section must be 'default'. Each section contains one configuration table:
+
+
+
+<hr> 
+ 
+!Section1
+
+|! Category  |! Tip  |! Tags  |! Rule Tid  |! Modes  |
+| &nbsp;  |  &nbsp;   |  &nbsp;   |  &nbsp;   |  &nbsp;   |
+ 
+<hr>  Within each section ONE table (of Categories)  is given, with the follow columns:  
+
+* Category: this is the name that will appear in the browser's context menu, and is used to identify (and is defined by) a row in the table. Each category is a clip action (see [[BasicOperations|BasicOperations]]).
+ 
+* Tip is an optional tool tip (firefox only) that appears when the mouse is hovered over a category name in the context menu.
+ 
+* Tags are added to created tiddlers in the target //~TiddlyWiki//
+ 
+* Rule Tid refers to the tiddler in which the format of clips are defined.(see [[RuleTiddler|RuleTiddler]])
+ 
+* modes are control options passed to the Addon. (see [[BrowserConfigModes|BrowserConfigModes]]) 
+
+

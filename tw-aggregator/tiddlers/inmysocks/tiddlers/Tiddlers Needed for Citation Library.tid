@@ -1,0 +1,19 @@
+created: 20141205200707020
+modified: 20141210184258210
+title: Tiddlers Needed for Citation Library
+source-wiki: http://inmysocks.tiddlyspot.com/#Tiddlers%20Needed%20for%20Citation%20Library
+
+The following tiddlers are needed for the Citation Library:
+
+*[[Citation Library]]
+*[[Citations]]
+*[[Add Citation]]
+
+
+Or as a plugin:
+
+''There is still some weirdness going on here. Because of how the tabbed-toc macro works this won't show up properly on the dashboard unless you are using the macro from 5.1.6-prerelease or later.''
+
+$:/core/macros/toc is the tiddler that needs to be updated, you can get the new version from http://tiddlywiki.com/prerelease/#%24%3A%2Fcore%2Fmacros%2Ftoc if you want, I am not going to update it here yet because it may do strange things when updating in the future.
+
+[[$:/plugins/inmysocks/Citations]]

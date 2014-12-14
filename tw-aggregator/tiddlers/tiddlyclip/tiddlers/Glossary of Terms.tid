@@ -1,0 +1,13 @@
+created: 20140801062726688
+modified: 20140825080302552
+modifier: BJ
+title: Glossary of Terms
+type: null
+tags: Reference
+source-wiki: http://tiddlyclip.tiddlyspot.com/#Glossary%20of%20Terms
+
+!!Rule
+Defines how a tiddler is created and/or modified
+
+!!Clip Action
+A complete tiddlyclip action, instigated by the user. Comprises a sequence of Rules

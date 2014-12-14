@@ -1,0 +1,50 @@
+created: 20140216204936950
+creator: Danielo Rodriguez
+modified: 20140216212010204
+modifier: Danielo Rodriguez
+title: FieldsExample
+tags: index [[using TW5]]
+source-wiki: http://braintest.tiddlyspot.com/#FieldsExample
+
+This is an example of how to create an index with descriptions for each link. 
+
+We are going to use the [[descTiddler]] as reference. Open it and click the edit button to see how it is created.
+
+Every index is nothing but a list of titles and links.
+
+Here is a very basic list:
+
+```
+<$list filter="[title[descTiddler]]">
+</$list>
+```
+
+Not very useful. Let's add some useful code. For example a link. If we are creating an index we will want links to what we are listing! For that purpose we will use this code within the list.
+
+```
+<$link><$view field="title"/></$link>
+```
+That mean: "please create a link, and use the title of the destination as text."
+
+At this point there is no functional difference with the previous code. That's because this is the default behavior of the list widget. 
+
+If you have opened [[descTiddler]] and edited it you should have seen a field called description. What we want now is to put that description below the link to that tiddler. This is one possible way:
+
+```
+<$link><$view field="title"/></$link><$transclude field="description"/>
+```
+That is exactly the same we did with title, but this time you are asking for other field.
+
+Now let's put all together. 
+
+```
+<$list filter="[title[descTiddler]]">
+<dt><$link><$view field="title"/></$link></dt><dd><$transclude field="description"/></dd>
+</$list>
+```
+
+And this is how it looks like:
+
+<$list filter="[title[descTiddler]]">
+<dt><$link><$view field="title"/></$link></dt><dd><$transclude field="description"/></dd>
+</$list>

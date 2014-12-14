@@ -1,0 +1,72 @@
+created: 20140924171720109
+modified: 20141122192658163
+title: How to make a to do list
+tags: [[Wiki Examples]]
+source-wiki: http://inmysocks.tiddlyspot.com/#How%20to%20make%20a%20to%20do%20list
+
+The easiest way is to just copy this code. Any tiddler with the tag `task` that doesn't have the tag `done` will show up in the `Outstanding tasks` list, when you check the box next to it it will show up in the `Completed tasks` list. If you tag a tiddler as unfinished it shows up in the `Unfinished tiddlers` list. The `New Task` button creates an empty tiddler tagged with `task`. Name that tiddler whatever you want your task to be called and it will show up in the list. Put details about what needs to be done inside the tiddler if you want.
+
+Unchecking the box puts the task back in the outstanding task list.
+
+At the bottom of the tiddler created when you press the `New Task` button there are two [[fields|How to Add Fields to Tiddlers]], `blurb` and `deadline` the contents of which show up in the outstanding tasks list. See the example below for what it looks like.
+
+Look down below the code to see what it looks like.
+
+```
+<$button message="tm-new-tiddler" param="TiddlerTaskTemplate">New Task</$button>
+
+! Outstanding tasks
+
+<$list filter="[!has[draft.of]tag[task]!tag[done]sort[created]!title[TiddlerTaskTemplate]]">
+
+<$checkbox tag="done"> <$link to={{!!title}}><$view field="title"/></$link> - <$view field="deadline"/><br><$view field="blurb"/></$checkbox>
+
+</$list>
+
+! Completed tasks
+
+<$list filter="[!has[draft.of]tag[task]tag[done]sort[created]]">
+
+<$checkbox tag="done"> ~~<$link to={{!!title}}><$view field="title"/></$link>~~</$checkbox>
+
+</$list>
+
+---
+
+!Unfinished tiddlers
+
+<$list filter="[tag[unfinished]]">
+
+</$list>
+```
+
+Which is shown here:
+
+<$button message="tm-new-tiddler" param="TiddlerTaskTemplate">New Task</$button>
+
+! Outstanding tasks
+
+<$list filter="[!has[draft.of]tag[task]!tag[done]sort[created]!title[TiddlerTaskTemplate]]">
+
+<$checkbox tag="done"> <$link to={{!!title}}><$view field="title"/></$link> - <$view field="deadline"/><br><$view field="blurb"/></$checkbox>
+
+</$list>
+
+! Completed tasks
+
+<$list filter="[!has[draft.of]tag[task]tag[done]sort[created]]">
+
+<$checkbox tag="done"> ~~<$link to={{!!title}}><$view field="title"/></$link>~~</$checkbox>
+
+</$list>
+
+---
+
+!Unfinished tiddlers
+
+<$list filter="[tag[unfinished]]">
+
+</$list>
+
+
+<<bottomOfTiddler {{!!title}}>>

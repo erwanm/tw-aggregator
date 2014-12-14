@@ -1,0 +1,19 @@
+created: 20140926000722961
+modified: 20141209232126068
+title: Things that are missing
+tags: Contents
+source-wiki: http://inmysocks.tiddlyspot.com/#Things%20that%20are%20missing
+
+This is a list of things that I want to find ways to do. The import/export part is planned for a future release of TW so I am going to just wait for that.
+
+*Being able to set multiple fields using the select widget
+*A widget like the reveal widget that is able to send messages (so you give it a state tiddler and when in the correct state instead of revealing content it sends a message or executes the action widgets it contains). This could be used to achieve the same result as having a select widget set multiple fields.
+*~~Batch import and export of tiddlers (like being able to take all of the examples in this wiki and import them into another wiki)~~ This can mostly be done by using the same method as making a plugin (or swarm). I may try to make something that bundles tiddlers together based on the output of a filter.
+*A way to make a recurring event on the to do list. (something that will show up every day/week/whatever, even if it was completed before)
+*A way to make the table of contents that allows you to tag all sub entries under a heading with that heading, but still preserve the hierarchy for the table of contents. So you could tage the [[How to make macros]] tiddler with both [[Macros]] and [[Wiki Examples]] but only have it show up under [[Macros]] because [[Macros]] is already under [[Wiki Examples]]. This could be hard if a tiddler shows up under two other tiddlers with the same parent (some tiddlers are under both [[Macros]] and [[Wiki Widgets - buttons, filters, etc.]], and we want to keep that structure) so you can't just make the tags something like `Wiki Examples:Macros:How to make macros`.
+*The `hoverBlurb` macro doesn't work when you use an alias in a wiki link (like `[[Examples|Wiki Examples]]` showing up as [[Examples|Wiki Examples]], the macro won't work with that.) I think we can fix this by using the `$link` widget in the macro.
+*A way to make the dashboard display contacts using the template when they are selected on the side bar of the dashboard.
+*Add to or change the button in the upper left so that it can change more settings than just the tiddler width, like the font size, etc. It is much easier to do that way and you don't have to worry about accidently making the wiki unusable by setting font size or tiddler width to 0.
+*The add citations button will remove any tags from a tiddler if a subject is added with the same name as the tiddler title. I need to prevent this by adding the a tag instead of setting the tags field.
+
+<<bottomOfTiddler {{!!title}}>>

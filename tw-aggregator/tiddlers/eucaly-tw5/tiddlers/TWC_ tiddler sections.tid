@@ -1,0 +1,16 @@
+caption: tiddler sections
+created: 20141004013506875
+creator: EucalyJ
+modified: 20141004013714773
+modifier: EucalyJ
+title: TWC: tiddler sections
+type: text/vnd.tiddlywiki
+tags: [[TWC: plugins]]
+source-wiki: http://eucaly-tw5.tiddlyspot.com/#TWC_%20tiddler%20sections
+
+!!! TiddlyWikiClassic
+* `[[TiddlerOne##Heading two]]`
+
+!!! ~TiddlyWiki 5
+* ... recommended approach is to split the big tiddler up into smaller tiddlers that can be transcluded separately.
+* MatchFilter

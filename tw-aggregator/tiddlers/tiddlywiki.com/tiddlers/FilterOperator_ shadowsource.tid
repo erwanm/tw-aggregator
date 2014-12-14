@@ -1,0 +1,16 @@
+caption: shadowsource
+created: 20140410103123179
+modified: 20140410103123179
+title: FilterOperator: shadowsource
+type: text/vnd.tiddlywiki
+tags: Filters
+source-wiki: http://tiddlywiki.com#FilterOperator_%20shadowsource
+
+The ''shadowsource'' filter operator returns the titles of the plugin tiddlers containing any ShadowTiddlers in the current list.
+
+For example:
+
+|!Filter String |!Description |
+|`[[$:/core/copyright.txt]shadowsource[]]` |Returns `$:/core`, which is the plugin that contains the shadow tiddler [[$:/core/copyright.txt]] |
+
+See also [[FilterOperator: plugintiddlers]].

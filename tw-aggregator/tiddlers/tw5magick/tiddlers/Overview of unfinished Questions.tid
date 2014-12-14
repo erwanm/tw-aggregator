@@ -1,0 +1,24 @@
+created: 20131121215020043
+creator: Stephan Hradek
+modified: 20131121215545924
+modifier: Stephan Hradek
+title: Overview of unfinished Questions
+source-wiki: http://tw5magick.tiddlyspot.com/#Overview%20of%20unfinished%20Questions
+
+In this example, we have all the answers as I "borrowed" the questions from existing quizzes. But let's assume we create our own questions and don't have all the answers yet.
+
+Wouldn't it be good to get a list of all questions missing an answer?
+
+Here we go:
+
+```
+<$list filter="[tag[Quiz]!search[@@.answer]tags[]] -Quiz +[sort[title]]">
+! <$view field="title"/>
+<$list filter="[is[current]tagging[]] +[tag[Quiz]!search[@@.answer]] +[sort[title]]">
+<$link><$view field="title"/></$link>
+</$list>
+</$list>
+```
+
+[[Take a look at the unfinished Questions|List unfinished Questions]] then continue with [[Spicing up the overview]]
+

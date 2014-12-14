@@ -1,0 +1,17 @@
+created: 20131002011800000
+modified: 20131117155400001
+title: Create an image gallery based on images with a tag
+tags: Images
+source-wiki: http://www.giffmex.org/tw5mall.htm#Create%20an%20image%20gallery%20based%20on%20images%20with%20a%20tag
+
+If you have a lot of images that you have tagged, you can add a list filter to display their content all in one 'image gallery' tiddler.
+
+For example,
+
+```
+
+<$list filter="[tag[Boston Terriers]]"><$transclude/><br></$list>
+
+```
+
+will display the images and any other content of all the tiddlers tagged with Boston Terriers.

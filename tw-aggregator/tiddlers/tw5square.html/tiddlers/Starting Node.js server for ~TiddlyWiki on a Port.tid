@@ -1,0 +1,48 @@
+created: 20140418103555652
+creator: iani
+modified: 20141006162600478
+modifier: iani
+title: Starting Node.js server for ~TiddlyWiki on a Port
+type: text/vnd.tiddlywiki
+tags: node.js Answers
+source-wiki: http://larigot.avarts.ionio.gr/users/iani/wikis/tw5square.html#Starting%20Node.js%20server%20for%20~TiddlyWiki%20on%20a%20Port
+
+In the terminal:  Go to inside the folder that contains the tiddlywiki which you have created with tiddlywiki --init.  Then execute this: 
+
+```
+tiddlywiki --server <port number>
+```
+
+tiddlywiki can be invoked like this
+
+```
+tiddlywiki --server <port> <roottiddler> <rendertype> <servetype> <username> <password> <host>
+```
+
+where the parameters are:
+
+; port
+: port number to serve from (defaults to “8080”)
+; roottiddler
+: the tiddler to serve at the root (defaults to “$:/core/save/all”)
+; rendertype, 
+: the content type to which the root tiddler should be rendered (defaults to “text/plain”)
+; servetype
+: the content type with which the root tiddler should be served (defaults to “text/html”)
+; username
+: the default username for signing edits
+; password
+: optional password for basic authentication
+; host
+: optional hostname to serve from (defaults to “127.0.0.1” aka “localhost”)
+
+This is the command used to successfully test running a tiddlywiki on larigot: 
+
+```
+tiddlywiki --server 8080 "$:/core/save/all" "text/plain" "text/html" "iani" "" "larigot.avarts.ionio.gr" &
+```
+
+This tiddlywiki was then accessible at: http://larigot.avarts.ionio.gr:8080
+
+For more info see here: 
+http://www.rosehosting.com/blog/install-and-run-tiddlywiki-on-a-centoos-6-vps-using-nginx/

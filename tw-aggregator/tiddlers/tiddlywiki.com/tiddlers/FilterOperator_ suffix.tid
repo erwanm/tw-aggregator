@@ -1,0 +1,17 @@
+caption: suffix
+created: 20140828133830424
+modified: 20140828133830424
+title: FilterOperator: suffix
+type: text/vnd.tiddlywiki
+tags: Filters
+source-wiki: http://tiddlywiki.com#FilterOperator_%20suffix
+
+The ''suffix'' filter operator returns the titles in the current list that end with a specified suffix. If the ''suffix'' operator is preceded by `!` then it returns the titles that do not end with the specified suffix.
+
+For example:
+
+|!Filter String |!Description |
+|`[tag[task]!suffix[hidden]]` |Returns tiddlers tagged `task` whose titles do not end with `hidden` |
+|`[suffix[.jpg]]` |Returns tiddlers whose titles end with `.jpg` |
+
+See also [[FilterOperator: removesuffix]], [[FilterOperator: prefix]], [[FilterOperator: removeprefix]], [[FilterOperator: addprefix]], and [[FilterOperator: addsuffix]].

@@ -1,0 +1,11 @@
+changecount: 13
+created: 20131204084100000
+creator: Your Name
+modified: 20140806112927106
+modifier: BuggyJay
+title: DefiningTitles
+type: null
+tags: CKEditor TCdoc
+source-wiki: http://tiddlyclip.tiddlyspot.com/#DefiningTitles
+
+<p>The title of the tiddler to be modified/created is in the 'title' column of the RuleTiddler table. If a clip is to be a unique tiddler then often we will use the title of the source page for that tiddler, this is achieved by the substitution variable ((*$pageTitle*)) (placed in the title column of the RuleTiddler table ). If we are creating a list of clips within some subject area (in a single tiddler), then it is convenient to use the subject as the title. We could use the subject name directly, but it is more useful to have the Category or Section take the name of the subject and then refer to that via the substitution variable  ((*$category*)) or  ((*$section*)).</p><p>More generally any combination of substitution variables and text maybe used in the title. It is also possible to apply a regular expression to (for example) use only a part of a URL as a title.</p>

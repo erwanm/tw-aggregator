@@ -1,0 +1,14 @@
+about: [[TiddlyWiki for Scholars]]
+created: 20140824094622372
+datetime: 20140824001247
+description: Small improvement to the notes, comments and ideas tabs
+modified: 20140824094739136
+title: 24-08-2014 00:12
+source-wiki: http://tw5.scholars.tiddlyspot.com/#24-08-2014%2000_12
+
+Added “[all[current]listed[source]listed[source]]” to the list filter of the tabs and captions for notes, comments and ideas.
+
+Changed tiddlers:
+
+* [[$:/_tw-scholars/macros/tabs/tabContents]]
+* [[$:/_tw-scholars/macros/tabs/tabCaption]]

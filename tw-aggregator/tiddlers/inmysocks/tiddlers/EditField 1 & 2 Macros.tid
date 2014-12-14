@@ -1,0 +1,60 @@
+blurb: A macro that adds a button that can be used to edit a single field (used in the contactSlider macro)
+created: 20141103194029655
+modified: 20141103201517612
+title: EditField 1 & 2 Macros
+tags: Macros
+source-wiki: http://inmysocks.tiddlyspot.com/#EditField%201%20&%202%20Macros
+
+''These macros are used in [[Contacts]] to edit single fields without needing to open the contact tiddler, they may not have much use outside of that without modifications''.
+
+These are macros that make a button that when clicked will open up an editor for the specified field value. There are two macros to make the contacts display correctly in the table format.
+
+Usage:
+
+```
+{{Macros!!test_field}}
+
+<$tiddler tiddler="Macros">
+<<editField1 test_field>> <<editField2 test_field>>
+</$tiddler>
+```
+
+Renders as (press the edit button to toggle the editor) :
+
+{{Macros!!test_field}}
+
+<$tiddler tiddler="Macros">
+<<editField1 test_field>> <<editField2 test_field>>
+</$tiddler>
+
+The `<$tiddler tiddler="Macros">` and `</$tiddler>` parts are needed because this can not be used to edit field in the current tiddler because it forces re-rendering with every keystroke and the cursor loses its place. So you can edit them, but you have to do it one character at a time. So the [[Tiddler Widget|Documentation:TiddlerWidget]] is used to edit the `text_field` value in [[Macros]].
+
+The code for these macros is:
+
+```
+\define editField1(fieldName)
+
+<$reveal type="nomatch" state="$:/state/$(tiddlerName)$$fieldName$" text="show">
+{{!!$fieldName$}} 
+</$reveal>
+<$reveal type="match" state="$:/state/$(tiddlerName)$$fieldName$" text="show">
+<$tiddler tiddler=<<currentTiddler>>> 
+<$edit-text field="$fieldName$" focusPopup="Edit"/> 
+</$tiddler>
+</$reveal>
+
+\end
+
+\define editField2(fieldName)
+
+<$reveal type="nomatch" state="$:/state/$(tiddlerName)$$fieldName$" text="show">
+<$button set="$:/state/$(tiddlerName)$$fieldName$" setTo="show">Edit</$button> 
+</$reveal>
+<$reveal type="match" state="$:/state/$(tiddlerName)$$fieldName$" text="show">
+<$button set="$:/state/$(tiddlerName)$$fieldName$" setTo="hide">Edit</$button> 
+</$reveal>
+
+\end
+```
+
+<<bottomOfTiddler {{!!title}}>>

@@ -1,0 +1,15 @@
+created: 20140213145924998
+creator: Stephan Hradek
+modified: 20141009214020265
+modifier: Stephan Hradek
+title: Footnotes
+source-wiki: http://tiddlystuff.tiddlyspot.com/#Footnotes
+
+<dl>
+<$list filter="[!is[current]search[||footnote}}]each[title]]">
+<dt><$view field="title"/></dt>
+<$list filter="[is[current]match:text/\{\{(.*?)\|\|footnote\}\}/(g)]" variable="footnote">
+<dd><<footnote>></dd>
+</$list>
+</$list>
+</dl>

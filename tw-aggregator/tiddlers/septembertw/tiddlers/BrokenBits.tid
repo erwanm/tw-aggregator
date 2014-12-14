@@ -1,0 +1,24 @@
+color: #ff1b18
+created: 20140920231444034
+creator: AcD
+modified: 20140921020806897
+modifier: AcD
+title: BrokenBits
+tags: Lexicon WiP ToDo
+source-wiki: http://septembertw.tiddlyspot.com/#BrokenBits
+
+It's a bug, for serious !
+
+These tiddlers have a //tw-version// field with a value equal to the version number this was last spotted on.
+
+
+<$list filter="[!is[system]tag<currentTiddler>] +[!sort[tw-version]]">
+<div class="tc-menu-list-item">
+
+* <$link to={{!!title}}><$view field="title"/></$link> • <$link to={{!!tw-version}}> v. <$view field="tw-version"/></$link>
+
+</div>
+</$list>
+
+---
+''[Needs a rewrite to nest by version [[TimelineMacro|http://tiddlywiki.com/#TimelineMacro]]-like]''

@@ -1,0 +1,7 @@
+created: 20140421110642440
+modified: 20140421110718018
+title: General
+type: text/vnd.tiddlywiki
+source-wiki: http://larigot.avarts.ionio.gr/users/iani/wikis/tw5square.html#General
+
+<$list filter="[tag[general]!has[draft.of]]">

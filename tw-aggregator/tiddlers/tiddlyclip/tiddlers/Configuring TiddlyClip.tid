@@ -1,0 +1,15 @@
+created: 20140825084827428
+modified: 20140909062121783
+title: Configuring TiddlyClip
+type: null
+tags: TCdoc [[Quick Start and Basics]]
+source-wiki: http://tiddlyclip.tiddlyspot.com/#Configuring%20TiddlyClip
+
+Tiddlyclip is configured thru a configuration tiddler - TiddlyClipConfig
+The TiddlyClipConfig can be easily accessed by clicking on the  clip icon at the top right of the screen.
+
+The TiddlyClipConfig is used by the addon when it is docked with a tiddlywiki. If it is then edited the changes will not automatically appear in the addon. 
+
+To make the changes appear in the addon the old version must first be removed  and then the tiddlywiki must be again docked with the addon. 
+
+In order to remove the old version from the addon the tiddlywiki must be reloaded into the browser (in firefox this means a page reload - which can be performed from the context menu or from the browsers bar).

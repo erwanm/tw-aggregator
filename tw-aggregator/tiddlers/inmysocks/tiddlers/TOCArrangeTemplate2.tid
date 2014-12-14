@@ -1,0 +1,10 @@
+created: 20141203184430377
+modified: 20141204013515997
+no_edit: true
+title: TOCArrangeTemplate2
+source-wiki: http://inmysocks.tiddlyspot.com/#TOCArrangeTemplate2
+
+<option value=<<currentTiddler>>><$view field='title'/></option>
+<$list filter='[tag<currentTiddler>]' template=TOCArrangeTemplate2>
+<$view field='title'/><br>
+</$list>

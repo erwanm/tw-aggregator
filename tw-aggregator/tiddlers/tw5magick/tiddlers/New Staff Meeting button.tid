@@ -1,0 +1,11 @@
+created: 20140206084416637
+creator: Stephan Hradek
+modified: 20140206090532941
+modifier: Stephan Hradek
+title: New Staff Meeting button
+tags: button
+source-wiki: http://tw5magick.tiddlyspot.com/#New%20Staff%20Meeting%20button
+
+<$set name="tag" value="minutes">
+<$newtiddler title=<<dateTime "Staff Meeting on YYYY-0MM-0DD">> skeleton="base_skeleton" edit="yes">New Staff Meeting</$newtiddler>
+</$set>

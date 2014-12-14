@@ -1,0 +1,31 @@
+created: 20140117095919771
+creator: Stephan Hradek
+description: A fix for Jeremy's slider macro.
+modified: 20140127092310585
+modifier: Stephan Hradek
+title: slider macro fix
+tags: toc
+source-wiki: http://tw5magick.tiddlyspot.com/#slider%20macro%20fix
+
+''Note:'' The fix was only required in TW5 prior to 5.0.7beta.
+
+The slider Macro once shown by Jeremy on the groups does not always produce the expected result. Especially not when the label is a WikiWord. To work around this, I changed the macro a bit. The label is now transcluded using the [[unwikified]] template. This is its source:
+
+{{unwikified||code}}
+
+This is the slider macro's code:
+
+```
+\define slider(label,text)
+<$button popup="$:/state/$label$" class="btn-invisible tw-slider">{{$label$||unwikified}}</$button>
+<$reveal type="nomatch" text="" default="" state="$:/state/$label$" animate="yes">
+$text$
+</$reveal>
+\end
+```
+
+And this is how to use the macro:
+
+```
+<<slider "MyTest" "{{GettingStarted}}">>
+```

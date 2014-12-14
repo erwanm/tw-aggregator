@@ -1,0 +1,36 @@
+created: 20141203180901049
+modified: 20141204014147830
+no_edit: true
+title: TOCArrangeTemplate
+tags: Templates
+source-wiki: http://inmysocks.tiddlyspot.com/#TOCArrangeTemplate
+
+<ul>
+<li><$link to=<<currentTiddler>>><$view field='title'/></$link>
+<$reveal type='nomatch' state=<<qualify>> text='update'>
+<$button set=<<qualify>> setTo='update'>Update Location</$button>
+</$reveal>
+<$reveal type='match' state=<<qualify>> text='update'>
+<$button set=<<qualify>> setTo='noupdate'>Done</$button>
+<$fieldmangler tiddler=<<currentTiddler>>>
+<$button>Move Tiddler
+<$action-sendmessage $message='tm-add-tag' $param={{$:/state/temporaryTocLocation}}/>
+<$action-sendmessage $message='tm-remove-tag' $param=<<above>>/>
+</$button><br>
+</$fieldmangler>
+Current location: <<above>> <br>
+Select New Location: <$select tiddler='$:/state/temporaryTocLocation'>
+<$list filter='[tag[Contents]]' template=TOCArrangeTemplate2>
+<option value=<<currentTiddler>>><$view field='title'/></option>
+</$list>
+</$select>
+</$reveal>
+</li>
+<ul>
+<$set name=above value=<<currentTiddler>>>
+<$list filter='[tag<currentTiddler>]' template='TOCArrangeTemplate'>
+<$view field='title'/><br>
+</$list>
+</$set>
+</ul>
+</ul>

@@ -1,0 +1,9 @@
+created: 20140514081206207
+modified: 20140514081219251
+revision: 0
+title: Have Fun
+type: text/vnd.tiddlywiki
+wills: using-gtid
+source-wiki: http://wills.tiddlyspot.com/#Have%20Fun
+
+The system is fairly hands on, but gives a workable facsimile of a paper based system. A working gTiD needs constant attention anyway, at which time the tasks can easily be posted manually. The manual posting of ticklers between tickler folders during the review process is an important part of gTiD. I have, therefore, stayed away from priorities and deadlines ordered by date (the due date field is text only) and there is no automatic mechanism for re-posting of ticklers ordered by due date or priority. Such matters are best entered into a diary once they have been identified in a list.

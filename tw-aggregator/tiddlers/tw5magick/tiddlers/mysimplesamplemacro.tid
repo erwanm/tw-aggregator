@@ -1,0 +1,12 @@
+created: 20140111211821752
+creator: Stephan Hradek
+modified: 20140111212319211
+modifier: Stephan Hradek
+title: mysimplesamplemacro
+source-wiki: http://tw5magick.tiddlyspot.com/#mysimplesamplemacro
+
+\define _mysimplesamplemacro(name)
+Hi! My name is $name$!
+\end
+
+<$macrocall $name="_mysimplesamplemacro" name={{!!title}}/>

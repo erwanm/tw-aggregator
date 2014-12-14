@@ -1,0 +1,43 @@
+created: 20140403164018233
+modified: 20140520172909812
+title: Change-log
+source-wiki: http://mathjax-tw5.kantorsite.net/#Change-log
+
+''revision 3'' //(20.5.2014)//:
+
+*ready for TW5 version 5.0.12-beta (PLUGIN IS NOW COMPATIBLE WITH 5.0.12+ version)
+*updated plugin meta information specification
+*new better code (author [[kpe|https://github.com/kpe]])
+
+> CDN version: <a href="./empty/empty5-0-12-with-mathjax-cdn-rev3.zip">Download here (zip)</a> | <a href="./empty/empty5-0-12-with-mathjax-cdn-rev3.htm">online file (html)</a>
+> [[Offline version installation|Offline installation]]
+
+''revision 2'' //(3.4.2014)//:
+
+*ready for TW5 version 5.0.8-beta
+* TW5 node.js version compatible
+*removed dependency on "tw-tab-content" class, plugin watchs "story-river" now
+*fixed bug: You can use the plugin regardless of the template
+*fixed bug: you do not have an active tab "open" in right menu now
+*fixed bug: in case you start TW5 in browser which is not supported, correct error is displayed
+
+> CDN version: <a href="./empty/empty5-0-8-with-mathjax-cdn-rev2.zip">Download here (zip)</a> | <a href="./empty/empty5-0-8-with-mathjax-cdn-rev2.htm">online file (html)</a>
+> [[Offline version installation|Offline installation]]
+
+Do you want update? Steps are the same like installation. Remember: create backup first!
+
+''revision 1'' //(1.4.2014)//:
+
+*ready for TW5 version 5.0.8-beta
+
+> CDN version: <a href="./empty/empty5-0-8-with-mathjax.zip">Download here (zip)</a> | <a href="./empty/empty5-0-8-with-mathjax.htm">online file (html)</a>
+>  [[Offline version installation|Offline installation]]
+
+''original'' //(5.2.2014)//:
+
+*original plugin
+
+> <a href="./empty/empty5-0-8-with-mathjax.htm">online file (html)</a>
+>  [[Offline version installation|Offline installation]]
+
+Please note that Fast download is provided for your comfort. Check the licenses of both software products first before use.

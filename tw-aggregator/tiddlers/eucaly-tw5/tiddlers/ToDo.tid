@@ -1,0 +1,33 @@
+created: 20140908130311294
+creator: EucalyJ
+modified: 20140923134521679
+modifier: EucalyJ
+title: ToDo
+type: text/vnd.tiddlywiki
+tags: toc
+source-wiki: http://eucaly-tw5.tiddlyspot.com/#ToDo
+
+!!!140922
+*PopupTagger
+** [v] `verify` for parent tags
+!!!20140915
+* [v] How to create SVG button
+!!!20140914
+* [ ] ... scrollIntoView
+*PopupTagger
+** [ ] both parent tags and list field
+!!!20140913 -- 5.0.17-beta ~
+* [v] retire `/regexp/(modifier)`
+* [v] TitleMe
+!!!20140912
+*PopupTagger
+** [v] reshape with central ControlPage => 0914
+** [v] hide pptg-tool-base from user with `InPlace` mechanism => 0914
+** [v] global toggle PopupTagger show/hide => 0914
+!!!20140910
+*~~[ ] [[$:/eucaly/macros/trace-variable.js]] - doc~~
+!!!20140908
+*[v] Intro page for each plugin => 0910
+*PopupTagger
+**[v] `New` button for ~TagTable => 0910
+**[ ] taggroup sequence ??

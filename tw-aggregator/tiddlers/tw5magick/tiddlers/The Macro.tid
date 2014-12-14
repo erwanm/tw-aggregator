@@ -1,0 +1,12 @@
+created: 20140104043140897
+creator: Stephan Hradek
+modified: 20140104043306081
+modifier: Stephan Hradek
+title: The Macro
+source-wiki: http://tw5magick.tiddlyspot.com/#The%20Macro
+
+\define mysamplemacro(name:"Bugs Bunny",address:"Rabbit Hole Hill")
+Hi, I'm $name$ and I live in $address$
+\end
+
+<$list filter="[is[current]!title[The Macro]]"><$transclude/></$list>

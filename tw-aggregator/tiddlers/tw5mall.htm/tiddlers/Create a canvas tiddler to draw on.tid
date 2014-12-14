@@ -1,0 +1,7 @@
+created: 20131002011800000
+modified: 20131117150000001
+title: Create a canvas tiddler to draw on
+tags: Images
+source-wiki: http://www.giffmex.org/tw5mall.htm#Create%20a%20canvas%20tiddler%20to%20draw%20on
+
+Use ~TiddlyWiki 5 to write or draw notes! Just create a new tiddler, use the field editor at the bottom of the tiddler to add a new field entitled type, then paste image/jpeg into the 'type' window. Immediately a canvas will appear, and you can adjust the canvas size to your liking. Save the tiddler and draw away!

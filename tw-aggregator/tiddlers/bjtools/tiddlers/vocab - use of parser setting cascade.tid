@@ -1,0 +1,7 @@
+created: 20140409164137162
+modified: 20140413162723512
+title: vocab - use of parser setting cascade
+type: text/vnd.twbase<htmlp
+source-wiki: http://bjtools.tiddlyspot.com/#vocab%20-%20use%20of%20parser%20setting%20cascade
+
+<p>- here I have written code to add/define/override parser setting. A base collection of setting are defined using a json tid, eg tiddlywikiRules, which lists the standard rules for vnd.tiddywiki, minus the html rule. An example of this being used is here - [[Upgrading2]], which has the type <strong>text/vnd.tiddlywiki&lt;tiddlywikiRules</strong> ([[tiddlywikiRules]] being a json tiddler . This is then augmented with the 'html' rule, see [[Upgrading]] which has type:<strong>text/vnd.tiddlywiki&lt;fullTW5</strong> see [[fullTW5]].</p>

@@ -1,0 +1,48 @@
+caption: {{$:/language/SideBar/Contents/Caption}}
+created: 20140714091502936
+creator: Alberto Molina Pérez
+list-after: $:/_tw-scholars/ui/SideBar/Menu
+modified: 20140726110607284
+modifier: Alberto Molina Pérez
+show: ToC
+title: ToC
+source-wiki: http://tw5.scholars.tiddlyspot.com/#ToC
+
+\define toc-heading(caption)
+<$reveal type="nomatch" state=<<qualify "$:/state/tac/$caption$">> text="show">
+    <$link>$caption$</$link>
+    <$list filter=" [all[current]listed[about]] [all[current]listed[source]] [all[current]listed[parent]] +[limit[1]]">
+        <$button set=<<qualify "$:/state/tac/$caption$">> setTo="show" class="btn-invisible">
+             {{$:/core/images/right-arrow}}   
+        </$button>
+    </$list>
+</$reveal>
+<$reveal type="match" state=<<qualify "$:/state/tac/$caption$">> text="show">
+    <$link>$caption$</$link>
+    <$button set=<<qualify "$:/state/tac/$caption$">> setTo="hide" class="btn-invisible">
+          {{$:/core/images/down-arrow}}   
+    </$button>
+</$reveal>
+<$reveal type="match" state=<<qualify "$:/state/tac/$caption$">> text="show" retain="yes" animate="yes">
+
+<$list filter="[all[current]listed[about]] [all[current]listed[source]] [all[current]listed[parent]]">
+
+# <$macrocall $name="toc-heading" caption={{!!title}}/>
+</$list>
+
+</$reveal>
+\end
+
+
+
+<div class="tw-table-of-contents">
+
+{{ToC - authors}}
+
+<$list filter="[tag[@ToC]]">
+
+# <$macrocall $name="toc-heading" caption={{!!title}}/>
+
+</$list>
+
+</div>

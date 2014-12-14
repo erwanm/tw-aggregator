@@ -1,0 +1,17 @@
+created: 20140923205442835
+creator: inmysocks
+modified: 20141023191818660
+modifier: inmysocks
+title: Adding tags with a button
+tags: unfinished [[Wiki Widgets - buttons, filters, etc.]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Adding%20tags%20with%20a%20button
+
+Add a tag
+
+```
+<$fieldmangler><$button message="tm-add-tag" param="bob">Add tag</$button></$fieldmangler>
+```
+
+<$fieldmangler><$button message="tm-add-tag" param="bob">Add tag</$button></$fieldmangler>
+
+<<bottomOfTiddler {{!!title}}>>

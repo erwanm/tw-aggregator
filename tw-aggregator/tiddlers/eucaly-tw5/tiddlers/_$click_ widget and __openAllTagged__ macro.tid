@@ -1,0 +1,15 @@
+created: 20140921093712014
+creator: EucalyJ
+modified: 20140921093949289
+modifier: EucalyJ
+title: <$click> widget and <<openAllTagged>> macro
+type: text/vnd.tiddlywiki
+tags: ref
+source-wiki: http://eucaly-tw5.tiddlyspot.com/#_$click_%20widget%20and%20__openAllTagged__%20macro
+
+* source : https://groups.google.com/d/msg/tiddlywiki/uWQt9a2_fjs/Nt-xKUZMLv4J
+* by : BJ
+... a widget that enables __a list of links (or buttons) to be all clicked at the same time.__ It watches for writes to a specified tiddler and when the tiddler is written with the same content as  a specifed value (like the reveal widget) it generates a click event.
+I have used it to write some macros to operate on all tiddlers with the same tag
+
+http://bjtools.tiddlyspot.com/ 

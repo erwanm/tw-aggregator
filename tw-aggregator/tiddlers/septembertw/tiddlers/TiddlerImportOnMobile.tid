@@ -1,0 +1,17 @@
+created: 20140917162521423
+creator: AcD
+modified: 20140921025144470
+modifier: AcD
+title: TiddlerImportOnMobile
+tw-version: 5.1.0
+tags: GrowingPains WorkAround WiP
+source-wiki: http://septembertw.tiddlyspot.com/#TiddlerImportOnMobile
+
+Adding stuff to a TiddlyWiki (down to [[individual tiddlers|http://tiddlywiki.com/#Copying%20tiddlers%20between%20TiddlyWiki%20files]]) increasingly relies on Drag'n'Drop tricks. 
+
+That's neat, but leaves those environments that can't do MultiWindowing in a bit of ditch -- that includes the majority of tablets and smartphones on the market at this writing, but fortunately can be worked around in reasonably convenient fashion by using the [[Import]] command from the SideBar.
+
+''Caveat'': the import command by necessity targets files.<br> 
+It means you can't import individual tiddlers unless they are stored in ''.tid'' files, and  you will have to carefully sort through the (potentially huge) list of tiddlers contained in the ''.html'' file you've selected.
+
+A possible fix would be to include a function to easily export a selection of tiddlers from any TiddlyWiki in a json bundle, [[plugin style|http://tiddlywiki.com/#PluginMechanism]] -- it's probably out there, in fact, and I haven't found it yet.

@@ -1,0 +1,8 @@
+blurb:  A plugin that adds a very simple task list to your wiki
+created: 20141210184803712
+modified: 20141210184822593
+title: Minimal Task List Plugin
+tags: Plugins
+source-wiki: http://inmysocks.tiddlyspot.com/#Minimal%20Task%20List%20Plugin
+
+<<bottomOfTiddler {{!!title}}>>

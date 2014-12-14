@@ -1,0 +1,46 @@
+created: 20140921012609517
+creator: AcD
+modified: 20140921025205725
+modifier: AcD
+title: CuttingBoard
+tw-version: 5.1.0
+tags: WiP HowTo
+source-wiki: http://septembertw.tiddlyspot.com/#CuttingBoard
+
+''Random snippets to reuse elsewhere :''
+
+```
+<$view field="creator"/>
+```
+> <$view field="creator"/>
+<br>
+
+```
+<$link to={{!!creator}}>link to //creator// field</$link>
+```
+> <$link to={{!!creator}}>link to //creator// field</$link>
+<br>
+
+```
+<$link to={{!!creator}}><$view field="creator"  />
+</$link>
+```
+> <$link to={{!!creator}}><$view field="creator"  />
+</$link>
+<br>
+
+
+```
+{{inline tag-styled menu||$:/core/ui/TagTemplate}}
+```
+> {{inline tag-styled menu||$:/core/ui/TagTemplate}}
+<br>
+
+```
+<$list filter="[is[current]get[creator]]">
+{{||$:/core/ui/TagTemplate}} </$list>
+```
+
+> <$list filter="[is[current]get[creator]]">
+{{||$:/core/ui/TagTemplate}} </$list>
+<br>

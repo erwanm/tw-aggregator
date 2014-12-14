@@ -1,0 +1,9 @@
+caption: load
+created: 20140119201439976
+modified: 20140119201554602
+title: LoadCommand
+type: text/vnd.tiddlywiki
+tags: Commands
+source-wiki: http://tiddlywiki.com#LoadCommand
+
+{{$:/language/Help/load}}

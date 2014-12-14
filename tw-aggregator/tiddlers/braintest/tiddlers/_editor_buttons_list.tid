@@ -1,0 +1,9 @@
+created: 20140226052208001
+creator: Danielo Rodriguez
+modified: 20140227035449235
+modifier: Danielo Rodriguez
+title: /editor/buttons/list
+tags: /editor/buttons
+source-wiki: http://braintest.tiddlyspot.com/#_editor_buttons_list
+
+<$macrocall $name="appendButton" now={{Target}} caption="list" add={{$:/snippets/danielo/list}}/>

@@ -1,0 +1,36 @@
+created: 20131121203829390
+creator: Stephan Hradek
+modified: 20140105142221216
+modifier: Stephan Hradek
+title: Quiz.CSS
+type: text/plain
+source-wiki: http://tw5magick.tiddlyspot.com/#Quiz.CSS
+
+/*
+   This will put a question mark, encoded in the "letter-salad" below, befor each question
+*/
+p.question:before {
+    content: url("data:image/gif;base64,R0lGODlhGgAmAIABAOIAAP///yH5BAEKAAEALAAAAAAaACYAAAJHjI+pywkN3YsRWEvb3Xlt3infFEpXKZ6oubLtob5B3NI1JtuoXvKh38G9gBnhjXSTGYxJJbHIPCpnz6mVEt1lf6DjNvi9ZgoAOw==") " ";
+}
+/*
+   This will put an exclamation mark, encoded in the "letter-salad" below, befor each question.
+   The explanation for the "span" is given in another tiddler…
+*/
+span.flag.answer:before,
+p.answer:before {
+    content: url("data:image/gif;base64,R0lGODlhFQAmAIABAOIAAP///yH5BAEKAAEALAAAAAAVACYAAAI2jI+py+0Po5y0LoCzzHrzyQHUB3alWJkeOmKp+1qqZwVwW994LLNj7gPVhkTiDEI6BZHHYqMAADs=") " ";
+}
+/*
+   Usually we don't want the answer to be shown at once. So we hide them in a grey bar.
+*/
+p.answer {
+    background-color: grey;
+    color: grey;
+}
+/*
+   But if the mouse points to it, it will be shown.
+*/
+p.answer:hover {
+    background-color: inherit;
+    color: inherit;
+}

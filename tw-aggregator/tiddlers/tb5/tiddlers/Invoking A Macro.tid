@@ -1,0 +1,28 @@
+created: 20141201114547688
+creator: Tobias Beer
+modified: 20141201115145210
+modifier: Tobias Beer
+title: Invoking A Macro
+tags: Solutions Macros
+source-wiki: http://tb5.tiddlyspot.com#Invoking%20A%20Macro
+
+Sometimes it is necessary to [[use and invoke macros|http://tiddlywiki.com/#Macros%20in%20WikiText]] in different ways.
+
+Here are some options...
+
+;`<<aMacro "a param">>`
+:with first parameter, internally read as `text`
+
+;`<<aMacro text:"a param">>`
+:with named parameter `text`
+
+;`<$macrocall $name="aMacro" text="a param"/>`
+:invoked via macrocall widget
+
+;`<$macrocall $name="aMacro" text={{get from tiddler!!or-field}}/>`
+:same but pulling parameter via transclusion
+
+;`<$macrocall $name="aMacro" text=<<getText "call yet another macro">>/>`
+:same but computing the parameter by calling yet another macro
+
+''Note:'' Internally, a `<<variable>>`, in fact, is a macro, too.

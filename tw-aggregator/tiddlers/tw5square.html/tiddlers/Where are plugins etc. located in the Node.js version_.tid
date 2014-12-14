@@ -1,0 +1,20 @@
+created: 20140418113433466
+modified: 20141006162758904
+title: Where are plugins etc. located in the Node.js version?
+type: text/vnd.tiddlywiki
+tags: node.js macos Answers
+source-wiki: http://larigot.avarts.ionio.gr/users/iani/wikis/tw5square.html#Where%20are%20plugins%20etc.%20located%20in%20the%20Node.js%20version_
+
+In MacOS, Node.js code is stored in the following directory: 
+
+```
+/usr/local/lib/node_modules
+```
+
+The code for ~TiddlyWiki is stored in the tiddlywiki subdirectory.  The full path is: 
+
+```
+/usr/local/lib/node_modules/tiddlywiki
+```
+
+To install a plugin, theme or other extension see ...

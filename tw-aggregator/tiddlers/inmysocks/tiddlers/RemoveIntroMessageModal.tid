@@ -1,0 +1,11 @@
+created: 20141204205959063
+footer: 
+modified: 20141209213124307
+no_edit: true
+subtitle: Remove the Introduction?
+title: RemoveIntroMessageModal
+source-wiki: http://inmysocks.tiddlyspot.com/#RemoveIntroMessageModal
+
+Are you sure you want to remove the introduction message? Even if you remove it here you can still view it by going to the `Table of Contents` tab and clicking on it there.
+
+<$fieldmangler tiddler=Introduction><$button><$action-sendmessage $message='tm-remove-tag' $param=Dashboard/><$action-sendmessage $message='tm-close-tiddler'/>Yes</$button></$fieldmangler> <$button message='tm-close-tiddler'>No</$button>

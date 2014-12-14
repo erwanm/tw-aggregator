@@ -1,0 +1,13 @@
+blurb: A universal document converter
+created: 20140307001955700
+modified: 20140315191728468
+subtopic: Not TiddlyWiki
+title: Pandoc
+tags: [[Knowledge Base]]
+source-wiki: http://dl.dropboxusercontent.com/u/118970/wiki/tw5tribalknowledge.html#Pandoc
+
+This tool could be helpful if you have a document and need to convert it to a format that ~TiddlyWiki understands.
+
+http://johnmacfarlane.net/pandoc/index.html
+
+If you want to convert to Markdown, you'll need the Markdown plugin and take a look at the [[Markdown Demo|http://tiddlywiki.com/markdowndemo.html]].

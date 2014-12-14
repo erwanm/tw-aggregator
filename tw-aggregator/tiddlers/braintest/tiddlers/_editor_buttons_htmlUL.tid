@@ -1,0 +1,9 @@
+created: 20140227034859567
+creator: Danielo Rodriguez
+modified: 20140227034919151
+modifier: Danielo Rodriguez
+title: /editor/buttons/htmlUL
+tags: /editor/buttons
+source-wiki: http://braintest.tiddlyspot.com/#_editor_buttons_htmlUL
+
+<$macrocall $name="appendButton" now={{Target}} caption='<$text text="<ul>"></$text>' add={{$:/snippets/danielo/htmlUL}}/>

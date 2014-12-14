@@ -1,0 +1,22 @@
+color: #9eb849
+created: 20140917135434999
+creator: AcD
+modified: 20140919222648532
+modifier: AcD
+title: UseCase
+tags: DesignDocs Lexicon
+source-wiki: http://septembertw.tiddlyspot.com/#UseCase
+
+A UseCase describes the utility of, and needs serviced by TiddlyWiki for a particular purpose. <br>A common way to explore and break down a UseCase to its constituting beats is to build  UserStories.
+
+
+See examples below :
+
+<$list filter="[!is[system]tag<currentTiddler>]">
+<div class="tc-menu-list-item">
+
+
+* <$link to={{!!title}}><$view field="title"/></$link>
+
+</div>
+</$list>

@@ -1,0 +1,27 @@
+created: 20140828081424710
+creator: Danielo Rodriguez
+description: a plugin to make imports more friendly letting you things as unchecking several tiddlers at once.
+modified: 20141103103734401
+modifier: Danielo Rodriguez
+title: Import-tools plugin
+tags: plugins
+source-wiki: http://braintest.tiddlyspot.com/#Import-tools%20plugin
+
+This plugin provides some GUI tools to manage imports through the new import method that tiddlywiki provides. Available since tiddlywiki 5.0.14. For example, unchecking all the already existing tiddlers.
+
+!!How to install
+Just grab the following link to your tiddlywiki window:
+
+[[$:/plugins/danielo515/import-tools]]
+
+!! How to use
+After installing you will have some new elements on the importing report.
+
+Currently it shows you which of the tiddlers you're importing exist already on the wiki you are importing to. It also provides you a button that lets you uncheck all those tiddlers.
+
+
+!! Compatibility
+It is compatible from Tiddliwiki 5.0.14 and onward. It was tested on 5.0.15
+
+!!More functions
+I have plans to add more functions. It depends on what community demands.

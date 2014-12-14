@@ -1,0 +1,33 @@
+created: 20131002011600000
+modified: 20131117143200008
+title: Sample ready-made table designs
+tags: Tables
+source-wiki: http://www.giffmex.org/tw5mall.htm#Sample%20ready-made%20table%20designs
+
+You can grab the CSS for the following tables in the tiddler [[$:/Custom tables]] and put them in a [[StyleSheet tiddler]]. You can also use the site http://www.csstablegenerator.com/ to experiment with table styles, and copy the contents of the "CSS code" results into your [[StyleSheet tiddler]].
+
+!Blocky
+
+|blocky|k
+|!Header one|!Header two|!Header three|
+|Cell 1|Cell 2|Cell 3|
+|Cell 4|Cell 5|Cell 6|
+|Cell 7|Cell 8|Cell 9|
+
+!Brown alternating rows
+
+|brownaltrows|k
+|!Header one|!Header two|!Header three|
+|Cell 1|Cell 2|Cell 3|
+|Cell 4|Cell 5|Cell 6|
+|Cell 7|Cell 8|Cell 9|
+|Cell 10|Cell 11|Cell 12|
+
+!Horizontal rows
+
+|rowstable|k
+|!Header one|!Header two|!Header three|
+|Cell 1|Cell 2|Cell 3|
+|Cell 4|Cell 5|Cell 6|
+|Cell 7|Cell 8|Cell 9|
+

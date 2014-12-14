@@ -1,0 +1,38 @@
+created: 20141115092638358
+creator: Tobias Beer
+modified: 20141119155832093
+modifier: Tobias Beer
+title: Custom Toolbar (TopBar)
+tags: Solutions UI TopBar Buttons Toolbar
+source-wiki: http://tb5.tiddlyspot.com#Custom%20Toolbar%20(TopBar)
+
+!!Configurable Toolbar Buttons
+;discussion
+:https://groups.google.com/forum/#!topic/tiddlywiki/OsjRSEViBf4
+
+;instructions and examples
+:http://tw5toolbar.tiddlyspot.com
+:http://t5a.tiddlyspot.com/#%24%3A%2FControlPanel
+;logic to selectively hide and show buttons
+:[[$:/core/ui/ControlPanel/Toolbars/PageControls]]
+:[[$:/core/ui/PageTemplate/sidebar]]
+:as of 5.1.5: [[$:/core/ui/PageTemplate/pagecontrols]]
+:[[$:/core/ui/ControlPanel/Toolbars/ViewToolbar]]
+:[[$:/core/ui/ViewTemplate/title]]
+:[[$:/core/ui/ControlPanel/Toolbars/EditToolbar]]
+:[[$:/core/ui/EditTemplate/controls]]
+;making use of the topleftbar
+:[[$:/core/ui/PageTemplate/topleftbar]]
+:[[$:/tags/TopLeftBar]]
+;ordering commands
+:via ''list-after'' and ''list-before''
+;css adjustments
+:<div>
+
+```
+/* PADDING AROUND BUTTONS IN TOPBAR */
+html .tc-topbar button {
+     padding: 0px 0px;
+}
+```
+</div>

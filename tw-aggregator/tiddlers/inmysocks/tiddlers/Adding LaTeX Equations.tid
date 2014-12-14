@@ -1,0 +1,29 @@
+created: 20140914214539352
+creator: inmysocks
+modified: 20141120202840969
+modifier: inmysocks
+title: Adding LaTeX Equations
+tags: [[Wiki Examples]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Adding%20LaTeX%20Equations
+
+!Using the KaTeX plugin. 
+
+!!List of known things that KaTeX can't do:
+
+* `\textbf{}`
+* `\begin{}` - nothing that uses this works yet
+* There are probably more, but those are the things that have come up for me so far.
+
+This means that you can't have multi-line equations using KaTeX, so you should use the [[SVG image method|Making Latex Equations SVG Images]] or MathJax to do them. I like the SVG images better since you don't need to be online to view them.
+
+TiddlyWiki can do native LaTeX equations using the KaTeX plugin, and doesn't require a connection to the internet. Just surround equations with ``$$`` to get the LaTeX output.
+
+```
+$$p(z) =\sum_{m=0}^{\infty} \frac{e^{-A}A^m}{m!} \frac{1}{\sqrt{2\pi \sigma^2_m}}e^{-\frac{|z|^2}{2\sigma^2_m}}$$
+```
+
+gives
+
+$$p(z) =\sum_{m=0}^{\infty} \frac{e^{-A}A^m}{m!} \frac{1}{\sqrt{2\pi \sigma^2_m}}e^{-\frac{|z|^2}{2\sigma^2_m}}$$
+
+<<bottomOfTiddler {{!!title}}>>

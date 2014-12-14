@@ -1,0 +1,22 @@
+created: 20141203172251548
+creator: Tobias Beer
+modified: 20141203172312107
+modifier: Tobias Beer
+title: horizontal-rules
+tags: Markup
+source-wiki: http://tb5.tiddlyspot.com#horizontal-rules
+
+<dt>
+
+```
+---
+horizontal rules
+<hr>
+```
+</dt>
+<dd>
+
+---
+horizontal rules
+<hr>
+</dd>

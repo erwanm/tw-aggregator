@@ -1,0 +1,58 @@
+created: 20140514090608553
+modified: 20141028180415712
+title: Employee data
+type: application/json
+source-wiki: http://bjtools.tiddlyspot.com/#Employee%20data
+
+{
+  "employee": {
+    "gid": 1020,
+    "companyID": 1211,
+    "defaultActionID": 444,
+    "names": {
+      "firstName": "Stivey",
+      "middleInitial": "Jr",
+      "lastName": "Martin"
+    },
+    "address": {
+      "city": "Albany",
+      "state": "NY",
+      "zipCode": "14410-585",
+      "addreess": "41 State Street"
+    },
+    "job": {
+      "departmentID": 102,
+      "jobTitleID": 100,
+      "hireDate": "1/02/2000",
+      "terminationDate": "1/12/2007"
+    },
+    "contact": {
+      "phoneHome": "12-123-2133",
+      "beeper": "5656",
+      "email1": "info@soft-amis.com",
+      "fax": "21-321-23223",
+      "phoneMobile": "32-434-3433",
+      "phoneOffice": "82-900-8993"
+    },
+    "login": {
+      "employeeID": "eID102",
+      "password": "password",
+      "superUser": true,
+      "lastLoginDate": "1/12/2007",
+      "text": "text",
+      "regexp": {},
+      "date": {}
+    },
+    "comment": {
+      "PCDATA": "comment"
+    },
+    "roles": [
+      {
+        "role": 102
+      },
+      {
+        "role": 103
+      }
+    ]
+  }
+}

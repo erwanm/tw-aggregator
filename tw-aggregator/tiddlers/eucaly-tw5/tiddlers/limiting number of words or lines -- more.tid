@@ -1,0 +1,28 @@
+created: 20140923140553031
+creator: EucalyJ
+modified: 20140923141835186
+modifier: EucalyJ
+title: limiting number of words or lines -- more
+type: text/vnd.tiddlywiki
+tags: tips
+source-wiki: http://eucaly-tw5.tiddlyspot.com/#limiting%20number%20of%20words%20or%20lines%20--%20more
+
+In response to [[Working on limiting the number of words/lines|https://groups.google.com/forum/#!topic/tiddlywiki/XSzzrx1e1nA]]
+
+* transcludes tiddler's `!Feature` ''header sections'' by ''regular expression'' -- MatchFilter -- [[$:/plugins/eucaly/matchfilter/doc/example1]]
+* by [[ScrollableWidget|http://tiddlywiki.com/#ScrollableWidget]] `<$scrollable>` -- Example: [[History]]
+
+```
+<$scrollable class='tc-scroll-history'><div>
+...
+</div></$scrollable>
+```
+
+```
+.tc-scroll-history {
+	border: 1px solid <<colour message-border>>;
+	background-color: <<colour message-background>>;
+	padding: 1em;
+	height: 300px;
+}
+```

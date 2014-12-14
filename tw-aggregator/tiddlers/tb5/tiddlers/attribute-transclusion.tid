@@ -1,0 +1,25 @@
+created: 20141203173242539
+creator: Tobias Beer
+modified: 20141203174041713
+modifier: Tobias Beer
+title: attribute-transclusion
+tags: Markup
+source-wiki: http://tb5.tiddlyspot.com#attribute-transclusion
+
+<dt>
+
+```
+[img width={{!!mywidth}} class=<<image-classes>> [example.jpg]]
+
+{{example.jpg}}
+```
+</dt>
+
+<dd>
+
+params via
+[[transclusion|http://tiddlywiki.com/#Transclusion%20in%20WikiText]] or
+[[macro|http://tiddlywiki.com/#Macros%20in%20WikiText]]<br><br>
+
+embed via transclusion
+</dd>

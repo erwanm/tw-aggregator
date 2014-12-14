@@ -1,0 +1,30 @@
+button_type: tc-btn-invisible
+created: 20141109194308726
+creator: inmysocks
+modified: 20141204013252900
+modifier: inmysocks
+no_edit: true
+title: GroupContactListTemplate Settings
+tags: [[Contacts Settings]]
+source-wiki: http://inmysocks.tiddlyspot.com/#GroupContactListTemplate%20Settings
+
+<p class='tc-tiddler-frame' style='width:400px; background-color:#f1f1f1'>
+''Settings'':<br>
+__Grouping Type__:
+<$select tiddler='GroupContactListGroupTemplate' field="group_type">
+<option value='<<collapsibleGroupContactListTemplate>>'>Collapsible Groups</option>
+<option value='<<groupContactListTemplate>>'>Static Groups</option></$select>
+<br>
+__Button Style__:
+<$select tiddler='GroupContactListTemplate' field="button_type">
+<option value='tc-btn-invisible'>No button</option>
+<option value=''>Normal button</option></$select>
+<br>
+__Text Style__: 
+<$select tiddler='GroupContactListTemplate' field="text_style">
+<option value="">Plain text</option>
+<option value="''">Bold text</option>
+<option value="//">Italic text</option>
+<option value="__">Underlined text</option>
+</$select>
+</p>

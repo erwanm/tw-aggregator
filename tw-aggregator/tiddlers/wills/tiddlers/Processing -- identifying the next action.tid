@@ -1,0 +1,9 @@
+created: 20140514080623056
+modified: 20140514081955699
+revision: 0
+title: Processing -- identifying the next action
+type: text/vnd.tiddlywiki
+wills: using-gtid
+source-wiki: http://wills.tiddlyspot.com/#Processing%20--%20identifying%20the%20next%20action
+
+The inbox must be cleared periodically, tasks being processed in FIFO order. The 'next action' for each task must be identified; based upon this next action, the tickler, displaying its next action, is then posted into the appropriate tickler folder.

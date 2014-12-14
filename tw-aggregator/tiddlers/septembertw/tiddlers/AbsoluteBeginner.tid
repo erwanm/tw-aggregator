@@ -1,0 +1,25 @@
+color: #ff30fa
+created: 20140910025120304
+creator: AcD
+modified: 20140919233320052
+modifier: AcD
+title: AbsoluteBeginner
+type: text/vnd.tiddlywiki
+tags: AbsoluteBeginner
+source-wiki: http://septembertw.tiddlyspot.com/#AbsoluteBeginner
+
+Lost yet ? Lessee…
+
+Here are a few of the things you could do / build using TiddlyWiki :
+
+* A dynamic notepad for research / study
+* A blog, with TW as notepad and editor, and even as publishing platform.
+* A shared //smart// cookbook, with built-in timers and grocery list generator.
+* A project management and planner tool, for you and collaborators.
+* Create ebooks that can be read on anything with a half decent browser, free of DRM and complete with annotations and dynamic updates.
+* A wiki, because why not ?
+
+Depending on adding plugins and modules, and on whether your TW runs from a single html file on a USB key or is hosted and runs as a server, there is little that can't be done.
+Fresh out of the box, TW allows you to do something like what you're [[reading now|aboot]]. 
+
+Of course, knowing you can doesn't magically let you know how to, so let's take it from the top and start with the basics, like [[what's a tiddler, anyway ?|I am a Tiddler]]

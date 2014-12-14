@@ -1,0 +1,27 @@
+changecount: 4
+created: 20131129090500000
+creator: BuggyJay
+modified: 20140824153550992
+modifier: BJ
+title: RuleTiddler
+type: null
+tags: TCdoc [[How It Works]]
+source-wiki: http://tiddlyclip.tiddlyspot.com/#RuleTiddler
+
+A Rule contains a number of [[Rich Clip Templates|Rich Clip Template]] corresponding to the different parts of a tiddler, namely title, body, tags and fields. There is also a 'modes' template that allows for some extra control (see  RuleModes).
+
+Rules are represented as rows in a Rule Table
+
+A RuleTiddler contains a single Rule Table which has  the following format
+
+|!Title|!Body|!Tags|!Field Deltas|!Field Initials|!Modes|
+| &nbsp; |  &nbsp; |  &nbsp; |  &nbsp; |  &nbsp; |  &nbsp;|
+
+Each entry in the table contains either a  Rich Clip Template or the name of a tiddler (surounded with double square brackets) that contains a Rich Clip Template.
+
+The contents of this table define how tiddlyclip creates/modifies tiddlers. There is one row for each tiddler that is to be created/modified (one clip action can create multiple tiddlers). Often there is only one row in this table.
+
+The title, body, tags and modes column entries contain a single template. 
+With Field Detlas and Fields Initials, a number of fields can modified/created by sequence of [[Assigments|Sequences]].  Field Deltas are applied last.
+
+To support complex [[Operations]], a tiddler can be used to hold the content of table entries. In place of a  table cell content a tiddler title surround with double square braces is entered, and this tiddler contains the operations.

@@ -1,0 +1,24 @@
+created: 20140203090002038
+creator: TonGerner
+modified: 20141204172301285
+modifier: TonGerner
+title: Read-only
+tags: documentation guide
+source-wiki: http://tongerner.tiddlyspot.com/#Read-only
+
+@@.brown ''How to make a TW read-only''@@
+
+{{Under construction_}}
+{{Upgraded}}
+
+This guide describes how to make a TW5 read-only.
+
+Making TW5 read only can be done with the ~ReadOnly theme available at http://tiddlywiki.com/
+
+Unfortunately to persist in this 'read-only' state you have to save the TW and that is not possible anymore!
+
+So there must be a - hidden - save possibility.<br>One way to go is based on creating a tiddler - with a 'non-suspicious' name - wherein the possibility to switch to read-only mode (decoupled from the ~ReadOnly theme) ''and'' saving this situation.
+
+@@.RED Available as plugin@@.
+
+''Guide at ~TiddlySpot:''<br>[[How to make TW5 read-only|http://tw5readonly.tiddlyspot.com/]]

@@ -1,0 +1,43 @@
+created: 20131002014600000
+modified: 20131117142300006
+title: Create a checklist in TiddlyWiki 5
+tags: Checklists Lists
+source-wiki: http://www.giffmex.org/tw5mall.htm#Create%20a%20checklist%20in%20TiddlyWiki%205
+
+I adapted this example right from the example on five.tiddlywiki.com. Checklists are fun and easy in ~TiddlyWiki 5.
+
+!Example
+
+''To do:''
+
+<$list filter="[!has[draft.of]tag[task]!tag[done]sort[created]]">
+<$checkbox tag="done"> <$link to={{!!title}}><$view field="title"/></$link></$checkbox>
+</$list>
+
+''Done:''
+
+<$list filter="[!has[draft.of]tag[task]tag[done]sort[created]]">
+<$checkbox tag="done"> ~~<$link to={{!!title}}><$view field="title"/></$link>~~</$checkbox>
+</$list>
+
+!How it's done
+
+1. Paste the following code into a tiddler:
+
+```
+''To do''
+
+<$list filter="[!has[draft.of]tag[task]!tag[done]sort[created]]">
+<$checkbox tag="done"><$link to={{!!title}}><$view field="title"/></$link></$checkbox>
+</$list>
+
+''Done''
+
+<$list filter="[!has[draft.of]tag[task]tag[done]sort[created]]">
+<$checkbox tag="done"> ~~<$link to={{!!title}}><$view field="title"/></$link>~~</$checkbox>
+</$list>
+```
+
+2. Create tiddlers for various tasks and tag them 'task'.
+
+3. In the checklist, check and uncheck tasks to move them from 'to do' to 'done' and back.

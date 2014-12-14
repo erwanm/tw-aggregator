@@ -1,0 +1,34 @@
+created: 20141115163415187
+creator: Danielo Rodriguez
+description: add a fancy collection of icons under the tittle based on tags
+modified: 20141115165707141
+modifier: Danielo Rodriguez
+title: Band of icons based on tags
+tags: index [[using TW5]]
+source-wiki: http://braintest.tiddlyspot.com/#Band%20of%20icons%20based%20on%20tags
+
+!!How this looks like?
+An image is better than thousand words. Take a look at this example tiddler: [[Icons based on tags example]]
+
+!!How to install
+Just grab this tiddlers into your wiki:
+
+* [[$:/danielo515/customizations/tagsicons]]
+* [[$:/danielo515/customizations/tagsicons/styles]]
+
+!!How to add icons
+I created a system that makes adding icons very easy:
+
+#  Insert the desired icon in your tiddlywiki as a jpeg,svg,png  or any other image format.
+# Tag the tiddler with {{icon||$:/core/ui/TagTemplate}}
+# Add a field called `fortag` and put inside it the target tag, for example, {{macros||$:/core/ui/TagTemplate}}. 
+# The new icon will apear on all the tiddlers tagged macros.
+# You can repeat the above steps as many times as you want.
+
+!!Icon examples
+Here you have a couple of icons as example. You can grab them if you want:
+<ul>
+<$list filter="[tag[icon]]">
+<li><$link>{{!!title}}</$link></li>
+</$list>
+</ul>

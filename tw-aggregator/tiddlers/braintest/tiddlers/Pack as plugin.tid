@@ -1,0 +1,22 @@
+created: 20140822070438850
+creator: Danielo Rodriguez
+description: a plugin for pack bunch of tiddlers into a plugin
+modified: 20140822072323864
+modifier: Danielo Rodriguez
+title: Pack as plugin
+tags: index plugins
+source-wiki: http://braintest.tiddlyspot.com/#Pack%20as%20plugin
+
+Yes, a plugin to pack tiddlers as plugins.
+This is a a beta test for early adopt. There is not very good documentation because it was for personal use. But I think that some other people could find it useful.
+
+If you don't know what is this for, the you don't need it. Grab this link to your TW
+
+[[$:/plugins/danielo/packPlugin]]
+
+After that you can use the [[$:/plugins/danielo/packPlugin/packator]] tiddler to pack your tiddlers into a plugin.
+
+!! Some advises for use it
+* Tag all the tiddlers you want to include with a certain tag for an easier filtering.
+* The plugin will create a set of tiddlers that follows the naming convention of TW plugins, so don't worry about naming your tiddlers properly.
+* If you open the developers console you will be able to see some debug messages of what the plugin is doing.

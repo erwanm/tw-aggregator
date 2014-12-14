@@ -1,0 +1,8 @@
+blurb: A plugin to add the dashboard to your wiki 
+created: 20141210184542046
+modified: 20141210184558525
+title: Dashboard Plugin
+tags: Plugins
+source-wiki: http://inmysocks.tiddlyspot.com/#Dashboard%20Plugin
+
+<<bottomOfTiddler {{!!title}}>>

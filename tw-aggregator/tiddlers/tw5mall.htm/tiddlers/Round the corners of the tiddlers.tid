@@ -1,0 +1,19 @@
+created: 20131002010200000
+modified: 20131117154700005
+title: Round the corners of the tiddlers
+tags: [[Tiddler appearance]]
+source-wiki: http://www.giffmex.org/tw5mall.htm#Round%20the%20corners%20of%20the%20tiddlers
+
+In Firefox, you can round the corners of tiddlers with the following CSS added to a [[StyleSheet tiddler]]:
+
+```
+html body.tw-body .tw-tiddler-frame {
+     background-color: #FEFEFE;
+     border-radius: 1em;
+     -moz-border-radius: 1em;
+     webkit-border-radius: 1em;
+}
+```
+The results will look like this:
+
+<img src="http://www.giffmex.org/tw5imgs/roundedcorners.jpg">

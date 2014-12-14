@@ -1,0 +1,16 @@
+title: Welcome
+source-wiki: http://wkpr.de/hosting/tmp/tw5/taskgraph/#Welcome
+
+!!! Hi, this is a demo (nightly build) of tw-taskgraph.
+
+See the [[roadmap|$:/plugins/felixhayashi/taskgraph/docs/roadmap]] for a list of features and to understand what tw-taskgraph can do for you. To understand the basic concepts behind taskgraph check out the [[help|$:/plugins/felixhayashi/taskgraph/docs/help]] (docs might be outdated though).
+
+To edit your views, click on the taskgraph rubric, which is in the sidebar on your right and select the view you want to modify.
+
+If this release broke your graphs somehow, see [[upgrading|$:/plugins/felixhayashi/taskgraph/docs/upgrading]].
+
+Please consider:
+
+# It's all still ''work in progress''. Things might not work!
+# If you export the plugin, also make sure to export the vis plugin.
+# If you want debug information, set the debug flag in the tw options, open [[taskgraph's option tiddler|$:/plugins/felixhayashi/taskgraph/options/tw]] and set the debug flag to //true//.

@@ -1,0 +1,13 @@
+created: 20140904073042565
+draft.of: tlhead
+draft.title: tlhead
+modified: 20140904074726465
+title: Draft of 'tlhead'
+type: text/vnd.tiddlywiki
+source-wiki: http://tiddlyclip.tiddlyspot.com/#Draft%20of%20'tlhead'
+
+<$linkcatcher  set=tcc1 setTo={{!!title}} >
+<$reveal state=tcc1 text={{!!title}} type="match"><$button class="tw-taglist" set=tcc1 setTo="">[x]</$button></$reveal>
+<$link><span class="tw-taglist"><$view field="title"/></span></$link></$linkcatcher>
+
+

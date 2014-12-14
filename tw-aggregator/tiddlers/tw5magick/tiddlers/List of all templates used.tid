@@ -1,0 +1,12 @@
+created: 20140116123929667
+creator: Stephan Hradek
+description: Overview of the templates used in my examples.
+modified: 20140116124747945
+modifier: Stephan Hradek
+title: List of all templates used
+tags: toc
+source-wiki: http://tw5magick.tiddlyspot.com/#List%20of%20all%20templates%20used
+
+These are the templates used in my examples.
+
+{{{ [tag[template]] || tocEntry }}}

@@ -1,0 +1,28 @@
+created: 20140325223215222
+creator: ジェームス
+list: 
+modified: 20141102010947645
+modifier: ジェームス
+revision: 0
+title: Hello
+type: text/vnd.tiddlywiki
+source-wiki: http://welford.github.io/#Hello
+
+This TiddlyWiki is for keeping basic notes on how to make plugins for TiddlyWiki and is very much a work in progress.
+
+!!Features
+*It uses the theme ~PhasersOnKill
+**source : https://github.com/welford/phasersonkill
+**import into your tiddlywiki by dragging and dropping this link [[$:/themes/welford/phasersonkill]]
+*It uses the plugin TWExe
+**source : https://github.com/welford/twexe
+**import into your tiddlywiki by dragging and dropping this link [[$:/plugins/welford/twexe]]
+*It uses the plugin HTA Link (which will only work in offline hta editions of this page)
+**source : https://github.com/welford/htalink
+**import into your tiddlywiki by dragging and dropping this link [[$:/plugins/welford/htalink]]
+*It uses twpin which lets you pin and unpin tiddlers to the home page via these buttons {{$:/plugins/welford/pin/images/pinned}} {{$:/plugins/welford/pin/images/unpinned}}
+**source : https://github.com/welford/twpin
+**import into your tiddlywiki by dragging and dropping this link [[$:/plugins/welford/twpin]]
+*It uses the port of Mousetrap for Tiddlwyiki (http://craig.is/killing/mice)
+**source : https://github.com/welford/twmousetrap
+**import into your tiddlywiki by dragging and dropping this link [[$:/plugins/welford/twmousetrap]]

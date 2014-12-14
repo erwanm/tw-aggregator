@@ -1,0 +1,8 @@
+created: 20141122123031417
+id: 3a9e8605-2a1a-4dde-8580-6c9959b4b50d
+modified: 20141122123133076
+title: tgmacro
+tags: [[how it works]] modules
+source-wiki: http://wkpr.de/hosting/tmp/tw5/taskgraph/#tgmacro
+
+Used to import access globals and utilities.

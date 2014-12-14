@@ -1,0 +1,16 @@
+created: 20140419130630415
+modified: 20141006162730535
+title: Listing tiddlers by tag in-text (as list)
+type: text/vnd.tiddlywiki
+tags: tags Answers
+source-wiki: http://larigot.avarts.ionio.gr/users/iani/wikis/tw5square.html#Listing%20tiddlers%20by%20tag%20in-text%20(as%20list)
+
+You can list the tiddlers belonging to a tag using a filter like this: 
+
+``<$list filter="[tag[general]!has[draft.of]]">
+``
+
+The resulting list takes this form:
+
+<$list filter="[tag[general]!has[draft.of]]">
+

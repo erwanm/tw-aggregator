@@ -1,0 +1,10 @@
+created: 20141204051456012
+display_name: Basic Finished Entry
+modified: 20141206181105485
+no_edit: true
+settings_tiddler: BasicFinishedTaskDisplayTemplateSettings
+title: BasicFinishedEntryDisplayTemplate
+tags: Templates ToDoEntryDisplayTemplate
+source-wiki: http://inmysocks.tiddlyspot.com/#BasicFinishedEntryDisplayTemplate
+
+<$checkbox tag="done"> ~~<$link to={{!!title}}><$view field="title"/></$link>~~</$checkbox>

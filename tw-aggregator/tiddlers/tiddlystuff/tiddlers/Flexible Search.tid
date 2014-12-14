@@ -1,0 +1,23 @@
+created: 20140313174027934
+creator: Stephan Hradek
+modified: 20140313214438772
+modifier: Stephan Hradek
+title: Flexible Search
+source-wiki: http://tiddlystuff.tiddlyspot.com/#Flexible%20Search
+
+\define list_hits()
+<$list filter="[!is[shadow]!is[system]field:$(fieldname)$/$(regexp)$/]">
+
+</$list>
+\end
+
+<$listselect filter="[fields[]sort[title]]" tiddler="$:/temp/FlexibleSearch" field="fieldname"/> <$edit-text tag="input" type="text" tiddler="$:/temp/FlexibleSearch"/>
+
+<$set name="fieldname" value={{$:/temp/FlexibleSearch!!fieldname}}>
+<$set name="regexp" value={{$:/temp/FlexibleSearch}}>
+
+<<list_hits>>
+
+</$set>
+</$set>
+

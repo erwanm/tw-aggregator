@@ -1,0 +1,31 @@
+created: 20140421102758856
+modified: 20140421110245737
+title: Deploying TiddlyWiki Node.Js on Github
+type: text/vnd.tiddlywiki
+tags: trashed
+source-wiki: http://larigot.avarts.ionio.gr/users/iani/wikis/tw5square.html#Deploying%20TiddlyWiki%20Node.Js%20on%20Github
+
+This is __''//not//''__ about  running a Node.js based TiddlyWiki on GitHub.  It mentions the github repo of TiddlyWiki as a source for installing TiddlyWiki locally. 
+
+See tiddler "Creating Plugins" in http://welford.github.io/.
+
+And see also: https://github.com/Jermolene/TiddlyWiki5/issues/340
+
+Here is the quoted beginning of the "Creating Plugins" tiddler above.  I have not tested this yet on Github.
+
+<<<
+# install node.js
+# edit P:\nodejs\node_modules\npm\npmrc to change where npm installs it's modules if you want
+# install tiddlywiki on nodejs >npm install -g tiddlywiki not neccesary if you are using the github repo
+# clone the repo at https://github.com/Jermolene/TiddlyWiki5 then
+# go to where you cloned tiddlywiki and use npm link so that it uses the local github copy instead of the installed one (need to do as admin if you already installed the nodejs version)
+# sanity check tiddlywiki --version
+# moveto [tw_root]\editions\
+# create a wiki to test your plugin tiddlywiki plugintest --init server
+#. this will create a folder called plugintest with a tiddlywiki.info file in it
+# create some folders for your plugin in [tw_root]\plugins\[organization_name]\[plugin_name]
+# also need some extra data like [tw_root]\plugins\[organization_name]\[plugin_name]\plugin.info
+# also need some extra data like [tw_root]\plugins\[organization_name]\[plugin_name]\plugin.js
+# add your plugin to tiddlywiki.info
+
+<<<

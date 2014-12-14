@@ -1,0 +1,13 @@
+created: 20140923174835981
+creator: inmysocks
+modified: 20141023190933751
+modifier: inmysocks
+title: Changing the little icon the browser uses
+tags: [[Wiki Examples]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Changing%20the%20little%20icon%20the%20browser%20uses
+
+When TiddlyWiki starts up in the browser it looks for a tiddler called [[$:/favicon.ico]] and dynamically uses it as the favicon for the page. If you modify the image then the favicon changes instantly to reflect it.
+
+So if you want to change it just delete the current [[$:/favicon.ico]] and name the desired tiddler [[$:/favicon.ico]]. You may need to reload the tiddlywiki.
+
+<<bottomOfTiddler {{!!title}}>>

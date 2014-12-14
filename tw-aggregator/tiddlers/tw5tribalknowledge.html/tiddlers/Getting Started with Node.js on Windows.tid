@@ -1,0 +1,69 @@
+blurb: Complete newbies guide for getting started using TW5 on Node.js
+created: 20140317002616976
+modified: 20140317013835447
+revision: 4
+subtopic: node.js
+title: Getting Started with Node.js on Windows
+type: text/vnd.tiddlywiki
+tags: [[Knowledge Base]]
+source-wiki: http://dl.dropboxusercontent.com/u/118970/wiki/tw5tribalknowledge.html#Getting%20Started%20with%20Node.js%20on%20Windows
+
+I never used node.js until a couple weeks ago when I started using ~TiddlyWiki again and wanted to see how it worked. I thought other newbies might need some help so here are the steps I used.
+
+This how-to will describe how to download and install node.js on your Windows machine.
+This build will be portable. That is, you will install it into a folder that you can easily copy and move to another machine or keep in sync via Dropbox, Google Drive or any similar service.
+
+<strong>Installing Node.js Portable</strong>
+
+You'll first need to download nodejs-portable from https://github.com/crazy-max/nodejs-portable
+I'll assume you are connected to the internet for the rest of the instructions.
+
+# Unzip the files to the directory you want to install Node. For this example, I am going to install to D:\NodePortable which I will call the Install Directory in this how-to.
+# Open a command window by running cmd
+# cd to the Install Directory
+# type:  `nodejs-portable` and hit enter to run the batch file
+# Enter 2 to install
+# When it is done, enter 1 and you'll get a reply that all is done.
+
+You now have a copy of Node!
+
+Ok, now let's get ~TiddlyWiki installed.
+
+<strong>Installing ~TiddlyWiki</strong>
+
+(The following is a bit of a modification of the [[official tiddlywiki node.js how-to|http://tiddlywiki.com/static/Installing%2520TiddlyWiki%2520on%2520Node.js.html]] put here for convenience.)
+
+# cd back to the Install Directory (you must do this because the batch file above leaves the cursor in the work directory)
+# In the command window type: 
+#> `npm install -g tiddlywiki`
+#> If it fails with an error you may need to re-run the command as an administrator
+# Check ~TiddlyWiki is installed by typing:
+#> `tiddlywiki --version`
+# In response, you should see ~TiddlyWiki report its current version (eg `5.0.8-beta`; you may also see other debugging information reported)
+# Try it out:
+## `tiddlywiki mynewwiki --init server` to create a folder for a new wiki that includes server-related components
+## `tiddlywiki mynewwiki --server` to start TiddlyWiki
+## Visit http://127.0.0.1:8080/ in your browser
+## Try editing and creating tiddlers
+
+Many more details about running TW5 on Node can be found [[here|http://tiddlywiki.com/static/TiddlyWiki%2520on%2520Node.js.html]]. Including how to update your ~TiddlyWiki when a new version comes out.
+
+<strong>Importing from a stand alone HTML file</strong>
+
+If you have a traditional TW5 wiki and you now want to run it on Node.js, you can import it.
+
+* Go to a terminal window again and get to your Install Directory
+* Assuming your wiki is in the mynewwiki folder, type:
+*>`tiddlywiki ./mynewwiki  --load path/to/my-tw5-wiki-file.html`
+* If your wiki was password protected the  command would be:
+*> `tiddlywiki ./mynewwiki  --password pa55w0rd --load path/to/my-tw5-wiki-file.html`
+
+<strong>Things to note:</strong>
+
+* If you want another ~TiddlyWiki installed you would just go back to the command line and type
+*>`tiddlywiki myotherwiki --init server`
+* You would start your other wiki by typing: 
+*>`tiddlywiki myotherwiki --server`
+* __Each wiki must be run on a different port__
+** The default port is 8080. If you wanted to use 8081 for example, you would start the wiki by typing:
+*>`tiddlywiki mynewwiki --server 8081`

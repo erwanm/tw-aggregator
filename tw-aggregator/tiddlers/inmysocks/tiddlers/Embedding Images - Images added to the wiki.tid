@@ -1,0 +1,59 @@
+created: 20140912165147189
+creator: inmysocks
+modified: 20141120205303840
+modifier: inmysocks
+title: Embedding Images - Images added to the wiki
+tags: [[Wiki Examples]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Embedding%20Images%20-%20Images%20added%20to%20the%20wiki
+
+There are a few ways to do this. 
+
+First, if you have the image included in the wiki (see [[Adding Images]]) as a tiddler you can simply do 
+
+```
+{{PrinnySpin}}
+```
+
+where PrinnySpin is the name of the image tiddler. It displays as
+
+{{PrinnySpin}}
+
+Using this method you have no control over the size of the image. If you don't put linebreaks before and after the image it may be placed strangely.
+
+You can control the size of the image like this
+
+```
+[img width=128 [PrinnySpin]]
+[img width=10 [PrinnySpin]]
+```
+
+which gives
+
+[img width=128 [PrinnySpin]]
+[img width=10 [PrinnySpin]]
+
+where 128 and 10 are the widths that the image is scaled to.
+
+You can add tooltips to images
+
+```
+[img|a prinny[PrinnySpin]]
+```
+
+hover the mouse over the image to get the tooltip.
+
+[img[a prinny|PrinnySpin]]
+
+Scaled tooltip prinny
+
+```
+[img width=64 [scaled prinny tooltip|PrinnySpin]]
+```
+
+[img width=64 [scaled prinny tooltip|PrinnySpin]]
+
+The placement of the spaces in the code is important here.
+
+You can also link to images via urls, or have external local images displayed. See [[Embedding Images - External Images]].
+
+<<bottomOfTiddler {{!!title}}>>

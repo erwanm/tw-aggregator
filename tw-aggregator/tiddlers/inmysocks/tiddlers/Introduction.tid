@@ -1,0 +1,40 @@
+created: 20141204203357041
+list-before: 
+modified: 20141204210324190
+no_edit: true
+title: Introduction
+tags: Dashboard
+source-wiki: http://inmysocks.tiddlyspot.com/#Introduction
+
+!Welcome to ~TiddlyWiki!
+
+~TiddlyWiki is a personal organizer or personal wiki. This is a version designed specifically so that there is almost no learning required to use it. There will (hopefully) be versions that just accomplish individual tasks, such as a task list or contacts database. This wiki contains all of the available content for the no learning required versions.
+
+!!To get started
+
+If you just want to get started working then you can click on one of the options to the left. Currently `Introduction` is highlighted to show that you are looking at the introduction tab. If you click on another option on the list than you will see the content for that option.
+
+Currently the options are:
+
+*`Contacts` - a contact database with a simple interface
+*`Create or Edit Tiddlers` - a simple interface for adding more tiddlers to this wiki
+*`Minimal To-Do List` - a task list that just lists tasks and allows you to check them off when they are finished.
+*`To-Do List` - a more advanced task list that has options for adding short descriptions, deadlines and a more detailed explanation to the task. On this list if you click on a task name it will open up the details you have given that task.
+
+!!What do these words mean?
+
+Here is a list of words and definitions related to this wiki that you may not be familiar with:
+
+*''Wiki'' - a user editable document. Wikipedia is probably the most famous example of a wiki. A wiki contains pages or articles that can link to each other to allow navigation through the different articles. What you are currently reading is an example of a wiki called ~TiddlyWiki
+*''Link'' - A link is a word or phrase that you can click on that will bring you to a new place or open up a new page. Links in this wiki are colored blue and when you hover over one it will become underlined. Clicking on links is one of the main ways to navigate this wiki.
+*''Tiddler'' - A single unit used by ~TiddlyWiki. Everything on this wiki is made up of tiddlers, and when you create something here it will be a tiddler. An article on wikipedia would be equivalent to a tiddler. But a tiddler can be significantly more than what is done on wikipedia. Don't worry too much about specifics if you don't want to, the important thing to know now is that when you open something on this wiki what you open is a tiddler. For examples and more explaination go to www.tiddlywiki.com
+*''~TiddlyWiki'' - ~TiddlyWiki is a program that can be used in many different ways, what you are reading right now is an example of a ~TiddlyWiki, but there are many more things that can be done with one. <!-- add history or something here -->
+
+!!If you want to get rid of this message
+If you want to prevent this message from appearing anymore you can click on the button below. Once you do this than this message won't appear again, so make sure you understand the basics of how to use this wiki before you press it. 
+
+If you want this message to stay available than just click on one of the options to the left to get started using the wiki. If you click on the word `Introduction` than this message will appear again.
+
+Click the button down below that says `Don't show this again` and this message will no longer appear when you open your wiki.
+
+<$button message='tm-modal' param=RemoveIntroMessageModal>Don't show this again</$button>

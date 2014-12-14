@@ -1,0 +1,7 @@
+title: Wiki
+tags: Concepts
+source-wiki: http://tiddlywiki.com#Wiki
+
+Groups of uniquely titled tiddlers are contained in WikiStore objects.
+
+The WikiStore also manages the plugin modules used for widgets, and operations like serializing, deserializing, parsing and rendering tiddlers.

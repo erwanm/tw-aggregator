@@ -1,0 +1,23 @@
+blurb: Test
+cell_phone_number: 
+city: Nowhere
+country: USA
+created: 20141109212843220
+first_name: Test
+group: Test Group
+home_phone_number: 
+last_name: test
+modified: 20141120205817673
+nick_name: tset
+other_email_address: other@other.com
+personal_email_address: personal@test.com
+state_or_provence: Denial
+street_address: 999 somestreet Rd
+title: Test test (tset)
+work_email_address: work@work.com
+work_phone_number: 
+zip_code: 11111
+tags: Contacts
+source-wiki: http://inmysocks.tiddlyspot.com/#Test%20test%20(tset)
+
+Look! A test contact!

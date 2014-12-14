@@ -1,0 +1,21 @@
+blurb: 
+created: 20140306064006867
+modified: 20140929002206584
+subtopic: UI Changes
+title: A button that creates a tiddler with a template
+tags: [[Knowledge Base]]
+source-wiki: http://dl.dropboxusercontent.com/u/118970/wiki/tw5tribalknowledge.html#A%20button%20that%20creates%20a%20tiddler%20with%20a%20template
+
+You can create a simple tiddler that has fields, code, tags, anything you want to use over again. See StandardNoteTemplate as an example. 
+
+Then, use the code below to make a button to easily make tiddlers from your new templage.
+
+```
+<$button message="tw-new-tiddler"  param="StandardNoteTemplate">New standard note</$button>
+```
+NOTE: As of [[5.0.16|http://tiddlywiki.com/#Release%205.0.16-beta]] the syntax changed.
+
+```
+<$button message="tm-new-tiddler"  param="StandardNoteTemplate">New standard note</$button>
+```
+I put a couple buttons in the sidebar by editing: [[$:/core/ui/SideBarLists]]

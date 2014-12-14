@@ -1,0 +1,29 @@
+created: 20140130232108288
+creator: Danielo Rodriguez
+modified: 20140130233839497
+modifier: Danielo Rodriguez
+title: RedTextMacro
+tags: macros index
+source-wiki: http://braintest.tiddlyspot.com/#RedTextMacro
+
+This is a single macro to put any text in red color.
+
+Usage:
+
+```
+<<rojo "text to put in red color">>.This is not in red color
+```
+
+<<rojo "text to put in red color">>. This is not in red color.
+
+The macro name is rojo instead of red for two reasons: 
+* Spanish is my native languaje.
+* red is a very common word in english, so I choosed rojo to avoid possible collisions.
+
+If you want this macro just grab this link to your TW5:
+
+[[$:/macros/danielo/rojo.js]]
+
+''Note that after installing this macro you have to reload the browser in order to make it work.'' This is because the core have to load the javascript code.
+
+Special thanks to ''StephanHradek'' to make the basic javascript macro example. ( [[TW5Magick|http://tw5magick.tiddlyspot.com/]] )

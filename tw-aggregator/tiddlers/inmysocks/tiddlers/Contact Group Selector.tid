@@ -1,0 +1,14 @@
+created: 20141109023616493
+creator: inmysocks
+modified: 20141204013130196
+modifier: inmysocks
+no_edit: true
+title: Contact Group Selector
+tags: [[New Contact Form]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Contact%20Group%20Selector
+
+<$select tiddler='ContactTemp' field='group'>
+<$list filter='[tag[ContactGroup]]'>
+<option><$view field='title'/></option>
+</$list>
+</$select>

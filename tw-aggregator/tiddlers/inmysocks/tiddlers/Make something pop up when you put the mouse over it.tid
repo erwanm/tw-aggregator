@@ -1,0 +1,51 @@
+created: 20140925211326939
+modified: 20141023192130269
+title: Make something pop up when you put the mouse over it
+tags: [[Wiki Widgets - buttons, filters, etc.]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Make%20something%20pop%20up%20when%20you%20put%20the%20mouse%20over%20it
+
+See [[Make a tiddlers blurb display popup when you hover over a link]] and for macros that make some uses of this much simpler.
+
+This is almost identical to how using a button to make something pop up works, just replace `$button` with `$hover` and the action will happen when the mouse hovers over it instead of clicking on it.
+
+Anything between `<div class="tc-drop-down">` and `</div>` will be displayed in the popup, including other tiddlers that are [[transcluded|Transclusion (including one tiddler in another)]].
+
+Note: It is possible that having multiple bits of popup code in a single tiddler may act strangely if they all use `state=$:/SamplePopupState` where all the popups will show whenever one is shown. This should go away if you change it to `state=$:/foo` where `foo` is unique for each popup.
+
+The text that is displayed (`Pop me up!` in the example) can be changed to an image or a link or pretty much anything.
+
+The code
+
+```
+<$hover popup="$:/SamplePopupState">Pop me up!</$hover>
+
+<$reveal type="popup" state="$:/SamplePopupState">
+<div class="tc-drop-down">
+
+!Look Text!
+some text here too
+
+and an image
+[img [PrinnySpin]]
+
+</div>
+</$reveal>
+```
+
+makes this (hover over it):
+
+<$hover popup="$:/SamplePopupState">Pop me up!</$hover>
+
+<$reveal type="popup" state="$:/SamplePopupState">
+<div class="tc-drop-down">
+
+!Look Text!
+some text here too
+
+and an image
+[img [PrinnySpin]]
+
+</div>
+</$reveal>
+
+<<bottomOfTiddler {{!!title}}>>

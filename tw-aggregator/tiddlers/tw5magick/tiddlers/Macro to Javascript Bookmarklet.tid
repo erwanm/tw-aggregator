@@ -1,0 +1,11 @@
+created: 20140110155254756
+creator: Stephan Hradek
+modified: 20140127091749355
+modifier: Stephan Hradek
+title: Macro to Javascript Bookmarklet
+source-wiki: http://tw5magick.tiddlyspot.com/#Macro%20to%20Javascript%20Bookmarklet
+
+This [[bookmarklet]] will search in the current textarea for a wikitext macro. It then replaces the textarea's content with a javascript version of that macro.
+
+[[Show|macro2js]] <$macrocall $name="bookmarklet" tiddler="macro2js" />
+

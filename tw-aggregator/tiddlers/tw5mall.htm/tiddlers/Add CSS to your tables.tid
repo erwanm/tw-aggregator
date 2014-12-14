@@ -1,0 +1,190 @@
+created: 20131002011600000
+modified: 20131117143000003
+title: Add CSS to your tables
+tags: Tables
+source-wiki: http://www.giffmex.org/tw5mall.htm#Add%20CSS%20to%20your%20tables
+
+Tables in ~TiddlyWiki 5 aren't yet as formattable as tables were in ~TiddlyWiki classic. But there are five things you can do to spruce up a table:
+
+!Add a caption to your table
+Anywhere in your table you can add a caption row, two vertical lines and the letter c, with your caption between the vertical lines. The caption will appear at the bottom of the table no matter where you place it within the table markup.
+
+```
+|This is your caption|c
+|Text 1|Text 2|
+|Text 3|Text 4|
+
+```
+Produces the following:
+
+|This is your caption|c
+|Text 1|Text 2|
+|Text 3|Text 4|
+
+!Add a header
+
+Similarly, instead of adding ! at the beginning of each header cell, you can add the letter h at the end of the header row.
+
+```
+|Header|Header|h
+|Text|Text|
+```
+
+Produces the following:
+
+|Header|Header|h
+|Text|Text|
+
+Header rows will always appear as the first row of the table no matter where you place them in the table markup.
+
+!Add a footer
+
+Footer rows are created by adding the letter f at the end of the row, and always appear as the last row of the table, no matter where you place them in the table markup.
+
+```
+|Text|Text|
+|Footer|Footer|f
+
+```
+
+Produces the following:
+
+|Text|Text|
+|Footer|Footer|f
+
+!Adding style to an entire table
+You can adjust the style of an entire table by adding a row above the table, two vertical lines and the letter k. Between the vertical lines you will need to place the name of the CSS class you have created with your custom table styles. For example, if you add the folllowing markup in your [[StyleSheet tiddler]]:
+
+```
+html body.tw-body .psychotable th {background-color:#ff0099;}
+html body.tw-body .psychotable td {background-color:#ff9933;}
+html body.tw-body .psychotable {border-color:#ff0033;border-width:10px;}
+
+```
+Then wrap a table in the following manner:
+
+```
+|psychotable|k
+|Text 1|Text 2|
+|Text 3|Text 4|
+
+```
+
+You will get the following results:
+
+|psychotable|k
+|!Header|!Header|
+|Text 1|Text 2|
+|Text 3|Text 4|
+
+If you are new to CSS table atrributes, you can see the list of attributes here: http://www.danfergusdesign.com/classfiles/generalReference/tableAttributes.html
+
+!Hijack the exclamation mark to highlight individual cells
+Unfortunately, the table markup for ~TiddlyWiki 5 doesn't allow you to add CSS inside individual cells. However, if your table doesn't need a header, you can use the exclamation mark (!) to format individual cells in a table instead of using it for the header. 
+
+```
+|Text|Text|
+|Text|!Emphasized text|
+|Text|Text|
+
+```
+Produces:
+
+|Text|Text|
+|Text|!Emphasized text|
+|Text|Text|
+
+This trick works best by combining it with a CSS table class, so that you have complete control over the formatting of the cell. The following CSS in your [[StyleSheet tiddler]]
+
+```
+html body.tw-body .specialcell th {background-color:#880044; color:#fff;}
+
+```
+
+combined with the following table wrapper
+
+```
+
+|specialcell|k
+|Text|Text|
+|Text|!Emphasized text|
+|Text|Text|
+
+```
+
+Produces:
+
+|specialcell|k
+|Text|Text|
+|Text|!Emphasized text|
+|Text|Text|
+
+!Have both header cells AND highlighting of individual cells
+
+A huge thanks to Stephan Hradek for this tip. I have pasted the content of his helpful email, after slightly modifying it:
+
+I'd like to show a way how you can use BOTH! Headers AND highlighting cells. For this I [adapted] your psychotable:
+
+''Version 1: header row plus highlighted cell''
+
+This table
+
+```
+|psychotable2|k
+|!Header one|!Header two|!Header three|
+|Cell 1|Cell 2|Cell 3|
+|Cell 4|!Cell 5|Cell 6|
+|Cell 7|Cell 8|Cell 9|
+```
+
+With this CSS:
+
+```
+/*PSYCHOTABLE2*/
+
+html body.tw-body .psychotable2 tr:first-child th {background-color:#ff0099;}
+html body.tw-body .psychotable2 td {background-color:#ff9933;}
+html body.tw-body .psychotable2 {border-color:#ff0033;border-width:10px;}
+html body.tw-body .psychotable2 th {background-color:#00ff00;}
+
+```
+
+Produces this table:
+
+|psychotable2|k
+|!Header one|!Header two|!Header three|
+|Cell 1|Cell 2|Cell 3|
+|Cell 4|!Cell 5|Cell 6|
+|Cell 7|Cell 8|Cell 9|
+
+''Version 2: header column plus highlighted cell''
+
+Here is a different "psychotable" with headers as a column. This table:
+
+```
+|psychotableR|k
+|!Header one|Cell 1|Cell 2|Cell 3|
+|!Header two|Cell 4|!Cell 5|Cell 6|
+|!Header three|Cell 7|Cell 8|Cell 9|
+
+```
+
+With this CSS:
+
+```
+
+/*PSYCHOTABLER*/
+
+html body.tw-body .psychotableR tr th:first-child {background-color:#ff0099;}
+html body.tw-body .psychotableR td {background-color:#ff9933;}
+html body.tw-body .psychotableR {border-color:#ff0033;border-width:10px;}
+html body.tw-body .psychotableR th {background-color:#00ff00;}
+
+```
+
+produces this table:
+
+|psychotableR|k
+|!Header one|Cell 1|Cell 2|Cell 3|
+|!Header two|Cell 4|!Cell 5|Cell 6|
+|!Header three|Cell 7|Cell 8|Cell 9|

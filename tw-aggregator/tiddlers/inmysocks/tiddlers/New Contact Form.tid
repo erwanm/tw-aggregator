@@ -1,0 +1,44 @@
+blurb: A fillable form to add new contacts
+created: 20141103233147605
+creator: inmysocks
+modified: 20141204013334831
+modifier: inmysocks
+no_edit: true
+title: New Contact Form
+tags: Tools
+source-wiki: http://inmysocks.tiddlyspot.com/#New%20Contact%20Form
+
+\define getFullName() $(FirstName)$ $(LastName)$ ($(NickName)$)
+
+|!First Name |<$edit-text tiddler="ContactTemp" field="firstname" placeholder="First Name"  size="40"/>|
+|!Last Name |<$edit-text tiddler="ContactTemp" field="lastname" placeholder="Last Name"  size="40"/>|
+|!Nick Name |<$edit-text tiddler="ContactTemp" field="nickname" placeholder="Nick Name"  size="40"/>|
+|!Personal Email Address |<$edit-text tiddler="ContactTemp" field="personalemailaddress" placeholder="Personal Email Address"  size="40"/>|
+|!Work Email Address |<$edit-text tiddler="ContactTemp" field="workemailaddress" placeholder="Work Email Address"  size="40"/>|
+|!Other Email Address |<$edit-text tiddler="ContactTemp" field="otheremailaddress" placeholder="Other Email Address"  size="40"/>|
+|!Home Phone Number |<$edit-text tiddler="ContactTemp" field="homephonenumber" placeholder="Home Phone Number"  size="40"/>|
+|!Cell Phone Number |<$edit-text tiddler="ContactTemp" field="cellphonenumber" placeholder="Cell Phone Number"  size="40"/>|
+|!Work Phone Number |<$edit-text tiddler="ContactTemp" field="workphonenumber" placeholder="Work Phone Number"  size="40"/>|
+|!Street Address |<$edit-text tiddler="ContactTemp" field="streetaddress" placeholder="Street Address"  size="40"/>|
+|!City |<$edit-text tiddler="ContactTemp" field="city" placeholder="City"  size="40"/>|
+|!State/Provence |<$edit-text tiddler="ContactTemp" field="stateprovence" placeholder="State/Provence"  size="40"/>|
+|!Zip Code |<$edit-text tiddler="ContactTemp" field="zipcode" placeholder="Zip Code"  size="40"/>|
+|!Country |<$edit-text tiddler="ContactTemp" field="country" placeholder="Country"  size="40"/>|
+|!Blurb |<$edit-text tiddler="ContactTemp" field="blurb" placeholder="Quick description"  size="40"/>|
+|!Group |<<newContactAddGroup2>> <<newContactAddGroup1>>|
+
+<$set name="FirstName" value={{ContactTemp!!firstname}}>
+<$set name="LastName" value={{ContactTemp!!lastname}}>
+<$set name="NickName" value={{ContactTemp!!nickname}}>
+<$set name="grouptag" value={{ContactTemp!!group}}>
+<$fieldmangler>
+<$button>Create Contact
+<$action-setfield $tiddler=<<getFullName>> first_name={{ContactTemp!!firstname}} last_name={{ContactTemp!!lastname}} nick_name={{ContactTemp!!nickname}} personal_email_address={{ContactTemp!!personalemailaddress}} work_email_address={{ContactTemp!!workemailaddress}} other_email_address={{ContactTemp!!otheremailaddress}} home_phone_number={{ContactTemp!!homephonenumber}} work_phone_number={{ContactTemp!!workphonenumber}} cell_phone_number={{ContactTemp!!cellphonenumber}} street_address={{ContactTemp!!streetaddress}} country={{ContactTemp!!country}} state_or_provence={{ContactTemp!!stateprovence}} zip_code={{ContactTemp!!zipcode}} city={{ContactTemp!!city}} blurb={{ContactTemp!!blurb}} group={{ContactTemp!!group}} tags="Contacts"/>
+<$action-setfield $tiddler=ContactTemp firstname="" lastname="" nickname="" personalemailaddress="" workemailaddress="" otheremailaddress="" homephonenumber="" workphonenumber="" cellphonenumber="" streetaddress="" country="" stateprovence="" zipcode="" city="" blurb=""/>
+<!--
+<$action-sendmessage $message="tm-new-tiddler" title=<<getFullName>> first_name={{ContactTemp!!firstName}} last_name={{ContactTemp!!lastName}} nick_name={{ContactTemp!!nickName}} personal_email_address={{ContactTemp!!personalEmailAddress}} work_email_address={{ContactTemp!!workEmailAddress}} other_email_address={{ContactTemp!!otherEmailAddress}} home_phone_number={{ContactTemp!!homePhoneNumber}} work_phone_number={{ContactTemp!!workPhoneNumber}} cell_phone_number={{ContactTemp!!cellPhoneNumber}} street_address={{ContactTemp!!streetAddress}} country={{ContactTemp!!country}} state_or_provence={{ContactTemp!!stateProvence}} zip_code={{ContactTemp!!zipCode}} city={{ContactTemp!!city}} blurb={{ContactTemp!!blurb}} group={{ContactTemp!!group}} tags="Contacts"/> -->
+</$button>
+</$fieldmangler>
+</$set>
+</$set>
+</$set>

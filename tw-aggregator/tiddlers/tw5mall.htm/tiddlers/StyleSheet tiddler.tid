@@ -1,0 +1,10 @@
+created: 20131002021800000
+modified: 20131117143100007
+title: StyleSheet tiddler
+source-wiki: http://www.giffmex.org/tw5mall.htm#StyleSheet%20tiddler
+
+A ~StyleSheet tiddler is a system tiddler in which a user can add CSS in order to change the appearance of a ~TiddlyWiki. You can create a ~StyleSheet tiddler by 
+
+*creating a new tiddler, 
+*entitling it $:/~StyleSheet, 
+*and tagging it $:/tags/stylesheet.

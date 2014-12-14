@@ -1,0 +1,68 @@
+created: 20140924170316263
+modified: 20141207062902455
+title: Things to import to make everything work
+tags: Contents
+source-wiki: http://inmysocks.tiddlyspot.com/#Things%20to%20import%20to%20make%20everything%20work
+
+__Note: To update anything here just import it again and you will copy over the old version.__
+
+Just click and drag the following links to your wiki to import them, a list will pop showing the tiddlers you are going to import, then just press the `import` button. You may have to reload the wiki for the plugins to start working, but you only need to do that once after you import them.
+
+For the `Change Tiddler Width` button in the top left corner. This is just a button that opens up what I think is a nicer interface to change the width of tiddlers. It makes switching between different devices go smoother.
+
+*[[TiddlerWidthSettings]]
+*[[ChangeSizeButton]]
+
+The [[Dashboard]] is new and I need to include how to import it here. Until then see [[How to add to the Dashboard]]. You need to import everything under Basic Functions for it to work as the dashboard. Then import the tiddlers listed under the functions you want to import. You can just import the section you want and create your own interface if you don't want to use the dashboard. If you do that I would like to hear how you are using it and what your choice of interface is so that I can improve things here. Email me at inmysocks (at) gmail (dot) com
+
+The macro that makes the stuff at the bottom of the tiddlers work (see [[Code for the stuff at the bottom of most of the tiddlers]]):
+
+[[BottomOfTiddlerMacro]]
+
+<<fa "fa-star fa-spin">> [[Font Awesome|Using Font Awesome]] <<fa fa-flag>> Font awesome is a font that lets you use many different SVG icons. <<fa fa-home>> You should read the page here on it and check out the linked pages for plugin information and more documentation. <<fa fa-heart>> The macros here are described in [[Using Font Awesome]] and are just shortcuts for adding icons. <<fa fa-smile-o>>
+
+Plugin:  [[$:/plugins/TheDiveO/FontAwesome]]<br>
+Macros: FontAwesomeMacro
+
+
+The [[RandVal Plugin]] (for some reason just importing this plugin tiddler isn't importing everything, you may have to import the tiddlers individually. Click on the plugin name below and import the listed tiddlers.) This plugin adds the widget action-randval that generates a random number in a set range and stores it in a field. See the plugin page for more detail.
+
+[[$:/plugins/inmysocks/randVal]]
+
+KaTeX plugin - [[lets you do LaTeX typesetting in the wiki|Adding LaTeX Equations]]
+
+[[$:/plugins/tiddlywiki/katex]]
+
+General Macros - macros that do other stuff. Currently contains: [[TextSlider Macro]], [[TiddlerSlider Macro]], and some other stuff
+
+[[GeneralMacros]]
+
+
+When using this for managing contacts everything can (and should) be done using the main [[Contacts]] tiddler. To remove a contact delete the tiddler for that contact. The tiddler you delete should have a name in the form 'firstName lastName (nickName)'.
+
+{{Tiddlers Needed for Contacts}}
+
+Editing the contactMacro is GeneralMacros changes how the contacts are displayed in [[Contacts]].
+
+The HoverWidget to make mouseover popup things work
+
+[[$:/plugins/ahahn/hoverWidget]]
+
+Macros that implement other hover actions, these require the HoverWidget, so import that also. (currently the [[hoverData|Make data from a dictionary tiddler appear when you hover over something]], [[hoverBlurb|Make a tiddlers blurb popup when you hover over a link]], [[hoverTiddler|Make one tiddler popup when you hover over a link to another tiddler]] , and [[hoverImageBlurb|Make an image tiddlers blurb field show up like a tooltip]] macros are included.)
+
+[[MyHoverMacros]]
+
+If you like the spinning prinny than you can import the image
+
+[[PrinnySpin]] 
+
+
+Templates you may want
+
+[[TiddlerTaskTemplate]]<br>
+[[TiddlerTopicTemplate]]<br>
+[[StandardNoteTemplate]]<br>
+[[ContactDisplayTemplate]]
+
+
+<<bottomOfTiddler {{!!title}}>>

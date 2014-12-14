@@ -1,0 +1,21 @@
+blurb: A style sheet to give you the look of Google Now cards
+created: 20140315224845468
+modified: 20140315225530236
+subtopic: UI Changes
+title: Google Now(ish) Cards Style
+tags: [[Knowledge Base]]
+source-wiki: http://dl.dropboxusercontent.com/u/118970/wiki/tw5tribalknowledge.html#Google%20Now(ish)%20Cards%20Style
+
+I created a Style Sheet in this ~TiddlyWiki that you can drag and drop into your own tiddly wiki to make it a little like Google Now cards.
+
+Mostly it just changes the fonts and line spacing a bit. Looks good in Chrome and Firefox.
+
+My style sheet is here: [[$:/StyleSheet]]
+
+-----
+
+You make your own style sheet by:
+
+*creating a new tiddler, 
+*naming it $:/~StyleSheet, 
+*and tagging it $:/tags/stylesheet.

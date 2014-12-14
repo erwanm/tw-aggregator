@@ -1,0 +1,16 @@
+created: 20141206165415858
+modified: 20141206170102881
+title: Adding Images
+tags: [[Wiki Examples]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Adding%20Images
+
+To add an image you have two main options:
+
+*Importing using the import button on the side menu (it is at the top of this wiki, by default it is on the right side)
+*Importing by dragging and dropping a file onto the wiki window
+
+!!Importing using the button
+Click on the button, which will open up a dialogue that allows you to navigate to the location of the image you want to import on your computer and select the image and click OK. Then an import tiddler will open listing the name of the picture, click the import button and the picture is now part of your wiki. The the tiddler name is the full image file name, you can open it up by clicking on the name in the tiddler that appears after you import it. If you wish to change the name of the picture in your wiki you can edit the name in the same way as any other tiddler.
+
+!!Importing by dragging and dropping
+Find the image you want using a file manager and click on the images name or icon, then still holding down the mouse button drag the icon to the window where you have your wiki open and when your mouse is over some part of your wiki release the mouse button. The import tiddler should appear and you can click import to import the image. The the tiddler name is the full image file name, you can open it up by clicking on the name in the tiddler that appears after you import it. If you wish to change the name of the picture in your wiki you can edit the name in the same way as any other tiddler.

@@ -1,0 +1,11 @@
+created: 20141213060909562
+modified: 20141213061432197
+title: Tiddler Body Font Settings
+source-wiki: http://inmysocks.tiddlyspot.com/#Tiddler%20Body%20Font%20Settings
+
+| Set Font Size | Set Line Height |h
+|<$radio tiddler='$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize' field='text' value='24px'> 24</$radio> |<$radio tiddler='$:/themes/tiddlywiki/vanilla/metrics/bodylineheight' field='text' value='30px'> 30</$radio>|
+|<$radio tiddler='$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize' field='text' value='18px'> 18</$radio>|<$radio tiddler='$:/themes/tiddlywiki/vanilla/metrics/bodylineheight' field='text' value='24px'> 24</$radio>|
+|<$radio tiddler='$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize' field='text' value='15px'> 15</$radio>|<$radio tiddler='$:/themes/tiddlywiki/vanilla/metrics/bodylineheight' field='text' value='22px'> 22</$radio>|
+|<$radio tiddler='$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize' field='text' value='12px'> 12</$radio>|<$radio tiddler='$:/themes/tiddlywiki/vanilla/metrics/bodylineheight' field='text' value='18px'> 18</$radio>|
+|<$radio tiddler='$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize' field='text' value='8px'> 8</$radio> |<$radio tiddler='$:/themes/tiddlywiki/vanilla/metrics/bodylineheight' field='text' value='14px'> 14</$radio>|

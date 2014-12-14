@@ -1,0 +1,53 @@
+caption: Theme
+created: 20140430132131555
+creator: Matabele
+modified: 20140508175554135
+modifier: Matabele
+revision: 0
+title: Customising the Theme
+type: text/vnd.tiddlywiki
+wills: documentation
+source-wiki: http://wills.tiddlyspot.com/#Customising%20the%20Theme
+
+!.myTitle A Palette in Cool Colours
+
+The empty version of TW5 is rather spartan -- in particular, I prefer a darker theme with green tint behind the text -- my chosen theme 'Vanilla Cool' uses a cool palette, however the colour scheme has been designed to be compatible with plain Vanilla for those who prefer a lighter theme. 
+
+{{color scheme.jpg}}
+
+;Vanilla-cool
+:Darker vanilla palette using cool colours --- [[$:/palettes/Vanilla-cool]] --- optional
+:Apply the palette from the @@background-color:grey; Appearance@@ tab of the Control Panel 
+:Stylesheet --- [[$:/_stylesheet/mystyles]]
+:Widen the story river --- [[$:/themes/tiddlywiki/vanilla/metrics]] --- optional
+
+!.myTitle Additional Buttons
+
+I have grabbed a clone tiddler button and a close others button (in the edit panel.)
+
+{{{ [field:wills[controls]] }}}
+
+The Site Title is set to function as a home button and the gTiD of the title is set to function as a fullscreen button (requires the fullscreen plugin.)
+
+[[$:/SiteTitle]]
+
+!.myTitle Customising the Sidebar
+
+I have added an advanced search tab to the 'Sidebar' (including standard search.) 
+
+{{{ [field:wills[sidebar]] }}}
+
+If you wish to remove the old search search below the header. 
+
+{{{ [field:wills[search]] }}}
+
+I have added a 'Systems Tags' tab to the 'More' sidebar
+
+{{{ [field:wills[moresidebar]] }}}
+
+!.myTitle Additional Plugins
+
+I have included Danielo's keyboardSnippets plugin -- this is not necessary for either the leftmenu or for Q&D gTiD, but is included as I find this useful when writing this tiddlywiki
+
+[[keyboardSnippets]]
+

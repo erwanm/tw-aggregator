@@ -1,0 +1,15 @@
+created: 20140323114449300
+modified: 20140909115438901
+title: Getting Started
+type: null
+tags: TCdoc [[Quick Start and Basics]]
+source-wiki: http://tiddlyclip.tiddlyspot.com/#Getting%20Started
+
+This ~TiddlyWiki[TW] contains the  TW plugin ~TiddlyClip[TC] and provides some TC document. 
+For an introduction to TC see AboutTiddlyClip.
+
+!!!Installation
+TC comes in two halves, the TW plugin contained in this TW - [[$:/plugins/bj/tiddlyclip]], and the browser Addon. Currently only Firefox is supported, Support for Chrome is coming soon. See [[Installing the Firefox Addon]]
+
+As tiddlyclip is still in development, and it modifies the contents of tiddlywikis, it is possible that the data within a tiddlywiki could be distroyed -  it is therefore RECOMMENDED that tiddlyclip is only used in a separate tiddlywiki and used only for experimentation. The plugin can be installed by dragging its link above into a tiddlywiki5.
+

@@ -1,0 +1,15 @@
+created: 20140924172414316
+modified: 20141023191124485
+title: Creating a table of contents
+tags: [[Wiki Examples]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Creating%20a%20table%20of%20contents
+
+The quick solution is to import this by clicking on the link below and dragging it to your wiki:
+
+[[Contents]]
+
+Then anything you tag `Contents` will show up in the first level of the table of contents, like `Things to import to make everything work`, `What to do` and `Wiki Examples` are in this wiki. Then anything tagged with the name of a tiddler in the table of contents will be included under that tiddler, like how `CamelCase` is listed under `Wiki Examples` in this wiki.
+
+So any tiddler tagged `Wiki Examples` shows up under Wiki Examples, and any tiddler tagged `Wiki Formatting - text, tables, etc.` shows up in the table of contents under Wiki Formatting - text, tables, etc. and so on.
+
+<<bottomOfTiddler {{!!title}}>>

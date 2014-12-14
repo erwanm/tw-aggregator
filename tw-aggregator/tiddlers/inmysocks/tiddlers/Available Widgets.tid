@@ -1,0 +1,52 @@
+blurb: 
+created: 20140923220312854
+creator: inmysocks
+modified: 20141023191932816
+modifier: inmysocks
+title: Available Widgets
+tags: [[Wiki Widgets - buttons, filters, etc.]] unfinished
+source-wiki: http://inmysocks.tiddlyspot.com/#Available%20Widgets
+
+For the documentation make sure you include examples of how to use each widget, not just the documentation that they have at tiddlywiki.com
+
+Widgets that are part of the core plugin:<br>
+
+*[[Documentation:BrowseWidget]]
+*[[Documentation:ButtonWidget]]
+*[[Documentation:CheckboxWidget]]
+*[[Documentation:CountWidget]]
+*[[Documentation:DropzoneWidget]]
+*[[Documentation:EditBitmapWidget]]
+*[[Documentation:EditTextWidget]]
+*[[Documentation:EditWidget]]
+*[[Documentation:EncryptWidget]]
+*[[Documentation:FieldManglerWidget]]
+*[[Documentation:FieldsWidget]]
+*[[Documentation:ImageWidget]]
+*[[Documentation:ImportVariablesWidget]]
+*[[Documentation:KeyboardWidget]]
+*[[Documentation:LinkCatcherWidget]]
+*[[Documentation:LinkWidget]]
+*[[Documentation:ListWidget]]
+*[[Documentation:MacroCallWidget]]
+*[[Documentation:NavigatorWidget]]
+*[[Documentation:PasswordWidget]]
+*[[Documentation:RadioWidget]]
+*[[Documentation:RevealWidget]]
+*[[Documentation:ScrollableWidget]]
+*[[Documentation:SelectWidget]]
+*[[Documentation:SetVariableWidget]]
+*[[Documentation:SetWidget]]
+*[[Documentation:TextWidget]]
+*[[Documentation:TiddlerWidget]]
+*[[Documentation:TranscludeWidget]]
+*[[Documentation:ViewWidget]]
+
+
+Other widgets added to this wiki:<br>
+
+*[[Documentation:HoverWidget]]
+*~~[[Documentation:MakeTidWidget]]~~ - This functionality has been added elsewhere
+
+
+<<bottomOfTiddler {{!!title}}>>

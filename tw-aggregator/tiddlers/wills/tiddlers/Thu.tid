@@ -1,0 +1,14 @@
+color: #89C6AF
+created: 20140505031102868
+creator: Matabele
+modified: 20140512160822527
+modifier: Matabele
+qad-gtd: week
+revision: 0
+tagbar: week
+title: Thu
+type: text/vnd.tiddlywiki
+source-wiki: http://wills.tiddlyspot.com/#Thu
+
+<$transclude tiddler="$:/_display-panel"/>
+<$transclude tiddler="$:/_tagbar"/>

@@ -1,0 +1,9 @@
+created: 20140920153927964
+creator: AcD
+modified: 20140920164323345
+modifier: AcD
+title: Sorting Editions in docs
+tags: TiddlyDocs ToDo
+source-wiki: http://septembertw.tiddlyspot.com/#Sorting%20Editions%20in%20docs
+
+Some tricks work only in Node.js, other depend on plugins, however common, and docs could reflect that by tagging and sorting accordingly, in addition to IntendedReadership filters.

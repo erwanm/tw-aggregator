@@ -1,0 +1,31 @@
+created: 20140211105930985
+modified: 20140403181035322
+title: Offline installation
+source-wiki: http://mathjax-tw5.kantorsite.net/#Offline%20installation
+
+You can install MathJax locally so you will be able use to MathJax plugin without internet connection BUT TiddlyWiki will not be one-file solution anymore (you will need MathJax.js library in the same directory where TW5 html file is).
+
+''How to - manual installation:''
+
+(use when you already have TW5 with data)
+
+#Download ''Local Installation'' of MathJax to your computer (http://www.mathjax.org/download/)
+#Extract files and copy the contents of directory to same directory where is your TiddlyWiki 5 html file. It should looks like this:
+>{{offline2.png}}
+#Install MathJax plugin for TW5
+## Create a backup of your current TiddlyWiki 5 installation (just for case)
+## Open your TiddlyWiki 5 in browser
+## Move this link: [[$:/plugins/kantorsite/mathjax]] to browser window where is opened your TiddlyWiki
+## Save your TiddlyWiki
+## Refresh the window
+## Now, you can use it (try MathJax)
+#Go to your TiddlyWiki5 ControlPanel (settings button in menu)
+#Inside ControlPanel click on "Plugins" tab
+#In your TiddlyWiki 5 installation click on [[$:/plugins/kantorsite/mathjax]] (you will see it inside Plugins tab)
+#Edit mathjax plugin tiddler
+#Find this part of code:
+#> http:\/\/cdn.mathjax.org\/mathjax\/latest\/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+#Edit text above to this form:
+#> [[MathJax.js?config=TeX-AMS-MML_HTMLorMML]]
+#Save tiddler, save TiddleWiki and refresh browser window
+#It should works

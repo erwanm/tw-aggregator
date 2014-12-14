@@ -1,0 +1,20 @@
+created: 20141009091406432
+modified: 20141104230043802
+title: Tabs
+type: text/vnd.tiddlywiki
+tags: [[Special Tiddler Elements: Lists, Tabs, TOCs]]
+source-wiki: http://larigot.avarts.ionio.gr/users/iani/wikis/tw5square.html#Tabs
+
+See details in: http://tiddlywiki.com/static/TabsMacro.html
+
+Here a simple example:
+
+Code: 
+
+```
+<<tabs "Questions Answers Tips/Links General Tests">>
+```
+
+Result: 
+
+<<tabs "Questions Answers Tips/Links General Tests">>

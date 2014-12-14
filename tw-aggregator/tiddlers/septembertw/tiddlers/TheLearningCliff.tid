@@ -1,0 +1,40 @@
+created: 20140916103931464
+creator: AcD
+modified: 20140917163829562
+modifier: AcD
+title: TheLearningCliff
+tags: GrowingPains DesignDocs
+source-wiki: http://septembertw.tiddlyspot.com/#TheLearningCliff
+
+"""
+As it stands now, TW is only really suitable to those users who don't mind spending potentially more time learning and tweaking (or occasionally breaking) their tool than using it, or have relatively low expectations and can satisfy themselves with the limited set of features immediately accessible to a profane user of a vanilla/community distro.
+
+The power of WikiText alone is a huge differentiator, and the benefits derived from the awesomeness of tiddlers (however limited new users may be by their lacking knowhow) are game-changing enough by themselves to make TW worth a shot.
+
+For those users lacking basic coding experience (be it only shell scripting or html composing) however, moving past the //'just add water'// vanilla experience gets messy and quick, not for lack of brains on their part (hopefully), but because of the paradigm shift involved, and of the surprise roadblocks encountered on the path of enlightenment.
+
+''Edit my what ?''
+While the hacker-minded sees GUI, buttons and checkboxes as shortcuts for //'most frequently used tweaks'//, handy only in the sense that it saves one the effort of recalling which system tiddler or which line to tweak, and spares one looking up the hex value of a color code, a normal human calls the former approach //customizing// and the latter //programming// something he or she wouldn't dream of attempting.
+
+WikiText and macros (to an extent) are more approachable, because they happen in-line with 'natural' text composition, and can be perceived as extensions of syntax and vocabulary to the lexicon of the user. With some care, it should be possible to bring most regular users up to speed, and eventually to where they feel familiar and confident enough to face a page mostly filled with various brackets, dollar signs and semicolons without their brains freezing to a halt.
+For users to get that far, however, they need to see the point of it, meaning most basic use cases should be lickable without the need for more CS expertise than //'WikiText for beginners'// and Lego-type macro buidling.
+
+Which brings us to the second difficulty with the idea of //'TiddlyWiki for normal humans'// : 
+
+''Perceived benefits.''
+
+<div align="center"> <a href="http://xkcd.com/1319/">[img[|http://imgs.xkcd.com/comics/automation.png]] </a></div>
+
+As the above illustrates, the problem is not limited to non-technical users, certainly, but is a special cause of frustration for normal humans who don't get the gratification of toying with cool code as the justification for hours toiled in the name of a fractional improvement in functionality -- worse even when it comes to basic / essential stuff that feels like it //'should have been in the box'//, aka MissingBits.
+
+<div align="center">[img[Aargh ! |clippy-full.jpg]]<br>
+//No, means no.//</div>
+
+OK, nobody wants to go there again. 
+Dreadful implementations aside, the rationale behind assistants points to the very real tension between the need to get stuff done now, and the time it takes to learn how to do it right.
+
+Assistants are bad only because they attempt to substitute user skill instead of easing the learning process.
+
+If TiddlyWiki5 is to succeed near a broader audience than its present niche of committed enthusiasts and hackers, it must abide by UserCentricDesign principles, meaning the ContentCreationUX needs to make affordances for users in the process of learning the ropes, as opposed to merely cater to the 'optimal' case of experts who've mastered the toolset.  
+"""
+

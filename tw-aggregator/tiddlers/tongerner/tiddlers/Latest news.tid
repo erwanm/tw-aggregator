@@ -1,0 +1,262 @@
+created: 20140203095535006
+creator: TonGerner
+modified: 20141209115319513
+modifier: TonGerner
+title: Latest news
+tags: documentation
+source-wiki: http://tongerner.tiddlyspot.com/#Latest%20news
+
+@@.brown ''Latest news''@@
+
+{{$:/_images/construction.gif}}My personal 'playground', always under construction.
+
+---
+<br>
+
+!!!9 December
+* Updated 'Customization of TW5'.
+
+!!!6 December 2014
+* Upgraded 'TW5 top menu toolbar' to TW v5.1.5.
+* Upgraded 'Customization of TW5' to TW v5.1.5.
+
+!!!5 December 2014
+* Upgraded 'TW5 - breadcrumbs' to TW v5.1.5.
+* Upgraded 'Top + left menu' to TW v5.1.5.
+
+!!!4 December 2014
+* Reworked Bluish theme, now at v0.7.8.
+* Upgraded 'TW5 tristate Sidebar' to TW v5.1.5.
+* Upgraded 'TW5 bookmarklets' to TW v5.1.5.
+* Upgraded 'TW5 read-only' to TW v5.1.5.
+
+!!!27 November 2014
+* Upgraded this wiki (NOT all guides) to TW v5.1.5.
+* Upgraded 'TW5 Exploration' to TW v5.1.5.
+
+!!!14 November 2014
+* Added new guide: 'TW5 Exploration'.
+
+!!!10 November 2014
+* Added 'Newline' (`<br>`) to 'TW5 bookmarklets'.
+
+!!!30 October 2014
+* Reworked Bluish theme, now at v0.7.4.
+
+!!!24 October 2014
+* Upgraded this wiki and all guides to TW v5.1.4.
+
+!!!21 October 2014
+* Upgraded 'TW5 - breadcrumbs' to TW v5.1.3.
+* Upgraded 'TW5 top menu toolbar' to TW v5.1.3.
+* Upgraded 'TW5 read-only' to TW v5.1.3.
+
+!!!20 October 2014
+* Upgraded this wiki to TW v5.1.3.
+* Upgraded 'TW5 tristate Sidebar' to TW v5.1.3.
+* Upgraded 'TW5 bookmarklets' to TW v5.1.3.
+
+!!!28 September 2014
+* Upgraded this wiki and all guides to TW v5.1.2.
+
+!!!22 September 2014
+* Upgraded this wiki and all guides to TW v5.1.1.
+
+!!!21 September 2014
+* Upgraded this wiki and guides - except 'Customization of TW5' - to TW v5.1.0.
+
+!!!18 September 2014
+* Upgraded this wiki AND all guides to TW5.0.18-beta.
+
+!!!13 September 2014
+* Upgraded 'TW5 tristate Sidebar' to TW5.0.17-beta.
+* Upgraded 'TW5 - breadcrumbs' to TW5.0.17-beta.
+* Upgraded 'Top + left menu' to TW5.0.17-beta.
+
+!!!12 September 2014
+* Upgraded this wiki to TW5.0.17-beta.
+* Upgraded 'TW5 bookmarklets' to TW5.0.17-beta.
+* Upgraded 'TW5 read-only' to TW5.0.17-beta.
+
+!!!7 September 2014
+* Upgraded 'Customization of TW5' to TW5.0.16-beta.
+
+!!!6 September 2014
+* Upgraded 'TW5 top menu toolbar' to TW5.0.16-beta.
+* Upgraded 'TW5 tristate Sidebar' to TW5.0.16-beta.
+
+!!!5 September 2014
+* Upgraded 'TW5 read-only' to TW5.0.16-beta.
+* Upgraded 'TW5 bookmarklets' to TW5.0.16-beta.
+* Upgraded 'TW5 - breadcrumbs' to TW5.0.16-beta.
+* Upgraded 'Top + left menu' to TW5.0.16-beta.
+
+!!!4 September 2014
+* Upgraded this wiki to TW5.0.16-beta.
+
+!!!28 August 2014
+* Upgraded 'Customization of TW5' to TW5.0.15-beta.
+
+!!!24 August 2014
+* Upgraded 'TW5 read-only' to TW5.0.15-beta.
+
+!!!21 August 2014
+* Upgraded this wiki to TW5.0.15-beta.
+* Upgraded 'TW5 - breadcrumbs' to TW5.0.15-beta.
+* Upgraded 'Top + left menu' to TW5.0.15-beta.
+* Upgraded 'TW5 top menu toolbar' to TW5.0.15-beta. 
+* Upgraded 'TW5 tristate Sidebar' to TW5.0.15-beta.
+* Upgraded 'TW5 bookmarklets' to TW5.0.15-beta.
+
+!!!18 August 2014
+* Upgraded 'TW5 - breadcrumbs' to TW5.0.14-beta.
+* Upgraded 'Top + left menu' to TW5.0.14-beta.
+* Upgraded 'TW5 top menu toolbar' to TW5.0.14-beta.
+
+!!!15 August 2014
+* Upgraded 'TW5 tristate Sidebar' to TW5.0.14-beta.
+* Upgraded 'TW5 bookmarklets' to TW5.0.14-beta.
+
+!!!14 August 2014
+* Upgraded this wiki to TW5.0.14-beta.<br>Guides have to be upgraded to v5.0.14-beta!
+
+!!!13 August 2014
+* 'TW5 tristate Sidebar' v1.1.
+* Monospace bookmarklet added to 'TW5 bookmarklets'.
+
+!!!11 August 2014
+* New guide 'TW5 tristate Sidebar', a 'tristate' toggle Sidebar.
+
+!!!3 August 2014
+* Added 'Exploration' to 'Customization of TW5'.
+
+!!!1 August 2014
+* Some changes/additions to 'TW5 bookmarklets'.
+
+!!!29 July 2014
+* 'TW5 bookmarklets':
+** bug fixes.
+** 'How to add a favicon to a bookmarklet'.
+
+!!!8 July 2014
+* 'How to make TW5 readonly': improved documentation.
+
+!!!16 July 2014
+* 'How to make TW5 readonly': Made a read-only plugin .
+
+!!!9 July 2014
+* Added drag & drop bookmarklets to 'TW5 bookmarklets'.
+
+!!!6 July 2014
+* Updated 'Customization of TW5'. Added description for:
+** $:/tags/~ControlPanel/Advanced/Settings.
+** $:/tags/~TiddlerInfo/Advanced.
+
+!!!5 July 2014
+* Created a new guide: 'TW5 bookmarklets'.
+
+!!!28 June 2014
+* Upgraded 'Top + left menu' to TW5.0.13-beta.
+* Upgraded 'TW5 - breadcrumbs' to TW5.0.13-beta.
+
+!!!27 June 2014
+* Upgraded 'Customization of TW5' to TW5.0.13-beta.
+
+!!!24 June 2014
+* Upgraded this wiki to v5.0.13-beta.
+* Upgraded 'TW5 top menu + toolbars' to TW5.0.13-beta.
+* Upgraded 'How to make TW5 readonly' to TW5.0.13-beta. Other guides will follow.
+
+!!!10 June 2014
+* Added 'Dirtree slider' left menu to 'Top + left menu'.
+
+!!!7 June 2014
+* Updated 'Top + left menu' to Bluish theme v0.2.0. Changed 'Left menu'/Sidebar button behavior.
+
+!!!5 June 2014
+* Updated 'TW5 top menu + toolbars' to Bluish theme v0.2.0.
+
+!!!3 June 2014
+* Updated 'How to make TW5 readonly' and 'TW5 - breadcrumbs' to Bluish theme v0.2.0.
+
+!!!2 June 2014
+* 'Customization of TW5':
+** added commented styles used in Bluish theme.
+** new icon for 'Add tagging in view mode'.
+
+!!!30 May 2014
+* Small changes in Bluish theme (now v.0.2.0).
+
+!!!23 May 2014
+* 'Customization of TW5', added 'Add tagging in view mode' + small corrections/additions.
+* Small corrections/additions to 'TW5 top menu + toolbars'.
+
+!!!20 May 2014
+* 'Customization of TW5', added 'prefix' filter to standard search.
+
+!!!18 May 2014
+* Upgraded 'TW5 top menu + toolbars' to TW5.0.12-beta.
+* Upgraded 'Customization of TW5' to TW5.0.12-beta.
+
+!!!17 May 2014
+* Upgraded ''this'' wiki to TW5.0.12-beta.
+* Upgraded 'TW5 - breadcrumbs' to TW5.0.12-beta.
+* Upgraded 'How to make TW5 readonly' to TW5.0.12-beta.
+* Upgraded 'Top + left menu' to TW5.0.12-beta.
+
+> ''Note:'' Not all guides are yet upgraded to TW5.0.12-beta!
+
+!!!9 May 2014
+* Some corrections and additions to 'Customization of TW5'.
+
+!!!8 May 2014
+* Added documentation to 'Customization of TW5'.
+
+!!!7 May 2014
+* Upgraded 'Customization of TW5' to TW5.0.10-beta.
+* A complete rewrite.
+
+!!!3 May 2014
+* Some corrections in 'TW5 top menu + toolbars'.
+
+!!!2 May 2014
+* Upgraded 'TW5 - breadcrumbs' to TW5.0.10-beta.
+
+!!!1 May 2014
+* Upgraded 'TW5 top menu + toolbars' to TW5.0.10-beta.
+
+!!!28 april 2014
+* 'How to make TW5 readonly': Added possibility to hide the 'Hamburger' menu icon.
+
+!!!27 april 2014
+* 'How to make TW5 readonly': Added possibility to hide the tabs in the Sidebar (checkbox per tab).
+
+!!!24 april 2014
+* Upgraded 'How to make TW5 readonly' to TW5.0.10-beta.<br>This is a new simplified version of it.
+
+!!!21 April 2014
+* Upgraded this wiki to TW5.0.10-beta.
+
+> ''Note:'' Guides are not yet upgraded to TW5.0.10-beta!
+
+!!!29 March 2014
+* Added 'How to simplify the toggle button?' to  [[How to create a top menu + toolbars|http://tw5toolbar.tiddlyspot.com/]].
+
+!!!11 March 2014
+* Added Stephan Hadrek's 'new journal' button to [[How to create a top menu + toolbars|http://tw5toolbar.tiddlyspot.com/]].
+* Added tag pill based entries in top menu to [[How to create a left menu|http://tw5topleft.tiddlyspot.com/]].
+
+!!!6 March 2014
+* [[Problems with tag pills in combination with 3-column mode and Chrome|Problems with tag pills]].
+
+
+!!!1 March 2014
+* Made separate guide for [[Breadcrumbs|http:/tw5breadcrumbs.tiddlyspot.com/]].
+* Upgraded all guides to TW5.0.8-beta.
+
+!!!16 February 2014
+* Updated [[How to make a left menu that can be toggled on/off + tiddlersbar (breadcrumbs)|http://tw5topleft.tiddlyspot.com/]].
+
+!!!11 February 2014<
+* Added a 'tiddlersbar' to a top menu, see:<br>
+[[How to make a left menu that can be toggled on/off + tiddlersbar (breadcrumbs)|http://tw5topleft.tiddlyspot.com/]].

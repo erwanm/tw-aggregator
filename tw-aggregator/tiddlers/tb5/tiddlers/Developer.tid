@@ -1,0 +1,29 @@
+caption: Developer
+created: 20141115085914301
+creator: Tobias Beer
+icon: $:/core/images/permalink-button
+menu: main
+menu-icon: {{$:/core/images/permalink-button}}
+modified: 20141203164337266
+modifier: Tobias Beer
+summary: tidbits for [[developing|http://tiddlywiki.com/dev]] in and for tw5
+title: Developer
+tags: GettingStarted
+source-wiki: http://tb5.tiddlyspot.com#Developer
+
+!!Topics
+<<taggly state:"$:/temp/tb/taggly-developer">>
+
+!!Sources
+;in-browser development
+:[[How to create plugins in the browser|http://tiddlywiki.com/dev/#How%20to%20create%20plugins%20in%20the%20browser]]
+;tw5square
+:[[TiddlyWiki on node.js|http://larigot.avarts.ionio.gr/users/iani/wikis/tw5square.html]]
+
+!!Patterns
+;[[CommonJS|http://wiki.commonjs.org/wiki/CommonJS]]
+:ecosystem for web servers, desktop, command line and in-browser apps
+;[[UMD|https://github.com/umdjs/umd]]
+:Universal Module Definition
+;[[AMD|https://github.com/amdjs/amdjs-api/wiki/AMD]]
+:Asynchronous Module Definition

@@ -1,0 +1,23 @@
+created: 20131121213730481
+creator: Stephan Hradek
+modified: 20131121215510536
+modifier: Stephan Hradek
+title: Overview of all Questions
+source-wiki: http://tw5magick.tiddlyspot.com/#Overview%20of%20all%20Questions
+
+We have 2 tags for the tiddlers. All are tagged with "Quiz". Additionally they have their source website as a tag.
+
+So it would be nice to have a list of all websites an a link to all their questions.
+
+Here TW5's widgets are required.
+
+```
+<$list filter="[tag[Quiz]tags[]] -Quiz +[sort[title]]">
+! <$view field="title"/>
+<$list filter="[is[current]tagging[]] +[tag[Quiz]] +[sort[title]]">
+<$link><$view field="title"/></$link>
+</$list>
+</$list>
+```
+
+[[look at the Overview|List Questions]] then continue with [[Overview of unfinished Questions]]

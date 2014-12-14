@@ -1,0 +1,31 @@
+created: 20140102125553882
+creator: Stephan Hradek
+modified: 20140102130348562
+modifier: Stephan Hradek
+title: fixit
+source-wiki: http://tiddlystuff.tiddlyspot.com/#fixit
+
+\replace /\n//
+
+
+
+
+
+<table>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>I</td>
+<td>II</td>
+<td>III</td>
+</tr>
+</table>
+

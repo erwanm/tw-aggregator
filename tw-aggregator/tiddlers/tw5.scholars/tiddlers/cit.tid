@@ -1,0 +1,16 @@
+created: 20140422115346864
+creator: Alberto Molina
+modified: 20140628201603250
+modifier: Alberto Molina
+title: cit
+tags: nouveau
+source-wiki: http://tw5.scholars.tiddlyspot.com/#cit
+
+<div class="cit">
+
+{{!!text}}
+
+<cite>
+<$link>{{!!title}}</$link>
+</cite>
+</div>

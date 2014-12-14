@@ -1,0 +1,16 @@
+created: 20140127023748532
+modified: 20140424202248829
+title: tiddlywikiRules
+type: application/json
+source-wiki: http://bjtools.tiddlyspot.com/#tiddlywikiRules
+
+{
+"parserrules":{
+"pragmaRuleList":["macrodef", "rules"],
+"blockRuleList":["codeblock", "commentblock", "filteredtranscludeblock", "heading", "horizrule",
+			"list", "macrocallblock", "quoteblock", "styleblock", "table", "transcludeblock", "typedblock"],
+"inlineRuleList":["codeinline", "commentinline", "dash", "emphasis", "entity", "extlink","filteredtranscludeinline",
+		"hardlinebreaks",  "macrocallinline", "prettylink", "styleinline", "transcludeinline"]
+},
+"baserules":""
+}

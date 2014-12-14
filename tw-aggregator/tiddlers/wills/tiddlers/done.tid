@@ -1,0 +1,31 @@
+color: #7d7d82
+created: 20140509070400906
+creator: Matabele
+icon: 
+modified: 20140509070410189
+modifier: Matabele
+qad-gtd: done
+revision: 0
+tagbar: context
+title: done
+type: text/vnd.tiddlywiki
+source-wiki: http://wills.tiddlyspot.com/#done
+
+<div class="tw-link-info">
+<$list filter="[is[current]tagging[]sort[updated]]">
+
+<div class="tw-link-info-item">
+
+!<$link><$view field="title"/></$link> 
+---
+
+<div class="tw-subtitle"><$list filter="[is[current]tags[]sort[title]]"><$link>
+{{!!title||$:/_showtag}}</$link></$list></div>
+
+|!Next Action |<$transclude field="next-action"/> |<|<|
+|!Pending |<$transclude field="pending"/> |<|<|
+|!Due |<$transclude field="due-date"/> |!Link | <a href={{!!url}} target="_blank"><$text text={{!!url}}/></a> |
+|!Edit this tiddler |<$radio tiddler="$:/_edit-task" field="report-title" value={{!!title}}/>|!Last updated |<$view field="modified" format="date" template="DDth MMM YYYY"/>|
+</div>
+</$list>
+</div>

@@ -1,0 +1,12 @@
+created: 20131219135011962
+creator: Stephan Hradek
+modified: 20131219145316373
+modifier: Stephan Hradek
+modules-used: [[$:/macros/skeeve/uuid.js]]
+title: UUIDmacro
+tags: explanation macro
+source-wiki: http://tiddlystuff.tiddlyspot.com/#UUIDmacro
+
+This macro can generate [[UUIDs|http://en.wikipedia.org/wiki/UUID]] and is based on Erik Giberti's [[JavaScript UUID Generator v.0.3||http://af-design.com/blog/2008/09/05/updated-javascript-uuid-generator-v03]].
+
+This is an example UUID: <<uuid>>

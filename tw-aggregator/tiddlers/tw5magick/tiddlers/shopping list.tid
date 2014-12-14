@@ -1,0 +1,10 @@
+created: 20140416203305224
+creator: Stephan Hradek
+modified: 20140416203336613
+modifier: Stephan Hradek
+title: shopping list
+source-wiki: http://tw5magick.tiddlyspot.com/#shopping%20list
+
+* shopping list {{
+cupcake ingredients||listTransclude
+}}

@@ -1,0 +1,22 @@
+created: 20140731142658233
+modified: 20140907070201632
+title: ControlToc
+type: text/vnd.tiddlywikilist
+source-wiki: http://tiddlyclip.tiddlyspot.com/#ControlToc
+
+\define controltcc(var1)
+<$linkcatcher  set=tcc1 setTo={{!!title}} >
+<$reveal state=tcc1 text={{!!title}} type="match"><$button class="tw-taglist" set=tcc1 setTo="">[x]</$button></$reveal>
+<$link  dragoverclic="yes"><span class="tw-taglist"><$view field="title"/></span></$link></$linkcatcher>
+<$fieldmangler><$button  param=ToC message="tm-remove-tag" class="tc-btn-invisible">{{$:/core/images/cancel-button}}</$button></$fieldmangler>
+\end
+
+!Control order of ToC 
+
+<$taglist class="btn btn-primary" targeTtag="ToC" ><<controltcc null>></$taglist>
+
+<hr>
+
+<$taglist class="btn btn-primary" targeTtag={{tcc1}} template=TocTemplate></$taglist>
+
+

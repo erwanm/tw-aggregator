@@ -1,0 +1,15 @@
+color: white
+created: 20140111143540341
+creator: Stephan Hradek
+description: Displays a text formatted as a tag.
+modified: 20140116124529068
+modifier: Stephan Hradek
+title: showtag
+tags: template
+source-wiki: http://tw5magick.tiddlyspot.com/#showtag
+
+\define _showtag(color)
+<span style="background-color:$color$" class="tw-tag-label"><$view field="title"/></span>
+\end
+
+<$macrocall $name="_showtag" color={{!!color}}/>

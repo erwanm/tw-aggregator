@@ -1,0 +1,28 @@
+created: 20131219143831205
+creator: Stephan Hradek
+modified: 20141007215104494
+modifier: Stephan Hradek
+title: tiddlystuff.CSS
+type: text/plain
+source-wiki: http://tiddlystuff.tiddlyspot.com/#tiddlystuff.CSS
+
+div.modules-used-footer {
+    margin-top: 0.5em;
+    border-top: solid 1px;
+    text-align: right;
+    font-size: 70%;
+}
+div.modules-used-footer::before {
+    content: "Modules used: ";
+}
+p {
+    text-indent:1em;
+}
+pre {
+    text-indent:0;
+}
+.IMPORTANT {
+    border: solid 2px red;
+    background-color: pink;
+    color: red;
+}

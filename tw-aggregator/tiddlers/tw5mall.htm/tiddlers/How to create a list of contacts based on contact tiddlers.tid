@@ -1,0 +1,30 @@
+created: 20131117203700008
+modified: 20131118003500004
+title: How to create a list of contacts based on contact tiddlers
+tags: Contacts
+source-wiki: http://www.giffmex.org/tw5mall.htm#How%20to%20create%20a%20list%20of%20contacts%20based%20on%20contact%20tiddlers
+
+After you have added some contacts to your ~TiddlyWiki 5, it is time to create email lists or telephone lists or picture directories that draw from those contact tiddlers.
+
+Here is the beginning of a sample contact list:
+
+<table class="rowstable"><tbody><$list filter="[tag[personalcontacts]]"><tr><td><$link to={{!!title}}><$view field="title"/></$link></td><td><$transclude field="email"/></td><td><$transclude field="telephone"/></td></tr></$list></tbody></table>
+
+The code below shows how I did the table above: I created a list filter that grabs all tiddlers tagged 'personalcontacts'. This list filter displays each tiddler as a table row, with a cell that adds the tiddler title as a link, another cell that transcludes the email address field, a third cell that transcludes the telephone field. I placed table elements in their proper places, then specified rowstable to style the table. You can get the rowstable CSS by dragging this link: [[$:/Custom tables]] to your own ~TiddlyWiki file.
+
+```
+<table class="rowstable"><tbody><$list filter="[tag[personalcontacts]]"><tr><td><$link to={{!!title}}><$view field="title"/></$link></td><td><$transclude field="email"/></td><td><$transclude field="telephone"/></td></tr></$list></tbody></table>
+```
+
+Note:table cells in ~TiddlyWiki do not show line breaks, so when you enter data in fields, you will need to add `<br>` where you want line breaks (for example, each new line of contacts' addresses).
+
+//Thanks to Jeremy Ruston for his help fixing this table.//
+
+!Also
+
+If you get a contact list just the way you want it, you can create a template for future similar contact lists, in the same way you created a template for contacts. Create a new tiddler called ~ContactListTemplate, tag it contactlist, and paste the contact list code you created. Then create a new contact list button using the process you learned in [[How to create a 'New contact' button to add new contacts]]:
+
+```
+<$button message="tw-new-tiddler" class="bluebutton" param="ContactListTemplate">New contact list</$button>
+```
+and place it in an accessible location.

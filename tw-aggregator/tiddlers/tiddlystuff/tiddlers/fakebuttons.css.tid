@@ -1,0 +1,13 @@
+created: 20131223225008700
+creator: Stephan Hradek
+modified: 20131223225127726
+modifier: Stephan Hradek
+title: fakebuttons.css
+source-wiki: http://tiddlystuff.tiddlyspot.com/#fakebuttons.css
+
+span.fakebutton {
+    border:1px solid;
+    padding:1px;
+    border-radius:4px;
+    background-color:#eeeeff;
+}

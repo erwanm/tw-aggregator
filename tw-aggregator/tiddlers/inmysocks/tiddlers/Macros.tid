@@ -1,0 +1,21 @@
+created: 20140925230824829
+modified: 20141103194501280
+test_field: Current Value
+title: Macros
+tags: [[Wiki Examples]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Macros
+
+Macros are a way to quickly replicate commonly used pieces of code. They are (mostly) equivalent to defining functions in programming.
+
+The syntax for calling a macro is
+
+
+```
+<<macroName macroInputs>>
+```
+
+where the inputs are separated by spaces. Note that this means if you are going to use a tiddler with spaces in its title as an input you need to enclose it in double square brackets (`[[ ]]`, see [[Linking to Other Tiddlers]]).
+
+Read [[How to make macros]] for more information.
+
+<<bottomOfTiddler {{!!title}}>>

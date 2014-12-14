@@ -1,0 +1,14 @@
+blurb: Adding fields is useful
+created: 20140925230425218
+modified: 20141023191204444
+title: How to Add Fields to Tiddlers
+tags: [[Wiki Examples]]
+source-wiki: http://inmysocks.tiddlyspot.com/#How%20to%20Add%20Fields%20to%20Tiddlers
+
+A `field` is a generic attribute that can be added to any tiddler. They consist of a name and a string of text. They can have many uses for things like filtering, and they are used for many of the hover macros (like [[Make an image tiddlers blurb field show up like a tooltip]]).
+
+To add a field start editing a tiddler and at the bottom there should be a line that says `Add a new field:` with an input box next to it. Type the name of the field you want to add and click on the `add` button next to it. Then the field will be listed with an input box next to it. Whatever is in that box is the contents of the field.
+
+If you edit this tiddler you will see that it has the field `blurb` with the contents `Adding fields is useful`.
+
+<<bottomOfTiddler {{!!title}}>>

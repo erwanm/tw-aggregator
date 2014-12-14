@@ -1,0 +1,16 @@
+created: 20140113142659151
+creator: Stephan Hradek
+description: Displays a tiddler title along with a small edit button.
+modified: 20140908155050453
+modifier: bj
+title: taglisttemplate
+type: text/vnd.tiddlywiki
+tags: template
+source-wiki: http://tiddlyclip.tiddlyspot.com/#taglisttemplate
+
+<div class="tc-taglist"><$linkcatcher  to=loop1  >
+<$reveal state=loop1 text={{!!title}} type="match"><$link to=""><span class="tc-taglist"><$view field="title"/></span></$link></$reveal><$reveal state=loop1 text={{!!title}} type="nomatch">
+<$link><$view field="title"/></$link></$reveal></$linkcatcher><$link> ->@</$link></div>
+<$reveal state=loop1 text={{!!title}} type="match">
+<$transclude mode="block">
+</$reveal>

@@ -1,0 +1,22 @@
+created: 20131121215608120
+creator: Stephan Hradek
+modified: 20131121220410185
+modifier: Stephan Hradek
+title: Spicing up the overview
+source-wiki: http://tw5magick.tiddlyspot.com/#Spicing%20up%20the%20overview
+
+The unfinished questiosn are also listed in our Overview. What if we could mark them there?
+
+In my real world task I put the language flags behind each of my questions in the overview. Let's here put an exclamation mark behind each question having an answer.
+
+```
+<$list filter="[tag[Quiz]tags[]] -Quiz +[sort[title]]">
+! <$view field="title"/>
+<$list filter="[is[current]tagging[]] +[tag[Quiz]] +[sort[title]]">
+<$link><$view field="title"/></$link>
+<$list filter="[is[current]search[@@.answer]]"> <span class="flag answer"/></$list>
+</$list>
+</$list>
+```
+
+[[Take a look at the nicer Overview|Nicer Overview of all Questions]]

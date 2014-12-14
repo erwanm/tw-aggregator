@@ -1,0 +1,38 @@
+caption: Solutions
+created: 20141115085757513
+creator: Tobias Beer
+icon: $:/core/images/star-filled
+menu: main
+menu-icon: {{$:/core/images/star-filled}}
+modified: 20141208011706001
+modifier: Tobias Beer
+summary: setting up tw5 to meet your needs
+title: Solutions
+tags: GettingStarted
+source-wiki: http://tb5.tiddlyspot.com#Solutions
+
+<div class="tb-taglist">
+
+<<list-search
+"[tag[Solutions]tags[]sort[title]!is[system]] -[tag[Community]] -[tag[Main]] -GettingStarted -Solutions -Task -picture -Core -Developer "
+search
+"$:/temp/tb/solutions"
+"$:/.tb/templates/solution-tags"
+"Filter both lists...">>
+</div>
+
+!!Latest Solutions
+<div class="solutions">
+<$set name="remove" value="Solutions">
+<<list-search
+"[tag[Solutions]!sort[created]limit[20]]"
+"search"
+"$:/temp/tb/solutions"
+"$:/template/tagged-timeline">>
+</$set>
+</div>
+<style>
+.solutions input {
+display:none;
+}
+</style>

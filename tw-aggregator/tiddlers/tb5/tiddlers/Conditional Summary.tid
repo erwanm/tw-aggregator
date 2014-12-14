@@ -1,0 +1,18 @@
+created: 20141113122245204
+creator: Tobias Beer
+modified: 20141115163615863
+modifier: Tobias Beer
+summary: this is an example summary
+title: Conditional Summary
+tags: Examples
+source-wiki: http://tb5.tiddlyspot.com#Conditional%20Summary
+
+Right above this text you should see the following example summary...
+
+```
+this is an example summary
+```
+
+...using [[this template|$:/template/ConditionalSummary]].
+
+more at: [[Conditional ViewTemplate Section]]

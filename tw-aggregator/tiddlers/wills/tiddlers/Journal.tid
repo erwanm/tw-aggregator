@@ -1,0 +1,55 @@
+created: 20140514164248780
+may-ii: <p>Transcluded the tagbar to ease code maintenance -- can now be changed by editing the tagbar field --added $:/_tagbar-context and changes to all display panels (old ones still work)
+may-iii: <p>Changed over from Skeeve's to Danielo's ~NewTiddler widget to make the user code more transparent  -- the new mechanism for creating new tasks and tabs requires that Skeeve's plugin be replaced with this one $:/plugins/danielo/newtiddler -- moved macro definitions from menu tabs to 'leftmenu' -- modified $:/_tagbar-context [[$:/_leftmenu]] $:/_leftmenu 5
+may-iv: <p>Transcluded the display panel to ease code maintenance -- the code for 'done' differs -- transcluded menu buttons to ease code maintenance -- added [[$:/_display-panel]] and changes to all display panels (old ones still work) -- added [[$:/_close-all-button]] [[$:/_images/close-all-button]] [[$:/_home-button]] [[$:/_todo-button]] [[$:/_newmenu-button]] and changes to $:/_leftmenu 1 $:/_leftmenu 2 $:/_leftmenu 5
+may-ix: <p>Changed the 'Slider tab' to a 'Search' tab -- advanced search with the old slider tab included -- changes to [[$:/_leftmenu3]] added [[$:/_user-filters]] [[$:/_search]] [[$:/_images/done_small]] <br>-- added to the 'Tasks' tab a trash button -- changes to  [[$:/_leftmenu2]] added [[$:/_delete-tickler-button]] [[$:/_images/trash_small]] 
+may-v: <p>Changed the mechanism for listing tickler folders over from the use of tags to the use of fields -- this removes the meaningless tags at the top of the tickler folders -- changed over the mechanism of listing the leftmenu tabs from the use of tags to the use of fields -- removes unnecessary tags that were cluttering the tiddlywiki <p>Numerous changes made and neither the old tickler folders nor the old leftmenu tabs will function correctly after this update.  <p>I suggest starting with a fresh copy of Q&D gTiD and importing all of your tickler tiddlers. As an alternative, you might: <br>-- copy across to your tiddlywiki, all of the listed tiddlers from a fresh of Q&D gTiD with the exception of the tickler folders, then <br>-- overwrite your existing tickler folders one by one with another of the same type with the same name, created from the 'New Tickler Folder' buttons.
+may-vi: <p>Added a filterList macro as a more versatile (and less confusing) replacement for the sliderList macro -- modified  [[$:/_leftmenu]] $:/_leftmenu 3 <br>-- styling changes to the 'Tasks' tab and 'Settings' menu -- checkboxes now in 3 columns -- changes to [[$:/_edit-task]] [[$:/_edit-tags]] $:/_leftmenu 2 $:/_tagbar-context [[$:/_stylesheet/mystyles]] <br>-- renamed the 'Edit' tab to $:/_leftmenu-edit -- pushes the 'Edit' tab to the RHS
+may-vii: <p>Transcluded the settings and menu list sections of the 'Edit' tab and added new entries to adjust widths of input boxes to match the leftmenu width -- changes to $:/_leftmenu-edit added $:/_leftmenu-settings $:/_leftmenu-list <br>-- changed tagPills in the 'gTiD' tab to include a scrollbar in the dropdown -- changed [[$:/_leftmenu]] [[$:/_stylesheet/mystyles]] added [[$:/_tagpill-template]] <br>-- removed the tagpills from the display panel -- replaced with link lookalikes -- changes to [[$:/_display-panel]] added [[$:/_showtag]]
+may-viii: <p>Edited the guides and retested the setting up of a new system on an empty TW <<version>>  <p>Most of the outstanding issues have now been attended to -- the system appears to be usable. Henceforth, the system should require only cosmetic changes (styling for various desktop environments) and the ironing out of any bugs.
+may-x: <p>Whilst investigating the 'javascript' bug on the 'New Folder' and 'New Tickler' buttons, a few changes were made to the `<$newtiddler>` widget -- to avoid confusion the new version has been called [[$:/plugins/matabele/newtid]] -- as a consequence changes to [[$:/_leftmenu]] [[$:/_newmenu-button]] and replaced the old tagbar with [[$:/_tagbar]]  <br>-- unfortunately this requires that all tickler folders be created afresh using the new template [[$:/_template/tickler-folder]] <br>-- renamed the 'Edit' tab to [[$:/_leftmenuedit]] and its two siblings to [[$:/_leftmenuedit-list]] [[$:/_leftmenuedit-settings]] 
+may-xi: <p>Renamed the standard tabs to allow for gTaB to be set up without gTiD -- added a 'gTaB' tab  <br>-- added a button to the 'gTiD' and 'gTaB' tabs to recover the 'Edit' tab should it become toggled off from the 'Edit' tab itself -- changes to  [[$:/_leftmenu-gtab]] [[$:/_leftmenu -gtid]] -- added [[$:/_images/tab_small]] [[$:/_open-leftmenuedit-button]] <br>-- moved the sections of the 'Edit' tab into tabs -- changes to [[$:/_leftmenu]] [[$:/_leftmenuedit]] [[$:/_leftmenuedit-list]] [[$:/_leftmenuedit-settings]] -- added [[$:/_leftmenuedit-links]]
+may-xii: <p>Added a tab to setup gTiD - added [[$:/_gtid-lists]] [[$:/_leftmenu-setup]] [[$:/_gtid-setup-contexts]] [[$:/_gtid-setup-months]] [[$:/_gtid-setup-projects]] [[$:/_gtid-setup-weeks]]  [[$:/_gtid-setup-clean]] changes to [[$:/_leftmenu -gtid]] [[$:/_leftmenu]] <br>-- changes to [[$:/_leftmenuedit-links]] and [[$:/_stylesheet/mystyles]]
+may-xiii: 
+modified: 20140514164256599
+next-action: Document - change from sliderList to filterList macro - changes to Tasks menu
+pending: [[Journal]]
+revision: 0
+title: Journal
+type: text/vnd.tiddlywiki
+url: 
+wills: documentation
+tags: @free
+source-wiki: http://wills.tiddlyspot.com/#Journal
+
+\define sliderHeader(header1,header)
+<$reveal type="nomatch" state="$:/state/$header$" text="show">
+
+;<$button set="$:/state/$header$" setTo="show" class="btn-invisible">{{caret-down}} $header1$</$button>
+
+</$reveal>
+<$reveal type="match" state="$:/state/$header$" text="show">
+
+;<$button set="$:/state/$header$" setTo="hide" class="btn-invisible">{{caret-up}} $header1$</$button>
+
+<$transclude field=$header$ mode="block"/>
+
+</$reveal>
+\end
+
+!.myTitle Journal
+
+<$tiddler tiddler="Journal">
+<<sliderHeader "2nd May 2014"  "may-ii">>
+<<sliderHeader "3rd May 2014"  "may-iii">>
+<<sliderHeader "4th May 2014"  "may-iv">>
+<<sliderHeader "5th May 2014 -- Extensive Update"  "may-v">>
+<<sliderHeader "6th May 2014"  "may-vi">>
+<<sliderHeader "7th May 2014"  "may-vii">>
+<<sliderHeader "8th May 2014"  "may-viii">>
+<<sliderHeader "9th May 2014"  "may-ix">>
+<<sliderHeader "10th May 2014"  "may-x">>
+<<sliderHeader "11th May 2014"  "may-xi">>
+<<sliderHeader "12th May 2014"  "may-xii">>
+<<sliderHeader "13th May 2014"  "may-xiii">>
+</$tiddler>

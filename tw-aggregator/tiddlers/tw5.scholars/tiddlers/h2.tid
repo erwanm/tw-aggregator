@@ -1,0 +1,11 @@
+created: 20140320113712321
+creator: Alberto Molina
+modified: 20140614232356935
+modifier: Alberto Molina
+title: h2
+tags: nouveau
+source-wiki: http://tw5.scholars.tiddlyspot.com/#h2
+
+<h2><span title="Éditer cette section"><$link>{{!!title}}</$link></span></h2>
+
+<$transclude/>

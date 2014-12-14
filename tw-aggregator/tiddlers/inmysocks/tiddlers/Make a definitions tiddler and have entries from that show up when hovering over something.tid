@@ -1,0 +1,51 @@
+created: 20141021024744446
+modified: 20141023191312789
+title: Make a definitions tiddler and have entries from that show up when hovering over something
+tags: Macros
+source-wiki: http://inmysocks.tiddlyspot.com/#Make%20a%20definitions%20tiddler%20and%20have%20entries%20from%20that%20show%20up%20when%20hovering%20over%20something
+
+This macro (in [[MyHoverMacros]], so import that and [[$:/plugins/ahahn/hoverWidget]] if you haven't already to make this work.) will let you reference entries in a [[Dictionary Tiddler]] and have them show up when hovering over a word, link or image (or other stuff, anything you can put as the `label` part of the input).
+
+```
+\define hoverData(label, datatiddler, field)
+<$hover popup="$:/state/$label$">
+__$label$__
+</$hover>
+
+<$reveal type="popup" state="$:/state/$label$">
+<div class="tc-drop-down">
+
+{{$datatiddler$##$field$}}
+
+</div>
+</$reveal>
+\end
+```
+
+using this macro if you put this
+
+```
+<<hoverData "a reference" [[Test Dictionary Tiddler]] a>>
+```
+
+you get this
+
+<<hoverData "a reference" [[Test Dictionary Tiddler]] a>>
+
+Notes:
+
+---
+
+There are quotation marks in `"a reference"` so it will be taken as a single input string, they aren't shown in the output, and `[[Test Dictionary Tiddler]]` has the double square brackets (`[[ ]]`) to show that the entire thing is the tiddler name. If instead of `"a reference"` it used 'bob' than the quotation marks wouldn't be needed and if it were `TestDictionaryTiddler` the square braces wouldn't be needed. Becaus there aren't any spaces in either of them.
+
+This requires another tiddler as a dictionary, the example uses [[Test Dictionary Tiddler]] which contains names and data associated with the names that can be referenced. [[Test Dictionary Tiddler]] contains this:
+
+```
+a:one
+b:two
+c:three
+```
+
+where `a`, `b` and `c` are the names that are used to reference the values `one`,`two` and `three`. So replacing the names or the values would change what you have to put in as the `field` input to the macro (if you change the names) or what pops up when you hover over the label (if you change the values).
+
+<<bottomOfTiddler {{!!title}}>>

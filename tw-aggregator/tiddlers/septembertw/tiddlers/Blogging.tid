@@ -1,0 +1,36 @@
+color: #9eb849
+created: 20140919135103443
+creator: AcD
+modified: 20140919222906817
+modifier: AcD
+title: Blogging
+tags: UseCase WhishList
+source-wiki: http://septembertw.tiddlyspot.com/#Blogging
+
+"""
+A blog is a collection of self-contained stories, typically formatted in a journal-like style, with the last post upfront.
+
+A BlogPost can be anything from a one-liner remark, or a bunch of annotated links, an image gallery or a great wall'o'text essay.
+Because blogs are generally thematic, et can cover more than a single topic, and because individual posts frequently grow into series, the use of Tagging is widespread, to ease sorting and retrieving of entries.
+
+If all that sounds awfully TiddlyWiki-like to you, it's because it is : creating a basic blog-styled TW is just a few tweaks of the tiddler and layout templates away, to put sorting options at the push of a button.
+
+Adding slightly more advanced feaures, such as the ability for readers to comment and share posts on social media and RSS shouldn't be unfeasible either... 
+
+For all I know, the required functionalities may be at hand already, and I'm just lacking a clue : [[let me know|AcD]] if you do.
+
+//[Stay tuned : I'll update this entry and create HowTos and WorkArounds as I learn more.]//
+
+"""
+
+<$list filter="[!is[system]tag<currentTiddler>]">
+<div class="tc-menu-list-item">
+---
+
+See also :<br>
+
+
+* <$link to={{!!title}}><$view field="title"/></$link>
+
+</div>
+</$list>

@@ -1,0 +1,9 @@
+created: 20140117101802794
+creator: Stephan Hradek
+modified: 20140912180037859
+modifier: inmysocks
+title: unwikified
+tags: template
+source-wiki: http://inmysocks.tiddlyspot.com/#unwikified
+
+<$view field="title"/>

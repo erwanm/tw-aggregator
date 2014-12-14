@@ -1,0 +1,15 @@
+created: 20131002025700000
+modified: 20131117140600002
+title: Create a tag wall for a to do list
+tags: Tags Navigation
+source-wiki: http://www.giffmex.org/tw5mall.htm#Create%20a%20tag%20wall%20for%20a%20to%20do%20list
+
+You can add individual tag pills anywhere by inserting the following code into a tiddler (replacing NAMEOFTAG with the name of the tag):
+
+```
+{{NAMEOFTAG||$:/core/ui/MoreSideBar/Tags}}
+
+```
+I used tag pills to organize my to do list into a wall of tags. I just click on any tag pill to see and open the to do list items in that tag. Below is a screenshot of my to do list, to give you an idea what such a tag wall would look like.
+
+{{todomap.png}}

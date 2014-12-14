@@ -1,0 +1,11 @@
+created: 20131223104017054
+creator: Stephan Hradek
+description: Displays a tiddlers title as headline, followed by its content.
+modified: 20140116124258288
+modifier: Stephan Hradek
+title: full
+tags: template
+source-wiki: http://tw5magick.tiddlyspot.com/#full
+
+! <$view field="title"/>
+<$transclude/>

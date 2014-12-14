@@ -1,0 +1,15 @@
+blurb: Sample of the problem I was having with filters
+created: 20140304202943942
+modified: 20140929012406165
+subtopic: Filters
+title: Movies
+source-wiki: http://dl.dropboxusercontent.com/u/118970/wiki/tw5tribalknowledge.html#Movies
+
+<$list filter="[is[current]tagging[]has[subtopic]each[subtopic]sort[subtopic]]">
+<div class="tc-menu-list-item">
+<$view field="subtopic"/>
+</div>
+<$list filter="[subtopic{!!subtopic}sort[title]]">
+<div class="tc-menu-list-subitem">
+<$link to={{!!title}}><$view field="title"/> </$link>
+</div></$list></$list>

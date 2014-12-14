@@ -1,0 +1,67 @@
+created: 20131002011600000
+modified: 20131117144000000
+title: Table formatting in TiddlyWiki 5
+tags: Tables
+source-wiki: http://www.giffmex.org/tw5mall.htm#Table%20formatting%20in%20TiddlyWiki%205
+
+//The following instructions are already available at five.tiddlywiki.com, but it seemed appropriate to add here as well. I have only adapted that material slightly. //
+
+Tables are created in ~TiddlyWiki 5 almost exactly as they were in ~TiddlyWiki classic, with vertical lines. This markup:
+
+```
+|1|2|3|
+|4|5|6|
+```
+Produces this result:
+
+|1|2|3|
+|4|5|6|
+
+!Headers
+Headers are created with exclamation marks. This markup:
+
+```
+|!Header|!Header|
+|Text|Text|
+```
+
+Produces this result:
+
+|!Header|!Header|
+|Text|Text|
+
+!Horizontal alignment
+Spaces to the right and/or left of the cell content control the left, center and right alignment of the cell content. This markup:
+
+```
+|Left aligned content |
+| Right aligned content|
+| Centred content |
+|+++ a very wide column so we can see the alignment +++|
+
+```
+
+Produces this result:
+
+|Left aligned content |
+| Right aligned content|
+| Centred content |
+|+++ a very wide column so we can see the alignment +++|
+
+!Merging cells
+Cells can be merged by columns and by rows. This markup:
+
+```
+|Cell1 |Cell2 |Cell3 |Cell4 |
+|Cell5 |Cell6 |Cell7 |>|
+|Cell5 |~|Cell7 |Cell8 |
+
+```
+
+Produces this result:
+
+|Cell1 |Cell2 |Cell3 |Cell4 |
+|Cell5 |Cell6 |Cell7 |>|
+|Cell5 |~|Cell7 |Cell8 |
+
+Be aware that if you don't add a line below a table found at the bottom of a tiddler, the formatting will be broken for the last row of the table.

@@ -1,0 +1,23 @@
+created: 20140923174223994
+creator: inmysocks
+modified: 20141023192011951
+modifier: inmysocks
+title: List all tiddlers tagged with the title of the current tiddler
+tags: [[Wiki Widgets - buttons, filters, etc.]]
+source-wiki: http://inmysocks.tiddlyspot.com/#List%20all%20tiddlers%20tagged%20with%20the%20title%20of%20the%20current%20tiddler
+
+At the bottom of almost every tiddler I have the following code (and some code from [[Make a button to create new tiddlers from a template]] to make the button):
+
+```
+---
+
+Entries tagged <$list filter="[all[current]]"/>
+
+<$list filter="[all[current]tagging[]]">
+
+</$list>
+```
+
+which generates a list of all tiddlers that are tagged with the current tiddler.
+
+<<bottomOfTiddler {{!!title}}>>

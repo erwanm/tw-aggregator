@@ -1,0 +1,13 @@
+created: 20140907190344731
+modified: 20140909062508071
+title: TiddlyClipConfig
+type: text/vnd.tiddlywiki
+source-wiki: http://tiddlyclip.tiddlyspot.com/#TiddlyClipConfig
+
+!default
+|!Category|!Tip|!Tags|!Rule Tid|!Modes|
+|Tip|highlight a tiddlers Title||[[defaultTip]]|tiddlers|
+|Snip|highlight some text||[[defaultSnip]]||
+|Pin|hover over a image||[[defaultPin]]||
+|Snap|screen shot||[[defaultSnap]]|snap30|
+|pinAndProse|you will be ask for text||[[defaultPin]]|userstring|

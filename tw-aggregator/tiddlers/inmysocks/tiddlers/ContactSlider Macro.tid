@@ -1,0 +1,52 @@
+blurb: A macro used to display contacts
+created: 20141103190757549
+modified: 20141203192742104
+title: ContactSlider Macro
+tags: Macros
+source-wiki: http://inmysocks.tiddlyspot.com/#ContactSlider%20Macro
+
+This macro is used display the contacts in the [[Contacts]] tiddler.
+
+Editing the code between the line `<$tiddler tiddler=<<currentTiddler>>>` and the line `</$tiddler>` changes what is shown when the button for that contact is pressed in the [[Contacts]] tiddler.
+
+This uses the [[EditField 1 & 2 Macros]], [[ContactAddress Macro]] and the [[ContactAbout Macro]], all of which are in ContactsMacros
+
+The macro code is:
+
+```
+\define contactSlider()
+
+<$reveal type="nomatch" state="$:/state/$(tiddlerName)$" text="show">
+
+<$button set="$:/state/$(tiddlerName)$" setTo="show">$(tiddlerName)$</$button>
+<$view field="blurb"/>
+
+</$reveal>
+<$reveal type="match" state="$:/state/$(tiddlerName)$" text="show">
+
+<$button set="$:/state/$(tiddlerName)$" setTo="hide">$(tiddlerName)$</$button>
+
+<$tiddler tiddler=<<currentTiddler>>>
+
+<$link to=<<currentTiddler>>>Open Contact</$link>
+
+|!Personal Email Address |<<editField1 personal_email_address>> |<<editField2 personal_email_address>> |
+|!Work Email Address |<<editField1 work_email_address>> |<<editField2 work_email_address>> |
+|!Other Email Address |<<editField1 other_email_address>> |<<editField2 other_email_address>> |
+|!Home Phone Number |<<editField1 home_phone_number>> |<<editField2 home_phone_number>> |
+|!Cell Phone Number |<<editField1 cell_phone_number>> |<<editField2 cell_phone_number>> |
+|!Work Phone Number |<<editField1 work_phone_number>> |<<editField2 work_phone_number>> |
+|!Blurb |<<editField1 blurb>> |<<editField2 blurb>> |
+
+<<contactAddress>>
+
+<<contactAbout>>
+
+</$tiddler>
+
+</$reveal>
+
+\end
+```
+
+<<bottomOfTiddler {{!!title}}>>

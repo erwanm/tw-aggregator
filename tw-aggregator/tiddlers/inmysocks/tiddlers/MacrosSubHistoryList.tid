@@ -1,0 +1,41 @@
+current-tiddler: Macros
+modified: 20141026194221652
+title: MacrosSubHistoryList
+type: application/json
+source-wiki: http://inmysocks.tiddlyspot.com/#MacrosSubHistoryList
+
+[
+    {
+        "title": "Macros",
+        "fromPageRect": {
+            "top": 266.566650390625,
+            "left": 85,
+            "width": 50,
+            "right": 135,
+            "bottom": 289.566650390625,
+            "height": 23
+        }
+    },
+    {
+        "title": "Macros",
+        "fromPageRect": {
+            "top": 711.0999755859375,
+            "left": 85,
+            "width": 50,
+            "right": 135,
+            "bottom": 734.0999755859375,
+            "height": 23
+        }
+    },
+    {
+        "title": "Macros",
+        "fromPageRect": {
+            "top": 840.0999755859375,
+            "left": 85,
+            "width": 50,
+            "right": 135,
+            "bottom": 863.0999755859375,
+            "height": 23
+        }
+    }
+]

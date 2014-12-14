@@ -1,0 +1,57 @@
+created: 20140923175335650
+creator: inmysocks
+modified: 20141103195427951
+modifier: inmysocks
+title: Another way to conditionally include one tiddler inside another
+tags: [[Wiki Widgets - buttons, filters, etc.]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Another%20way%20to%20conditionally%20include%20one%20tiddler%20inside%20another
+
+See [[TiddlerSlider Macro]] for a macro that does this.
+
+This sets a tiddler to open inside the current tiddler. You can close it by clicking on the x that appears.
+
+You can put whatever code you want inside of this, but the tiddler will be displayed under the `</$navigator>` part, so it won't open the link inside whatever you put here. If you want to have each tiddler open directly under the link than you need one of these chunks of code per link.
+
+Here is the code:
+
+```
+<$navigator story="MySubStoryList" history="MySubHistoryList">
+
+Click a link to get started: 
+
+[[Engineering]]
+
+[[Noise Models]]
+
+<$list filter="[list[MySubStoryList]]" history="MySubHistoryList">
+<div>
+
+! <$button message="tm-close-tiddler" class="tc-btn-invisible">{{$:/core/images/close-button}}</$button> <$view field="title"/>
+
+<$transclude/>
+</div>
+</$list>
+
+</$navigator>
+```
+
+<$navigator story="MySubStoryList" history="MySubHistoryList">
+
+Click a link to get started: 
+
+[[Engineering]]
+
+[[Noise Models]]
+
+<$list filter="[list[MySubStoryList]]" history="MySubHistoryList">
+<div>
+
+! <$button message="tm-close-tiddler" class="tc-btn-invisible">{{$:/core/images/close-button}}</$button> <$view field="title"/>
+
+<$transclude/>
+</div>
+</$list>
+
+</$navigator>
+
+<<bottomOfTiddler {{!!title}}>>

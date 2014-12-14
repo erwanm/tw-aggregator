@@ -1,0 +1,21 @@
+created: 20141203172921007
+creator: Tobias Beer
+modified: 20141206165053459
+modifier: Tobias Beer
+title: wiki-links
+url: http://tiddlywiki.com/#Linking%20in%20WikiText
+tags: Markup
+source-wiki: http://tb5.tiddlyspot.com#wiki-links
+
+<dt>
+
+```
+CamelCase
+~SuppressedCamelCase
+```
+</dt>
+<dd>
+
+CamelCase<br>
+~SuppressedWikiLink
+</dd>

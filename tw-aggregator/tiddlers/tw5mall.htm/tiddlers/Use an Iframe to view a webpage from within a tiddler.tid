@@ -1,0 +1,20 @@
+created: 20130922004500000
+modified: 20131117142500005
+title: Use an Iframe to view a webpage from within a tiddler
+tags: [[Webpages (IFrames)]]
+source-wiki: http://www.giffmex.org/tw5mall.htm#Use%20an%20Iframe%20to%20view%20a%20webpage%20from%20within%20a%20tiddler
+
+You can view most webpages within a tiddler using an IFrame. Just insert the following code into a tiddler and replace XXX with the URL of the webpage.
+
+```
+<html><iframe src="XXX" style="border: none;"></iframe></html>
+```
+You can also adjust the width and height of your IFrame. The following code:
+
+```
+<html><iframe src="http://www.happiness-project.com/happiness_project/2013/02/what-are-your-broken-windows-heres-a-list-of-mine/" width="700" height="1000" 
+style="border: none;"></iframe></html>
+```
+produces the following IFrame:
+
+<html><iframe src="http://www.happiness-project.com/happiness_project/2013/02/what-are-your-broken-windows-heres-a-list-of-mine/" width="700" height="1000" style="border: none;"></iframe></html>

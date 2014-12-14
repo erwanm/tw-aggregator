@@ -1,0 +1,30 @@
+created: 20140923134958434
+creator: EucalyJ
+modified: 20140923141209927
+modifier: EucalyJ
+title: limiting number of words or lines -- MatchFilter
+type: text/vnd.tiddlywiki
+tags: tips
+source-wiki: http://eucaly-tw5.tiddlyspot.com/#limiting%20number%20of%20words%20or%20lines%20--%20MatchFilter
+
+\define regex-history-words() (^!+\s*history[\S\s]{1,150})(?gmi)
+
+In response to [[Working on limiting the number of words/lines|https://groups.google.com/forum/#!topic/tiddlywiki/XSzzrx1e1nA]]
+
+<hr/>
+<$list filter="[all[shadows+tiddlers]suffix[/history]regexp:text[^!+\s*history(?mi)]!has[draft.of]!sort[lastupdate]]">
+<div>
+
+	!!<$link to={{!!title}}>
+		<$list filter="[{!!title}removesuffix[/history]]">
+			{{!!title}}
+		</$list>
+	</$link>
+	<$list filter='[{!!title}match:text<regex-history-words>]'>
+	<div>
+
+		{{!!title}}
+	</div>
+	</$list>
+</div>
+<br/></$list>

@@ -1,0 +1,27 @@
+created: 20141203172748108
+creator: Tobias Beer
+modified: 20141203172801373
+modifier: Tobias Beer
+title: mixed-lists
+tags: Markup
+source-wiki: http://tb5.tiddlyspot.com#mixed-lists
+
+<dt>
+
+```
+# mixed
+#* lists
+#;you
+#:know
+#>like so
+```
+</dt>
+
+<dd>
+
+# mixed
+#* lists
+#;you
+#:know
+#>like so
+</dd>

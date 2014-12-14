@@ -1,0 +1,44 @@
+created: 20141119212046441
+creator: Danielo Rodriguez
+description: easyli add and remove elements from lists
+modified: 20141120125235130
+modifier: Danielo Rodriguez
+title: Make any field behave like tags
+tokens:  [[im not]] [[a tag]] [[I promisse]]
+tags: index [[using TW5]]
+source-wiki: http://braintest.tiddlyspot.com/#Make%20any%20field%20behave%20like%20tags
+
+We all love tags. They are easy to add, easy to remove and cool to see. I saw many times people claiming that they want this coolnes into other fields. Currently on TW versions higher than 5.1.0 this is already possible with the help of some smal macros and some smart tiddlywiki code.
+
+!!How does this looks like
+Here do you have a live example. Cliking on an element will remove it from the list. Hitting add will add a new element to the list. Just try it out:
+
+ <<tokeneditor>><<appendTokenButton>>
+<$transclude tiddler="$:/danielo515/ui/item-button"/>
+
+!! How to install:
+You need the following tiddlers (drag each link into your own wiki)
+
+* [[$:/danielo515/macros/ui/Buttons/addToken]]
+* [[$:/danielo515/macros/ui/controls/addTokenEditor]]
+* [[$:/danielo515/macros/remove_from_list.js]]
+* [[$:/danielo515/ui/item-button]]
+
+!!How to use it:
+There are 3 elements involved, two macros and a tiddler.
+
+!!!Macros
+
+* `<<tokeneditor>>` this adds the input field where you write the "elements" you want to add to the list.
+* `<<appendTokenButton>>` This is the button that actually adds the current element to the list. Usually you want to use this two macros together. It accepts ''two optional arguments:'' <span>
+
+|!Parameter|!what is it|!default value|
+|field|which field you want to use as list to store the elements|`tokens`|
+|caption|the caption you want to display on the button|`add`|
+</span>
+
+!!!Tiddler
+* `<$transclude tiddler="$:/danielo515/ui/item-button"/>` Basically you have to write that where you want your list to be displayed. Basically is a transclusion of a tiddler template.
+
+!!BUGS
+The mechanism used to clear the input box can cause problems on node version. This is because the linkcatcher sets the temporary tiddler to an undefined value instead of an empty string.

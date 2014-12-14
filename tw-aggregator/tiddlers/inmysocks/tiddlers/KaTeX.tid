@@ -1,0 +1,14 @@
+blurb: A LaTeX plugin that doesn't require internet access
+created: 20140923181438071
+creator: inmysocks
+modified: 20141023190905482
+modifier: inmysocks
+title: KaTeX
+tags: [[Adding LaTeX Equations]]
+source-wiki: http://inmysocks.tiddlyspot.com/#KaTeX
+
+Hopefully this link will always point to a page with the newest version of the plugin if it gets updated.
+
+http://tiddlywiki.com/plugins/tiddlywiki/katex/
+
+<<bottomOfTiddler {{!!title}}>>

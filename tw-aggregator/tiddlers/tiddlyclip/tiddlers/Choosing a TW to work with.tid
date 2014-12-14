@@ -1,0 +1,13 @@
+created: 20140320020525297
+modified: 20140714055234027
+title: Choosing a TW to work with
+type: null
+tags: TCdoc
+source-wiki: http://tiddlyclip.tiddlyspot.com/#Choosing%20a%20TW%20to%20work%20with
+
+!!Choosing a TW to work with.
+
+TWs that have the plugin installed can be 'docked' to by the Addon, and this makes them the target for clips
+<ol><li>navigate to the TW you wish to work with</li><li>right mouse click</li><li>hover the pointer over &#39;tiddlyclip sets&#39;</li><li>select 'dock here'.</li></ol>
+
+The next time you right click the mouse and hover over 'tiddlyclip sets' you should see the filename of the 'docked'TW with a * infront of it. (Previously docked TWs appear on this list, without the * infront. Clinking on one of these makes it the current docked TW and moves the * infront of the name.)

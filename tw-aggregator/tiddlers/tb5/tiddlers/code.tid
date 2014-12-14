@@ -1,0 +1,13 @@
+created: 20141203172342097
+creator: Tobias Beer
+modified: 20141203172352230
+modifier: Tobias Beer
+title: code
+tags: Markup
+source-wiki: http://tb5.tiddlyspot.com#code
+
+<dt><pre>&#96;code&#96;</pre></dt>
+<dd>`code` ...via backticks</dd>
+
+<dt><pre>&#96;&#96;with &#96;backticks&#96; &#96;&#96;</pre></dt>
+<dd>``with `backticks` ``</dd>

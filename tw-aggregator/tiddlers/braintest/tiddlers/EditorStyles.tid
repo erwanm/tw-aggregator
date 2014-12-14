@@ -1,0 +1,9 @@
+created: 20140216222555921
+creator: Danielo Rodriguez
+modified: 20140216222737083
+modifier: Danielo Rodriguez
+title: EditorStyles
+source-wiki: http://braintest.tiddlyspot.com/#EditorStyles
+
+.editorArea{
+width:100%;}

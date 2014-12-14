@@ -1,0 +1,28 @@
+color: #1a55b3
+created: 20140910031513135
+creator: AcD
+modified: 20141209073317887
+modifier: AcD
+title: aboot
+type: text/vnd.tiddlywiki
+version: 0b1
+tags: aboot
+source-wiki: http://septembertw.tiddlyspot.com/#aboot
+
+SeptemberTW is presently a skeleton-grade (as 0b1) TiddlyWiki, to be used as design prototype for an early-UX developer-helper tool.
+
+It will only be deemed useful in any real sense once set up to easily include contribution from multiple authors.
+See ToDo for more.
+
+TiddlyWiki Core version : 
+{{5.1.5||$:/core/ui/TagTemplate}}
+
+---
+
+This TiddlyWiki purposefully includes only functionalities, modules or plugins that come included in the most recent stable distribution of TiddlyWiki, or can be installed at the click of a button from the official repository.
+
+Although you may find some examples of tweaks and hacks described in this TW for educational purposes, one of the intended goals of SeptemberTW is to showcase what can be done with the most current //vanilla// version of TW without any special wizardy.
+
+If you feel SeptemberTW is lacking some basic feature every TW user should have at hand, please contribute by adding it to the MissingBits collection.
+
+If you had to overcome some early learning cliff that isn't documented here, put your 2c in the GrowingPains jar, pretty please.

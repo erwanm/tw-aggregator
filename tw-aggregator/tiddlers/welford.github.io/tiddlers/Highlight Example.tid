@@ -1,0 +1,16 @@
+created: 20140318214655832
+creator: ジェームス
+modified: 20140318214729239
+modifier: ジェームス
+revision: 0
+title: Highlight Example
+type: text/vnd.tiddlywiki
+source-wiki: http://welford.github.io/#Highlight%20Example
+
+```cpp
+void main(void)
+{
+    //basic example
+    print("hello world")
+}
+```

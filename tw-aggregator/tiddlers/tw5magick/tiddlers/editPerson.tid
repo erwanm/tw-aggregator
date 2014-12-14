@@ -1,0 +1,12 @@
+created: 20140113084224126
+creator: Stephan Hradek
+description: Displays a [[person DB]]'s fields for editing.
+modified: 20140116124451141
+modifier: Stephan Hradek
+title: editPerson
+tags: template
+source-wiki: http://tw5magick.tiddlyspot.com/#editPerson
+
+|!Street |<$edit field="street"/> |
+|!Town |<$edit field="town"/> |
+|!Phone |<$edit field="phone"/> |

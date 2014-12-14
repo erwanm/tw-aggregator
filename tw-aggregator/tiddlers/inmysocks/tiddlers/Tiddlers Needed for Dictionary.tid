@@ -1,0 +1,19 @@
+created: 20141213043430594
+modified: 20141213044348744
+title: Tiddlers Needed for Dictionary
+source-wiki: http://inmysocks.tiddlyspot.com/#Tiddlers%20Needed%20for%20Dictionary
+
+I would like to thank Stephan Hradek for his help teaching me how to make the dictionary searchable in this thread https://groups.google.com/forum/#!topic/TiddlyWiki/4XTKPnZLEMg 
+
+''I haven't found a way to delete entries from the dictionary other than opening up the dictionary tiddler and removing the entry. I am working on it. To change an entry add an entry of the same name with the updated definition.''
+
+*[[Dictionary]] - the main tiddler
+*[[$:/data/Dictionary]] - where the data is stored
+
+or the plugin:
+
+''There is still some weirdness going on here. Because of how the tabbed-toc macro works this won't show up properly on the dashboard unless you are using the macro from 5.1.6-prerelease or later.''
+
+$:/core/macros/toc is the tiddler that needs to be updated, you can get the new version from http://tiddlywiki.com/prerelease/#%24%3A%2Fcore%2Fmacros%2Ftoc if you want, I am not going to update it here yet because it may do strange things when updating in the future.
+
+[[$:/plugins/inmysocks/SearchableDictionary]]

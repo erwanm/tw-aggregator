@@ -1,0 +1,21 @@
+caption: quick editing
+created: 20141003235659807
+creator: EucalyJ
+modified: 20141004003554552
+modifier: EucalyJ
+title: TWC: quick editing
+type: text/vnd.tiddlywiki
+tags: [[TWC: plugins]]
+source-wiki: http://eucaly-tw5.tiddlyspot.com/#TWC_%20quick%20editing
+
+!!! TiddlyWikiClassic
+* QuickEditPackage
+** http://tiddlytools.com/#QuickEditPackage
+** a toolbar to quickly insert TiddlyWiki tiddler links, images, macros, etc. or common formatting sequences 
+
+!!! ~TiddlyWiki 5
+* TW5 bookmarklets
+** http://tw5bookmarklets.tiddlyspot.com/ 
+*# Standard formatting bookmarklets like bold, italic, ... ;so characters that enclose the selected text
+*# Bookmarklets to insert characters
+*# Bookmarklets for lists.

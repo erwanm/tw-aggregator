@@ -1,0 +1,10 @@
+created: 20131223131756612
+creator: Stephan Hradek
+modified: 20131223131930552
+modifier: Stephan Hradek
+title: Enhanced transclusion
+source-wiki: http://tw5magick.tiddlyspot.com/#Enhanced%20transclusion
+
+There is now also an [[enhanced version|full-enhanced]] of the `full`-template which allows editing of the transcludet tiddler by clicking the headline.
+
+{{full-enhanced||code}}

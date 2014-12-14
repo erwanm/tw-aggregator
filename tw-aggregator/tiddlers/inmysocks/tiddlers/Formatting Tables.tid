@@ -1,0 +1,89 @@
+created: 20140912171951523
+creator: inmysocks
+modified: 20141023191552145
+modifier: inmysocks
+title: Formatting Tables
+tags: [[Wiki Formatting - text, tables, etc.]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Formatting%20Tables
+
+!Tables
+Tables are made like this
+
+```
+|!Cell1 |!Cell2 |
+|Cell3 |Cell3 |
+```
+
+which makes 
+
+|!Cell1 |!Cell2 |
+|Cell3 |Cell3 |
+
+!!Horizontally align things in cells
+To horizontally align things in cells 
+you put a blank space either at the front or back or both to make it line up on the left, right or be centered
+
+```
+|Left aligned content |
+| Right aligned content|
+| Centred content |
+|+++ a very wide column so we can see the alignment +++|
+```
+makes
+
+|Left aligned content |
+| Right aligned content|
+| Centred content |
+|+++ a very wide column so we can see the alignment +++|
+
+!!You can also set vertical alignment
+
+```
+|^top left |^ top center |^ top right|
+|middle left | middle center | middle right|
+|,bottom left |, bottom center |, bottom right|
+```
+which, when the outside rows are added to make the vertical alignment mean something, gives
+
+| :: | ::::::::::::::::::::::::::: | ::::::::::::::::::::::::::: | ::::::::::::::::::::::::::: | :: |
+| ::<br>:: |^top left |^ top center |^ top right| ::<br>:: |
+| ::<br>:: |middle left | middle center | middle right| ::<br>:: |
+| ::<br>:: |,bottom left |, bottom center |, bottom right| ::<br>:: |
+| :: | ::::::::::::::::::::::::::: | ::::::::::::::::::::::::::: | ::::::::::::::::::::::::::: | :: |
+
+The outside rows give each cell enough height for the alignment to make a difference, but they make the table code hard to read, so they are left out of the example code. Edit this tiddler to see the whole thing.
+
+!!Merging Cells
+to merge a cell with the cell to the left use <, to merge a cell with the cell to the right use > to merge a cell with the cell above it use ~
+
+```
+|Cell1 |Cell2 |Cell3 |Cell4 |
+|Cell5 |Cell6 |Cell7 |<|
+|Cell5 |~|Cell7 |Cell8 |
+|>|Cell9 |Cell10 |Cell11 |
+```
+
+|Cell1 |Cell2 |Cell3 |Cell4 |
+|Cell5 |Cell6 |Cell7 |<|
+|Cell5 |~|Cell7 |Cell8 |
+|>|Cell9 |Cell10 |Cell11 |
+
+
+!! Other stuff
+you can make headers, footers and captions by putting a h at the end of a row for a header, an f at the end of a row for a footer and a c at the end of a row for a caption. Order of the rows doesn't seem to matter for them.
+
+```
+|This is a caption |c
+|Cell1 |Cell2 |
+|Cell3 |Cell3 |
+|Header|Header|h
+|Footer|Footer|f
+```
+
+|This is a caption |c
+|Cell1 |Cell2 |
+|Cell3 |Cell3 |
+|Header|Header|h
+|Footer|Footer|f
+
+<<bottomOfTiddler {{!!title}}>>

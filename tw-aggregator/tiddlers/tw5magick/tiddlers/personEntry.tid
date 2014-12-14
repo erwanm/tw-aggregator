@@ -1,0 +1,21 @@
+created: 20140113142659151
+creator: Stephan Hradek
+description: Displays a tiddler title along with a small edit button.
+modified: 20140116124414552
+modifier: Stephan Hradek
+title: personEntry
+tags: template
+source-wiki: http://tw5magick.tiddlyspot.com/#personEntry
+
+\define editbutton()
+<span title="edit details"><$button set="$:/temp/PersonDBeditPerson" setTo={{!!title}} class="btn-invisible">{{$:/core/images/edit-button}}</$button></span>
+\end
+
+\define editfield()
+<$reveal state="$:/temp/PersonDBeditPerson" text={{!!title}} type="match">
+{{!!title||editPerson}}
+<$button set="$:/temp/PersonDBeditPerson" setTo="" class="btn-invisible">{{$:/core/images/done-button}}</$button>&nbsp;<$button param={{$:/temp/PersonDBeditPerson}} message="tw-delete-tiddler" class="btn-invisible">{{$:/core/images/delete-button}}</$button>
+</$reveal>
+\end
+
+<$link><$view field="title"/></$link> <<editbutton>> <<editfield>>

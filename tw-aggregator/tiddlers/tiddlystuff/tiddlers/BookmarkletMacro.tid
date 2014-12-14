@@ -1,0 +1,26 @@
+created: 20131221220753317
+creator: Stephan Hradek
+modified: 20131222215013869
+modifier: Stephan Hradek
+modules-used: [[$:/macros/skeeve/bookmarklet.js]]
+title: BookmarkletMacro
+tags: explanation macro
+source-wiki: http://tiddlystuff.tiddlyspot.com/#BookmarkletMacro
+
+If you want to enhance a website, it can sometimes be done by a [[bookmarklet|http://en.wikipedia.org/wiki/Bookmarklet]]. This macro helps in creating those.
+
+Simply creat a tiddler containing the javascript the bookmarklet should execute, for example:
+
+[[Reveal Passwords]]
+
+Then put into another tiddler this:
+
+```
+<$macrocall $name="bookmarklet" tiddler="Reveal Passwords" />
+```
+
+And you will get:
+
+<$macrocall $name="bookmarklet" tiddler="Reveal Passwords" />
+
+Which is a dragable Link. Simply drag it to your bookmarks. On any page containing a password field, you can click this bookmarklet to reveal the passwords.

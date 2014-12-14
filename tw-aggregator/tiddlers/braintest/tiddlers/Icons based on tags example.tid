@@ -1,0 +1,9 @@
+created: 20141115164644639
+creator: Danielo Rodriguez
+modified: 20141115165739814
+modifier: Danielo Rodriguez
+title: Icons based on tags example
+tags: macros linux database [[using TW5]] snippets
+source-wiki: http://braintest.tiddlyspot.com/#Icons%20based%20on%20tags%20example
+
+This is an example of how a filter with icons based on tags looks like. The tags does not make any sense, is just to illustrate how awesome is this. As you can see, only the tags that has an icon assigned are rendered as icons.

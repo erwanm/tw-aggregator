@@ -1,0 +1,11 @@
+created: 20131118000300009
+modified: 20131118000900005
+title: Add your own custom tab to the sidebar tabs
+tags: Tabs [[Page layout]]
+source-wiki: http://www.giffmex.org/tw5mall.htm#Add%20your%20own%20custom%20tab%20to%20the%20sidebar%20tabs
+
+Currently the default sidebar tabs are 'Open', 'Recent', 'Tools' and 'More'. These may change over time. But you can easily add your own custom tabs to the sidebar.
+
+Just create a tiddler and tag it `$:/tags/SideBar`. Then add any content you want.
+
+If you want the label on the tab to be different from the title of the tiddler, just add a field called caption to the tiddler, and type in the name you want to appear on the tabl.

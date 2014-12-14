@@ -1,0 +1,15 @@
+created: 20131219142136006
+creator: Stephan Hradek
+modified: 20140303212800092
+modifier: Stephan Hradek
+title: Overview
+source-wiki: http://tiddlystuff.tiddlyspot.com/#Overview
+
+<$list filter="[tag[explanation]tags[]] -[[explanation]] +[sort[title]]">
+
+! <$view field="title"/>
+<$list filter="[is[current]tagging[]] +[sort[title]]">
+
+<$link><$view field="title"/></$link><$list filter="[is[current]has[part-of]]"> (Part of TiddlyWiki <$view field="part-of"/>)</$list>
+</$list>
+</$list>

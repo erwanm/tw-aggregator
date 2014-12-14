@@ -1,0 +1,29 @@
+created: 20140912171249592
+creator: inmysocks
+modified: 20141023190925217
+modifier: inmysocks
+title: CamelCase
+tags: [[Wiki Examples]]
+source-wiki: http://inmysocks.tiddlyspot.com/#CamelCase
+
+A word that is in CamelCase shows up as a link.
+
+A word is in CamelCase if it starts with a capital letter followed by a lower case letter, and has at least one other capital letter in the word.
+
+```
+CamelCase is
+
+CAmelcase isn't
+
+CamelcasE is
+```
+
+displays as:
+
+CamelCase is
+
+CAmelcase isn't
+
+CamelcasE is
+
+<<bottomOfTiddler {{!!title}}>>

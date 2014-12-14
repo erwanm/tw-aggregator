@@ -1,0 +1,24 @@
+created: 20141114210253056
+creator: Tobias Beer
+due: 2014-12-24
+modified: 20141123211018131
+modifier: Tobias Beer
+title: Task Overview
+tags: Solutions Lists Tags GTD Task Tables
+source-wiki: http://tb5.tiddlyspot.com#Task%20Overview
+
+''The below table...''<br>
+» gathers all tiddlers tagged ''Task''<br/>
+» grouped by whether or not the ''Done'' tag is assigned as well<br/>
+» displays a checkbox to mark ''Task'' tiddlers ''Done'' or to reopen them<br/>
+» displays additional tags of ''Task'' tiddlers<br/>
+
+{{$:/template/tasklist-tags}}
+
+<br><br>
+rendered by transcluding:
+<<source $:/template/tasklist-tags>>
+
+also using these two templates for the table rows, which are needed to avoid state-collisions, i.e. same tag pills opening up at once...
+
+[[$:/template/tasklist-tags/open]] and here's a preview of <<source [[$:/template/tasklist-tags/closed]]>>

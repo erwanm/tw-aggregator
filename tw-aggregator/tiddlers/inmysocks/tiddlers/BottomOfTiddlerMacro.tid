@@ -1,0 +1,38 @@
+created: 20140926184609452
+creator: inmysocks
+modified: 20141203192428709
+modifier: inmysocks
+title: BottomOfTiddlerMacro
+source-wiki: http://inmysocks.tiddlyspot.com/#BottomOfTiddlerMacro
+
+\define getProperTag() [[$(properTag)$]]
+
+\define bottomOfTiddler(title)
+
+---
+
+<$tiddler tiddler=$title$>
+
+<$fieldmangler>
+<$button>Add this tiddler to the Dashboard
+<$action-sendmessage $message='tm-add-tag' $param='Dashboard'/>
+</$button>
+</$fieldmangler>
+
+<$set name="properTag" value={{!!title}}>
+<$button>New Topic
+<$action-sendmessage $message="tm-new-tiddler" title="New" text="<<bottomOfTiddler {{!!title}}>>" blurb=" " tags=<<getProperTag>>/>
+</$button>
+</$set>
+
+
+Entries tagged <$list filter="[all[current]]"/>
+
+<$list filter="[all[current]tagging[]]">
+
+<$link to={{!!title}}><$view field="title"/></$link> - <$view field="blurb"/>
+
+</$list>
+
+</$tiddler>
+\end

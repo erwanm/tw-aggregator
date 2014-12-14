@@ -1,0 +1,18 @@
+caption: show / hide contents
+created: 20141004004441213
+creator: EucalyJ
+modified: 20141004011941615
+modifier: EucalyJ
+title: TWC: dynamic contents
+type: text/vnd.tiddlywiki
+tags: [[TWC: TW5 native]]
+source-wiki: http://eucaly-tw5.tiddlyspot.com/#TWC_%20dynamic%20contents
+
+!!! TiddlyWikiClassic
+* ~CollapseTiddlersPlugin
+* ~ForEachTiddlerPlugin
+
+!!! ~TiddlyWiki 5
+* `<$reveal>`
+* `<$list>`
+* Fallback in `<$transclude>` `<$view>` ``<$list>``

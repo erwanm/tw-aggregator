@@ -1,0 +1,25 @@
+created: 20140912163653609
+creator: inmysocks
+modified: 20141023191529257
+modifier: inmysocks
+title: Definitions
+tags: [[Wiki Formatting - text, tables, etc.]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Definitions
+
+To add formatted definitions you use
+
+```
+;Term to be defined
+:definition of term
+;Second term to be defined
+:definition of second term
+```
+
+which will display as
+
+;Term to be defined
+:definition of term
+;Second term to be defined
+:definition of second term
+
+<<bottomOfTiddler {{!!title}}>>

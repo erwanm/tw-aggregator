@@ -1,0 +1,23 @@
+caption: copy tiddler
+created: 20141004004829402
+creator: EucalyJ
+modified: 20141004005135954
+modifier: EucalyJ
+title: TWC: copy tiddler
+type: text/vnd.tiddlywiki
+tags: [[TWC: TW5 native]]
+source-wiki: http://eucaly-tw5.tiddlyspot.com/#TWC_%20copy%20tiddler
+
+!!! TiddlyWikiClassic
+* ~CopyTiddlerPlugin
+
+
+!!! ~TiddlyWiki 5
+* [[$:/core/ui/Buttons/clone]]
+* or
+```
+<$button message="tm-new-tiddler" param="tiddler-to-copy">
+Copy Tiddler
+</$button>
+```
+

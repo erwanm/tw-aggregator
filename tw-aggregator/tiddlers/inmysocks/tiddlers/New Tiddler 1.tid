@@ -1,0 +1,11 @@
+created: 20141203184222185
+modified: 20141203184514397
+title: New Tiddler 1
+source-wiki: http://inmysocks.tiddlyspot.com/#New%20Tiddler%201
+
+<$list filter='[tag[Contents]]' template=TOCArrangeTemplate2>
+<$view field='title'/><br>
+<$list filter='[tag<currentTiddler>]'>
+<$view field='title'/><br>
+</$list>
+</$list>

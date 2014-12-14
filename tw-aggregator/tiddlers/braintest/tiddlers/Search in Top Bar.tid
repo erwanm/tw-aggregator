@@ -1,0 +1,18 @@
+created: 20140205171249552
+creator: Danielo Rodriguez
+modified: 20141030074813796
+modifier: Danielo Rodriguez
+title: Search in Top Bar
+tags: customization
+source-wiki: http://braintest.tiddlyspot.com/#Search%20in%20Top%20Bar
+
+Maybe you have noticed the search bar in the top-left.
+
+Yes, it works like you expected, is an alternative search. This is cool if you want to colapse the right side-bar. This way you can still search without opening the right side-bar.
+
+If you want it : 
+
+* You need to have the top-sidebar already installed
+** Grab it from here: http://tw5toolbar.tiddlyspot.com/
+* Grab this tiddler to your wiki //(drag and drop)//: [[$:/stylesheet/top-search]]
+* Grab this tiddler to your wiki //(drag and drop)//: [[$:/topSearch]]

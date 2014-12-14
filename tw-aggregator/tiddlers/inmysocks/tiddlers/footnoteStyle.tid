@@ -1,0 +1,16 @@
+created: 20140825085705112
+creator: Andreas Hahn
+modified: 20140918045626923
+modifier: Andreas Hahn
+title: footnoteStyle
+source-wiki: http://inmysocks.tiddlyspot.com/#footnoteStyle
+
+.tc-drop-down {
+padding: 10px;
+}
+
+.tc-drop-down dd {
+max-width:500px; 
+word-break: break; 
+white-space:normal; 
+}

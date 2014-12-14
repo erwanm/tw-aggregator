@@ -1,0 +1,25 @@
+blurb: Requirements/guidelines for making display templates for wiki settings
+created: 20141204041721884
+modified: 20141204043116920
+title: Display Template Requirements
+tags: [[Wiki Settings]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Display%20Template%20Requirements
+
+The actual template tiddlers:
+
+*A field called `display_name` that contains the name displayed in the drop-down menus
+*A field called `settings_tiddler` that contains the name of the tiddler for changing the settings. If there are no settings it should be an empty tiddler.
+*Tagged with `Templates`
+
+Templates that are for lists (Like in [[Contacts]] or [[Upgraded To-Do List]]):
+
+*One template for displaying each entry on the list with the appropriate tag
+**Tagged `ToDoEntryDisplayTemplate` for the [[Upgraded To-Do List]]
+**Tagged `ContactDisplayTemplate` for the [[Contacts]] tiddler
+*One template for displaying the list itself
+**Tagged `TaskListTemplate` for the [[Upgraded To-Do List]]
+**Tagged `ContactListTemplate` for [[Contacts]]
+
+All templates should have:
+
+*A settings tiddler, hopefully in the same style as [[Contacts Settings]] and [[To-Do List Settings]] and tagged approprately (`Wiki Settings` for the top-level settings tiddler, others tagged with the top-level tiddler, like [[Contact Settings]] and [[ContactDisplayTemplate1 Settings]] are)

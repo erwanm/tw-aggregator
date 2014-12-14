@@ -1,0 +1,27 @@
+created: 20141204020338680
+modified: 20141206181221933
+no_edit: true
+title: NewTaskButton
+source-wiki: http://inmysocks.tiddlyspot.com/#NewTaskButton
+
+<$reveal type='nomatch' state='$:/state/NewTaskButton' text='show'>
+<$button set='$:/state/NewTaskButton' setTo='show'>Create New Task</$button>
+</$reveal>
+<$reveal type='match' state='$:/state/NewTaskButton' text='show'>
+<$button set='$:/state/NewTaskButton' setTo='noshow'>Hide Form</$button>
+<$button>Add Task
+<$action-setfield $tiddler={{$:/state/NewTask!!new_task_name}} due_date={{$:/state/NewTask!!due_date}} description={{$:/state/NewTask!!description}} text={{$:/state/NewTask!!text}} tags='task'/>
+<$action-setfield $tiddler='$:/state/NewTask' new_task_name='' due_date='' description='' text=''/>
+</$button>
+<br>
+Task Title: <$edit-text tiddler='$:/state/NewTask' field='new_task_name' size=70 placeholder='Task Title'/><br>
+Due Date: <$edit-text tiddler='$:/state/NewTask' field='due_date' size=70 placeholder='Due Date'/><br>
+Description: <$edit-text tiddler='$:/state/NewTask' field='description' size=70 placeholder='Description'/><br>
+<$reveal type='nomatch' state='$:/state/NewTaskDetails' text='show'>
+<$button set='$:/state/NewTaskDetails' setTo='show'>Add Details</$button>
+</$reveal>
+<$reveal type='match' state='$:/state/NewTaskDetails' text='show'>
+Details: (<$button set='$:/state/NewTaskDetails' setTo='noshow'>Cancel</$button>)<br>
+<$edit-text tiddler='$:/state/NewTask' field='text' size=70 placeholder='Task Details'/>
+</$reveal>
+</$reveal>

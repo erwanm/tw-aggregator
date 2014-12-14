@@ -1,0 +1,23 @@
+created: 20140912164359376
+creator: inmysocks
+modified: 20141023191606425
+modifier: inmysocks
+title: Headings
+tags: [[Wiki Formatting - text, tables, etc.]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Headings
+
+Headings can be made like this
+
+```
+!Biggest heading
+!!Next heading
+!!!next heading
+!!!!then after that it may be normal text
+```
+
+!Biggest heading
+!!Next heading
+!!!next heading
+!!!!then after that it may be normal text
+
+<<bottomOfTiddler {{!!title}}>>

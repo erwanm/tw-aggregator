@@ -1,0 +1,154 @@
+created: 20141109203159734
+creator: inmysocks
+modified: 20141209181040884
+modifier: inmysocks
+no_edit: true
+title: ContactsMacros
+source-wiki: http://inmysocks.tiddlyspot.com/#ContactsMacros
+
+\define contactSlider(buttonType)
+
+<$tiddler tiddler=$(tiddlerName)$>
+<$reveal type="nomatch" state="$:/state/$(tiddlerName)$" text="show">
+
+<$button set="$:/state/$(tiddlerName)$" setTo="show" class=$buttonType$>{{$:/core/images/right-arrow}}$(textstyle1)$$(tiddlerName)$$(textstyle1)$</$button> - {{$(tiddlerName)$!!blurb}}
+
+</$reveal>
+<$reveal type="match" state="$:/state/$(tiddlerName)$" text="show">
+
+<$button set="$:/state/$(tiddlerName)$" setTo="hide" class=$buttonType$>{{$:/core/images/down-arrow}}$(textstyle1)$$(tiddlerName)$$(textstyle1)$</$button> - {{$(tiddlerName)$!!blurb}}
+
+<$link to="$(tiddlerName)$">Open Contact</$link>
+
+|!Personal Email Address |<<editEmailField1 personal_email_address>> |<<editField2 personal_email_address>> |
+|!Work Email Address |<<editEmailField1 work_email_address>> |<<editField2 work_email_address>> |
+|!Other Email Address |<<editEmailField1 other_email_address>> |<<editField2 other_email_address>> |
+|!Home Phone Number |<<editField1 home_phone_number>> |<<editField2 home_phone_number>> |
+|!Cell Phone Number |<<editField1 cell_phone_number>> |<<editField2 cell_phone_number>> |
+|!Work Phone Number |<<editField1 work_phone_number>> |<<editField2 work_phone_number>> |
+|!Blurb |<<editField1 blurb>> |<<editField2 blurb>> |
+|!Group |<<contactEditGroup group>> |<<editField2 group>> |
+
+<<contactAddress>>
+
+<<contactAbout>>
+
+</$reveal>
+</$tiddler>
+
+\end
+
+\define getAddress()
+mailto:$(address)$
+\end
+
+\define editEmailField1(fieldName)
+
+<$reveal type="nomatch" state="$:/state/$(tiddlerName)$$fieldName$" text="show">
+<$set name=address value={{$(tiddlerName)$!!$fieldName$}}>
+<a href=<<getAddress>> target="_top">{{$(tiddlerName)$!!$fieldName$}}</a>
+</$set>
+</$reveal>
+<$reveal type="match" state="$:/state/$(tiddlerName)$$fieldName$" text="show">
+<$edit-text tiddler="$(tiddlerName)$" field="$fieldName$"/> 
+</$reveal>
+
+\end
+
+
+\define editField1(fieldName)
+
+<$reveal type="nomatch" state="$:/state/$(tiddlerName)$$fieldName$" text="show">
+{{$(tiddlerName)$!!$fieldName$}}
+</$reveal>
+<$reveal type="match" state="$:/state/$(tiddlerName)$$fieldName$" text="show">
+<$edit-text tiddler="$(tiddlerName)$" field="$fieldName$"/> 
+</$reveal>
+
+\end
+
+\define editField2(fieldName)
+
+<$reveal type="nomatch" state="$:/state/$(tiddlerName)$$fieldName$" text="show">
+<$button set="$:/state/$(tiddlerName)$$fieldName$" setTo="show">Edit</$button> 
+</$reveal>
+<$reveal type="match" state="$:/state/$(tiddlerName)$$fieldName$" text="show">
+<$button set="$:/state/$(tiddlerName)$$fieldName$" setTo="hide">Edit</$button> 
+</$reveal>
+
+\end
+
+\define contactAddress()
+
+<$reveal type="nomatch" state="$:/state/$(tiddlerName)$Address" text="show">
+Address (<$button set="$:/state/$(tiddlerName)$Address" setTo="show">Edit</$button>) :<br>
+
+
+{{$(tiddlerName)$!!street_address}}<br>
+{{$(tiddlerName)$!!city}}, {{$(tiddlerName)$!!state_or_provence}}<br>
+{{$(tiddlerName)$!!zip_code}} {{$(tiddlerName)$!!country}}
+</$reveal>
+<$reveal type="match" state="$:/state/$(tiddlerName)$Address" text="show">
+Address (<$button set="$:/state/$(tiddlerName)$Address" setTo="hide">Edit</$button>): <br>
+
+<$edit-text tiddler="$(tiddlerName)$" field="street_address" focusPopup="Edit" placeholder="Street Address"/> <br>
+<$edit-text tiddler="$(tiddlerName)$" field="city" focusPopup="Edit" placeholder="City"/>, <$edit-text tiddler="$(tiddlerName)$" field="state_or_provence" focusPopup="Edit" placeholder="State or Provence"/> <br>
+<$edit-text tiddler="$(tiddlerName)$" field="zip_code" focusPopup="Edit" placeholder="Zip Code"/> <$edit-text tiddler="$(tiddlerName)$" field="country" focusPopup="Edit" placeholder="Country"/> 
+</$reveal>
+
+\end
+
+\define contactAbout()
+
+<$reveal type="nomatch" state="$:/state/$(tiddlerName)$About" text="show">
+
+About (<$button set="$:/state/$(tiddlerName)$About" setTo="show">Edit</$button>) :<br>
+
+<$view tiddler="$(tiddlerName)$" field="text"/>
+
+</$reveal>
+
+<$reveal type="match" state="$:/state/$(tiddlerName)$About" text="show">
+
+About (<$button set="$:/state/$(tiddlerName)$About" setTo="hide">Edit</$button>): <br>
+
+<$edit-text tiddler="$(tiddlerName)$" field="text" size="120"/> <br>
+
+</$reveal>
+
+\end
+
+\define newContactAddGroup1()
+<$reveal type="nomatch" state="$:/state/NewContactFormAddGroup" text="show">
+<$button set="$:/state/NewContactFormAddGroup" setTo="show">New Group</$button>
+</$reveal>
+<$reveal type="match" state="$:/state/NewContactFormAddGroup" text="show">
+<$button set="$:/state/NewContactFormAddGroup" setTo="hide">
+<$action-setfield $tiddler={{ContactTemp!!group}} tags="ContactGroup" title={{ContactTemp!!group}}/>Add Group</$button>
+<$button set="$:/state/NewContactFormAddGroup" setTo="hide">Cancel</$button>
+</$reveal>
+\end
+
+\define newContactAddGroup2()
+<$reveal type="nomatch" state="$:/state/NewContactFormAddGroup" text="show">
+{{Contact Group Selector}}
+</$reveal>
+<$reveal type="match" state="$:/state/NewContactFormAddGroup" text="show">
+<$edit-text tiddler="ContactTemp" field="group" size="20"/>
+</$reveal>
+\end
+
+\define contactEditGroup(fieldName)
+
+<$reveal type="nomatch" state="$:/state/$(tiddlerName)$$fieldName$" text="show">
+{{$(tiddlerName)$!!$fieldName$}} 
+</$reveal>
+<$reveal type="match" state="$:/state/$(tiddlerName)$$fieldName$" text="show">
+<$select tiddler='$(tiddlerName)$' field='group'>
+<$list filter='[tag[ContactGroup]]'>
+<option><$view field='title'/></option>
+</$list>
+</$select>
+</$reveal>
+
+\end

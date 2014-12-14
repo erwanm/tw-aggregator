@@ -1,0 +1,85 @@
+created: 20140925231025712
+modified: 20141023191259387
+title: How to make macros
+tags: Macros
+source-wiki: http://inmysocks.tiddlyspot.com/#How%20to%20make%20macros
+
+\define simpleMacro()
+
+It just says this
+
+\end
+
+The general form of code for a macro is
+
+```
+\define macroName(macroInput1,macroInput2)
+
+(code here)
+
+\end
+```
+
+In the body of the macro code you can reference the inputs by using `$macroInput1$` and `$macroInput2$` etc. and they will be used as variables when the macro is called.
+To use the macro the syntax is `<<macroName macroInputValue1 macroInputValue2>>` then in the code for the macro everywhere that `$macroInput1$` shows up, `macroInputValue1` will be used instead, and wherever `$macroInput2$` shows up, `macroInputValue2` will be used instead. This means that a macro is just defines a simple function, if you know what that means.
+
+A marco doesn't need to have only a single input, it can have zero or one or any number of inputs (if there is a limit I don't know it, it may be 2).
+
+The code is just WikiText, the same as anywhere else in the wiki, just with the placeholders for variables.
+
+You can define a macro that is only going to be used in a single tiddler at the very top of the tiddler. It doesn't show up in the displayed portion. At the top of this tiddler there is a simple macro with no inputs defined with the following code
+
+```
+\define simpleMacro()
+
+It just says this
+
+\end
+```
+
+Then anywhere that you put `<<simpleMacro>>` in this tiddler is displays as:
+
+<<simpleMacro>>
+
+To make a global macro, that is one that can be used anywhere in the wiki, create a tiddler that contains the macro, or macros, that you want and give it the tag `$:/tags/Macro` and it can be used anywhere in the wiki.
+
+!Other example macros
+The no input macro above is a simple example. A slightly more complex example of a macro is the global  `hoverBlurb` macro used in this wiki. The code for this macro is
+
+```
+\define hoverBlurb(label)
+<$hover popup="$:/state/$label$">
+[[$label$]]
+</$hover>
+
+<$reveal type="popup" state="$:/state/$label$">
+<div class="tc-drop-down">
+
+<$view tiddler="$label$" field="blurb"/>
+
+</div>
+</$reveal>
+\end
+```
+
+Note it takes the input `label` and anywhere in the definition where `$label$` is used gets replaced by the input given when the macro is called. so if you use `<<hoverBlurb PrinnySpin>>` it is the same as using all of this code:
+
+```
+<$hover popup="$:/state/PrinnySpin">
+[[PrinnySpin]]
+</$hover>
+
+<$reveal type="popup" state="$:/state/PrinnySpin">
+<div class="tc-drop-down">
+
+<$view tiddler="PrinynSpin" field="blurb"/>
+
+</div>
+</$reveal>
+```
+
+which is much longer than calling the macro, which is the reason macros exist.
+
+The macros described in [[Make a tiddlers blurb popup when you hover over a link]], [[Make an image tiddlers blurb field show up like a tooltip]] and [[Make one tiddler popup when you hover over a link to another tiddler]] are defined in MyHoverMacros and are setup as global macros. The code for each macro is shown in the description tiddlers as reference.
+
+<<bottomOfTiddler {{!!title}}>>

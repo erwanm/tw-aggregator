@@ -1,0 +1,20 @@
+created: 20140216101316280
+modified: 20141203203334593
+title: Welcome to my collection of tiddlywiki related projects
+type: text/vnd.tiddlywiki
+source-wiki: http://bjtools.tiddlyspot.com/#Welcome%20to%20my%20collection%20of%20tiddlywiki%20related%20projects
+
+|!Project|!Location|!Objective|
+|[[Flexitype Demo]]|[[$:/plugins/bj/typestemplate]] |Exended types|
+|[[typestemplate]]|[[$:/plugins/bj/flexitype]] |enables user templates for types|
+|ExtendableCalendar|[[$:/plugins/bj/Calendar]] |A configuarable calendar|
+|! <hr> |! <hr> |! <hr> |
+|TagList|[[$:/plugins/bj/taglist]] |list by tag that is re-orderable by drag/drop |
+|VisualEditor|[[$:/plugins/bj/visualeditor]] |Enable html based content to be created or edited|
+|! <hr> |! <hr> |! <hr> |
+|JsonEditor|[[$:/plugins/bj/jsoneditor]]|display and edit jsons as trees|
+|ClickAction|[[$:/plugins/bj/smalltools]]|allows multiple actions on a lists to be activated at the same time|
+|! <hr> |! <hr> |! <hr> |
+
+There is also the tiddlyclip project at http://tiddlyclip.tiddlyspot.com
+

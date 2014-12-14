@@ -1,0 +1,52 @@
+blurb:  Settings for the Contacts tiddler
+created: 20141104205012500
+creator: inmysocks
+modified: 20141204045508244
+modifier: inmysocks
+no_edit: true
+title: Contacts Settings
+tags: [[Wiki Settings]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Contacts%20Settings
+
+!!Contact Display template to use:
+This is how each individual contact will be displayed in the list of contacts<br>
+
+<div class='tc-tiddler-frame' style='width:600px; background-color:#fafafa'>
+<$select tiddler='Contacts' field='contact_display_template'>
+<$list filter='[tag[ContactDisplayTemplate]]'>
+<option value={{!!title}}><$view field='display_name'/></option>
+</$list>
+</$select>
+
+<$tiddler tiddler={{Contacts!!contact_display_template}}>
+<$transclude tiddler={{!!settings_tiddler}}/>
+</$tiddler>
+ 
+<br>
+Preview: <br>
+<div class='tc-tiddler-frame' style='width:500px; background-color:#f0f0f0'>
+<$tiddler tiddler={{Contacts!!contact_display_template}}><$transclude/></$tiddler>
+</div>
+</div>
+
+!!Contact List template to use:
+This is the template used to generate the list of contacts, click on the name to see the template (How it looks changes based on the display template selected above).<br>
+<div class='tc-tiddler-frame' style='width:600px; background-color:#fafafa'>
+
+<$select tiddler='Contacts' field='contact_list_template'>
+<$list filter='[tag[ContactListTemplate]]'>
+<option value={{!!title}}><$view field=display_name/></option>
+</$list>
+</$select>
+
+<$tiddler tiddler={{Contacts!!contact_list_template}}>
+<$transclude tiddler={{!!settings_tiddler}}/>
+</$tiddler>
+<br>
+Preview:<br>
+<div class='tc-tiddler-frame' style='width:500px; background-color:#f0f0f0'>
+<$tiddler tiddler={{Contacts!!contact_list_template}}>
+<$transclude/>
+</$tiddler>
+</div>
+</div>

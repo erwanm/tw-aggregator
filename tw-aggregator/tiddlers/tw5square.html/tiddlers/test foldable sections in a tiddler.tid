@@ -1,0 +1,17 @@
+created: 20141121070812242
+modified: 20141121071118272
+title: test foldable sections in a tiddler
+type: text/vnd.tiddlywiki
+source-wiki: http://larigot.avarts.ionio.gr/users/iani/wikis/tw5square.html#test%20foldable%20sections%20in%20a%20tiddler
+
+<div class="tw-tab-content">
+
+! How-to
+
+<$list filter="[tag[Answers]]">
+
+<$macrocall $name="accordion" caption="description" body={{!!title}} heading="h2" body-class="box yellow"/>
+
+</$list>
+
+</div>

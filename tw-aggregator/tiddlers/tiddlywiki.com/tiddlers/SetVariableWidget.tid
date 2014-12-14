@@ -1,0 +1,8 @@
+caption: setvariable
+created: 20131024141900000
+modified: 20141025115603373
+title: SetVariableWidget
+tags: Widgets
+source-wiki: http://tiddlywiki.com#SetVariableWidget
+
+The `<$setvariable>` widget is a synonym for `<$set/>`; see SetWidget for more details.

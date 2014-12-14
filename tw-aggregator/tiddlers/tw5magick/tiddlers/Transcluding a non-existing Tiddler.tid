@@ -1,0 +1,16 @@
+created: 20140107134526739
+creator: Stephan Hradek
+modified: 20140107135730141
+modifier: Stephan Hradek
+title: Transcluding a non-existing Tiddler
+source-wiki: http://tw5magick.tiddlyspot.com/#Transcluding%20a%20non-existing%20Tiddler
+
+As stupid as it might sound, but it's possible to transclude non-existing tiddlers and it might even be useful!
+
+For example: There is no tiddler `http://tiddlywiki.com` anywhere in this wiki. But I can transclude it to show its favicon by using [[ShowFavicon]] as its template:
+
+```
+{{http://tiddlywiki.com||ShowFavicon}}
+```
+
+renders as a nice little icon {{http://tiddlywiki.com||ShowFavicon}}.

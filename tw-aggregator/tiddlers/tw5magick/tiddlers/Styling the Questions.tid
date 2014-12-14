@@ -1,0 +1,16 @@
+created: 20131121211549026
+creator: Stephan Hradek
+modified: 20140127085455568
+modifier: Stephan Hradek
+title: Styling the Questions
+source-wiki: http://tw5magick.tiddlyspot.com/#Styling%20the%20Questions
+
+In order for the questions and answers not to look to boring, let's put a question mark in front of the questions and an exclamation mark in front of the answers. In my real task "question" and "answer" were in fact the 2 languages and I had flags where we now have question mark and exclamation mark.
+
+As we already did put @&#64;.question and @&#64;.answer around the 2 parts, we have some CSS classes assigned to the HTML elements. So it is now simply a matter of some trickfull CSS. See [[Quiz.CSS]].
+
+Example:
+
+{{Geography 01}}
+
+Next: [[Overview of all Questions]]

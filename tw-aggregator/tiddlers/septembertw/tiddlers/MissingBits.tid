@@ -1,0 +1,25 @@
+color: #ff1b18
+created: 20140910032321531
+creator: AcD
+modified: 20140917160927145
+modifier: AcD
+title: MissingBits
+type: text/vnd.tiddlywiki
+tags: MissingBits
+source-wiki: http://septembertw.tiddlyspot.com/#MissingBits
+
+Tiddlers tagged thusly describe stuff that //should have been in the box//, ie included in the most current vanilla distribution of TiddlyWiki, yet aren't.
+
+They are meant to help core devs and community hackers interested in helping with the new user experience figure out what features may be worth tackling next.
+
+For end users, they're a good way to assess whether one //can't read good//, or if some obvious function is indeed really missing at the moment.
+
+Whenever possible, workarounds, hacks and third-party plugins that can help fill the gap will be referenced in their respective namesake tiddler.
+
+<$list filter="[!is[system]tag<currentTiddler>]">
+<div class="tc-menu-list-item">
+
+* <$link to={{!!title}}><$view field="title"/></$link>
+
+</div>
+</$list>

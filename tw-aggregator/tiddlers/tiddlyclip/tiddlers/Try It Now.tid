@@ -1,0 +1,18 @@
+created: 20140324020417349
+modified: 20140909100835552
+title: Try It Now
+type: null
+tags: TCdoc [[Quick Start and Basics]]
+source-wiki: http://tiddlyclip.tiddlyspot.com/#Try%20It%20Now
+
+To tryout Tiddlyclip, simply open the firefox Add-ons manager, clip on the extension tab and drag and drop this link into the extension panel:
+<br>
+https://github.com/buggyj/tiddlyclip/raw/master/tiddlyclip.xpi
+<br>
+wait for the message to appear and click the install now button
+
+Once the add-on is installed return to this tiddlywiki, right click the mouse and click 'dock here'.  Tiddlyclip is now ready to use with this tiddlywiki.
+
+To use, go to a webpage, select some content, right click  the mouse, put the pointer over "tiddlyclip as", a submenu should appear, click on  "snip". A tiddler will now have been created containing the  clip.
+
+See also  [[Clipping Content and Tiddlers]].

@@ -1,0 +1,6 @@
+caption: version
+title: VersionCommand
+tags: Commands
+source-wiki: http://tiddlywiki.com#VersionCommand
+
+{{$:/language/Help/version}}

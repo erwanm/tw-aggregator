@@ -1,0 +1,10 @@
+created: 20140303212930746
+creator: Stephan Hradek
+modified: 20140303213033322
+modifier: Stephan Hradek
+modules-used: [[$:/plugins/skeeve/listselect]]
+title: Listselect Widget
+tags: explanation widget
+source-wiki: http://tiddlystuff.tiddlyspot.com/#Listselect%20Widget
+
+{{$:/help/skeeve/ListselectWidget}}

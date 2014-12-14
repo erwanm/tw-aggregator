@@ -1,0 +1,11 @@
+created: 20140912163554577
+creator: inmysocks
+modified: 20141023191510361
+modifier: inmysocks
+title: Dashes in WikiText
+tags: [[Wiki Formatting - text, tables, etc.]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Dashes%20in%20WikiText
+
+You can create an n-dash with a double hyphen `--` and an m-dash with a triple hyphen `---`. For example -- this is an example --- and so is this
+
+<<bottomOfTiddler {{!!title}}>>

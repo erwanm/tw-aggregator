@@ -1,0 +1,8 @@
+created: 20141014110130845
+modified: 20141113161238497
+title: Typekit Font Loader
+type: text/vnd.tiddlywiki
+source-wiki: http://larigot.avarts.ionio.gr/users/iani/wikis/tw5square.html#Typekit%20Font%20Loader
+
+<script src="//use.typekit.net/ckd3mhx.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>

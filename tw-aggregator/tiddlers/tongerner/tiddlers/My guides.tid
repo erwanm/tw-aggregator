@@ -1,0 +1,13 @@
+created: 20140203085051847
+creator: TonGerner
+modified: 20141114132549481
+modifier: TonGerner
+title: My guides
+tags: documentation
+source-wiki: http://tongerner.tiddlyspot.com/#My%20guides
+
+@@.brown ''My guides''@@
+
+A <<slider "basic knowledge »"  "{{Basic knowledge}}">>of '~TiddlyWiki 5' is assumed.
+
+<<tabs "[tag[guide]sort[title]]" "Customization" "$:/state/tab/guides" "tc-vertical">>

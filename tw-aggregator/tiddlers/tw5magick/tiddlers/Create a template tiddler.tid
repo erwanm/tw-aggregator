@@ -1,0 +1,10 @@
+created: 20131223104147773
+creator: Stephan Hradek
+modified: 20131223111208863
+modifier: Stephan Hradek
+title: Create a template tiddler
+source-wiki: http://tw5magick.tiddlyspot.com/#Create%20a%20template%20tiddler
+
+Create a template tiddler called `full`, containing this:
+
+{{full||code}}

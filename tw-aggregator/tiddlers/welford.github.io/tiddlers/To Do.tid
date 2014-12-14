@@ -1,0 +1,20 @@
+created: 20140630220900224
+modified: 20140710201506015
+revision: 0
+title: To Do
+type: text/vnd.tiddlywiki
+source-wiki: http://welford.github.io/#To%20Do
+
+# transclusion of twexe search results
+# ~~push storyriver down by the height of the results~~
+# clean up CSS
+##clarify rules
+# ~~check TW metics changes~~
+# ~~twexe examples~~
+# ~~hightlight examples~~
+# hta to html export button
+# hta externa link support
+
+#~~change the spacing of the close search button at the top~~
+#~~move the custom storyview out into the theme from the actual tiddly~~
+#~~consder having the quick search in the main version too~~

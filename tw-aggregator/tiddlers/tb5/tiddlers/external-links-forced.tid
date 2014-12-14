@@ -1,0 +1,24 @@
+created: 20141203173040248
+creator: Tobias Beer
+modified: 20141203173059488
+modifier: Tobias Beer
+title: external-links-forced
+tags: Markup
+source-wiki: http://tb5.tiddlyspot.com#external-links-forced
+
+<dt>
+
+```
+[ext[forced.link.com]]
+[ext[tw|tiddlywiki.com]]
+[ext[foo|file:///c:/foo]]
+[ext[relative/path]]
+```
+</dt>
+<dd>
+
+[ext[forced.link.com]]<br>
+[ext[tw|tiddlywiki.com]]<br>
+[ext[foo|file:///c:/foo]]<br>
+[ext[relative/path]]
+</dd>

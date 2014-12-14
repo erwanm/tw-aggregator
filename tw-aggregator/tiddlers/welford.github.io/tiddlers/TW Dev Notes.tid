@@ -1,0 +1,51 @@
+created: 20140325222233114
+creator: ジェームス
+list: 
+modified: 20141102113219607
+modifier: ジェームス
+revision: 0
+title: TW Dev Notes
+type: text/vnd.tiddlywiki
+tags: twdev
+source-wiki: http://welford.github.io/#TW%20Dev%20Notes
+
+!!Widgets
+
+Accessing a tidder's field and text data from within a widget
+
+<<<
+```javascript
+tiddler  = this.wiki.getTiddler("tiddler name");
+source_tid.fields.title; //title 
+if (source_tid.hasField("some field")) {
+	var field_value  = source_tid.fields["some field"];
+}
+```
+<<<
+
+Accessing tiddler name from widget
+
+<<<
+```javascript
+this.getVariable("storyTiddler")
+```
+<<<
+
+Opening a tiddler from within a widget
+*src_tiddler is a string of the tidder's title
+
+<<<
+```javascript
+var bounds = this.domNodes[0].getBoundingClientRect();
+this.dispatchEvent({
+	type: "tc-navigate",
+	navigateTo: this.src_tiddler,
+	navigateFromTitle: this.getVariable("storyTiddler"),
+	navigateFromNode: this,
+	navigateFromClientRect: {
+		top: bounds.top, left: bounds.left, width: bounds.width, right: bounds.right, bottom: bounds.bottom, height: bounds.height
+	},
+	navigateSuppressNavigation: event.metaKey || event.ctrlKey || (event.button === 1)
+});
+```
+<<<

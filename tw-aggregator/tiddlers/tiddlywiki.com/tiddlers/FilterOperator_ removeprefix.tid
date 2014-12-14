@@ -1,0 +1,16 @@
+caption: removeprefix
+created: 20140410103123179
+modified: 20140410103123179
+title: FilterOperator: removeprefix
+type: text/vnd.tiddlywiki
+tags: Filters
+source-wiki: http://tiddlywiki.com#FilterOperator_%20removeprefix
+
+The ''removeprefix'' filter operator returns the titles in the current list that start with a specified prefix with the prefix removed.
+
+For example:
+
+|!Filter String |!Description |
+|`tid-one tid-two three +[removeprefix[tid-]]` |Returns `one`, `two` |
+
+See also [[FilterOperator: prefix]], [[FilterOperator: suffix]], [[FilterOperator: removesuffix]], [[FilterOperator: addprefix]], and [[FilterOperator: addsuffix]].

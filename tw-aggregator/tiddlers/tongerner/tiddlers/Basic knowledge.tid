@@ -1,0 +1,28 @@
+created: 20140726161157154
+creator: TonGerner
+modified: 20140811153855784
+modifier: TonGerner
+title: Basic knowledge
+tags: documentation
+source-wiki: http://tongerner.tiddlyspot.com/#Basic%20knowledge
+
+@@.sliderBG
+<div>
+
+For an introduction to '~TiddlyWiki 5' see:
+
+* Jeremy Ruston's video [[Getting started with TiddlyWiki|http://youtu.be/1g66s7UbyuU]]
+* Dave Gifford's [[TiddlyQuickly|http://giffmex.org/TiddlyQuickly.html]]
+* Dave Gifford's [[TW5 mall|http://www.giffmex.org/tw5mall.htm]]
+
+The TW5 documentation can be found at:
+
+* http://tiddlywiki.com/#Docs
+* http://tiddlywiki.com/static/Docs.html
+
+Further information:
+
+* [[How to tweak a TW5 theme (video by Mario Pietsch)|http://www.youtube.com/watch?v=Jva7Azqu0hs&feature=youtu.be]]
+<hr>
+</div>
+@@

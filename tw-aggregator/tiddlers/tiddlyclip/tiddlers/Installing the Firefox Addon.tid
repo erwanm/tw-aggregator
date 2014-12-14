@@ -1,0 +1,20 @@
+changecount: 7
+created: 20131214050600000
+creator: BuggyJay
+modified: 20140825093703283
+modifier: BuggyJay
+title: Installing the Firefox Addon
+type: null
+tags: TCdoc Reference
+source-wiki: http://tiddlyclip.tiddlyspot.com/#Installing%20the%20Firefox%20Addon
+
+Click on this link to download the firefox extension
+https://github.com/buggyj/tiddlyClip/raw/master/tiddlyclip.xpi
+
+select form the firefox top bar tools->Add-ons (the add-on page will appear)
+click on the tools icon to the left of the search box.
+click 'Install Add-on From File'
+nagivator to your downloaded tiddlyclip.xpi and click on it, then click 'install now'
+
+Aternatively drag the above link onto the Firefox addon page
+

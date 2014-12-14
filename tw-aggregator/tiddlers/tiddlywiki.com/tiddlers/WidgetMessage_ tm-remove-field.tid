@@ -1,0 +1,14 @@
+caption: tm-remove-field
+created: 20140908185153663
+modified: 20140908185153663
+title: WidgetMessage: tm-remove-field
+type: text/vnd.tiddlywiki
+tags: Messages
+source-wiki: http://tiddlywiki.com#WidgetMessage_%20tm-remove-field
+
+The `tm-remove-field` message is handled by the FieldManglerWidget. It removes the specified field.
+
+|!Name |!Description |
+|param |Name of field to remove |
+
+The remove field  message is usually generated with the ButtonWidget, and is handled by the FieldManglerWidget.

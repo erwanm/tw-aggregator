@@ -1,0 +1,17 @@
+created: 20140304204931622
+modified: 20140304215333203
+title: Problems
+source-wiki: http://dl.dropboxusercontent.com/u/118970/wiki/tw5tribalknowledge.html#Problems
+
+Trying to get generic code to list all Tiddlers that are tagged with the title of a Tiddler then creating a a list with the titles by subtopic. See [[Movies]] example.
+
+Issues:
+<div class="tw-menu-list-subitem">
+*  In the Movies example you'll see Book Title B because even though it is tagged Books it does have a subtopic that matches a subtopic in the list of movies<br>
+*  Similar, Magazine Title A shows up in under Comedy in Movies because of its subtopic and it isn't tagged at all<br>
+</div>
+
+Filtering is working because Magazine Title B is not showing up in lists because it has a Subtopic of Travel which no other list has. Also, Movie Title E has no subtopic so it isn't showing up in Movies.
+
+-----
+Update: See the [[Books]] Tiddler for the solution

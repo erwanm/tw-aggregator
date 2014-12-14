@@ -1,0 +1,30 @@
+created: 20141119123242464
+creator: Tobias Beer
+modified: 20141203170810241
+modifier: Tobias Beer
+title: ColumnsAndPopups
+source-wiki: http://tb5.tiddlyspot.com#ColumnsAndPopups
+
+Trying to use CSS3's `column-count:4` for readability but the inline popups get cut off since they are rendered in the element flow...
+
+<div class="tb-taglist-columns">
+<$list filter="[tag[Solutions]tags[]sort[title]!prefix[$]] -[tag[Community]] -[tag[Main]] -Solutions">
+<div class="tb-taglist-item">
+<small class="tc-menu-list-count"><$count filter="[all[current]tagging[]]"/></small>
+<$transclude tiddler="$:/core/ui/TagTemplate"/>
+</div>
+</$list>
+</div>
+
+See [[$:/.tb/styles/tb5]] for the css. Rendered via...
+
+```
+<div class="tb-taglist">
+<$list filter="[tags[]sort[title]!prefix[$]] -task -done -GettingStarted -Solutions">
+<div class="tb-taglist-item">
+<small class="tc-menu-list-count"><$count filter="[all[current]tagging[]]"/></small>
+<$transclude tiddler="$:/core/ui/TagTemplate"/>
+</div>
+</$list>
+</div>
+```

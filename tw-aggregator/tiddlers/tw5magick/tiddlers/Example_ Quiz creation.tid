@@ -1,0 +1,27 @@
+created: 20131121180900750
+creator: Stephan Hradek
+description: Start of a small kind of tutorial set of tiddlers showing how to work with lists. 
+modified: 20140114174603802
+modifier: Stephan Hradek
+title: Example: Quiz creation
+tags: toc example
+source-wiki: http://tw5magick.tiddlyspot.com/#Example_%20Quiz%20creation
+
+For a task at work, I had to take a questionaire, written in english and compare it to another questionaire written in german.
+
+So I first created one tiddler for each question and tagged it appropriately. I did this using a text editor ([[jEdit|http://jedit.org]]).
+
+Then I had to go through all questions and write a translation for it. Finally I had to check whether or not we have a similar question in our questionaire.
+
+For illustration purposes, I won't use my real world task, but use questions I found in free online quizzes.
+
+So let's assume we want to create a quiz. We have several questions taken from different websites and belonging into different categories.
+
+What I did put each question and answer into a tiddler using this form:
+
+|Field |Content |Example |h
+|title |//Category// //Question Number// |Geography 1 |
+|tags |Quiz //website// |<span class="tw-tag-label">Quiz</span> <span class="tw-tag-label">readymadepubquiz.com</span> |
+|text |@&#64;.question<br/>//Question text//<br/>@&#64;<br/><br/>@&#64;.answer<br/>//Answer text//<br/>@&#64;<br/> |@&#64;.question<br/>What is the name of the official national anthem of the USA?<br/>@&#64;<br/><br/>@&#64;.answer<br/>The Star-Spangled Banner<br/>@&#64;<br/> |
+
+Next: [[Styling the Questions]]

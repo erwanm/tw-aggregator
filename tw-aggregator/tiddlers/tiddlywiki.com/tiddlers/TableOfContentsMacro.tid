@@ -1,0 +1,52 @@
+caption: toc
+created: 20140919155729620
+modified: 20141117000000000
+title: TableOfContentsMacro
+type: text/vnd.tiddlywiki
+tags: Macros
+source-wiki: http://tiddlywiki.com#TableOfContentsMacro
+
+The table of contents macro produces a hierarchical tree of tiddlers based on their tags.
+
+The top level entries of the table of contents are defined by a root tag. The subentries under each of those entries are tagged with the title of the entry. Entries can be ordered using the `list` field of the tag tiddler as described in [[Tagging]].
+
+The text for each entry is taken from the ''caption'' field if it is present, otherwise the ''title'' is used.
+
+Entries are rendered as a link to the corresponding tiddler unless the tiddler has the value ''no'' in the field ''toc-link''. In the examples below, the entry SecondThree is set up in this way to not appear as a link.
+
+There are several variants of the macro:
+
+* `<<toc>>` produces a simple hierarchical tree of links
+* `<<toc-expandable>>` produces an expandable tree of links
+* `<<toc-selective-expandable>>` produces an expandable tree of links where the expand/contract buttons are only shown for entries that possess child nodes
+
+The macros all generate HTML ordered lists. The `<ol>` elements are given the class `tc-toc`, with the expandable variant also having the class `tc-toc-expandable` and the selective expandable variant also having the class `tc-toc-selective-expandable`.
+
+! Parameters
+
+|!Position |!Name |!Description |!Default |
+|1st |tag |The root tag that identifies the top level of the hierarchy | |
+|2nd |sort |Optional sorting subfilter (eg `sort[title]`) | |
+
+The ''tag'' and ''sort'' parameters are combined to make a filter expression of the form:
+
+```
+[tag[$tag$]$sort$]
+```
+
+! Examples
+
+In these examples, the top level entries of the table of contents examples are defined by the root tag ''Contents''. The subentries under each of those entries are tagged with the title of the parent entry, here ''First'', ''Second'', ''Third'', and ''Fourth''. One level deeper only ''~SecondThree'' has subentries.
+
+Here is the tag structure shown with clickable tag pills:
+
+{{Contents||$:/core/ui/TagTemplate}}
+*{{First||$:/core/ui/TagTemplate}}
+*{{Second||$:/core/ui/TagTemplate}}
+**{{SecondThree||$:/core/ui/TagTemplate}}
+*{{Third||$:/core/ui/TagTemplate}}
+*{{Fourtth||$:/core/ui/TagTemplate}}
+
+For instructions on adding a table of contents to the sidebar, see: {{How to add a new tab to the sidebar}}.
+
+<<tabs "[tag[table-of-contents-example]]" "TableOfContentsMacro Simple Example">>

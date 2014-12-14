@@ -1,0 +1,10 @@
+created: 20140909225942676
+creator: EucalyJ
+modified: 20140910014549716
+modifier: EucalyJ
+title: FlexWidth
+type: text/vnd.tiddlywiki
+tags: my_plugin
+source-wiki: http://eucaly-tw5.tiddlyspot.com/#FlexWidth
+
+<<eucaly-plunin-page "$:/plugins/eucaly/flexwidth">>

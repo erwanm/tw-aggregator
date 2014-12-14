@@ -1,0 +1,10 @@
+created: 20140219094301916
+modified: 20140716070755976
+title: WebClipTid
+type: null
+tags: TiddlyClipRule TCdoc
+source-wiki: http://tiddlyclip.tiddlyspot.com/#WebClipTid
+
+|!Title|!Body|!Tags|!Fields|!Initvals|!Modes|
+|((*@pageTitle*))|[[WebClipDetailRule]]|((*@category*))|{"$type":"text/html"}||append|
+|((*@category*))|[[WebClipTagRule]]||||once|

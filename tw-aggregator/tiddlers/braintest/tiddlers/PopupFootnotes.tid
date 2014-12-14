@@ -1,0 +1,69 @@
+created: 20140217143707426
+creator: Danielo Rodriguez
+modified: 20141029154149656
+modifier: Danielo Rodriguez
+title: PopupFootnotes
+tags: index macros
+source-wiki: http://braintest.tiddlyspot.com/#PopupFootnotes
+
+It has been discussed in the TW google group how to footnotes should be implemented<<footnote "note1" "https://groups.google.com/forum/#!searchin/tiddlywiki/footnotes%7Csort:date/tiddlywiki/u5A6qK7CmrY/DekPDREpQJgJ">>. This is just my vision of how footnotes should be in a modern browser environment. If you click in the footnote label you will see a popup with the footnote. Try it out in the previous one.
+
+This implementation has several advantages:
+
+* It is built with TW5 native elements. You need nothing but TW5 to make it work.
+* It doesn't interrupt the reading flow.
+* In case you want to read the plain text  it is perfectly readable.
+
+If you want it you have two ways to make it work:
+
+! Install
+!! Style
+To prevent the very long notes going out of the screen grab this style sheet tiddler to your wiki:
+
+ [[popupStyle]]
+
+,,Thanks to UBi,,
+
+!! For a global scope
+Copy the following code into any tiddler and tag it as $:/tags/Macro or grab this tiddler to your TW: [[$:/macros/danielo/footNote]]
+
+{{$:/macros/danielo/footNote||code}}
+
+!!For a local scope
+
+Copy the same code into any tiddler you want to use the macro.
+
+!Usage
+
+!!Single reference
+It's fairy simple
+
+```
+<<footnote "label" "text of the footnote">>
+```
+Wich renders as <<footnote "label" "text of the footnote">>
+
+!!Multiple reference
+
+Once defined you can use the same annotation multiple times. Use the `ref` macro and the same label of the note you want to reference again. 
+
+```
+<<ref "label">>
+```
+
+Wich renders as <<ref "label">>
+
+!! Botom definition.
+
+Maybe you want to stick to classic footnotes but you like the popup thing. This means that you want to have all your definitions at the bottom of the page and reference them later like this <<ref "Note2">>. In that case use the same `ref` notation than in multiple reference but make your footnotes definitions at the bottom of the page. This way you cold maintain a page-wise formatting <<ref "Note3">> as Eric Shulman suggested.
+
+```
+---
+<<footnotes "2" "You can see this footnote at the bottom of the page or inside a popup">>
+```
+
+Wich will render as:
+
+---
+<<footnotes "Note2" "You can see this footnote at the bottom of the page or inside a popup">>
+<<footnotes "Note3" "although popup footnotes are useful for onscreen display, printed documents would need to have footnotes placed at the bottom of the page on which the footnote occurs.">>

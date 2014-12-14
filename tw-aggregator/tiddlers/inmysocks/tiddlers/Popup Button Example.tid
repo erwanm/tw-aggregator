@@ -1,0 +1,45 @@
+created: 20140918220620570
+creator: inmysocks
+modified: 20141023192143869
+modifier: inmysocks
+title: Popup Button Example
+tags: [[Wiki Widgets - buttons, filters, etc.]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Popup%20Button%20Example
+
+You can make a button that when pressed will make some content pop up. The content can be anything that can be included in a tiddler. There may be weird behavior from including images.
+
+Example code:
+
+```
+<$button popup="$:/SamplePopupState">Pop me up!</$button>
+
+<$reveal type="popup" state="$:/SamplePopupState">
+<div class="tc-drop-down">
+
+!Look Text!
+some text here too
+
+and an image
+[img [PrinnySpin]]
+
+</div>
+</$reveal>
+```
+
+displays as
+
+<$button popup="$:/SamplePopupState">Pop me up!</$button>
+
+<$reveal type="popup" state="$:/SamplePopupState">
+<div class="tc-drop-down">
+
+!Look Text!
+some text here too
+
+and an image
+[img [PrinnySpin]]
+
+</div>
+</$reveal>
+
+<<bottomOfTiddler {{!!title}}>>

@@ -1,0 +1,12 @@
+created: 20140410103123179
+modified: 20141007213204936
+title: FilterOperators
+type: text/vnd.tiddlywiki
+tags: Concepts
+source-wiki: http://tiddlywiki.com#FilterOperators
+
+Filter operators are the individual elements of [[filters|Filters]]. See [[Introduction to Filters]] for details.
+
+The full list of available filter operators is:
+
+<<list-links "[tag[Filters]]">>

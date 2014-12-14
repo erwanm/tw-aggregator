@@ -1,0 +1,66 @@
+created: 20140913131354400
+creator: EucalyJ
+modified: 20141003233529812
+modifier: EucalyJ
+title: TiddlyWiki and Me
+type: text/vnd.tiddlywiki
+tags: Articles TiddlyWikiClassic
+source-wiki: http://eucaly-tw5.tiddlyspot.com/#TiddlyWiki%20and%20Me
+
+!!! ~TiddlyWiki Classic (TWC)
+
+* In 2007, I create a ~TiddlyWiki adoption for a group of 10~15 people taking turns to keep weekly meeting minutes. 
+* That adoption contains below plugins
+* Essential plugins:
+** CheckboxPlugin
+** CollapseTiddlersPlugin
+** CopyTiddlerPlugin
+** FoldHeadingsPlugin
+** ForEachTiddlerPlugin
+** InlineJavascriptPlugin
+** MonkeyTaggerMacro
+** RefreshTiddlerPlugin
+** TagsTreePlugin
+* Non-essential plugins:
+** SearchOptionsPlugin
+** ShowPopupPlugin
+** StickyPopupPlugin
+** TaggerPlugin
+* I kept using ~TiddlyWiki from 2007-07 to 2010-03, until I left that team.
+<hr/>
+
+* Several years later, I brought back  ~TiddlyWiki for another team of 5 people. But this time, I am the only one who actively keep the weekly meeting minutes.
+* The period comes from 2013-07 ~ 2013-10, and 2014-02 ~ until TW5. 
+* In between, I tried ''~WikidPad'' and ''zim-wiki''. But did not keep them for long.
+
+
+!!! ~TiddlyWiki 5 (TW5)
+* I've been watching the progress of TW5 since 2014-02, but did not really take action until ...
+* 2014-08, it took me less than 10 days to port my TWC meeting minutes to TW5 (5.0.14-beta, and then 5.0.15-beta).
+* I dropped the complex tagging rules and ForEachTiddler javascript. Instead, below widgets/macros are essential now
+** user-macro \define ... \end
+** tabs
+** $list
+** $reveal
+** $checkbox
+** $radio
+** $button
+* Regular Expression helps my macros to filter the task items with `!!!yymmdd` header, which indicates the recent update. (Rather then the complex tagging in TWC)
+* Thanks for the powerful build-in features of TW5, I only need below plugins for my work :
+** ''~ReplacePragma'' : [[$:/parsers/skeeve/rules/replace.js]] --  [[http://tiddlystuff.tiddlyspot.com/]] <br/>-- to tweak TWC syntax from old tillders
+** ''~SetField ~MakeTid'' -- [[http://gwiz.tiddlyspot.com]] <br/>-- to set the title, contain and tags for new tiddler
+** FlexWidth -- to quick adjust between different screen resolutions
+** PopupTagger -- quick tagging
+* Also, sidebar is utilized as a auxiliary working-area for user-defined buttons, filter result, and TOC.
+<hr/>
+
+* Now, I have even more achievement on top above adoptions :
+** MatchFilter - my first javascipt work on TW5
+** Utilize Node.js for version control and plugin / contain development
+** http://eucaly-tw5.tiddlyspot.com/ - my first on-line ~TiddlyWiki
+** 5 plugins in my first month on TW5
+
+20140913
+<hr/>
+
+* to be continue ...

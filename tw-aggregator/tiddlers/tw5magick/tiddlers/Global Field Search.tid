@@ -1,0 +1,34 @@
+created: 20140908071425947
+creator: Stephan Hradek
+description: Global searching in all fields for regular expressions.
+modified: 20140908071951019
+modifier: Stephan Hradek
+title: Global Field Search
+tags: toc
+source-wiki: http://tw5magick.tiddlyspot.com/#Global%20Field%20Search
+
+\define searchInField(field, for)
+
+<$list filter="[!is[shadow]!is[system]field:$field$/$for$/]">
+
+<$link><$view field="title"/></$link>
+
+</$list>
+
+\end
+
+This tiddler came up after a [[question of cmari in the groups|https://groups.google.com/forum/#!topic/tiddlywiki/w03HpUdfSIk]]. With the code used in this tiddler, a global search in all fields of all tiddlers is performed. Be aware that the search is done using regular expressions so take care in regards to special characters like "+", "*", "[" etc.
+
+<$reveal state="$:/temp/search" type="match" text="">
+Start typing the text you search in the standard search field. The results will be displayed here.
+</$reveal>
+
+<$reveal state="$:/temp/search" type="nomatch" text="">
+<$list filter="[!is[shadow]!is[system]fields[]]" variable="fieldname">
+
+Searching in field: <<fieldname>>
+
+<$macrocall $name="searchInField" field=<<fieldname>> for={{$:/temp/search}}/>
+
+</$list>
+</$reveal>

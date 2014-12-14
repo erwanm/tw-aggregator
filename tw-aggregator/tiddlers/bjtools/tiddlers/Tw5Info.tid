@@ -1,0 +1,12 @@
+created: 20140113085400838
+creator: Stephan Hradek
+list: [[TW5 Templating? - Google Groups]] [[TiddlyWiki module]] [[html paragraph rendering inconsistence · Issue #82 · Jermolene/TiddlyWiki5]]
+modified: 20141028180300962
+modifier: bj
+title: Tw5Info
+type: text/vnd.tiddlywiki
+source-wiki: http://bjtools.tiddlyspot.com/#Tw5Info
+
+ <$set name="loop1" value=<<qualify "$:/temp/taglist">>>
+<$taglist class="btn btn-primary">{{!!title||taglisttemplate}}</$taglist>
+</$set>

@@ -1,0 +1,7 @@
+created: 20141204033141546
+modified: 20141206181237729
+no_edit: true
+title: NewTaskButtonSettings
+source-wiki: http://inmysocks.tiddlyspot.com/#NewTaskButtonSettings
+
+This is going to control the configuration for the upgraded to-do list. It should control both the Create New Task button and how the tasks are displayed (normal list, in groups, show/hide completed tasks, show/hide a delete task button, etc.)

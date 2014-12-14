@@ -1,0 +1,8 @@
+created: 20140217140905905
+creator: Danielo Rodriguez
+modified: 20140217152101595
+modifier: Danielo Rodriguez
+title: subtitle
+source-wiki: http://braintest.tiddlyspot.com/#subtitle
+
+<div class="tw-subtitle"><$link to={{!!modifier}}><$view field="modifier"/></$link> <$view field="modified" format="relativedate"/></div>

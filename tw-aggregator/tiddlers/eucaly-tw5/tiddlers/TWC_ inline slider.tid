@@ -1,0 +1,18 @@
+caption: inline slider
+created: 20141004001052241
+creator: EucalyJ
+modified: 20141004005333305
+modifier: EucalyJ
+title: TWC: inline slider
+type: text/vnd.tiddlywiki
+tags: [[TWC: plugins]]
+source-wiki: http://eucaly-tw5.tiddlyspot.com/#TWC_%20inline%20slider
+
+!!! TiddlyWikiClassic
+* ~NestedSlidersPlugin
+** http://www.tiddlytools.com/#NestedSlidersPlugin
+* ~FoldHeadingsPlugin -- `TW5 counter part ??`
+
+!!! ~TiddlyWiki 5
+* [[Classic Slider Demo|http://tiddlywiki.com/plugins/tiddlywiki/tw2parser/#Classic%20Slider%20Demo]]
+** http://tiddlywiki.com/plugins/tiddlywiki/tw2parser

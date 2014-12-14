@@ -1,0 +1,15 @@
+created: 20140203084653907
+creator: TonGerner
+modified: 20141206195746716
+modifier: TonGerner
+title: My 'playground'
+source-wiki: http://tongerner.tiddlyspot.com/#My%20'playground'
+
+{{$:/_images_dordrecht.gif}}<br>
+Dordrecht, the Netherlands, my home town.
+
+{{Under construction general_}}
+{{Upgraded}}
+<<tabs "Introduction [[My guides]] [[Latest news]]" "Introduction" "$:/state/tab/playground" "tabsstyle">>
+
+,,Comments and questions are welcome. Post them in the [[TW Google group|https://groups.google.com/forum/#!forum/tiddlywiki]],,

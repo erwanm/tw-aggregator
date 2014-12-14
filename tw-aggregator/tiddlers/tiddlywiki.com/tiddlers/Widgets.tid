@@ -1,0 +1,12 @@
+created: 20140908130500000
+modified: 20140910215453457
+title: Widgets
+type: text/vnd.tiddlywiki
+tags: Reference
+source-wiki: http://tiddlywiki.com#Widgets
+
+Widgets add dynamic functionality to WikiText.
+
+The following widgets are built into the core:
+
+<<list-links "[tag[Widgets]]">>

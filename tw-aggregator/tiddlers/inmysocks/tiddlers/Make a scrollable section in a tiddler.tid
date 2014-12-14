@@ -1,0 +1,39 @@
+created: 20140924163614267
+creator: inmysocks
+modified: 20141023192051398
+modifier: inmysocks
+title: Make a scrollable section in a tiddler
+tags: [[Wiki Widgets - buttons, filters, etc.]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Make%20a%20scrollable%20section%20in%20a%20tiddler
+
+This demo makes the scrollable environment by using the `<$scrollable class='tc-scrollable'>` and `</$scrollable>` tags. Anything between these tags is then in a scrollable environment. This example lists everything that isn't a system tiddler and lists everything that they link to inside the environment to get a long list to scroll over. The contents can be anything.
+
+The `class='tc-scrollable'` part is the css style sheet used for the environment. You can edit it but I don't know much about that part. In order for this to work with this setup you need to import this tiddler:
+
+[[$:/_custom-styles]]
+
+Just click and drag the link to your wiki.
+
+```
+<$scrollable class='tc-scrollable'>
+<$list filter='[!is[system]]'>
+
+<$view field='title'/>: <$list filter='[all[current]links[]sort[title]]' storyview='pop'>
+<$link><$view field='title'/></$link>
+</$list>
+
+</$list>
+</$scrollable>
+```
+
+<$scrollable class='tc-scrollable'>
+<$list filter='[!is[system]]'>
+
+<$view field='title'/>: <$list filter='[all[current]links[]sort[title]]' storyview='pop'>
+<$link><$view field='title'/></$link>
+</$list>
+
+</$list>
+</$scrollable>
+
+<<bottomOfTiddler {{!!title}}>>

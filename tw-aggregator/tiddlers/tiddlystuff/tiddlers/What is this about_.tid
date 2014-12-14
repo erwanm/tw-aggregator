@@ -1,0 +1,24 @@
+created: 20131219140721725
+creator: Stephan Hradek
+modified: 20140327111146102
+modifier: Stephan Hradek
+title: What is this about?
+source-wiki: http://tiddlystuff.tiddlyspot.com/#What%20is%20this%20about_
+
+At work I discovered in 2012, I think, [[TiddlyWiki Classic|http://classic.tiddlywiki.com/]]. I quickly felt that this is a good tool for documenting some stuff I did. Additionally I created some checklist/documentation kind of stuff.
+
+Some time later I discovered [[TiddlyWiki 5|http://tiddlywiki.com]] which is a "relaunch" of the classic ~TiddlyWiki. I liked the look of it much more and so used it for the handover documentation I had to do when leaving my last project.
+
+Now I use it for some other stuff I have to do at work. Thereby I discover more and more stuff which I'm missing in ~TiddlyWiki and so I started writing enhancements.
+
+As it is very inconvenient for Jeremy, the creator of ~TiddlyWiki, to handle all my pull requests for new stuff, I will now start to put all the stuff here and link it to github, where I will host the source code. (linking not yet done!)
+
+I'm still developing by just using FireFox 16, jEdit and the commandline git. I'm also just learning how to properly set up and package plugins. So maybe not everything is as nice and polished as it could be. Please provide feedback in the google groups for TiddlyWiki:
+
+https://groups.google.com/forum/#!forum/tiddlywiki
+
+https://groups.google.com/forum/#!forum/tiddlywikidev
+
+Here is the Overview off the stuff I did up to now…
+
+{{Overview}}

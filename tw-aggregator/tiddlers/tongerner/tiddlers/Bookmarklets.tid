@@ -1,0 +1,19 @@
+created: 20140705105355014
+creator: TonGerner
+modified: 20141204171730594
+modifier: TonGerner
+title: Bookmarklets
+tags: documentation guide
+source-wiki: http://tongerner.tiddlyspot.com/#Bookmarklets
+
+@@.brown ''How to make/modify bookmarklets''@@
+
+{{Under construction_}}
+{{Upgraded}}
+This guide describes how to make (modify existing) bookmarklets without ~JavaScript knowledge, just using templates.<br>
+It is based upon the work of Stephan Hadrek, so all credits to him, see:
+
+* http://tw5magick.tiddlyspot.com/
+* [[Google groups|https://groups.google.com/d/msg/tiddlywiki/cUUXichiwdU/8gTL3lsO0MUJ]]
+
+''Guide at ~TiddlySpot:''<br>[[How to make TW5 bookmarklets|http://tw5bookmarklets.tiddlyspot.com/]]

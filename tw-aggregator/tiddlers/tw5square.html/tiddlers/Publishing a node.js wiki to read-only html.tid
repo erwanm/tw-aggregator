@@ -1,0 +1,17 @@
+created: 20141008062518074
+modified: 20141013092121781
+title: Publishing a node.js wiki to read-only html
+type: text/vnd.tiddlywiki
+tags: [[TiddlyWiki5 on Node.js]]
+source-wiki: http://larigot.avarts.ionio.gr/users/iani/wikis/tw5square.html#Publishing%20a%20node.js%20wiki%20to%20read-only%20html
+
+Two methods are documented here: 
+
+#(Simpler, preferable): Use a (shell) script to render the wiki as a single html file and then copy that file to the server.  See [[Publish using shell script]] on how to export html and use git and rsync for publishing to github and to any html server.
+#Use the download button on the toolbar to create fully functional html files, and publish these on the site instead of the node.js versions, using scripts to move, and to synchronize these files to the server. ([[Publish using download button]]).  This can be automated using [[launchd|http://launchd.info/]], but that requires several scripts in different places, and is therefore not the version currently in use for the present site.
+
+
+
+To find out more, select one of the tabs below:
+
+<<tabs "[[Publish using shell script]] [[Publish using download button]]">>

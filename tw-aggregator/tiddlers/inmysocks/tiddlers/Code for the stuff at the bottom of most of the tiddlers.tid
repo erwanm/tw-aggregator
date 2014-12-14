@@ -1,0 +1,42 @@
+created: 20140926183838958
+modified: 20141120204852477
+title: Code for the stuff at the bottom of most of the tiddlers
+tags: [[Wiki Examples]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Code%20for%20the%20stuff%20at%20the%20bottom%20of%20most%20of%20the%20tiddlers
+
+This macro lists all tiddlers that are tagged with the current tiddler along with the text in the `blurb` field of the listed tiddlers. It also makes a `new topic` button that creates and opens a new tiddler tagged with the current tiddler. This is useful for creating tiddlers that will be displayed as children of the current tiddler in the table of contents.
+
+To use this macro import it by clicking this link and dragging it to your wiki [[BottomOfTiddlerMacro]]. If you update the macro in [[BottomOfTiddlerMacro]] than it will be updated on all of the tiddler where you use it.
+
+This is the current code for the macro:
+
+```
+\define getProperTag() [[$(properTag)$]]
+
+\define bottomOfTiddler(title)
+
+---
+
+<$tiddler tiddler=$title$>
+
+<$set name="properTag" value={{!!title}}>
+<$button>New Topic
+<$action-sendmessage $message="tm-new-tiddler" title="New" text="<<bottomOfTiddler {{!!title}}>>" blurb=" " tags=<<getProperTag>>/>
+</$button>
+</$set>
+
+
+Entries tagged <$list filter="[all[current]]"/>
+
+<$list filter="[all[current]tagging[]]">
+
+<$link to={{!!title}}><$view field="title"/></$link> - <$view field="blurb"/>
+
+</$list>
+
+</$tiddler>
+\end
+```
+
+
+<<bottomOfTiddler {{!!title}}>>

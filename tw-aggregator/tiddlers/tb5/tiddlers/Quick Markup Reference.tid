@@ -1,0 +1,17 @@
+caption: Markup
+created: 20141201010754759
+creator: Tobias Beer
+icon: $:/core/images/edit-button
+modified: 20141203180514821
+modifier: Tobias Beer
+summary: the tw5 markup, neatly compacted
+title: Quick Markup Reference
+tags: Core Solutions Formatting Text Macros Transclusion Tables Lists [[Tobias Beer]] GettingStarted
+source-wiki: http://tb5.tiddlyspot.com#Quick%20Markup%20Reference
+
+The tiddler [[Markup Reference]] holds a quick reference for most all TiddlyWiki markup.
+Simply drag and drop the above link to your wiki to have it at hand.
+
+Here's a more interactive version of it:
+
+{{Markup}}

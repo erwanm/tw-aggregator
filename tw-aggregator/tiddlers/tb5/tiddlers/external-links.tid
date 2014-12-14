@@ -1,0 +1,22 @@
+created: 20141203172950069
+creator: Tobias Beer
+modified: 20141203173001974
+modifier: Tobias Beer
+title: external-links
+tags: Markup
+source-wiki: http://tb5.tiddlyspot.com#external-links
+
+<dt>
+
+```
+http://tiddlywiki.com
+[[pretty|http://pretty.com]]
+~http://not.alink.com
+```
+</dt>
+<dd>
+
+http://tiddlywiki.com<br>
+[[google|http://google.com]]<br>
+~http://not.alink.com
+</dd>

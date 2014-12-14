@@ -1,0 +1,12 @@
+created: 20140224184546030
+modified: 20140907061719996
+title: RuleDetail
+type: text/plain
+tags: TiddlyClipRule clippedtid
+source-wiki: http://tiddlyclip.tiddlyspot.com/#RuleDetail
+
+[
+     {
+          "#newdata": "((*@pageRef*))\n\n{{((*@pageTitle*))/thumbprint}}\n\n((*@text*))\n\n((*@userstring*))"
+     }
+]

@@ -1,0 +1,21 @@
+modified: 20141210183320111
+subject: Example Citation Subject
+title: Test Citation
+tags: Citations
+source-wiki: http://inmysocks.tiddlyspot.com/#Test%20Citation
+
+Subject: {{!!subject}}<br>
+
+Abstract:<br>
+
+<$view tiddler='Test Citation_Abstract
+' field='text'/>
+
+Bibtex:
+
+---
+
+<$view tiddler='Test Citation_BibTex
+' field='text'/>
+
+---

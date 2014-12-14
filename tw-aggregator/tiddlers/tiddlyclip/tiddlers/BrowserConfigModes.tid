@@ -1,0 +1,28 @@
+changecount: 4
+created: 20131202035400000
+creator: Yours truly
+modified: 20140825164533929
+modifier: BJ
+title: BrowserConfigModes
+type: null
+tags: TCdoc Reference
+source-wiki: http://tiddlyclip.tiddlyspot.com/#BrowserConfigModes
+
+Browser Config Modes are used to control the Addon.   
+
+
+|!mode |!action |
+|tiddlers |copy tiddlers |
+|userstring |open a text box for user input |
+|snapxx |take a screen shot - xx is the linear percentatge size of the image to create|
+|highlight |apply highlight to selection |
+ 
+
+The following modes make the category appear in the context menu only when the source webpage contains this type of content, - i.e. it makes the category context sensitive.  
+
+|!MODE|!FUNCTION|
+|Clip|display rule when browser has Selected Text|
+|Text|display rule when browser has copied text|
+|Image|display rule when cursor is on Image|
+|Link|display rule when browser is on link|
+|TW|display rule when page contains TiddlyWikiClassic|

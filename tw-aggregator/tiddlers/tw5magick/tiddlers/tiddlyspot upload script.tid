@@ -1,0 +1,58 @@
+created: 20131203113627167
+creator: Stephan Hradek
+modified: 20131204140958171
+modifier: Stephan Hradek
+title: tiddlyspot upload script
+tags: backup script unix perl
+source-wiki: http://tw5magick.tiddlyspot.com/#tiddlyspot%20upload%20script
+
+This uploadscript is useful for Linux/UNIX/CygWIN users.
+
+While you can do a simple backup/download of your tiddlyspot with just using curl:
+
+```
+curl -o `date +MYTIDDLYSPOT_%Y-%m-%d_%H-%M-%S.html` http://MYTIDDLYSPOT.tiddlyspot.com
+```
+
+There is no easy upload/restore possibility. Below you will find a small perl script which should come in handy. Just paste it into a file called "upload" (or what ever you prefer as a proper name). Replace `MYTIDDLYSPOT` and `MYPASSWORD` with your valuesd. Make the script executable
+
+Execute it like this: `./upload MYTIDDLYSPOT.backup.html`
+
+The default filename, if you do not supply one is "MYTIDDLYSPOT.tiddlyspot.com.html".
+
+This is just a bare script. No fancy checking etc.
+
+```
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+use HTTP::Request::Common qw(POST);
+use LWP::UserAgent;
+
+my $tiddlyspot_com= 'tiddlyspot.com';
+my $store= 'store.cgi';
+my $user= 'MYTIDDLYSPOT';
+my $pass= 'MYPASSWORD';
+my $defaultfile= "$user.$tiddlyspot_com.html";
+
+my $file= shift || $defaultfile;
+
+my $ua = LWP::UserAgent->new;
+
+my $req = POST "http://$user.$tiddlyspot_com/$store",
+	Content_Type => 'form-data',
+	Content => [
+		UploadPlugin => join(';', 
+			"backupdir=.",
+			"user=$user",
+			"password=$pass",
+			"uploaddir=.",
+		),
+		userfile => [
+			$file, 'index.html',
+		],
+	];
+$req->authorization_basic($user, $pass);
+print $ua->request($req)->as_string;
+```

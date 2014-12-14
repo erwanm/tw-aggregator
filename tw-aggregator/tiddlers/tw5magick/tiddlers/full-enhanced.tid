@@ -1,0 +1,11 @@
+created: 20131223131337994
+creator: Stephan Hradek
+description: Like [[full]] but clicking the headline will open the tiddler for editing.
+modified: 20140116124339448
+modifier: Stephan Hradek
+title: full-enhanced
+tags: template
+source-wiki: http://tw5magick.tiddlyspot.com/#full-enhanced
+
+! <span title="Edit section"><$button message="tw-edit-tiddler" param={{!!title}} class="btn-invisible"><$view field="title"/></$button></span>
+<$transclude/>

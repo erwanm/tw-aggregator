@@ -1,0 +1,62 @@
+created: 20140731095018433
+modified: 20140819152000200
+title: Substitution Placements
+type: null
+tags: TCdoc Reference
+source-wiki: http://tiddlyclip.tiddlyspot.com/#Substitution%20Placements
+
+Substitutional Placements are distinguished by their form:-
+
+Simple `(*...*)`
+
+Conditional  `(*...*??*...*??*...*)`
+
+and by the types of Sentences that can be placed in these forms:
+
+simple `(*substitutional-Sentence*)`
+
+Conditional `(*boolean-Sentence*??*substitutional-Sentence*::*substitutional-Sentence*)`
+
+A Sentance is either a Macro or an Expression
+
+!!Expressions
+
+Expressions contain TC-Variables, which have the form @varname or  #varname or $varname.
+
+In the follow description TC variables will be distingushed by the type of their contents:
+
+*boolean-variables: containing either 'true' or 'false'
+*numeric-variables: containing simple numbers '0', '1'...
+*regex-variables  : containing a javascript regex in a string - see http://www.w3schools.com/jsref/jsref_obj_regexp.asp
+*string-variables : containing any string.
+
+Expressions are either Substitutional-Expressions or Boolean Expressions
+
+A ~Substitutional-Expression has one of these forms
+
+simple:
+``string-variable
+
+``
+numeric:
+``
+numeric-variable``+``numeric-variable
+or
+numeric-variable``-``numeric-variable
+`` 
+
+regex:`` string-variable/regex-variable/term-variable
+
+``
+
+search: ``source-variable:rule-variable:term-variable
+
+``
+ booean-expression is either 
+
+boolean-variable, regex-variable, or a macro  which must return a boolean string.
+
+!!Macros
+these have the form`` @varname(TC-variable, [TC-variable,...])``
+
+

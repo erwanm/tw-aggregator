@@ -1,0 +1,11 @@
+created: 20131212182652334
+modified: 20140912141027012
+title: Saving on InternetExplorer
+type: text/vnd.tiddlywiki
+tags: Saving
+source-wiki: http://tiddlywiki.com#Saving%20on%20InternetExplorer
+
+By default, TiddlyWiki saves changes on InternetExplorer 10 and above using a saver module that downloads the newly modified file, rather than saving it directly. There are two alternatives that both save changes directly to the file:
+
+* [[Use the TiddlyIE browser extension|Saving with TiddlyIE]]
+* Use the [[Windows HTA Hack]] by renaming the TiddlyWiki HTML file to have the extension `*.hta`.

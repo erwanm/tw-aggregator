@@ -1,0 +1,65 @@
+caption: LogBook Tag
+color: #ff2391
+created: 20140913132542755
+creator: AcD
+modified: 20140920025618139
+modifier: AcD
+title: ListSelf
+type: text/vnd.tiddlywiki
+tags: ListSelf WorkAround WiP ListMacro ToDo
+source-wiki: http://septembertw.tiddlyspot.com/#ListSelf
+
+''[Much improved by the new [[ListMacro|http://tiddlywiki.com/#ListMacro]] since [[5.0.18-beta|http://tiddlywiki.com/#Release%205.0.18-beta]] : I'll upgrade ListSelf from WorkAround to HowTo asap.]''
+
+''Goal :'' Figure out how to simply include a list of all tiddlers tagged with it at the bottom of a tag's namesake tiddler.
+
+''See : ListSelf, LookIntoLists''
+
+---
+''The following code snippets each render a list of tiddlers tagged with the currentTiddler : <<currentTiddler>>''
+
+It can be used to generate a list of related articles at the bottom of a tag-tiddler, which is similar in utility to clicking on the Tagging tab from //tiddler info//, but more convenient zhen a tiddler acts both as a tag and as a landing / intro.
+
+
+```
+<$list filter="[!is[system]tag<currentTiddler>]">
+<div class="tc-menu-list-item">
+
+* <$link to={{!!title}}><$view field="title"/></$link>
+
+</div>
+</$list>
+```
+Renders as :
+
+<$list filter="[!is[system]tag<currentTiddler>]">
+<div class="tc-menu-list-item">
+
+* <$link to={{!!title}}><$view field="title"/></$link>
+
+</div>
+</$list>
+
+Using ListMacro is much more compact :
+
+```
+<<list-links filter:"[all[current]tagging[]]">>
+```
+Renders as :
+<<list-links filter:"[all[current]tagging[]]">>
+
+```
+<<list-links filter:"[tag<currentTiddler>] +[!sort[title]]">>
+```
+Renders as :
+<<list-links filter:"[tag<currentTiddler>] +[!sort[title]]">>
+
+
+For some reason, this : 
+
+```
+<<list-unordered-links "[tag<currentTiddler>]">>
+```
+<<list-unordered-links "[tag<currentTiddler>]">>
+
+...doesn't compute. Maybe this macro isn't built in the core of TW <<version>>, or it works only in node.js ?

@@ -1,0 +1,18 @@
+created: 20140212071747570
+creator: Danielo
+modified: 20140213095251760
+modifier: Danielo
+title: Slider
+tags: macros
+source-wiki: http://braintest.tiddlyspot.com/#Slider
+
+Si lo quieres a nivel globlal incluye este pedazo de código en [[$:/core/ui/PageMacros]]
+
+```
+\define slider(label,text)
+<$button popup="$:/state/$label$" class="btn-invisible tw-slider"><$list filter="[[$label$]]"><$view field="title"/></$list></$button>
+<$reveal type="nomatch" text="" default="" state="$:/state/$label$" animate="yes">
+$text$
+</$reveal>
+\end
+```

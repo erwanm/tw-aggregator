@@ -1,0 +1,22 @@
+created: 20141008090352806
+modified: 20141008095847233
+title: _Find latest modified file in folder
+type: text/vnd.tiddlywiki
+tags: [[html publish to server]] [[HTML publish workflow 2]]
+source-wiki: http://larigot.avarts.ionio.gr/users/iani/wikis/tw5square.html#_Find%20latest%20modified%20file%20in%20folder
+
+See: http://stackoverflow.com/questions/4561895/how-to-recursively-find-the-latest-modified-file-in-a-directory
+
+Example script from above, to modify:
+
+```
+ls -altR . | head -n 3
+```
+
+Not needed to do the recursive part for the purposes of [[HTML publish workflow 2]].
+
+Modified command to work non-recursively, listing just the latest modified file in the top level of the ``~/Downloads/`` directory:
+
+```
+ls -t ~/Downloads/ | head -n 1
+```

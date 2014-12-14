@@ -1,0 +1,11 @@
+created: 20140904073042565
+modified: 20140904073950946
+title: tlhead
+type: text/vnd.tiddlywiki
+source-wiki: http://tiddlyclip.tiddlyspot.com/#tlhead
+
+<$linkcatcher  set=tcc1 setTo={{!!title}} >
+<$reveal state=tcc1 text={{!!title}} type="match"><$button class="tw-taglist" set=tcc1 setTo="">[x]</$button></$reveal>
+<$link><span class="tw-taglist"><$view field="title"/></span></$link></$linkcatcher>
+
+

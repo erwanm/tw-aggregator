@@ -1,0 +1,9 @@
+created: 20140514080903133
+modified: 20140514081942736
+revision: 0
+title: Tickler Folders -- the time
+type: text/vnd.tiddlywiki
+wills: using-gtid
+source-wiki: http://wills.tiddlyspot.com/#Tickler%20Folders%20--%20the%20time
+
+During the planning stages, individual actionable items are identified and posted as ticklers into a tickler folder corresponding to when the task will need to be handled. When the time comes, the folder when opened will contain the tickler – reminding the user of the action to be taken.

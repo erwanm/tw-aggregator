@@ -1,0 +1,25 @@
+created: 20140912175644725
+creator: inmysocks
+modified: 20141023192222902
+modifier: inmysocks
+title: Slider - display contents when a button is pressed
+tags: [[Wiki Widgets - buttons, filters, etc.]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Slider%20-%20display%20contents%20when%20a%20button%20is%20pressed
+
+To add a button that when you click on it will display the contents of a tiddler in the current tiddler use this 
+
+```
+{{Engineering||slider}}
+```
+
+{{Engineering||slider}}
+
+
+Where the part before the || is the full name of the tiddler you want to display. It isn't perfect but it works for now.
+
+To use this on another tiddlywiki click and drag these two things on that tiddlywiki
+
+*[[slider]]
+*[[unwikified]]
+
+<<bottomOfTiddler {{!!title}}>>

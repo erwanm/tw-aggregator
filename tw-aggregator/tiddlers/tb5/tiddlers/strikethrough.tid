@@ -1,0 +1,15 @@
+created: 20141203171951807
+creator: Tobias Beer
+modified: 20141203172120482
+modifier: Tobias Beer
+title: strikethrough
+tags: Markup
+source-wiki: http://tb5.tiddlyspot.com#strikethrough
+
+<dt>
+
+```
+~~strikethrough~~
+```
+</dt>
+<dd>~~strikethrough~~</dd>

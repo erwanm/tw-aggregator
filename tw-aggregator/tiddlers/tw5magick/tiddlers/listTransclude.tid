@@ -1,0 +1,10 @@
+created: 20140416202853871
+creator: Stephan Hradek
+modified: 20140416203104845
+modifier: Stephan Hradek
+title: listTransclude
+source-wiki: http://tw5magick.tiddlyspot.com/#listTransclude
+
+<$list filter="[is[current]]">
+<$transclude/>
+</$list>

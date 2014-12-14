@@ -1,0 +1,20 @@
+caption: quick tagging
+created: 20141004000400199
+creator: EucalyJ
+modified: 20141004011129753
+modifier: EucalyJ
+title: TWC: quick tagging
+type: text/vnd.tiddlywiki
+tags: [[TWC: plugins]]
+source-wiki: http://eucaly-tw5.tiddlyspot.com/#TWC_%20quick%20tagging
+
+!!! TiddlyWikiClassic
+* ~TagglyTagging
+** http://mptw.tiddlyspot.com/#TagglyTagging
+** demo : http://tbgtd.tiddlyspot.com/#action
+* ~TaggerPlugin
+* ~MonkeyTaggerMacro
+** http://tiddlywiki.squize.org/ (mirror copy)
+
+!!! ~TiddlyWiki 5
+* PopupTagger

@@ -1,0 +1,22 @@
+blurb: 
+created: 20140309173713243
+modified: 20140309180518218
+subtopic: 
+title: Creating Tabs From Dynamic Tiddlers
+source-wiki: http://dl.dropboxusercontent.com/u/118970/wiki/tw5tribalknowledge.html#Creating%20Tabs%20From%20Dynamic%20Tiddlers
+
+By dynamic tiddlers I mean something like the [[Books]] tiddler which has content that changes as other tiddlers are created and tagged.
+
+Tabs from dynamic tiddlers take a little bit more setup. I'll use the [[Books]] tiddler again. Just linking to the tiddler won't show your content in the tab. You need to first create another tiddler that calls the one you want. I created mine as a system tiddler like [[$:/TabBooks]]. In that tiddler I call the tiddler I want (in this case Examples) with this syntax:
+
+```
+{{Books}}
+```
+Also, importantly, I createe a field at the bottom called caption and the text that goes in there will be the text that shows up in the tab.
+
+Now you can create the tabs using this syntax, calling the system tiddler. Note that I've also mixed in some static tiddlers to show they can work together as tabs.
+
+```
+<<tabs "[[$:/TabBooks]] [[Book Title A]] [[Book Title B]]" "[[$:/TabBooks]]">>
+```
+<<tabs "[[$:/TabBooks]] [[Book Title A]] [[Book Title B]]" "[[$:/TabBooks]]">>

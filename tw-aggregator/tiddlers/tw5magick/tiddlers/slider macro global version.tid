@@ -1,0 +1,29 @@
+created: 20140116210750583
+creator: Stephan Hradek
+description: Recreating the slider macro.
+modified: 20140117103939795
+modifier: Stephan Hradek
+title: slider macro global version
+tags: toc
+source-wiki: http://tw5magick.tiddlyspot.com/#slider%20macro%20global%20version
+
+The [[global Macro|A global Macro - with limitations]] technique can be used to recreate sliders with the limitation that the label needs to be the title of the tiddler which should slide in.
+
+It is used like this:
+
+```
+{{Title of Tiddler to slide in||slider}}
+```
+
+This is what it will look like:
+
+{{GettingStarted||slider}}
+
+And this is the source of the  [[slider]] macro:
+
+{{slider||code}}
+
+If you want to use it, make sure to copy both required templates:
+
+* [[slider]]
+* [[unwikified]]

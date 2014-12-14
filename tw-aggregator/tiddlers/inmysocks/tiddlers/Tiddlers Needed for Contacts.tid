@@ -1,0 +1,38 @@
+created: 20141109203321814
+creator: inmysocks
+modified: 20141210184145059
+modifier: inmysocks
+title: Tiddlers Needed for Contacts
+tags: [[Contacts Settings]]
+source-wiki: http://inmysocks.tiddlyspot.com/#Tiddlers%20Needed%20for%20Contacts
+
+These tiddlers are needed to make the [[Contacts]] tiddler function:
+
+*[[Contacts]] - The main tiddler
+*[[New Contact Form]] - The input form used to add new contacts
+*[[Contacts Settings]] - The tiddler that displays the settings options
+*[[GeneralMacros]] - Some slider macros used
+*[[ContactsMacros]] - Macros specific to the contacts tiddlers
+*[[Contact Group Selector]] - a tiddler used in the [[New Contacts Form]]
+*[[ContactDisplayTemplate1]] - The main display template for contacts
+*[[ContactDisplayTemplate1 Settings]] - The settings tiddler for Contact Display Template 1
+*[[SimpleContactDisplayTemplate]] - A barebones display template
+*[[GroupContactListTemplate]] - The template for displaying the contacts split into groups
+*[[GroupContactListGroupTemplate]] - The template for how individual groups are handled when using GroupContactListTemplate
+*[[GroupContactListTemplate Settings]] - The settings tiddler for how the grouping list works
+*[[SimpleContactListTemplate]] - a simple list template for contacts
+*[[ContactTemp]] - A temporary tiddler used when adding new contacts
+*[[How to make new display templates for contacts]] - not strictly needed, but it has instructions for making new templates
+
+Not necessary but probably useful for new users:
+
+*[[Example Contact (Alias)]]
+*[[Example Group]]
+
+A plugin that (hopefully) adds the contacts database functions to your wiki when imported (work in progress):
+''There is still some weirdness going on here. Because of how the tabbed-toc macro works this won't show up properly on the dashboard unless you are using the macro from 5.1.6-prerelease or later.''
+
+$:/core/macros/toc is the tiddler that needs to be updated, you can get the new version from http://tiddlywiki.com/prerelease/#%24%3A%2Fcore%2Fmacros%2Ftoc if you want, I am not going to update it here yet because it may do strange things when updating in the future.
+
+
+[[$:/plugins/inmysocks/Contacts]]
