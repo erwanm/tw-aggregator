@@ -7,6 +7,8 @@
 
 wiki="tw-aggregator"
 
+# just in case, but things will go wrong if merging is needed
+git pull
 # run the aggregator
 bin/tw-aggregator.sh tw-sites-list.txt
 # add any new tiddler
