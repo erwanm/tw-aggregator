@@ -1,0 +1,10 @@
+created: 20141214005400000
+creator: Erwan
+modified: 20141214005400000
+title: SourceFooter
+tags: $:/tags/ViewTemplate
+
+<hr/>
+
+Source: {{!!source-wiki}}
+
