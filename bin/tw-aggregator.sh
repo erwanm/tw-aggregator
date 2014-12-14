@@ -1,6 +1,7 @@
 #!/bin/bash
 
 id="tw-aggregator"
+wikiBasis="tw-aggregator-basis"
 paramTiddler="TWAggregatorSources"
 
 if [ $# -ne 1 ]; then
@@ -55,15 +56,15 @@ function processTiddler {
 }
 
 
+# TODO cleaner temp dir
 
 nbSites=$(cat "$listFile" | wc -l)
 echo "Input list read from file $listFile; $nbSites sites"
-# cleaning previous sub-wikis (not done in the loop in case one has been deleted from the list)
-for d in "$id"/tiddlers/*; do
-    if [ -d "$d" ]; then 
-	rm -rf "$d"
-    fi
-done
+
+echo "creating target wiki"
+tiddlywiki "$id" --init server >/dev/null
+mkdir "$id"/tiddlers
+cp "$wikiBasis"/tiddlers/* "$id"/tiddlers
 
 theDate=$(date +"%Y%m%d%H%M%S")
 echo -e "created: ${theDate}000\ntitle: $paramTiddler" > "$id/tiddlers/$paramTiddler.tid"
@@ -95,16 +96,13 @@ for siteNo in $(seq 1 $nbSites); do
 	total=$(( $total + $nbThis ))
 	echo "processing '$name': extracted $nbThis tiddlers"
 	echo "processing '$name': removing system tags and adding source field"
-	# the lines below also removes any file which isn't *.tid, btw
-	mkdir "$name"/tiddlers2
+	# the lines below also discard any file which isn't *.tid, btw
 	for f in "$name"/tiddlers/*.tid; do
 	    resFile=$(processTiddler "$f" "$name" "$address")
 	    basef=$(basename "$f")
-	    mv "$resFile" "$name"/tiddlers2/"\$__${name}_$basef"
+	    mv "$resFile" "$id"/tiddlers/"\$__${name}_$basef"
 	done
-	rm -rf "$name"/tiddlers/
-	mv "$name"/tiddlers2 "$name"/tiddlers
-	mv "$name" "$id"/tiddlers
+	rm -rf "$name"
     fi
 done
 echo "Converting the big fat wiki back to standalone html"
