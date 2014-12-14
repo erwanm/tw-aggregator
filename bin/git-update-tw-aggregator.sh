@@ -11,9 +11,9 @@ wiki="tw-aggregator"
 git pull
 # run the aggregator
 bin/tw-aggregator.sh tw-sites-list.txt
-# add any new tiddler
-git add "$wiki"/tiddlers/*/tiddlers/*.tid
+# add/delete any new tiddler
+git add -u "$wiki"/tiddlers/*/tiddlers/
 # commit and push
-git commit -m "automatic update"
+git commit -a -m "automatic update"
 git push
 
