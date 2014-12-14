@@ -1,9 +1,0 @@
-created: 20131002014100000
-modified: 20131118010800000
-title: Move the sidebar to the left and the tiddlers to the right
-tags: [[Page layout]]
-source-wiki: http://www.giffmex.org/tw5mall.htm#Move%20the%20sidebar%20to%20the%20left%20and%20the%20tiddlers%20to%20the%20right
-
-Someone recently showed me that by changing the Story right and Story left amounts in the theme tweaks tab of  [[$:/ControlPanel]], you can get the sidebar on the left side and the tiddlers in the middle of the screen. To be precise, when I did this experiment (in a different ~TiddlyWiki), I adjusted the Story left amount from 0px to 500px, and the Story right from 770px to 20px.
-
-I tried doing this, but I don't recommend it. What happens is that later, when you want to edit the pagetemplate tiddler, the transclusion of that tiddler covers the entire screen, meaning that you can no longer click on anything to edit or create! You can only refresh your browser to close the pagetemplate tiddler.

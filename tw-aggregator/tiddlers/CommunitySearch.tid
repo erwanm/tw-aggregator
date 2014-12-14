@@ -1,0 +1,43 @@
+created: 20141214202822571
+creator: Erwan
+modified: 20141214210217070
+modifier: Erwan
+tags: 
+title: CommunitySearch
+
+\define lingo-base() $:/language/Search/
+<$linkcatcher to="$:/temp/advancedsearch">
+
+Search in the list of community tiddlers:
+
+<div class="tc-search">
+<$edit-text tiddler="$:/temp/advancedsearch" type="search" tag="input"/>
+<$reveal state="$:/temp/advancedsearch" type="nomatch" text="">
+<$button class="tc-btn-invisible">
+<$action-setfield $tiddler="$:/temp/advancedsearch" $field="text" $value=""/>
+{{$:/core/images/close-button}}
+</$button>
+</$reveal>
+</div>
+
+</$linkcatcher>
+
+<$reveal state="$:/temp/advancedsearch" type="nomatch" text="">
+
+<$set name="resultCount" value="""<$count filter="[all[shadows]has[source-wiki]search{$:/temp/advancedsearch}] -[[$:/temp/advancedsearch]]"/>""">
+
+<div class="tc-search-results">
+
+<<lingo Shadows/Matches>>
+
+<$list filter="[all[shadows]has[source-wiki]search{$:/temp/advancedsearch}sort[title]limit[250]] -[[$:/temp/advancedsearch]]" template="$:/CommunitySearchListItemTemplate"/>
+
+</div>
+
+</$set>
+
+</$reveal>
+
+<$reveal state="$:/temp/advancedsearch" type="match" text="">
+
+</$reveal>

@@ -1,8 +1,0 @@
-created: 20140121220535288
-creator: Stephan Hradek
-modified: 20140121220548632
-modifier: Stephan Hradek
-title: Another TOC example - Just Titles
-source-wiki: http://tw5magick.tiddlyspot.com/#Another%20TOC%20example%20-%20Just%20Titles
-
-{{justTitle||my TOC}}

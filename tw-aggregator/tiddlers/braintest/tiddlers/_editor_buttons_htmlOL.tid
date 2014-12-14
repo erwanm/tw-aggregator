@@ -1,9 +1,0 @@
-created: 20140227032534524
-creator: Danielo Rodriguez
-modified: 20140227033534585
-modifier: Danielo Rodriguez
-title: /editor/buttons/htmlOL
-tags: /editor/buttons
-source-wiki: http://braintest.tiddlyspot.com/#_editor_buttons_htmlOL
-
-<$macrocall $name="appendButton" now={{Target}} caption='<$text text="<ol>"></$text>' add={{$:/snippets/danielo/htmlOL}}/>

@@ -1,8 +1,0 @@
-blurb:  A plugin that adds a table of contents manager to your wiki
-created: 20141210184736132
-modified: 20141210184754241
-title: Manage Table of Contents Plugin
-tags: Plugins
-source-wiki: http://inmysocks.tiddlyspot.com/#Manage%20Table%20of%20Contents%20Plugin
-
-<<bottomOfTiddler {{!!title}}>>

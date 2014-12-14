@@ -1,7 +1,0 @@
-created: 20130922004200000
-modified: 20131117140600006
-title: Adjusting the speed of the animation transitions
-tags: Animations
-source-wiki: http://www.giffmex.org/tw5mall.htm#Adjusting%20the%20speed%20of%20the%20animation%20transitions
-
-You can adjust the speed of the animation transitions by going to [[$:/ControlPanel]] (the gear icon in the sidebar) and adjust the number in the box for "Animation duration."

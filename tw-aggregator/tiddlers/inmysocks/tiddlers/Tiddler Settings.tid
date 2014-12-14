@@ -1,7 +1,0 @@
-created: 20141213055919890
-modified: 20141213184726494
-subtitle: Tiddler Settings
-title: Tiddler Settings
-source-wiki: http://inmysocks.tiddlyspot.com/#Tiddler%20Settings
-
-<<tabs "TiddlerWidthSettings [[Tiddler Title Font Settings]] [[Tiddler Body Font Settings]]" TiddlerWidthSettings '$:/state/settingstab' 'tc-vertical'>>

@@ -1,9 +1,0 @@
-created: 20140117101802794
-creator: Stephan Hradek
-modified: 20140117102052993
-modifier: Stephan Hradek
-title: unwikified
-tags: template
-source-wiki: http://tw5magick.tiddlyspot.com/#unwikified
-
-<$view field="title"/>

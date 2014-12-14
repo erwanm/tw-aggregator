@@ -1,0 +1,22 @@
+created: 20141214202949760
+modified: 20141214205628483
+tags: 
+title: $:/CommunitySearchListItemTemplate
+
+\define concatenate-tiddler-link()
+$(site)$#$(tiddler)$
+\end
+
+\define generate-link()
+  <$set name=site value=<$view tiddler=ListOfCommunityWikis field={{!!source-wiki-id}}/>>
+    <$set name=tiddler value={{!!source-tiddler-title}}>
+      <<concatenate-tiddler-link>>
+    </$set>
+  </$set>
+\end
+
+<div class="tc-menu-list-item">
+<$link to=<<generate-link>>>
+<$view field="source-tiddler-title"/> @<$view field="source-wiki-id"/>
+</$link>
+</div>

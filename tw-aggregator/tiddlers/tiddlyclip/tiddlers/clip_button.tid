@@ -1,8 +1,0 @@
-created: 20140226162031212
-modified: 20140903204259325
-title: clip_button
-type: null
-tags: button TiddlyClipConfig
-source-wiki: http://tiddlyclip.tiddlyspot.com/#clip_button
-
-<span title="top  clip table"><$link to="TiddlyClipConfig"><div style="transform: scaleX(-1); filter: FlipH; -ms-filter: 'FlipH'; float: left;">{{$:/core/images/import-button}}</div></$link></span> 

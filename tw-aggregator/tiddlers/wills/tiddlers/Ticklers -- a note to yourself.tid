@@ -1,9 +1,0 @@
-created: 20140514073056751
-modified: 20140514082009069
-revision: 0
-title: Ticklers -- a note to yourself
-type: text/vnd.tiddlywiki
-wills: using-gtid
-source-wiki: http://wills.tiddlyspot.com/#Ticklers%20--%20a%20note%20to%20yourself
-
-A tickler is a note to ourself in the future. The gTiD system must store this note, then present it to the user in the form of a list -- but only when necessary and only in the relevant context. 

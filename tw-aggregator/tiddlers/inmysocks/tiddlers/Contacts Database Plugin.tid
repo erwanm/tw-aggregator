@@ -1,8 +1,0 @@
-blurb:  A plugin to add a contacts database to your wiki
-created: 20141210184602803
-modified: 20141210184622929
-title: Contacts Database Plugin
-tags: Plugins
-source-wiki: http://inmysocks.tiddlyspot.com/#Contacts%20Database%20Plugin
-
-<<bottomOfTiddler {{!!title}}>>

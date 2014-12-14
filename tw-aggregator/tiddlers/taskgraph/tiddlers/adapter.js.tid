@@ -1,8 +1,0 @@
-created: 20141122120321849
-id: 6d38a7dd-8eb3-2bd1-7f55-5360b38abeab
-modified: 20141122121029948
-title: adapter.js
-tags: [[how it works]] modules
-source-wiki: http://wkpr.de/hosting/tmp/tw5/taskgraph/#adapter.js
-
-Acts as mediator between tw and the graphs

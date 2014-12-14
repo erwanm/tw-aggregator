@@ -1,8 +1,0 @@
-blurb:  A plugin that adds a simple interface for creating or editing tiddlers to your wiki
-created: 20141210184657899
-modified: 20141210184729793
-title: Create or Edit Tiddlers Plugin
-tags: Plugins
-source-wiki: http://inmysocks.tiddlyspot.com/#Create%20or%20Edit%20Tiddlers%20Plugin
-
-<<bottomOfTiddler {{!!title}}>>

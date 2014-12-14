@@ -1,9 +1,0 @@
-caption: Parent topics
-created: 20131118013200002
-modified: 20131118013400004
-title: ParentTopics
-source-wiki: http://www.giffmex.org/tw5mall.htm#ParentTopics
-
-This is a list of the tags for this tiddler and the tiddlers that list this tiddler.
-
-<$list filter="[is[current]listed[]!is[system]] [is[current]tags[]!is[system]] +[sort[title]]" emptyMessage=""/>

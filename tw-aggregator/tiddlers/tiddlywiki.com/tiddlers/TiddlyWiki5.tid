@@ -1,7 +1,0 @@
-created: 20130825213600000
-modified: 20130825213600000
-title: TiddlyWiki5
-tags: Concepts
-source-wiki: http://tiddlywiki.com#TiddlyWiki5
-
-TiddlyWiki5 is a reboot of TiddlyWiki for the next 25 years. It is a complete interactive wiki in JavaScript that can be run in the browser or on the server under [[Node.js]].

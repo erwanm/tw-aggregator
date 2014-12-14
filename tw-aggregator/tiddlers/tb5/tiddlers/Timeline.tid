@@ -1,8 +1,0 @@
-created: 20141119012410633
-creator: Tobias Beer
-modified: 20141119013814055
-modifier: Tobias Beer
-title: Timeline
-source-wiki: http://tb5.tiddlyspot.com#Timeline
-
-<$macrocall $name="timeline" format={{$:/language/RecentChanges/DateFormat}}/>

@@ -1,8 +1,0 @@
-created: 20131223104948433
-creator: Stephan Hradek
-modified: 20131223193246651
-modifier: Stephan Hradek
-title: code
-source-wiki: http://tiddlystuff.tiddlyspot.com/#code
-
-<pre><$view field="text"/></pre>

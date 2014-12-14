@@ -1,9 +1,0 @@
-created: 20141202230926077
-creator: Tobias Beer
-modified: 20141202231005271
-modifier: Tobias Beer
-title: Cleanup 5.1.6
-tags: Cleanup
-source-wiki: http://tb5.tiddlyspot.com#Cleanup%205.1.6
-
-# remove imported [[$:/core/macros/toc]]

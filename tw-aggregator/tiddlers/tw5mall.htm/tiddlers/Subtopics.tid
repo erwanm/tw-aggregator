@@ -1,9 +1,0 @@
-caption: Subtopics
-created: 20131118013100001
-modified: 20131118013500007
-title: Subtopics
-source-wiki: http://www.giffmex.org/tw5mall.htm#Subtopics
-
-This is a list of tiddlers tagged with this tiddler's title, and any tiddlers in this tiddler's list.
-
-<$list filter="[is[current]tagging[]sort[title]] [list{!!title}]" itemClass="tw-menu-list-item" emptyMessage=""/>

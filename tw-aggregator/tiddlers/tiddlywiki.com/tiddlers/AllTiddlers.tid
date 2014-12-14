@@ -1,9 +1,0 @@
-created: 20140225211938920
-modified: 20140225211938920
-title: AllTiddlers
-type: text/vnd.tiddlywiki
-source-wiki: http://tiddlywiki.com#AllTiddlers
-
-Current tiddlers:
-
-<$list filter="[!is[system]sort[title]]" />

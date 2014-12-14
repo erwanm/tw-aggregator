@@ -1,8 +1,0 @@
-blurb:  A plugin to add a citations library to your wiki
-created: 20141210184632683
-modified: 20141210184651874
-title: Citations Plugin
-tags: Plugins
-source-wiki: http://inmysocks.tiddlyspot.com/#Citations%20Plugin
-
-<<bottomOfTiddler {{!!title}}>>

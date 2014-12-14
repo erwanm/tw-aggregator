@@ -1,6 +1,0 @@
-created: 20141207055754110
-modified: 20141213184941428
-title: ChangeSizeButton
-source-wiki: http://inmysocks.tiddlyspot.com/#ChangeSizeButton
-
-<$button message='tm-modal' param='TiddlerWidthSettings'>Change Tiddler Width</$button>

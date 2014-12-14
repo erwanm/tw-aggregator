@@ -1,9 +1,0 @@
-blurb: 
-created: 20140923220312854
-creator: inmysocks
-modified: 20140926190228535
-modifier: inmysocks
-title: TiddlerTopicTemplate
-source-wiki: http://inmysocks.tiddlyspot.com/#TiddlerTopicTemplate
-
-<<bottomOfTiddler {{!!title}}>>
