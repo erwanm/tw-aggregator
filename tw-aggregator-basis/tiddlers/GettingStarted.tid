@@ -3,7 +3,14 @@ creator: Erwan
 modified: 20141214005400000
 title: GettingStarted
 
+! Search
+
+{{CommunitySearch}}
+
+
 ! Purpose
+
+''TODO'' update description
 
 This is a compilation of multiple public tiddlywikis from different authors. It is intended to be used as a rather comprehensive index about ~TiddlyWiki. It can be searched globally and points back to the original source of every tiddler.
 

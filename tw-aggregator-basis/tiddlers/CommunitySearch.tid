@@ -1,14 +1,15 @@
 created: 20141214202822571
 creator: Erwan
-modified: 20141214210217070
+modified: 20141215004154104
 modifier: Erwan
+revision: 2
 tags: 
 title: CommunitySearch
 
 \define lingo-base() $:/language/Search/
 <$linkcatcher to="$:/temp/advancedsearch">
 
-Search in the list of community tiddlers:
+Search for tiddlers in the community wikis:
 
 <div class="tc-search">
 <$edit-text tiddler="$:/temp/advancedsearch" type="search" tag="input"/>
@@ -24,13 +25,13 @@ Search in the list of community tiddlers:
 
 <$reveal state="$:/temp/advancedsearch" type="nomatch" text="">
 
-<$set name="resultCount" value="""<$count filter="[all[shadows]has[source-wiki]search{$:/temp/advancedsearch}] -[[$:/temp/advancedsearch]]"/>""">
+<$set name="resultCount" value="""<$count filter="[is[system]has[source-wiki-id]search{$:/temp/advancedsearch}] -[[$:/temp/advancedsearch]]"/>""">
 
 <div class="tc-search-results">
 
-<<lingo Shadows/Matches>>
+<<lingo System/Matches>>
 
-<$list filter="[all[shadows]has[source-wiki]search{$:/temp/advancedsearch}sort[title]limit[250]] -[[$:/temp/advancedsearch]]" template="$:/CommunitySearchListItemTemplate"/>
+<$list filter="[is[system]has[source-wiki-id]search{$:/temp/advancedsearch}sort[title]limit[250]] -[[$:/temp/advancedsearch]]" template="$:/CommunitySearchListItemTemplate"/>
 
 </div>
 

@@ -56,15 +56,16 @@ function processTiddler {
 }
 
 
-# TODO cleaner temp dir
 
 nbSites=$(cat "$listFile" | wc -l)
 echo "Input list read from file $listFile; $nbSites sites"
 
+workDir=$(mktemp -d)
 echo "creating target wiki"
-tiddlywiki "$id" --init server >/dev/null
-mkdir "$id"/tiddlers
-cp "$wikiBasis"/tiddlers/* "$id"/tiddlers
+tiddlywiki "$workDir/$id" --init server >/dev/null
+mkdir "$workDir/$id"/tiddlers
+cp "$wikiBasis"/tiddlers/* "$workDir/$id"/tiddlers
+pushd "$workDir" >/dev/null
 
 theDate=$(date +"%Y%m%d%H%M%S")
 echo -e "created: ${theDate}000\ntitle: $paramTiddler" > "$id/tiddlers/$paramTiddler.tid"
@@ -107,5 +108,7 @@ for siteNo in $(seq 1 $nbSites); do
 done
 echo "Converting the big fat wiki back to standalone html"
 tiddlywiki "$id" --rendertiddler $:/core/save/all "$id".html text/plain
-echo "Done. result in $id/output/$id.html ($total tiddlers)"
+popd >/dev/null
+mv "$workDir/$id/output/$id.html" .
+echo "Done. result in $id.html ($total tiddlers)"
 

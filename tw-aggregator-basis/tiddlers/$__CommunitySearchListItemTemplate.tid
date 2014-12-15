@@ -1,22 +1,20 @@
 created: 20141214202949760
-modified: 20141214205628483
+modified: 20141215004035125
+revision: 3
+source-tiddler-title: My example title
+source-wiki-id: example-wiki-id
 tags: 
 title: $:/CommunitySearchListItemTemplate
+type: 
 
-\define concatenate-tiddler-link()
-$(site)$#$(tiddler)$
+
+\define build-link()
+  <$view tiddler=TWAggregatorSources field={{!!source-wiki-id}}/>#{{!!source-tiddler-title}}
 \end
 
-\define generate-link()
-  <$set name=site value=<$view tiddler=ListOfCommunityWikis field={{!!source-wiki-id}}/>>
-    <$set name=tiddler value={{!!source-tiddler-title}}>
-      <<concatenate-tiddler-link>>
-    </$set>
-  </$set>
-\end
 
 <div class="tc-menu-list-item">
-<$link to=<<generate-link>>>
-<$view field="source-tiddler-title"/> @<$view field="source-wiki-id"/>
-</$link>
+  <$link to=<<build-link>>>
+    <$view field="source-tiddler-title"/> @<$view field="source-wiki-id"/> (address=<<build-link>>)<br/>
+  </$link>
 </div>
