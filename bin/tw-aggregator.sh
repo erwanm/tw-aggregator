@@ -21,6 +21,9 @@ function extractIdFromAddress {
     echo "${name##*/}"
 }
 
+# echoes the name of the temp tiddler after being cleaned up/converted if "normal tiddler",
+# empty string if the tiddler is discarded (plugin/theme tiddler)
+#
 function processTiddler {
     file="$1"
     name="$2"
@@ -28,31 +31,37 @@ function processTiddler {
 
     dest=$(mktemp)
     firstBlankNo=$(cat "$file" | grep -n "^$" | head -n 1 | cut -f 1 -d ":")
-    oldTitle=$(head -n $(( $firstBlankNo - 1 )) "$file" | grep "^title:" | sed 's/^title: //g')
-    newTitle="\$:/$name/$oldTitle"
-    echo "title: $newTitle" >$dest
-    head -n $(( $firstBlankNo - 1 )) "$file" | grep -v "^title:" | grep -v "^tags:" >>"$dest"
-    oldtags=$(head -n $(( $firstBlankNo - 1 )) "$file" | grep "^tags:" | sed 's/^tags: //g')
-    newtags=""
-    regex="^\\\$:/"
-    for tag in $oldtags; do # very dirty, doesn't deal with [[multi words tags]]
-#	echo " '$tag' =~ '$regex' ??" 1>&2
-	if [[ ! $tag =~ $regex ]]; then
-	    newtags="$newtags $tag"
-#	    echo NO-MATCH 1>&2
-#	else
-#	    echo MATCH 1>&2
+    pluginField=$(head -n $(( $firstBlankNo - 1 )) "$file" | grep "^plugin-type:" | wc -l)
+    if [ $pluginField -gt 0 ]; then # discard plugins/themes
+	rm -f "$dest"
+	echo ""
+    else
+	oldTitle=$(head -n $(( $firstBlankNo - 1 )) "$file" | grep "^title:" | sed 's/^title: //g')
+	newTitle="\$:/$name/$oldTitle"
+	echo "title: $newTitle" >$dest
+	head -n $(( $firstBlankNo - 1 )) "$file" | grep -v "^title:" | grep -v "^tags:" >>"$dest"
+	oldtags=$(head -n $(( $firstBlankNo - 1 )) "$file" | grep "^tags:" | sed 's/^tags: //g')
+	newtags=""
+	regex="^\\\$:/"
+	for tag in $oldtags; do # very dirty, doesn't deal with [[multi words tags]]
+	    #	echo " '$tag' =~ '$regex' ??" 1>&2
+	    if [[ ! $tag =~ $regex ]]; then
+		newtags="$newtags $tag"
+		#	    echo NO-MATCH 1>&2
+		#	else
+		#	    echo MATCH 1>&2
+	    fi
+	done
+	if [ ! -z "$newtags" ]; then
+	    echo "tags:$newtags" >>"$dest"
 	fi
-    done
-    if [ ! -z "$newtags" ]; then
-	echo "tags:$newtags" >>"$dest"
+	tiddler=$(basename "${file%.tid}")
+	#    tiddler=$(echo "$tiddler" | sed 's/ /%20/g')
+	echo "source-wiki-id: $name" >>"$dest"
+	echo "source-tiddler-title: $tiddler" >>"$dest"
+	tail -n +$firstBlankNo "$file" >>"$dest"
+	echo "$dest"
     fi
-    tiddler=$(basename "${file%.tid}")
-#    tiddler=$(echo "$tiddler" | sed 's/ /%20/g')
-    echo "source-wiki-id: $name" >>"$dest"
-    echo "source-tiddler-title: $tiddler" >>"$dest"
-    tail -n +$firstBlankNo "$file" >>"$dest"
-    echo "$dest"
 }
 
 
@@ -100,14 +109,16 @@ for siteNo in $(seq 1 $nbSites); do
 	# the lines below also discard any file which isn't *.tid, btw
 	for f in "$name"/tiddlers/*.tid; do
 	    resFile=$(processTiddler "$f" "$name" "$address")
-	    basef=$(basename "$f")
-	    mv "$resFile" "$id"/tiddlers/"\$__${name}_$basef"
+	    if [ ! -z "$resFile" ]; then
+		basef=$(basename "$f")
+		mv "$resFile" "$id"/tiddlers/"\$__${name}_$basef"
+	    fi
 	done
 	rm -rf "$name"
     fi
 done
 echo "Converting the big fat wiki back to standalone html"
-tiddlywiki "$id" --rendertiddler $:/core/save/all "$id".html text/plain
+tiddlywiki "$id" --rendertiddler $:/plugins/tiddlywiki/tiddlyweb/save/offline "$id".html text/plain
 popd >/dev/null
 mv "$workDir/$id/output/$id.html" .
 echo "Done. result in $id.html ($total tiddlers)"
