@@ -1,0 +1,42 @@
+created: 20141222174553788
+modified: 20141222182401282
+tags: 
+title: $:/CommunityWikiPresentationTemplate
+type: text/vnd.tiddlywiki
+
+
+
+!!! Address
+
+{{!!wiki-address}}
+
+!!! Latest modifications
+
+<$list filter="[source-wiki-id<currentTiddler>sort[created]!limit[5]] +[reverse[]]" emptyMessage="a little bug here">
+  <$view field="modified" format="relativedate"/><$transclude tiddler="$:/core/ui/ListItemTemplate"/>
+</$list>
+
+!!! Tags
+
+<$list filter="[source-wiki-id<currentTiddler>tags[]!is[system]sort[title]] -[<currentTiddler>]">
+  <$transclude tiddler="$:/core/ui/TagTemplate"/>
+  <small class="tc-menu-list-count">
+    <$count filter="[all[current]tagging[]]"/>
+  </small><br/>
+</$list>
+
+!!! Tiddlers
+
+<$count filter="[source-wiki-id<currentTiddler>sort[title]]" /> indexed tiddlers.
+
+<$button set="$:/PresentationTiddlerShowTiddlers" setTo="show">Show tiddlers</$button>
+<$button set="$:/PresentationTiddlerShowTiddlers" setTo="hide">Hide tiddlers</$button>
+
+<$reveal type="match" state="$:/PresentationTiddlerShowTiddlers" text="show">
+
+<$list filter="[source-wiki-id<currentTiddler>sort[title]]">
+  <$transclude tiddler="$:/core/ui/ListItemTemplate" />
+</$list>
+
+</$reveal>
+

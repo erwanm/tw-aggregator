@@ -1,11 +1,23 @@
 created: 20141221163448239
-modified: 20141221163539191
+modified: 20141222182908626
 tags: 
 title: Version
 type: text/vnd.tiddlywiki
 
+\define getMostRecent()
+  <$list filter="[tag[community-wiki]sort[created]!limit[1]]" emptyMessage="a little bug here">
+    <$view field="created"  format="relativedate"/>
+  </$list>
+\end
+
+
+
+
 ! Version
 
-This index was generated on {{TWAggregatorSources!!created}}. The following wikis are indexed:
+This search engine uses an index generated <<getMostRecent>>. <$count filter="[has[source-wiki-id]]" /> tiddlers from <$count filter="[tag[community-wiki]]"/> wikis are indexed.
 
-{{TWAggregatorSources}}
+
+The following wikis are indexed:
+
+{{CommunityWikis}}

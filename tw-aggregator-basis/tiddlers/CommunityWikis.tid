@@ -1,0 +1,17 @@
+created: 20141222182704958
+modified: 20141222184528488
+tags: 
+title: CommunityWikis
+type: text/vnd.tiddlywiki
+
+<ul>
+<$list filter="[tag[community-wiki]sort[title]]">
+  <li>
+    <$link to=<<currentTiddler>>>
+      <strong><$view field="title"/></strong>
+    </$link><br/>
+    <a href={{!!wiki-address}} target="_blank"><$view field="wiki-address"/></a><br/>
+    <$transclude tiddler="$:/core/ui/TagTemplate"/>
+  </li>
+</$list>
+</ul>

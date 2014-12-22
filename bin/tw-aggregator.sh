@@ -5,9 +5,11 @@ wikiBasis="tw-aggregator-basis"
 paramTiddler="TWAggregatorSources"
 
 if [ $# -ne 1 ]; then
-    echo "Usage: $0 <list file>" 1>&2
-    echo "  where <list file> is a text file with one wiki address on each line" 1>&2
-    echo "  the skeleton wiki '$wikiBasis' must already exist."
+    echo "Usage: $0 <indexed wikis file>" 1>&2
+    echo "  where <indexed wikis file> is a text file describing one wiki by line:" 1>&2
+    echo " <wiki address> [ <wiki short name> [<presentation tiddler title>] ]" 1>&2
+    echo 1>&2
+    echo "  the skeleton wiki '$wikiBasis' must already exist." 1>&2
     exit 1
 fi
 listFile="$1"
@@ -25,6 +27,23 @@ function extractIdFromAddress {
     name=$(echo "$address" | sed 's/\/$//' | sed 's/^http.*:\/\///' | sed 's/.tiddlyspot.com$//') # extract a reasonably short name (without '/')
     echo "${name##*/}"
 }
+
+
+#
+# arguments of the form "field: value"
+#
+function writeTiddlerHeader {
+    theDate=$(date +"%Y%m%d%H%M%S")
+    echo "created: ${theDate}000"
+    while [ $# -gt 0 ]; do
+	echo "$1"
+	shift
+    done
+    echo
+}
+
+
+
 
 # echoes the name of the temp tiddler after being cleaned up/converted if "normal tiddler",
 # empty string if the tiddler is discarded (plugin/theme tiddler)
@@ -56,7 +75,7 @@ function processTiddler {
 	    fi
 	done
 	if [ ! -z "$newtags" ]; then
-	    echo "tags:$newtags" >>"$dest"
+	    echo "tags:$newtags $name" >>"$dest"
 	fi
 	tiddler=$(basename "${file%.tid}")
 	echo "source-wiki-id: $name" >>"$dest" # store custom fields in order to recompute the original address
@@ -93,8 +112,15 @@ total=0
 ## iterate the referenced wikis to add their content to the target wiki
 ##
 for siteNo in $(seq 1 $nbSites); do
-    address=$(head -n $siteNo "$listFile" | tail -n 1)
-    name=$(extractIdFromAddress "$address")
+    set -- $(head -n $siteNo "$listFile" | tail -n 1)
+    address="$1"
+    shift
+    name="$1"
+    shift
+    presentationTiddler="$@"
+    if [ -z "$name" ]; then
+	name=$(extractIdFromAddress "$address")
+    fi
     echo "processing '$name': fetching '$address'"
     wget "$address" 2>/dev/null # download the wiki
     if [ ! -f index.html ]; then # if file not named index.html, rename it
@@ -121,6 +147,21 @@ for siteNo in $(seq 1 $nbSites); do
 		mv "$resFile" "$id"/tiddlers/"\$__${name}_$basef"
 	    fi
 	done
+
+	echo "processing '$name': creating presentation tiddler"
+	writeTiddlerHeader "title: $name" "tags: community-wiki" "wiki-address: $address" "type: text/vnd.tiddlywiki" >"$id/tiddlers/$name.tid"
+	if [ ! -z "$presentationTiddler" ]; then
+	    file="$name/tiddlers/$presentationTiddler.tid"
+	    if [ -f "$file" ]; then
+		firstBlankNo=$(cat "$file" | grep -n "^$" | head -n 1 | cut -f 1 -d ":")
+		tail -n +$firstBlankNo "$file" >> "$id/tiddlers/$name.tid"
+	    else
+		echo "Warning: presentation tiddler '$file' (title '$presentationTiddler') does not exist" 1>&2
+	    fi
+	    
+	fi
+	echo -e "\n\n{{||\$:/CommunityWikiPresentationTemplate}}"  >> "$id/tiddlers/$name.tid"
+
 	rm -rf "$name"
     fi
 done
@@ -128,5 +169,6 @@ echo "Converting the big fat wiki back to standalone html"
 tiddlywiki "$id" --rendertiddler $:/plugins/tiddlywiki/tiddlyweb/save/offline "$id".html text/plain
 popd >/dev/null
 mv "$workDir/$id/output/$id.html" .
+# TODO rm -rf "$workDir"
 echo "Done. result in $id.html ($total tiddlers)"
 

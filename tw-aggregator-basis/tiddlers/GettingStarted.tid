@@ -1,6 +1,6 @@
 created: 20141214005400000
 creator: Erwan
-modified: 20141221192713798
+modified: 20141222191853627
 title: GettingStarted
 type: text/vnd.tiddlywiki
 
@@ -8,6 +8,7 @@ type: text/vnd.tiddlywiki
 
 {{CommunitySearch}}
 
+You can also browse the index [[by tags|CommunityTags]] or [[by wiki|CommunityWikis]].
 
 
 {{About}}

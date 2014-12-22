@@ -1,5 +1,5 @@
 created: 20141221191203963
-modified: 20141221192635666
+modified: 20141222153331151
 tags: 
 title: Implementation
 type: text/vnd.tiddlywiki
@@ -10,7 +10,7 @@ A [[Bash script|https://github.com/erwanm/tw-aggregator/blob/master/bin/tw-aggre
 
 !! Online
 
-Pure {{TiddlyWiki}}: the user can search the content gathered from the indexed wikis using a [[custom search box|CommunitySearch]]. The results are displayed as links to the original tiddler (see the code in tiddler [[$:/CommunitySearchListItemTemplate]]). 
+Pure {{TiddlyWiki}}: the user can search the content gathered from the indexed wikis using a [[custom search box|CommunitySearch]]. The results are displayed as links to the original tiddler (using a custom version of the shadow tiddler [[$:/core/ui/ListItemTemplate]]). 
 
 !! Project
 

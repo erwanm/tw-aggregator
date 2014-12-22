@@ -31,7 +31,7 @@ Search for tiddlers in the community wikis:
 
 <<lingo System/Matches>>
 
-<$list filter="[is[system]has[source-wiki-id]search{$:/temp/advancedsearch}sort[title]limit[250]] -[[$:/temp/advancedsearch]]" template="$:/CommunitySearchListItemTemplate"/>
+<$list filter="[is[system]has[source-wiki-id]search{$:/temp/advancedsearch}sort[title]limit[250]] -[[$:/temp/advancedsearch]]" template="$:/core/ui/ListItemTemplate"/>
 
 </div>
 

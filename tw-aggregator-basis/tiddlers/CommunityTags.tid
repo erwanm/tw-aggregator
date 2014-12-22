@@ -1,0 +1,12 @@
+created: 20141222175528807
+modified: 20141222175538655
+tags: 
+title: CommunityTags
+type: text/vnd.tiddlywiki
+
+<$list filter="[has[source-wiki-id]tags[]!is[system]sort[title]] -[<currentTiddler>]">
+  <$transclude tiddler="$:/core/ui/TagTemplate"/>
+  <small class="tc-menu-list-count">
+    <$count filter="[all[current]tagging[]]"/>
+  </small><br/>
+</$list>
