@@ -2,7 +2,6 @@
 
 id="tw-community-search"
 wikiBasis="tw-aggregator-basis"
-paramTiddler="TWAggregatorSources"
 
 if [ $# -ne 1 ]; then
     echo "Usage: $0 <indexed wikis file>" 1>&2
@@ -97,16 +96,6 @@ mkdir "$workDir/$id"/tiddlers
 cp "$wikiBasis"/tiddlers/* "$workDir/$id"/tiddlers
 pushd "$workDir" >/dev/null
 
-## Generate the special tiddler containing the list of addresses
-## Also maps wiki ids to their corresponding addresses, so that addresses are not duplicated (and ids are more user-friendly)
-theDate=$(date +"%Y%m%d%H%M%S")
-echo -e "created: ${theDate}000\ntitle: $paramTiddler" > "$id/tiddlers/$paramTiddler.tid"
-cat "$listFile" | while read address; do
-    name=$(extractIdFromAddress "$address")
-    echo "$name: $address"
-done >> "$id/tiddlers/$paramTiddler.tid"
-echo >> "$id/tiddlers/$paramTiddler.tid"
-cat "$listFile" | while read l; do echo "* $l"; done >> "$id/tiddlers/$paramTiddler.tid"
 
 total=0
 ## iterate the referenced wikis to add their content to the target wiki
@@ -169,6 +158,6 @@ echo "Converting the big fat wiki back to standalone html"
 tiddlywiki "$id" --rendertiddler $:/plugins/tiddlywiki/tiddlyweb/save/offline "$id".html text/plain
 popd >/dev/null
 mv "$workDir/$id/output/$id.html" .
-# TODO rm -rf "$workDir"
+rm -rf "$workDir"
 echo "Done. result in $id.html ($total tiddlers)"
 
