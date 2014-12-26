@@ -34,3 +34,4 @@ http://tb5dev.tiddlyspot.com
 http://tbdemo.tiddlyspot.com/
 http://tidtoc.tiddlyspot.com
 http://twiz.tiddlyspot.com/
+http://giffmex.org/TiddlyQuickly.html
