@@ -88,6 +88,7 @@ for lineNo in $(seq 1 $nbLines); do
 	if [ -z "$name" ]; then
 	    name=$(extractIdFromAddress "$address")
 	fi
+	echo "$address" > "$name.address"
 	echo "wiki $wikiNo/$nbSites: '$name'; fetching '$address'"
 	wget -q "$address" # download the wiki
 	if [ ! -f index.html ]; then # if file not named index.html, rename it
@@ -98,7 +99,8 @@ for lineNo in $(seq 1 $nbLines); do
 	else
 	    tiddlywiki "$name" --init server >/dev/null # create temporary node.js wiki 
 	    tiddlywiki "$name" --load index.html >/dev/null # convert standalone to tid files
-	    #	rm -f index.html "$name"/tiddlers/\$__*.tid # remove all system tiddlers (they could introduce incompatibilities)
+	    # extract wiki version
+	    grep "<meta name=\"tiddlywiki-version\"" index.html | sed 's/ /\n/g' | grep "^content=" | cut -d '"' -f 2 >"$name.version"
 	    rm -f index.html
 	    if [ -z "$presentationTiddler" ]; then
 		targetTiddler="$name/tiddlers/\$__SiteSubtitle.tid"
