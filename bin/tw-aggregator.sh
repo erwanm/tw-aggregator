@@ -17,15 +17,6 @@ listFile="$(pwd)/$(basename "$listFile")"
 popd >/dev/null
 
 
-#
-# returns a (quite) user-friendly name without '/' characters from a wiki address.
-# typically returns 'mywiki' works for 'http://mywiki.tiddlyspot.com'; otherwise the part after the last '/'
-#
-function extractIdFromAddress {
-    address="$1"
-    name=$(echo "$address" | sed 's/\/$//' | sed 's/^http.*:\/\///' | sed 's/.tiddlyspot.com$//') # extract a reasonably short name (without '/')
-    echo "${name##*/}"
-}
 
 
 #
@@ -86,8 +77,6 @@ function processTiddler {
 
 
 
-nbSites=$(cat "$listFile" | wc -l)
-echo "Input list read from file $listFile; $nbSites sites"
 
 workDir=$(mktemp -d)
 echo "creating target wiki"
