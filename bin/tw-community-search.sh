@@ -3,6 +3,7 @@
 progName="tw-community-search.sh"
 outputFilename=${progName%.sh}.html
 inputWikiBasis="tw-aggregator-basis"
+removeWorkDir=1
 
 function usage {
     echo "Usage: $progName [options] <list file>"
@@ -20,6 +21,7 @@ function usage {
     echo "  -h this help message"
     echo "  -b <wiki basis path>. Default: $inputWikiBasis."
     echo "  -o <standalone html output filename>. Default: $outputFilename."
+    echo "  -k keep working dir (for debugging purpose mostly)"
     echo    
 }
 
@@ -27,12 +29,13 @@ function usage {
 
 
 
-while getopts 'hb:o:' option ; do
+while getopts 'hb:o:k' option ; do
     case $option in
 	"h" ) usage
 	      exit 0;;
 	"b" ) inputWikiBasis="$OPTARG";;
 	"o" ) outputFilename="$OPTARG";;
+	"k" ) removeWorkDir=0;;
         "?" )
             echo "Error, unknow option." 1>&2
             usage 1>&2
@@ -47,6 +50,7 @@ if [ $# -ne 1 ]; then
 fi
 wikiListFile="$1"
 
+#workDir="temp"
 workDir=$(mktemp -d)
 tw-harvest.sh "$wikiListFile" "$workDir"
 echo "Preparing output wiki..."
@@ -62,5 +66,7 @@ tw-convert-regular-tiddlers.sh "$workDir" "$workDir/output-wiki"
 echo "Converting the output wiki to standalone html"
 tiddlywiki "$workDir/output-wiki" --rendertiddler "$:/plugins/tiddlywiki/tiddlyweb/save/offline" "output.html" text/plain
 mv "$workDir/output-wiki/output/output.html" "$outputFilename"
-rm -rf "$workDir"
+if [ $removeWorkDir -ne 0 ]; then
+    rm -rf "$workDir"
+fi
 echo "Done. $total tiddlers harvested, result in $outputFilename"

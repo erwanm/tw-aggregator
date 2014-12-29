@@ -8,3 +8,9 @@ Other applications of TW scraping might be considered in the future.
 The generated wiki can be accessed directly at:
 https://rawgit.com/erwanm/tw-aggregator/master/tw-community-search.html
 
+
+Setup
+-----
+
+The offline process is done by a few Bash scripts located in the bin/ directory.
+It should work from any Linux environment. The directory bin/ should be added to the $PATH environment variable.

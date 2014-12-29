@@ -3,7 +3,7 @@
 progName="tw-convert-regular-tiddlers.sh"
 
 function usage {
-    echo "Usage: $progName [options] <list file>"
+    echo "Usage: $progName [options] <collected wikis dir> <target wiki dir>"
     echo
     echo "TODO"
     echo "  The following steps are applied to every regular tiddler:"
@@ -32,19 +32,27 @@ function isPluginOrTheme {
 
 function writeTags {
     local name="$1"
-    local oldTags="$2"
+    local tags="$2"
 
     echo "tags: $name"
-    tags=$(echo "$oldTags" | sed 's/\[\[/"/g' | sed 's/\]\]/"/g') # hopefully [[ or ]] appear only for multiword tags
     set -- $tags
+#    echo "DEBUG TAGS='$tags'" 1>&2
     regex="^\\\$:/"
     while [ ! -z "$1" ]; do
-	if [[ ! $tag =~ $regex ]]; then # keep it if not a system tag, otherwise ignore it
-	    echo -n " $tag"
-	fi
-	x=$(echo "$1" | cut -d " " -f 2) # only for debugging purposes
-	if [ ! -z "$x" ]; then
-	    echo "DEBUG: found multiword tag '$1'" 1>&2
+	tag="$1"
+	if [ "${tag:0:2}" == "[[" ]; then
+	    while [ ${tag:(-2)} != "]]" ]; do
+		shift
+		tag="$tag $1"
+	    done
+#	    echo "DEBUG: found possible multiword tag='$tag'" 1>&2
+	    if [[ ! ${tag:2} =~ $regex ]]; then # keep it if not a system tag, otherwise ignore it
+		echo -n " $tag"
+	    fi
+	else
+	    if [[ ! $tag =~ $regex ]]; then # keep it if not a system tag, otherwise ignore it
+		echo -n " $tag"
+	    fi
 	fi
 	shift
     done
@@ -72,26 +80,28 @@ fi
 collectedWikisDir="$1"
 targetWiki="$2"
 
-regex="^\\\$:/"
+regex="^\\\$__"
 for wikiDir in "$collectedWikisDir"/*; do
     if [ -d "$wikiDir" ]; then
-	name=$(basename "$wikiDir")
-	for tiddlerFile in "$wikiDir"/tiddlers/*.tid; do
-	    firstBlankLineNo=$(cat "$tiddlerFile" | grep -n "^$" | head -n 1 | cut -f 1 -d ":")
-	    isPluginOrTheme "$tiddlerFile" "$firstBlankLineNo"
-	    if [ $? -eq 0 ] && [[ ! $tiddlerFile =~ $regex ]]; then # ignore plugins, themes and system tiddlers
-		basef=$(basename "$tiddlerFile")
-		dest="$targetWiki/tiddlers/\$__${name}_$basef"
-		oldTitle=$(head -n $(( $firstBlankNo - 1 )) "$file" | grep "^title:" | sed 's/^title: //g')
-		newTitle="\$:/$name/$oldTitle" # convert title to system tiddler with wiki id prefix
-		echo "title: $newTitle" >$dest
-		head -n $(( $firstBlankNo - 1 )) "$file" | grep -v "^title:" | grep -v "^tags:" >>"$dest" # copy fields except title and tags
-		oldTags=$(head -n $(( $firstBlankNo - 1 )) "$file" | grep "^tags:" | sed 's/^tags: //g')
-		writeTags "$name" "$oldTags" >>"$dest"
-		echo "source-wiki-id: $name" >>"$dest" # store custom fields in order to recompute the original address
-		echo "source-tiddler-title: $oldTitle" >>"$dest" 
-		tail -n +$firstBlankNo "$file" >>"$dest"
-	    fi
-	done
+	if [ "$(basename "$targetWiki")" != "$(basename "$wikiDir")" ]; then # skip target wiki
+	    name=$(basename "$wikiDir")
+	    for tiddlerFile in "$wikiDir"/tiddlers/*.tid; do
+		firstBlankLineNo=$(cat "$tiddlerFile" | grep -n "^$" | head -n 1 | cut -f 1 -d ":")
+		isPluginOrTheme "$tiddlerFile" "$firstBlankLineNo"
+		if [ $? -eq 0 ] && [[ ! $(basename "$tiddlerFile") =~ $regex ]]; then # ignore plugins, themes and system tiddlers
+		    basef=$(basename "$tiddlerFile")
+		    dest="$targetWiki/tiddlers/\$__${name}_$basef"
+		    oldTitle=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^title:" | sed 's/^title: //g')
+		    newTitle="\$:/$name/$oldTitle" # convert title to system tiddler with wiki id prefix
+		    echo "title: $newTitle" >"$dest"
+		    head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep -v "^title:" | grep -v "^tags:" >>"$dest" # copy fields except title and tags
+		    oldTags=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^tags:" | sed 's/^tags: //g')
+		    writeTags "$name" "$oldTags" >>"$dest"
+		    echo "source-wiki-id: $name" >>"$dest" # store custom fields in order to recompute the original address
+		    echo "source-tiddler-title: $oldTitle" >>"$dest" 
+		    tail -n +$firstBlankLineNo "$tiddlerFile" >>"$dest"
+		fi
+	    done
+	fi
     fi
 done
