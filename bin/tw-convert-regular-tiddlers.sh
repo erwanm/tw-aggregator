@@ -10,7 +10,8 @@ function usage {
     echo "  * convert to system tiddler"
     echo "  * rename as \$:/<wiki-name>/<title>"
     echo "  * remove any system tag"
-    echo "  Plugin and theme tiddlers are ignored."
+    echo "  Plugin/theme tiddlers are ignored, as well as tiddler with type"
+    echo "  application/javascript."
     echo
     echo "Options:"
     echo "  -h this help message"
@@ -19,16 +20,25 @@ function usage {
     echo    
 }
 
-function isPluginOrTheme {
+function isPluginThemeOrJavascript {
     local tiddlerFile="$1"
     local maxLineNo="$2"
     pluginField=$(head -n $(( $maxLineNo - 1 )) "$tiddlerFile" | grep "^plugin-type:" | wc -l)
     if [ $pluginField -gt 0 ]; then
 	return 1
     else
+	typeField=$(head -n $(( $maxLineNo - 1 )) "$tiddlerFile" | grep "^type:")
+	if [ ! -z "$typeField" ]; then
+	    isJavascript=$(echo "$typeField" | grep "application/javascript")
+	    if [ ! -z "$isJavascript" ]; then
+		return 1
+	    fi
+	fi
 	return 0
     fi
 }
+
+
 
 function writeTags {
     local name="$1"
@@ -88,7 +98,7 @@ for wikiDir in "$collectedWikisDir"/*; do
 	    for tiddlerFile in "$wikiDir"/tiddlers/*.tid; do
 		firstBlankLineNo=$(cat "$tiddlerFile" | grep -n "^$" | head -n 1 | cut -f 1 -d ":")
 		basef=$(basename "$tiddlerFile")
-		isPluginOrTheme "$tiddlerFile" "$firstBlankLineNo"
+		isPluginThemeOrJavascript "$tiddlerFile" "$firstBlankLineNo"
 		if [ $? -eq 0 ] && [[ ! $basef =~ $regex ]]; then # ignore plugins/themes and system tiddlers
 #		    echo "debug regular '$basef'" 1>&2
 		    dest="$targetWiki/tiddlers/\$__${name}_$basef"

@@ -77,7 +77,7 @@ tw-convert-regular-tiddlers.sh "$workDir" "$workDir/output-wiki"
 
 
 
-
+total=$(ls "$workDir"/output-wiki/tiddlers/*.tid | wc -l)
 echo "Converting the output wiki to standalone html"
 tiddlywiki "$workDir/output-wiki" --rendertiddler "$:/plugins/tiddlywiki/tiddlyweb/save/offline" "output.html" text/plain
 mv "$workDir/output-wiki/output/output.html" "$outputFilename"
