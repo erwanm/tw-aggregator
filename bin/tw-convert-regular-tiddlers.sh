@@ -37,7 +37,7 @@ function writeTags {
     echo "tags: $name"
     set -- $tags
 #    echo "DEBUG TAGS='$tags'" 1>&2
-    regex="^\\\$:/"
+    local regex="^\\\$:/"
     while [ ! -z "$1" ]; do
 	tag="$1"
 	if [ "${tag:0:2}" == "[[" ]; then
@@ -87,9 +87,10 @@ for wikiDir in "$collectedWikisDir"/*; do
 	    name=$(basename "$wikiDir")
 	    for tiddlerFile in "$wikiDir"/tiddlers/*.tid; do
 		firstBlankLineNo=$(cat "$tiddlerFile" | grep -n "^$" | head -n 1 | cut -f 1 -d ":")
+		basef=$(basename "$tiddlerFile")
 		isPluginOrTheme "$tiddlerFile" "$firstBlankLineNo"
-		if [ $? -eq 0 ] && [[ ! $(basename "$tiddlerFile") =~ $regex ]]; then # ignore plugins, themes and system tiddlers
-		    basef=$(basename "$tiddlerFile")
+		if [ $? -eq 0 ] && [[ ! $basef =~ $regex ]]; then # ignore plugins/themes and system tiddlers
+#		    echo "debug regular '$basef'" 1>&2
 		    dest="$targetWiki/tiddlers/\$__${name}_$basef"
 		    oldTitle=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^title:" | sed 's/^title: //g')
 		    newTitle="\$:/$name/$oldTitle" # convert title to system tiddler with wiki id prefix

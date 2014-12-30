@@ -4,6 +4,8 @@ progName="tw-community-search.sh"
 outputFilename=${progName%.sh}.html
 inputWikiBasis="tw-aggregator-basis"
 removeWorkDir=1
+skipHarvest=0
+workDir=
 
 function usage {
     echo "Usage: $progName [options] <list file>"
@@ -22,6 +24,9 @@ function usage {
     echo "  -b <wiki basis path>. Default: $inputWikiBasis."
     echo "  -o <standalone html output filename>. Default: $outputFilename."
     echo "  -k keep working dir (for debugging purpose mostly)"
+    echo "  -d <working dir> use this path as working directory instead of"
+    echo "     creating a temporary dir. -k is implied."
+    echo "  -s skip harvest part (to be used with -d)"
     echo    
 }
 
@@ -29,13 +34,15 @@ function usage {
 
 
 
-while getopts 'hb:o:k' option ; do
+while getopts 'hb:o:kd:s' option ; do
     case $option in
 	"h" ) usage
 	      exit 0;;
 	"b" ) inputWikiBasis="$OPTARG";;
 	"o" ) outputFilename="$OPTARG";;
 	"k" ) removeWorkDir=0;;
+	"s" ) skipHarvest=1;;
+	"d" ) workDir="$OPTARG";;
         "?" )
             echo "Error, unknow option." 1>&2
             usage 1>&2
@@ -50,10 +57,18 @@ if [ $# -ne 1 ]; then
 fi
 wikiListFile="$1"
 
-#workDir="temp"
-workDir=$(mktemp -d)
-tw-harvest.sh "$wikiListFile" "$workDir"
+if [ -z "$workDir" ]; then
+    workDir=$(mktemp -d)
+else
+    removeWorkDir=0
+fi
+if [ $skipHarvest -ne 1 ]; then
+    tw-harvest.sh "$wikiListFile" "$workDir"
+fi
 echo "Preparing output wiki..."
+if [ -d "$workDir/output-wiki" ]; then
+    rm -rf "$workDir/output-wiki"
+fi
 tiddlywiki "$workDir/output-wiki" --init server >/dev/null
 mkdir "$workDir"/output-wiki/tiddlers
 cp "$inputWikiBasis"/tiddlers/* "$workDir"/output-wiki/tiddlers
