@@ -25,7 +25,6 @@ http://ibox.tiddlyspot.com/
 http://let.tiddlyspot.com/
 http://namespace.tiddlyspot.com
 http://pv5.tiddlyspot.com/
-http://tb5.tiddlyspot.com/#Quick%20Markup%20Reference
 http://sections.tiddlyspot.com/
 http://style.tiddlyspot.com/
 http://taggly5.tiddlyspot.com/
@@ -35,3 +34,4 @@ http://tbdemo.tiddlyspot.com/
 http://tidtoc.tiddlyspot.com
 http://twiz.tiddlyspot.com/
 http://giffmex.org/TiddlyQuickly.html
+http://hangouts.tiddlyspace.com

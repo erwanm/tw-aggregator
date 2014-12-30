@@ -74,7 +74,7 @@ mkdir "$workDir"/output-wiki/tiddlers
 cp "$inputWikiBasis"/tiddlers/* "$workDir"/output-wiki/tiddlers
 
 tw-convert-regular-tiddlers.sh "$workDir" "$workDir/output-wiki"
-
+tw-generate-presentation-tiddlers.sh  "$workDir" "$workDir/output-wiki"
 
 
 total=$(ls "$workDir"/output-wiki/tiddlers/*.tid | wc -l)

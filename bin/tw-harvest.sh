@@ -80,7 +80,7 @@ wikiNo=1
 for lineNo in $(seq 1 $nbLines); do
     set -- $(head -n $lineNo "$wikiListFile" | tail -n 1)
     if [ "${1:0:1}" != "#" ]; then
-	address=$(echo "$1" | sed 's/%20/ /g')
+#	address=$(echo "$1" | sed 's/%20/ /g')
 	shift
 	name="$1"
 	shift

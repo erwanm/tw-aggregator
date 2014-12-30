@@ -5,18 +5,17 @@ progName="tw-convert-regular-tiddlers.sh"
 function usage {
     echo "Usage: $progName [options] <collected wikis dir> <target wiki dir>"
     echo
-    echo "TODO"
     echo "  The following steps are applied to every regular tiddler:"
     echo "  * convert to system tiddler"
     echo "  * rename as \$:/<wiki-name>/<title>"
     echo "  * remove any system tag"
+    echo "  * add field 'source-wiki-id' with value <wiki-name>"
+    echo "  * add field 'source-wiki-title' with value <title>"
     echo "  Plugin/theme tiddlers are ignored, as well as tiddler with type"
     echo "  application/javascript."
     echo
     echo "Options:"
     echo "  -h this help message"
-    echo "  -b <wiki basis path>. Default: $inputWikiBasis."
-    echo "  -o <standalone html output filename>. Default: $outputFilename."
     echo    
 }
 
@@ -44,7 +43,7 @@ function writeTags {
     local name="$1"
     local tags="$2"
 
-    echo "tags: $name"
+    echo -n "tags: $name"
     set -- $tags
 #    echo "DEBUG TAGS='$tags'" 1>&2
     local regex="^\\\$:/"
