@@ -456,8 +456,6 @@ Error message and password prompt
 
 <li>Contact</li>
 
-<li>Draft of '$:/CommunityWikiPresentationTemplate'</li>
-
 <li>GettingStarted</li>
 
 <li>Implementation</li>
@@ -478,7 +476,7 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div bag="default" created="20141222174553788" modified="20141231142521356" revision="0" tags="" title="$:/CommunityWikiPresentationTemplate" type="text/vnd.tiddlywiki">
+<div bag="default" created="20141222174553788" modified="20141231145211438" revision="0" tags="" title="$:/CommunityWikiPresentationTemplate" type="text/vnd.tiddlywiki">
 <pre>
 !!! Address
 
@@ -5945,13 +5943,13 @@ Error message and password prompt
 <div modified="20141231144118300" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20141231144316346" title="$:/state/sidebar">
-<pre>no</pre>
+<div modified="20141231145205795" title="$:/state/sidebar">
+<pre>yes</pre>
 </div>
 <div modified="20141231144105395" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="CommunityWikis $:/CommunityWikiTWVersionInfo tw5magick [[Draft of '$:/CommunityWikiPresentationTemplate']]" title="$:/StoryList">
+<div list="CommunityWikis $:/CommunityWikiTWVersionInfo tw5magick $:/CommunityWikiPresentationTemplate" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -7610,48 +7608,6 @@ tiddlers. Latest modification
 </div>
 <div bag="default" created="20141221191426464" modified="20141221191537823" revision="0" tags="" title="Contact" type="text/vnd.tiddlywiki">
 <pre>If you see any issue with this wiki, want to add your own wiki to the sources, want your wiki to be removed from the sources, or for any other reason, you can contact the author: mailto:erwan.more@@mail.com (replace the second ``@`` with a ``g``, it will probably work better).
-</pre>
-</div>
-<div bag="default" created="20141222174553788" draft.of="$:/CommunityWikiPresentationTemplate" draft.title="$:/CommunityWikiPresentationTemplate" modified="20141231144435727" revision="0" tags="" title="Draft of '$:/CommunityWikiPresentationTemplate'" type="text/vnd.tiddlywiki">
-<pre>
-!!! Address
-
-{{!!wiki-address}}
-
-!!! TW version
-
-{{||$:/CommunityWikiTWVersionInfo}}
-
-!!! Latest modifications
-
-&lt;$list filter=&quot;[source-wiki-id&lt;currentTiddler&gt;sort[created]!limit[5]] +[reverse[]]&quot; emptyMessage=&quot;a little bug here&quot;&gt;
-  &lt;$view field=&quot;modified&quot; format=&quot;relativedate&quot;/&gt;&lt;$transclude tiddler=&quot;$:/core/ui/ListItemTemplate&quot;/&gt;
-&lt;/$list&gt;
-
-!!! Tags
-
-&lt;$list filter=&quot;[source-wiki-id&lt;currentTiddler&gt;tags[]!is[system]sort[title]] -[&lt;currentTiddler&gt;]&quot;&gt;
-  &lt;$transclude tiddler=&quot;$:/core/ui/TagTemplate&quot;/&gt;
-  &lt;small class=&quot;tc-menu-list-count&quot;&gt;
-    &lt;$count filter=&quot;[all[current]tagging[]]&quot;/&gt;
-  &lt;/small&gt;&lt;br/&gt;
-&lt;/$list&gt;
-
-!!! Tiddlers
-
-&lt;$count filter=&quot;[source-wiki-id&lt;currentTiddler&gt;sort[title]]&quot; /&gt; indexed tiddlers.
-
-&lt;$button set=&quot;$:/PresentationTiddlerShowTiddlers&quot; setTo=&quot;show&quot;&gt;Show tiddlers&lt;/$button&gt;
-&lt;$button set=&quot;$:/PresentationTiddlerShowTiddlers&quot; setTo=&quot;hide&quot;&gt;Hide tiddlers&lt;/$button&gt;
-
-&lt;$reveal type=&quot;match&quot; state=&quot;$:/PresentationTiddlerShowTiddlers&quot; text=&quot;show&quot;&gt;
-
-&lt;$list filter=&quot;[source-wiki-id&lt;currentTiddler&gt;sort[title]]&quot;&gt;
-  &lt;$transclude tiddler=&quot;$:/core/ui/ListItemTemplate&quot; /&gt;
-&lt;/$list&gt;
-
-&lt;/$reveal&gt;
-
 </pre>
 </div>
 <div bag="default" created="20141214005400000" creator="Erwan" modified="20141222191853627" revision="0" title="GettingStarted" type="text/vnd.tiddlywiki">

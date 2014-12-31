@@ -1,5 +1,5 @@
 created: 20141221163448239
-modified: 20141222182908626
+modified: 20141231145915945
 tags: 
 title: Version
 type: text/vnd.tiddlywiki
@@ -10,12 +10,24 @@ type: text/vnd.tiddlywiki
   </$list>
 \end
 
+\define nbTiddlers()
+  <$count filter="[has[source-wiki-id]]" />
+\end
+
+\define nbTags()
+  <$count filter="[has[source-wiki-id]tags[]!is[system]sort[title]] -[<currentTiddler>]">
+\end
 
 
+! Search Wiki Version
 
-! Version
+This wiki uses an index generated <<getMostRecent>>. 
 
-This search engine uses an index generated <<getMostRecent>>. <$count filter="[has[source-wiki-id]]" /> tiddlers from <$count filter="[tag[community-wiki]]"/> wikis are indexed.
+* <<nbTiddlers>> tiddlers
+* <<nbTags>> distinct tags
+* from <$count filter="[tag[community-wiki]]"/> wikis
+
+are indexed.
 
 
 The following wikis are indexed:
