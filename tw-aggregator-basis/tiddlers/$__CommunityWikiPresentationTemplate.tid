@@ -1,9 +1,8 @@
 created: 20141222174553788
-modified: 20141231144938206
+modified: 20141231194745528
 tags: 
 title: $:/CommunityWikiPresentationTemplate
 type: text/vnd.tiddlywiki
-
 
 !!! Address
 
@@ -15,7 +14,7 @@ type: text/vnd.tiddlywiki
 
 !!! Latest modifications
 
-<$list filter="[source-wiki-id<currentTiddler>sort[created]!limit[5]] +[reverse[]]" emptyMessage="a little bug here">
+<$list filter="[source-wiki-id<currentTiddler>sort[created]!limit[5]] +[reverse[]]" emptyMessage="unknown">
   <$view field="modified" format="relativedate"/><$transclude tiddler="$:/core/ui/ListItemTemplate"/>
 </$list>
 

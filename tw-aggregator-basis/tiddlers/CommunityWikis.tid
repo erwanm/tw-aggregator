@@ -1,5 +1,5 @@
 created: 20141222182704958
-modified: 20141231144833454
+modified: 20141231194811035
 tags: 
 title: CommunityWikis
 type: text/vnd.tiddlywiki
@@ -17,7 +17,7 @@ type: text/vnd.tiddlywiki
 @@font-style: italic;
 <$count filter="[source-wiki-id<currentTiddler>sort[title]]" /> 
 tiddlers. Latest modification 
-<$list filter="[source-wiki-id<currentTiddler>sort[created]!limit[1]] +[reverse[]]" emptyMessage="a little bug here">
+<$list filter="[source-wiki-id<currentTiddler>sort[created]!limit[1]] +[reverse[]]" emptyMessage="unknown">
   <$view field="modified" format="relativedate"/>.
 </$list>
 @@

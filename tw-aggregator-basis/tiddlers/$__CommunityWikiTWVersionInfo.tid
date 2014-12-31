@@ -1,5 +1,5 @@
 created: 20141231144013357
-modified: 20141231144039864
+modified: 20141231195109128
 tags: 
 title: $:/CommunityWikiTWVersionInfo
 type: text/vnd.tiddlywiki
@@ -9,10 +9,16 @@ type: text/vnd.tiddlywiki
   <$list filter="[<version>prefix[5.1]]">
     <$text text=<<version>>/>
   </$list>
-  <$list filter="[<version>!prefix[5.1]]">
+  <$list filter="[<version>prefix[5.0]]">
     <$text text=<<version>>/>
     @@color:orange;
       [obsolete version!]
+    @@
+  </$list>
+  <$list filter="[<version>!prefix[5.0]!prefix[5.1]]">
+    <$text text=<<version>>/>
+    @@color:orange;
+      [no version found!]
     @@
   </$list>
   </strong>
