@@ -122,6 +122,8 @@ Error message and password prompt
 
 <li>$:/CommunityWikiPresentationTemplate</li>
 
+<li>$:/CommunityWikiTWVersionInfo</li>
+
 <li>$:/core</li>
 
 <li>$:/core/ui/ListItemTemplate</li>
@@ -132,9 +134,17 @@ Error message and password prompt
 
 <li>$:/plugins/tiddlywiki/highlight</li>
 
+<li>$:/PresentationTiddlerShowTiddlers</li>
+
 <li>$:/SiteSubtitle</li>
 
 <li>$:/SiteTitle</li>
+
+<li>$:/state/showeditpreview</li>
+
+<li>$:/state/sidebar</li>
+
+<li>$:/state/tab/sidebar--1835078512</li>
 
 <li>$:/StoryList</li>
 
@@ -446,6 +456,8 @@ Error message and password prompt
 
 <li>Contact</li>
 
+<li>Draft of '$:/CommunityWikiPresentationTemplate'</li>
+
 <li>GettingStarted</li>
 
 <li>Implementation</li>
@@ -466,12 +478,15 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20141222174553788" modified="20141222182401282" tags="" title="$:/CommunityWikiPresentationTemplate" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div bag="default" created="20141222174553788" modified="20141231142521356" revision="0" tags="" title="$:/CommunityWikiPresentationTemplate" type="text/vnd.tiddlywiki">
 <pre>
-
 !!! Address
 
 {{!!wiki-address}}
+
+!!! TW version
+
+{{||$:/CommunityWikiTWVersionInfo}}
 
 !!! Latest modifications
 
@@ -505,7 +520,22 @@ Error message and password prompt
 
 </pre>
 </div>
-<div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core plugin" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.7" revision="0" bag="default">
+<div created="20141231142215553" modified="20141231144059122" tags="" title="$:/CommunityWikiTWVersionInfo">
+<pre>&lt;$set name=version value={{!!wiki-tw-version}}&gt;
+  &lt;strong&gt;
+  &lt;$list filter=&quot;[&lt;version&gt;prefix[5.1]]&quot;&gt;
+    &lt;$text text=&lt;&lt;version&gt;&gt;/&gt;
+  &lt;/$list&gt;
+  &lt;$list filter=&quot;[&lt;version&gt;!prefix[5.1]]&quot;&gt;
+    &lt;$text text=&lt;&lt;version&gt;&gt;/&gt;
+    @@color:orange;
+      [obsolete version!]
+    @@
+  &lt;/$list&gt;
+  &lt;/strong&gt;
+&lt;/$set&gt;</pre>
+</div>
+<div author="JeremyRuston" bag="default" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core plugin" list="readme" plugin-priority="0" plugin-type="plugin" revision="0" title="$:/core" type="application/json" version="5.1.7">
 <pre>{
     &quot;tiddlers&quot;: {
         &quot;$:/Acknowledgements&quot;: {
@@ -5714,7 +5744,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20141222144931364" modified="20141222170847779" tags="" title="$:/core/ui/ListItemTemplate" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div bag="default" created="20141222144931364" modified="20141222170847779" revision="0" tags="" title="$:/core/ui/ListItemTemplate" type="text/vnd.tiddlywiki">
 <pre>\define standardListItem()
   &lt;div class=&quot;tc-menu-list-item&quot;&gt;
     &lt;$link to={{!!title}}&gt;
@@ -5750,10 +5780,10 @@ Error message and password prompt
 &lt;/$list&gt;
 </pre>
 </div>
-<div title="$:/isEncrypted" revision="0" bag="default">
+<div bag="default" revision="0" title="$:/isEncrypted">
 <pre>no</pre>
 </div>
-<div author="JeremyRuston" dependents="" description="Codemirror plugin" list="readme" plugin-type="plugin" title="$:/plugins/tiddlywiki/codemirror" type="application/json" version="5.1.7" revision="0" bag="default">
+<div author="JeremyRuston" bag="default" dependents="" description="Codemirror plugin" list="readme" plugin-type="plugin" revision="0" title="$:/plugins/tiddlywiki/codemirror" type="application/json" version="5.1.7">
 <pre>{
     &quot;tiddlers&quot;: {
         &quot;$:/config/EditorTypeMappings/application/javascript&quot;: {
@@ -5866,7 +5896,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div author="JoaoBolila" dependents="" description="Highlight.js plugin for TiddlyWiki5" list="license" plugin-type="plugin" title="$:/plugins/tiddlywiki/highlight" type="application/json" version="5.1.7" revision="0" bag="default">
+<div author="JoaoBolila" bag="default" dependents="" description="Highlight.js plugin for TiddlyWiki5" list="license" plugin-type="plugin" revision="0" title="$:/plugins/tiddlywiki/highlight" type="application/json" version="5.1.7">
 <pre>{
     &quot;tiddlers&quot;: {
         &quot;$:/plugins/tiddlywiki/highlight/highlight.js&quot;: {
@@ -5900,33 +5930,45 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20141214024309799" modified="20141214024311828" title="$:/SiteSubtitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div modified="20141231141934545" title="$:/PresentationTiddlerShowTiddlers">
+<pre>hide</pre>
+</div>
+<div bag="default" created="20141214024309799" modified="20141214024311828" revision="0" title="$:/SiteSubtitle" type="text/vnd.tiddlywiki">
 <pre>A serchable index of community wikis
 </pre>
 </div>
-<div created="20141214024301996" modified="20141214024304550" title="$:/SiteTitle" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div bag="default" created="20141214024301996" modified="20141214024304550" revision="0" title="$:/SiteTitle" type="text/vnd.tiddlywiki">
 <pre>~TiddlyWiki Community Search
 
 </pre>
 </div>
-<div list="GettingStarted" title="$:/StoryList" revision="1" bag="default">
+<div modified="20141231144118300" title="$:/state/showeditpreview">
+<pre>yes</pre>
+</div>
+<div modified="20141231144316346" title="$:/state/sidebar">
+<pre>no</pre>
+</div>
+<div modified="20141231144105395" title="$:/state/tab/sidebar--1835078512">
+<pre>$:/core/ui/SideBar/Recent</pre>
+</div>
+<div list="CommunityWikis $:/CommunityWikiTWVersionInfo tw5magick [[Draft of '$:/CommunityWikiPresentationTemplate']]" title="$:/StoryList">
 <pre></pre>
 </div>
-<div plugin-type="info" title="$:/temp/info-plugin" type="application/json" revision="0" bag="default">
+<div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
     &quot;tiddlers&quot;: {
         &quot;$:/info/browser&quot;: {
             &quot;title&quot;: &quot;$:/info/browser&quot;,
-            &quot;text&quot;: &quot;no&quot;
+            &quot;text&quot;: &quot;yes&quot;
         },
         &quot;$:/info/node&quot;: {
             &quot;title&quot;: &quot;$:/info/node&quot;,
-            &quot;text&quot;: &quot;yes&quot;
+            &quot;text&quot;: &quot;no&quot;
         }
     }
 }</pre>
 </div>
-<div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="A clean theme that emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.7" revision="0" bag="default">
+<div author="JeremyRuston" bag="default" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="A clean theme that emphasises individual tiddlers" name="Snow White" plugin-type="theme" revision="0" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.7">
 <pre>{
     &quot;tiddlers&quot;: {
         &quot;$:/themes/tiddlywiki/snowwhite/base&quot;: {
@@ -5937,7 +5979,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="A basic default theme" name="Vanilla" plugin-type="theme" title="$:/themes/tiddlywiki/vanilla" type="application/json" version="5.1.7" revision="0" bag="default">
+<div author="JeremyRuston" bag="default" core-version="&gt;=5.0.0" dependents="" description="A basic default theme" name="Vanilla" plugin-type="theme" revision="0" title="$:/themes/tiddlywiki/vanilla" type="application/json" version="5.1.7">
 <pre>{
     &quot;tiddlers&quot;: {
         &quot;$:/themes/tiddlywiki/vanilla/themetweaks&quot;: {
@@ -6003,7 +6045,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20140111211622556" creator="Stephan Hradek" description="How to create a global wikitext macro" modified="20140112211752584" modifier="Stephan Hradek" source-tiddler-title="A global Macro - with limitations" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/A global Macro - with limitations" revision="0" bag="default">
+<div bag="default" created="20140111211622556" creator="Stephan Hradek" description="How to create a global wikitext macro" modified="20140112211752584" modifier="Stephan Hradek" revision="0" source-tiddler-title="A global Macro - with limitations" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/A global Macro - with limitations">
 <pre>Transcluding a tiddler using a template can be used to get limited Wikitext macros.
 
 The limitations are
@@ -6034,14 +6076,14 @@ Hi my name is &lt;$view field=&quot;title&quot;/&gt;!
 
 Would have been sufficient. But as soon as the &quot;parameter&quot; is to be used elsewhere, like for example in the [[showtag]] macro-tiddler, which is explained in [[Displaying Tags]], a macro is required.</pre>
 </div>
-<div created="20140208184109130" creator="Stephan Hradek" modified="20140208211359408" modifier="Stephan Hradek" source-tiddler-title="alias" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/alias" revision="0" bag="default">
+<div bag="default" created="20140208184109130" creator="Stephan Hradek" modified="20140208211359408" modifier="Stephan Hradek" revision="0" source-tiddler-title="alias" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/alias">
 <pre>\define find_original()
 &lt;$list filter=&quot;[field:alias/\|$(the_alias)$\|/(i)sort[title]limit[1]]&quot;&gt;&lt;$link&gt;{{$(the_alias)$||unwikified}}&lt;/$link&gt;&lt;/$list&gt;
 \end
 
 &lt;$set name=&quot;the_alias&quot; value={{!!title}}&gt;&lt;&lt;find_original&gt;&gt;&lt;/$set&gt;</pre>
 </div>
-<div created="20140208182943035" creator="Stephan Hradek" description="How to define and use aliases for tiddlers." modified="20140208191754699" modifier="Stephan Hradek" source-tiddler-title="Aliases" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/Aliases" type="" revision="0" bag="default">
+<div bag="default" created="20140208182943035" creator="Stephan Hradek" description="How to define and use aliases for tiddlers." modified="20140208191754699" modifier="Stephan Hradek" revision="0" source-tiddler-title="Aliases" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/Aliases" type="">
 <pre>In [[the group Alberto Molina asked for &quot;Alias&quot; or as he called it &quot;Twin Tiddlers&quot;|https://groups.google.com/d/msg/tiddlywiki/YlKBBl1Jdww/gLhrt85i_sIJ]]. I thought that this should already be possible using just the standard TW5.
 
 So let's go for some Magick ;)
@@ -6065,7 +6107,7 @@ See:
 * {{theory of evolution||alias}}
 </pre>
 </div>
-<div created="20140121215032986" creator="Stephan Hradek" description="How to create a TOC or a long tiddler from a [[TOC-Tiddler|my TOC]]" modified="20140121221108670" modifier="Stephan Hradek" source-tiddler-title="Another TOC example" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/Another TOC example" revision="0" bag="default">
+<div bag="default" created="20140121215032986" creator="Stephan Hradek" description="How to create a TOC or a long tiddler from a [[TOC-Tiddler|my TOC]]" modified="20140121221108670" modifier="Stephan Hradek" revision="0" source-tiddler-title="Another TOC example" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/Another TOC example">
 <pre>In the groups there was the question:
 
 &lt;&lt;&lt; [[Marcel Kaczala|https://groups.google.com/d/msg/tiddlywiki/atdkGhd8wnA/eU9Em2CwUUUJ]]
@@ -6092,13 +6134,13 @@ or [[fully transcluded as one long tiddler|Another TOC example - Full Story]]:
 
 ''Hint:'' I could as well have used the &quot;list&quot; field for that purpose, but I find it rather cumbersome (at the moment) to edit a list in a one-row edit field.</pre>
 </div>
-<div created="20140121220643798" creator="Stephan Hradek" modified="20140121220707755" modifier="Stephan Hradek" source-tiddler-title="Another TOC example - Full Story" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Another TOC example - Full Story" revision="0" bag="default">
+<div bag="default" created="20140121220643798" creator="Stephan Hradek" modified="20140121220707755" modifier="Stephan Hradek" revision="0" source-tiddler-title="Another TOC example - Full Story" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Another TOC example - Full Story">
 <pre>{{full-enhanced||my TOC}}</pre>
 </div>
-<div created="20140121220535288" creator="Stephan Hradek" modified="20140121220548632" modifier="Stephan Hradek" source-tiddler-title="Another TOC example - Just Titles" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Another TOC example - Just Titles" revision="0" bag="default">
+<div bag="default" created="20140121220535288" creator="Stephan Hradek" modified="20140121220548632" modifier="Stephan Hradek" revision="0" source-tiddler-title="Another TOC example - Just Titles" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Another TOC example - Just Titles">
 <pre>{{justTitle||my TOC}}</pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152722597" modifier="Stephan Hradek" source-tiddler-title="Art &amp; Literature 01" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Art &amp; Literature 01" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152722597" modifier="Stephan Hradek" revision="0" source-tiddler-title="Art &amp; Literature 01" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Art &amp; Literature 01">
 <pre>@@.question
 “Christmas won’t be Christmas without any presents,” grumbled Jo, lying on the rug.
 @@
@@ -6108,7 +6150,7 @@ Little Women (Louisa May Alcott)
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152727789" modifier="Stephan Hradek" source-tiddler-title="Art &amp; Literature 02" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Art &amp; Literature 02" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152727789" modifier="Stephan Hradek" revision="0" source-tiddler-title="Art &amp; Literature 02" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Art &amp; Literature 02">
 <pre>@@.question
 Call me Ishmael.
 @@
@@ -6118,7 +6160,7 @@ Moby Dick (Herman Melville)
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152733116" modifier="Stephan Hradek" source-tiddler-title="Art &amp; Literature 03" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Art &amp; Literature 03" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152733116" modifier="Stephan Hradek" revision="0" source-tiddler-title="Art &amp; Literature 03" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Art &amp; Literature 03">
 <pre>@@.question
 Somewhere in la Mancha, in a place whose name I do not care to remember, a gentleman lived not long ago, one of those who has a lance and ancient shield on a shelf and keeps a skinny nag and a greyhound for racing. 
 @@
@@ -6128,7 +6170,7 @@ Don Quixote (Miguel de Cervantes)
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152739562" modifier="Stephan Hradek" source-tiddler-title="Art &amp; Literature 04" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Art &amp; Literature 04" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152739562" modifier="Stephan Hradek" revision="0" source-tiddler-title="Art &amp; Literature 04" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Art &amp; Literature 04">
 <pre>@@.question
 Now is the Winter of our Discontent.
 @@
@@ -6138,7 +6180,7 @@ Richard III (Shakespeare)
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152745430" modifier="Stephan Hradek" source-tiddler-title="Art &amp; Literature 05" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Art &amp; Literature 05" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152745430" modifier="Stephan Hradek" revision="0" source-tiddler-title="Art &amp; Literature 05" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Art &amp; Literature 05">
 <pre>@@.question
 I was born in the Year 1632, in the City of York, of a good Family, tho’ not of that Country, my Father being a Foreigner of Bremen, who settled first at Hull…
 @@
@@ -6148,7 +6190,7 @@ Robinson Crusoe (Daniel Defoe)
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152750860" modifier="Stephan Hradek" source-tiddler-title="Art &amp; Literature 06" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Art &amp; Literature 06" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152750860" modifier="Stephan Hradek" revision="0" source-tiddler-title="Art &amp; Literature 06" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Art &amp; Literature 06">
 <pre>@@.question
 When Mary Lennox was sent to Misselthwaite Manor to live with her uncle everybody said she was the most disagreeable-looking child ever seen.
 @@
@@ -6158,7 +6200,7 @@ The Secret Garden (Frances Hodgson Burnett)
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152756566" modifier="Stephan Hradek" source-tiddler-title="Art &amp; Literature 07" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Art &amp; Literature 07" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152756566" modifier="Stephan Hradek" revision="0" source-tiddler-title="Art &amp; Literature 07" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Art &amp; Literature 07">
 <pre>@@.question
 It is a truth universally acknowledged, that a single man in possession of good fortune, must be in want of a wife.
 @@
@@ -6168,7 +6210,7 @@ Pride and Prejudice (Jane Austen)
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152802054" modifier="Stephan Hradek" source-tiddler-title="Art &amp; Literature 08" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Art &amp; Literature 08" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152802054" modifier="Stephan Hradek" revision="0" source-tiddler-title="Art &amp; Literature 08" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Art &amp; Literature 08">
 <pre>@@.question
 You will rejoice to hear that no disaster has accompanied the commencement of an enterprise which you have regarded with such evil forebodings.
 @@
@@ -6178,7 +6220,7 @@ Frankenstein (Mary Shelley)
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152807922" modifier="Stephan Hradek" source-tiddler-title="Art &amp; Literature 09" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Art &amp; Literature 09" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152807922" modifier="Stephan Hradek" revision="0" source-tiddler-title="Art &amp; Literature 09" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Art &amp; Literature 09">
 <pre>@@.question
 It was seven o’clock of a very warm evening in the Seeonee hills when Father Wolf woke up from his day’s rest, scratched himself, yawned, and spread out his paws one after the other to get rid of the sleepy feeling in their tips.
 @@
@@ -6188,7 +6230,7 @@ The Jungle Book (Rudyard Kipling)
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720538" modifier="Stephan Hradek" source-tiddler-title="Art &amp; Literature 10" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Art &amp; Literature 10" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720538" modifier="Stephan Hradek" revision="0" source-tiddler-title="Art &amp; Literature 10" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Art &amp; Literature 10">
 <pre>@@.question
 1801 – I have just returned from a visit to my landlord – the solitary neighbour that I shall be troubled with.
 @@
@@ -6198,7 +6240,7 @@ Wuthering Heights (Emily Bronte)
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720544" modifier="Stephan Hradek" source-tiddler-title="Art &amp; Literature 11" source-wiki-id="tw5magick" tags="tw5magick Quiz www.free-quiz-questions.co.uk" title="$:/tw5magick/Art &amp; Literature 11" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720544" modifier="Stephan Hradek" revision="0" source-tiddler-title="Art &amp; Literature 11" source-wiki-id="tw5magick" tags="tw5magick Quiz www.free-quiz-questions.co.uk" title="$:/tw5magick/Art &amp; Literature 11">
 <pre>@@.question
 Who wrote The Hunchback of Notre Dame?
 @@
@@ -6208,7 +6250,7 @@ Victor Hugo
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720545" modifier="Stephan Hradek" source-tiddler-title="Art &amp; Literature 12" source-wiki-id="tw5magick" tags="tw5magick Quiz www.free-quiz-questions.co.uk" title="$:/tw5magick/Art &amp; Literature 12" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720545" modifier="Stephan Hradek" revision="0" source-tiddler-title="Art &amp; Literature 12" source-wiki-id="tw5magick" tags="tw5magick Quiz www.free-quiz-questions.co.uk" title="$:/tw5magick/Art &amp; Literature 12">
 <pre>@@.question
 In which book did Nemo captain the Nautillus?
 @@
@@ -6218,7 +6260,7 @@ In which book did Nemo captain the Nautillus?
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720545" modifier="Stephan Hradek" source-tiddler-title="Art &amp; Literature 13" source-wiki-id="tw5magick" tags="tw5magick Quiz www.free-quiz-questions.co.uk" title="$:/tw5magick/Art &amp; Literature 13" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720545" modifier="Stephan Hradek" revision="0" source-tiddler-title="Art &amp; Literature 13" source-wiki-id="tw5magick" tags="tw5magick Quiz www.free-quiz-questions.co.uk" title="$:/tw5magick/Art &amp; Literature 13">
 <pre>@@.question
 Name Peter Rabbit's three sisters?
 @@
@@ -6228,7 +6270,7 @@ Flopsy, Mopsy and Cottontail
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720545" modifier="Stephan Hradek" source-tiddler-title="Art &amp; Literature 14" source-wiki-id="tw5magick" tags="tw5magick Quiz www.free-quiz-questions.co.uk" title="$:/tw5magick/Art &amp; Literature 14" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720545" modifier="Stephan Hradek" revision="0" source-tiddler-title="Art &amp; Literature 14" source-wiki-id="tw5magick" tags="tw5magick Quiz www.free-quiz-questions.co.uk" title="$:/tw5magick/Art &amp; Literature 14">
 <pre>@@.question
 What was the name of the Dickens character known as the Artful Dodger?
 @@
@@ -6238,7 +6280,7 @@ Jack Dawkins
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720546" modifier="Stephan Hradek" source-tiddler-title="Art &amp; Literature 15" source-wiki-id="tw5magick" tags="tw5magick Quiz www.free-quiz-questions.co.uk" title="$:/tw5magick/Art &amp; Literature 15" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720546" modifier="Stephan Hradek" revision="0" source-tiddler-title="Art &amp; Literature 15" source-wiki-id="tw5magick" tags="tw5magick Quiz www.free-quiz-questions.co.uk" title="$:/tw5magick/Art &amp; Literature 15">
 <pre>@@.question
 Who sailed to the land where the bong tree grows?
 @@
@@ -6248,7 +6290,7 @@ the owl and the pussycat
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720546" modifier="Stephan Hradek" source-tiddler-title="Art &amp; Literature 16" source-wiki-id="tw5magick" tags="tw5magick Quiz www.free-quiz-questions.co.uk" title="$:/tw5magick/Art &amp; Literature 16" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720546" modifier="Stephan Hradek" revision="0" source-tiddler-title="Art &amp; Literature 16" source-wiki-id="tw5magick" tags="tw5magick Quiz www.free-quiz-questions.co.uk" title="$:/tw5magick/Art &amp; Literature 16">
 <pre>@@.question
 In the Robin Hood stories, who was the Sheriff of Nottingham's chief henchman?
 @@
@@ -6258,7 +6300,7 @@ Guy of Gisburne
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720547" modifier="Stephan Hradek" source-tiddler-title="Art &amp; Literature 17" source-wiki-id="tw5magick" tags="tw5magick Quiz www.free-quiz-questions.co.uk" title="$:/tw5magick/Art &amp; Literature 17" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720547" modifier="Stephan Hradek" revision="0" source-tiddler-title="Art &amp; Literature 17" source-wiki-id="tw5magick" tags="tw5magick Quiz www.free-quiz-questions.co.uk" title="$:/tw5magick/Art &amp; Literature 17">
 <pre>@@.question
 In the Hans Christian Andersen story, which little girl was found inside the petals of a flower?
 @@
@@ -6268,7 +6310,7 @@ Thumbelina
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720547" modifier="Stephan Hradek" source-tiddler-title="Art &amp; Literature 18" source-wiki-id="tw5magick" tags="tw5magick Quiz www.free-quiz-questions.co.uk" title="$:/tw5magick/Art &amp; Literature 18" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720547" modifier="Stephan Hradek" revision="0" source-tiddler-title="Art &amp; Literature 18" source-wiki-id="tw5magick" tags="tw5magick Quiz www.free-quiz-questions.co.uk" title="$:/tw5magick/Art &amp; Literature 18">
 <pre>@@.question
 What is the title of the children's book in which the main character's surname is Bucket?
 @@
@@ -6278,7 +6320,7 @@ Charlie and The Chocolate Factory
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720547" modifier="Stephan Hradek" source-tiddler-title="Art &amp; Literature 19" source-wiki-id="tw5magick" tags="tw5magick Quiz www.free-quiz-questions.co.uk" title="$:/tw5magick/Art &amp; Literature 19" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720547" modifier="Stephan Hradek" revision="0" source-tiddler-title="Art &amp; Literature 19" source-wiki-id="tw5magick" tags="tw5magick Quiz www.free-quiz-questions.co.uk" title="$:/tw5magick/Art &amp; Literature 19">
 <pre>@@.question
 Name the three musketeers.
 @@
@@ -6288,7 +6330,7 @@ Aramis, Porthos and Athos
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720548" modifier="Stephan Hradek" source-tiddler-title="Art &amp; Literature 20" source-wiki-id="tw5magick" tags="tw5magick Quiz www.free-quiz-questions.co.uk" title="$:/tw5magick/Art &amp; Literature 20" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720548" modifier="Stephan Hradek" revision="0" source-tiddler-title="Art &amp; Literature 20" source-wiki-id="tw5magick" tags="tw5magick Quiz www.free-quiz-questions.co.uk" title="$:/tw5magick/Art &amp; Literature 20">
 <pre>@@.question
 Which Dickens novel includes an account of the storming of the Bastille?
 @@
@@ -6298,16 +6340,16 @@ A Tale of Two Cities
 @@
 </pre>
 </div>
-<div created="20140416204420265" creator="Stephan Hradek" modified="20140416204448366" modifier="Stephan Hradek" source-tiddler-title="asList" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/asList" revision="0" bag="default">
+<div bag="default" created="20140416204420265" creator="Stephan Hradek" modified="20140416204448366" modifier="Stephan Hradek" revision="0" source-tiddler-title="asList" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/asList">
 <pre>&lt;$view field=&quot;title&quot;/&gt;
 &lt;$list filter=&quot;[is[current]]&quot;&gt;
 &lt;$transclude/&gt;
 &lt;/$list&gt;</pre>
 </div>
-<div created="20140206084119026" creator="Stephan Hradek" modified="20140206084142635" modifier="Stephan Hradek" source-tiddler-title="base_skeleton" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/base_skeleton" revision="0" bag="default">
+<div bag="default" created="20140206084119026" creator="Stephan Hradek" modified="20140206084142635" modifier="Stephan Hradek" revision="0" source-tiddler-title="base_skeleton" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/base_skeleton">
 <pre></pre>
 </div>
-<div created="20131204092206589" creator="Stephan Hradek" modified="20131204100142355" modifier="Stephan Hradek" source-tiddler-title="bookify" source-wiki-id="tw5magick" tags="tw5magick bookmarklet" title="$:/tw5magick/bookify" revision="0" bag="default">
+<div bag="default" created="20131204092206589" creator="Stephan Hradek" modified="20131204100142355" modifier="Stephan Hradek" revision="0" source-tiddler-title="bookify" source-wiki-id="tw5magick" tags="tw5magick bookmarklet" title="$:/tw5magick/bookify">
 <pre>Click the below button to create your own &quot;insert&quot;-bookmarklet. Don't forget to rename it as &quot;New bookmarklet&quot;-tiddlers will be ignored.
 
 &lt;$list filter=&quot;[tag{!!title}type[application/javascript]!prefix[New bookmarklet]] +[sort[title]]&quot;&gt;&lt;div&gt;&lt;$link&gt;Show &lt;/$link&gt;&lt;$macrocall $name=&quot;bookmarklet&quot; script={{!!text}} text={{!!title}} /&gt;&lt;/div&gt;
@@ -6315,7 +6357,7 @@ A Tale of Two Cities
 
 &lt;$button message=&quot;tw-new-tiddler&quot; param=&quot;New bookmarklet&quot;&gt;New bookmarklet&lt;/$button&gt;</pre>
 </div>
-<div created="20131127120311357" creator="Stephan Hradek" modified="20140111081453194" modifier="Stephan Hradek" source-tiddler-title="bookmarklet" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/bookmarklet" revision="0" bag="default">
+<div bag="default" created="20131127120311357" creator="Stephan Hradek" modified="20140111081453194" modifier="Stephan Hradek" revision="0" source-tiddler-title="bookmarklet" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/bookmarklet">
 <pre>Wikipedia says:
 
 &lt;&lt;&lt;http://en.wikipedia.org/wiki/Bookmarklet
@@ -6324,7 +6366,7 @@ A bookmarklet is a bookmark stored in a web browser that contains ~JavaScript co
 
 The bookmarklets in this wiki are presented &lt;&lt;bookmarklet script:&quot;alert('I am a bookmarklet');void(0);')&quot; text:&quot;like this&quot;&gt;&gt;. You simply need to drag tem to your bookmarklist to be able to use them.</pre>
 </div>
-<div created="20131201143559796" creator="Stephan Hradek" modified="20131202233911633" modifier="Stephan Hradek" source-tiddler-title="bookmarklet.CSS" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/bookmarklet.CSS" type="text/plain" revision="0" bag="default">
+<div bag="default" created="20131201143559796" creator="Stephan Hradek" modified="20131202233911633" modifier="Stephan Hradek" revision="0" source-tiddler-title="bookmarklet.CSS" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/bookmarklet.CSS" type="text/plain">
 <pre>a.bookmarklet, a.tw-bookmarklet {
     background-color: lightblue;
     text-decoration: none;
@@ -6334,14 +6376,14 @@ The bookmarklets in this wiki are presented &lt;&lt;bookmarklet script:&quot;ale
 }
 </pre>
 </div>
-<div created="20140104043342990" creator="Stephan Hradek" modified="20140104043501140" modifier="Stephan Hradek" source-tiddler-title="Bringing together Macro and Tiddler" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Bringing together Macro and Tiddler" revision="0" bag="default">
+<div bag="default" created="20140104043342990" creator="Stephan Hradek" modified="20140104043501140" modifier="Stephan Hradek" revision="0" source-tiddler-title="Bringing together Macro and Tiddler" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Bringing together Macro and Tiddler">
 <pre>{{The Tiddler||The Macro}}
 </pre>
 </div>
-<div created="20131223104948433" creator="Stephan Hradek" description="Will display a tiddler's code." modified="20140116124216943" modifier="Stephan Hradek" source-tiddler-title="code" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/code" revision="0" bag="default">
+<div bag="default" created="20131223104948433" creator="Stephan Hradek" description="Will display a tiddler's code." modified="20140116124216943" modifier="Stephan Hradek" revision="0" source-tiddler-title="code" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/code">
 <pre>&lt;pre&gt;&lt;$view field=&quot;text&quot;/&gt;&lt;/pre&gt;</pre>
 </div>
-<div created="20140111082439142" creator="Stephan Hradek" modified="20140116120212189" modifier="Stephan Hradek" source-tiddler-title="Content" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Content" revision="0" bag="default">
+<div bag="default" created="20140111082439142" creator="Stephan Hradek" modified="20140116120212189" modifier="Stephan Hradek" revision="0" source-tiddler-title="Content" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Content">
 <pre>I've already collected some stuff here and so I felt it's about time to organize it a bit better.
 
 So here we now have a new Table of Content
@@ -6349,13 +6391,13 @@ So here we now have a new Table of Content
 &lt;dl&gt;{{{ [tag[toc]] || tocEntry }}}&lt;/dl&gt;
 </pre>
 </div>
-<div created="20131223104147773" creator="Stephan Hradek" modified="20131223111208863" modifier="Stephan Hradek" source-tiddler-title="Create a template tiddler" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Create a template tiddler" revision="0" bag="default">
+<div bag="default" created="20131223104147773" creator="Stephan Hradek" modified="20131223111208863" modifier="Stephan Hradek" revision="0" source-tiddler-title="Create a template tiddler" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Create a template tiddler">
 <pre>Create a template tiddler called `full`, containing this:
 
 {{full||code}}
 </pre>
 </div>
-<div created="20140113103313426" creator="Stephan Hradek" description="Showing how to create a simple Contacts Database using the newtiddler widget." modified="20140214135120319" modifier="Stephan Hradek" source-tiddler-title="Creating a simple Contacts DB" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/Creating a simple Contacts DB" revision="0" bag="default">
+<div bag="default" created="20140113103313426" creator="Stephan Hradek" description="Showing how to create a simple Contacts Database using the newtiddler widget." modified="20140214135120319" modifier="Stephan Hradek" revision="0" source-tiddler-title="Creating a simple Contacts DB" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/Creating a simple Contacts DB">
 <pre>To showcase what's possible with my [[newtiddler widget|$:/plugins/skeeve/newtiddler.js]] (search for &quot;~NewtiddlerWidget&quot; on my [[tiddlystuff wiki|http://tiddlystuff.tiddlyspot.com]]), I created a [[small Contacts DB|Person DB]].
 
 A contact in this case is a tiddler having the tag {{person||showtag}} and containing some contact detail fields. The contact's name is the tiddler's name.
@@ -6411,14 +6453,14 @@ See [[Person DB]] in action.
 
 See also [[Persons by town]]…</pre>
 </div>
-<div created="20140416204302134" creator="Stephan Hradek" modified="20140416204328060" modifier="Stephan Hradek" source-tiddler-title="Cupcake Ingredients" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Cupcake Ingredients" revision="0" bag="default">
+<div bag="default" created="20140416204302134" creator="Stephan Hradek" modified="20140416204328060" modifier="Stephan Hradek" revision="0" source-tiddler-title="Cupcake Ingredients" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Cupcake Ingredients">
 <pre>* flour
 * sugar
 * cocoa
 * olive oil
 * baking soda</pre>
 </div>
-<div created="20140416202630113" creator="Stephan Hradek" modified="20140416202706990" modifier="Stephan Hradek" source-tiddler-title="cupcake ingredients" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/cupcake ingredients" revision="0" bag="default">
+<div bag="default" created="20140416202630113" creator="Stephan Hradek" modified="20140416202706990" modifier="Stephan Hradek" revision="0" source-tiddler-title="cupcake ingredients" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/cupcake ingredients">
 <pre>* cupcake ingredients
 ** flour
 ** sugar
@@ -6426,20 +6468,20 @@ See also [[Persons by town]]…</pre>
 ** olive oil
 ** baking soda</pre>
 </div>
-<div created="20140416202709338" creator="Stephan Hradek" modified="20140416204602267" modifier="Stephan Hradek" source-tiddler-title="cupcake reciepe" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/cupcake reciepe" revision="0" bag="default">
+<div bag="default" created="20140416202709338" creator="Stephan Hradek" modified="20140416204602267" modifier="Stephan Hradek" revision="0" source-tiddler-title="cupcake reciepe" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/cupcake reciepe">
 <pre>* cupcake reciepe{{
 cupcake ingredients||listTransclude
 }}
 ** directions
 *** make some delicious cupcakes</pre>
 </div>
-<div created="20140416204511677" creator="Stephan Hradek" modified="20140416204657606" modifier="Stephan Hradek" source-tiddler-title="Cupcake Reciepe" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Cupcake Reciepe" revision="0" bag="default">
+<div bag="default" created="20140416204511677" creator="Stephan Hradek" modified="20140416204657606" modifier="Stephan Hradek" revision="0" source-tiddler-title="Cupcake Reciepe" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Cupcake Reciepe">
 <pre>* Cupcake Reciepe
 ** {{ Cupcake Ingredients||asList }}
 ** directions
 *** make some delicious cupcakes</pre>
 </div>
-<div created="20140111142426218" creator="Stephan Hradek" description="How to display a tag in a tiddler" modified="20140111145837150" modifier="Stephan Hradek" source-tiddler-title="Displaying Tags" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/Displaying Tags" revision="0" bag="default">
+<div bag="default" created="20140111142426218" creator="Stephan Hradek" description="How to display a tag in a tiddler" modified="20140111145837150" modifier="Stephan Hradek" revision="0" source-tiddler-title="Displaying Tags" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/Displaying Tags">
 <pre>For my [[Table of Content creation]] tiddler, I wanted to display a tag in the code. I did this with a template tiddler called [[showtag]]. A tag is then displayed using the code `{{tagname||showtag}}`. [[showtag]]'s code is:
 
 {{showtag||code}}
@@ -6450,21 +6492,21 @@ So for my tag {{toc||showtag}} I also have a tiddler called [[toc]] which has ju
 
 The `_showtag` macro just displays the context tiddler's title (''not'' &quot;showtext&quot; but the title of the transcluded tiddler!) wrapped in an HTML span defining the background color as the color passed as a parameter. It's also setting the standard TiddlyWiki class for labels.</pre>
 </div>
-<div created="20140113083917524" creator="Stephan Hradek" modified="20140113125235221" modifier="Stephan Hradek" phone="1313" source-tiddler-title="Donald Duck" source-wiki-id="tw5magick" street="13th Street" tags="tw5magick person" title="$:/tw5magick/Donald Duck" town="Duckburg" revision="0" bag="default">
+<div bag="default" created="20140113083917524" creator="Stephan Hradek" modified="20140113125235221" modifier="Stephan Hradek" phone="1313" revision="0" source-tiddler-title="Donald Duck" source-wiki-id="tw5magick" street="13th Street" tags="tw5magick person" title="$:/tw5magick/Donald Duck" town="Duckburg">
 <pre></pre>
 </div>
-<div created="20140113084224126" creator="Stephan Hradek" description="Displays a [[person DB]]'s fields for editing." modified="20140116124451141" modifier="Stephan Hradek" source-tiddler-title="editPerson" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/editPerson" revision="0" bag="default">
+<div bag="default" created="20140113084224126" creator="Stephan Hradek" description="Displays a [[person DB]]'s fields for editing." modified="20140116124451141" modifier="Stephan Hradek" revision="0" source-tiddler-title="editPerson" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/editPerson">
 <pre>|!Street |&lt;$edit field=&quot;street&quot;/&gt; |
 |!Town |&lt;$edit field=&quot;town&quot;/&gt; |
 |!Phone |&lt;$edit field=&quot;phone&quot;/&gt; |
 </pre>
 </div>
-<div created="20131223131756612" creator="Stephan Hradek" modified="20131223131930552" modifier="Stephan Hradek" source-tiddler-title="Enhanced transclusion" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Enhanced transclusion" revision="0" bag="default">
+<div bag="default" created="20131223131756612" creator="Stephan Hradek" modified="20131223131930552" modifier="Stephan Hradek" revision="0" source-tiddler-title="Enhanced transclusion" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Enhanced transclusion">
 <pre>There is now also an [[enhanced version|full-enhanced]] of the `full`-template which allows editing of the transcludet tiddler by clicking the headline.
 
 {{full-enhanced||code}}</pre>
 </div>
-<div created="20131121180900750" creator="Stephan Hradek" description="Start of a small kind of tutorial set of tiddlers showing how to work with lists." modified="20140114174603802" modifier="Stephan Hradek" source-tiddler-title="Example: Quiz creation" source-wiki-id="tw5magick" tags="tw5magick toc example" title="$:/tw5magick/Example: Quiz creation" revision="0" bag="default">
+<div bag="default" created="20131121180900750" creator="Stephan Hradek" description="Start of a small kind of tutorial set of tiddlers showing how to work with lists." modified="20140114174603802" modifier="Stephan Hradek" revision="0" source-tiddler-title="Example: Quiz creation" source-wiki-id="tw5magick" tags="tw5magick toc example" title="$:/tw5magick/Example: Quiz creation">
 <pre>For a task at work, I had to take a questionaire, written in english and compare it to another questionaire written in german.
 
 So I first created one tiddler for each question and tagged it appropriately. I did this using a text editor ([[jEdit|http://jedit.org]]).
@@ -6484,7 +6526,7 @@ What I did put each question and answer into a tiddler using this form:
 
 Next: [[Styling the Questions]]</pre>
 </div>
-<div created="20140121213816170" creator="Stephan Hradek" modified="20140121215821186" modifier="Stephan Hradek" source-tiddler-title="File saving" source-wiki-id="tw5magick" tags="tw5magick Wikipedia" title="$:/tw5magick/File saving" revision="0" bag="default">
+<div bag="default" created="20140121213816170" creator="Stephan Hradek" modified="20140121215821186" modifier="Stephan Hradek" revision="0" source-tiddler-title="File saving" source-wiki-id="tw5magick" tags="tw5magick Wikipedia" title="$:/tw5magick/File saving">
 <pre>A TiddlyWiki opened from a [[file URI]] may save changes made back to the original file using one of the following techniques:
 
 * formerly the [[Mozilla]] File I/O under the control of the UniversalXPConnect per-file preferences for [[Mozilla Firefox]]. That functionality was removed from Firefox, and is now replaced with a plugin called [[TiddlyFox|https://addons.mozilla.org/en-us/firefox/addon/tiddlyfox]].
@@ -6492,20 +6534,20 @@ Next: [[Styling the Questions]]</pre>
 * TiddlySaver [[Java applet]] to extend [[Safari browser|Safari]], [[Opera browser|Opera]], [[Chrome browser|Chrome/Chromium]], and other browsers. Requires the Java runtime.
 </pre>
 </div>
-<div created="20131223104017054" creator="Stephan Hradek" description="Displays a tiddlers title as headline, followed by its content." modified="20140116124258288" modifier="Stephan Hradek" source-tiddler-title="full" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/full" revision="0" bag="default">
+<div bag="default" created="20131223104017054" creator="Stephan Hradek" description="Displays a tiddlers title as headline, followed by its content." modified="20140116124258288" modifier="Stephan Hradek" revision="0" source-tiddler-title="full" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/full">
 <pre>! &lt;$view field=&quot;title&quot;/&gt;
 &lt;$transclude/&gt;
 </pre>
 </div>
-<div created="20131223110830280" creator="Stephan Hradek" modified="20131223110936932" modifier="Stephan Hradek" source-tiddler-title="Full Transclusion Example" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Full Transclusion Example" revision="0" bag="default">
+<div bag="default" created="20131223110830280" creator="Stephan Hradek" modified="20131223110936932" modifier="Stephan Hradek" revision="0" source-tiddler-title="Full Transclusion Example" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Full Transclusion Example">
 <pre>See what it gives, if you transclude a tiddler, using the `full`-template.</pre>
 </div>
-<div created="20131223131337994" creator="Stephan Hradek" description="Like [[full]] but clicking the headline will open the tiddler for editing." modified="20140116124339448" modifier="Stephan Hradek" source-tiddler-title="full-enhanced" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/full-enhanced" revision="0" bag="default">
+<div bag="default" created="20131223131337994" creator="Stephan Hradek" description="Like [[full]] but clicking the headline will open the tiddler for editing." modified="20140116124339448" modifier="Stephan Hradek" revision="0" source-tiddler-title="full-enhanced" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/full-enhanced">
 <pre>! &lt;span title=&quot;Edit section&quot;&gt;&lt;$button message=&quot;tw-edit-tiddler&quot; param={{!!title}} class=&quot;btn-invisible&quot;&gt;&lt;$view field=&quot;title&quot;/&gt;&lt;/$button&gt;&lt;/span&gt;
 &lt;$transclude/&gt;
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152926871" modifier="Stephan Hradek" source-tiddler-title="Geography 01" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Geography 01" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152926871" modifier="Stephan Hradek" revision="0" source-tiddler-title="Geography 01" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Geography 01">
 <pre>@@.question
 What is the name of the official national anthem of the USA?
 @@
@@ -6515,7 +6557,7 @@ The ~Star-Spangled Banner
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152921450" modifier="Stephan Hradek" source-tiddler-title="Geography 02" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Geography 02" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152921450" modifier="Stephan Hradek" revision="0" source-tiddler-title="Geography 02" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Geography 02">
 <pre>@@.question
 Which female politician was the Prime Minister of Australia between 2010 and 2013?
 @@
@@ -6525,7 +6567,7 @@ Hon. Julia Gillard MP
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152915125" modifier="Stephan Hradek" source-tiddler-title="Geography 03" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Geography 03" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152915125" modifier="Stephan Hradek" revision="0" source-tiddler-title="Geography 03" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Geography 03">
 <pre>@@.question
 What is the capital city of Afghanistan?
 @@
@@ -6535,7 +6577,7 @@ Kabul
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152905626" modifier="Stephan Hradek" source-tiddler-title="Geography 04" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Geography 04" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152905626" modifier="Stephan Hradek" revision="0" source-tiddler-title="Geography 04" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Geography 04">
 <pre>@@.question
 Which two colours are on the flag of Poland?
 @@
@@ -6545,7 +6587,7 @@ Red and white
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152859026" modifier="Stephan Hradek" source-tiddler-title="Geography 05" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Geography 05" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152859026" modifier="Stephan Hradek" revision="0" source-tiddler-title="Geography 05" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Geography 05">
 <pre>@@.question
 Which is the only US state to begin with the letter ‘P’
 @@
@@ -6555,7 +6597,7 @@ Pennsylvania
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152854740" modifier="Stephan Hradek" source-tiddler-title="Geography 06" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Geography 06" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152854740" modifier="Stephan Hradek" revision="0" source-tiddler-title="Geography 06" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Geography 06">
 <pre>@@.question
 On a Monopoly board, which street shares the same colour as Leicester Square and Piccadilly?
 @@
@@ -6565,7 +6607,7 @@ Coventry Street
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152850402" modifier="Stephan Hradek" source-tiddler-title="Geography 07" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Geography 07" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152850402" modifier="Stephan Hradek" revision="0" source-tiddler-title="Geography 07" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Geography 07">
 <pre>@@.question
 The bank Santander shares its name with a town in which country?
 @@
@@ -6575,7 +6617,7 @@ Spain
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152934405" modifier="Stephan Hradek" source-tiddler-title="Geography 08" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Geography 08" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152934405" modifier="Stephan Hradek" revision="0" source-tiddler-title="Geography 08" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Geography 08">
 <pre>@@.question
 Paraguay has borders with Brazil, Bolivia and which other country?
 @@
@@ -6585,7 +6627,7 @@ Argentina
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152844079" modifier="Stephan Hradek" source-tiddler-title="Geography 09" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Geography 09" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152844079" modifier="Stephan Hradek" revision="0" source-tiddler-title="Geography 09" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Geography 09">
 <pre>@@.question
 In which country is Mount Everest?
 @@
@@ -6595,7 +6637,7 @@ Nepal
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720529" modifier="Stephan Hradek" source-tiddler-title="Geography 10" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Geography 10" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720529" modifier="Stephan Hradek" revision="0" source-tiddler-title="Geography 10" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/Geography 10">
 <pre>@@.question
 What is the national currency of Egypt?
 @@
@@ -6605,7 +6647,7 @@ The Pound
 @@
 </pre>
 </div>
-<div created="20140908071425947" creator="Stephan Hradek" description="Global searching in all fields for regular expressions." modified="20140908071951019" modifier="Stephan Hradek" source-tiddler-title="Global Field Search" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/Global Field Search" revision="0" bag="default">
+<div bag="default" created="20140908071425947" creator="Stephan Hradek" description="Global searching in all fields for regular expressions." modified="20140908071951019" modifier="Stephan Hradek" revision="0" source-tiddler-title="Global Field Search" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/Global Field Search">
 <pre>\define searchInField(field, for)
 
 &lt;$list filter=&quot;[!is[shadow]!is[system]field:$field$/$for$/]&quot;&gt;
@@ -6633,10 +6675,10 @@ Searching in field: &lt;&lt;fieldname&gt;&gt;
 &lt;/$reveal&gt;
 </pre>
 </div>
-<div created="20140113083917524" creator="Stephan Hradek" modified="20140113125447577" modifier="Stephan Hradek" phone="12345" source-tiddler-title="Goofy" source-wiki-id="tw5magick" street="Dogstreet" tags="tw5magick person" title="$:/tw5magick/Goofy" town="Spoonerville" revision="0" bag="default">
+<div bag="default" created="20140113083917524" creator="Stephan Hradek" modified="20140113125447577" modifier="Stephan Hradek" phone="12345" revision="0" source-tiddler-title="Goofy" source-wiki-id="tw5magick" street="Dogstreet" tags="tw5magick person" title="$:/tw5magick/Goofy" town="Spoonerville">
 <pre></pre>
 </div>
-<div created="20131205160746466" creator="Stephan Hradek" description="Showing a simple example of how to create a Javascript macro as a replacement for wikitext macros." modified="20140111134320023" modifier="Stephan Hradek" source-tiddler-title="Javascript Macros in WikiText" source-wiki-id="tw5magick" tags="tw5magick wikitext toc" title="$:/tw5magick/Javascript Macros in WikiText" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div bag="default" created="20131205160746466" creator="Stephan Hradek" description="Showing a simple example of how to create a Javascript macro as a replacement for wikitext macros." modified="20140111134320023" modifier="Stephan Hradek" revision="0" source-tiddler-title="Javascript Macros in WikiText" source-wiki-id="tw5magick" tags="tw5magick wikitext toc" title="$:/tw5magick/Javascript Macros in WikiText" type="text/vnd.tiddlywiki">
 <pre>Unlike the normal wikitext macros, javascript macros can be used in any tiddler.
 
 To show an example, I implemented the [[mysamplemacro in JavaScript|$:/macros/skeeve/mysamplemacro.js]].
@@ -6661,7 +6703,7 @@ Hi I'm Mickey Mouse and I live in Mouse House
 Please note that there is now an experimental [[Macro to Javascript Bookmarklet]] which can convert your wikitext macro into Javascript code.
 </pre>
 </div>
-<div created="20140206083853576" creator="Stephan Hradek" description="How to create buttons for different kinds of journal events." modified="20140208190309420" modifier="Stephan Hradek" source-tiddler-title="Journals" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/Journals" revision="0" bag="default">
+<div bag="default" created="20140206083853576" creator="Stephan Hradek" description="How to create buttons for different kinds of journal events." modified="20140208190309420" modifier="Stephan Hradek" revision="0" source-tiddler-title="Journals" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/Journals">
 <pre>Mal gave me on the [[groups|https://groups.google.com/d/msg/tiddlywiki/BaTqzrk2xho/vMEsCqktavsJ]] a good idea for some more &quot;Journal Buttons&quot;. Feel free to reuse:
 
 {{New Phone Call button}}
@@ -6678,13 +6720,13 @@ Using the standard setWidget
 {{New Staff Meeting button||code}}
 </pre>
 </div>
-<div created="20140121214435599" creator="Stephan Hradek" description="A small template transcluding just the tiddler title as a linked Level 2 headline" modified="20140121221558973" modifier="Stephan Hradek" source-tiddler-title="justTitle" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/justTitle" revision="0" bag="default">
+<div bag="default" created="20140121214435599" creator="Stephan Hradek" description="A small template transcluding just the tiddler title as a linked Level 2 headline" modified="20140121221558973" modifier="Stephan Hradek" revision="0" source-tiddler-title="justTitle" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/justTitle">
 <pre>!!&lt;$link&gt;&lt;$view field=&quot;title&quot;/&gt;&lt;/$link&gt;</pre>
 </div>
-<div created="20140105141629972" creator="Stephan Hradek" modified="20140105141741170" modifier="Stephan Hradek" source-tiddler-title="Linking the Questions" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Linking the Questions" revision="0" bag="default">
+<div bag="default" created="20140105141629972" creator="Stephan Hradek" modified="20140105141741170" modifier="Stephan Hradek" revision="0" source-tiddler-title="Linking the Questions" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Linking the Questions">
 <pre>Now it's time to link the questions.</pre>
 </div>
-<div created="20131202130743991" creator="Stephan Hradek" modified="20131202130810826" modifier="Stephan Hradek" source-tiddler-title="linktest" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/linktest" revision="0" bag="default">
+<div bag="default" created="20131202130743991" creator="Stephan Hradek" modified="20131202130810826" modifier="Stephan Hradek" revision="0" source-tiddler-title="linktest" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/linktest">
 <pre>\define join3(l, m, r)
 $l$$m$$r$
 \end
@@ -6694,12 +6736,12 @@ $l$$m$$r$
 
 &lt;&lt;new_link&gt;&gt;</pre>
 </div>
-<div created="20140116123929667" creator="Stephan Hradek" description="Overview of the templates used in my examples." modified="20140116124747945" modifier="Stephan Hradek" source-tiddler-title="List of all templates used" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/List of all templates used" revision="0" bag="default">
+<div bag="default" created="20140116123929667" creator="Stephan Hradek" description="Overview of the templates used in my examples." modified="20140116124747945" modifier="Stephan Hradek" revision="0" source-tiddler-title="List of all templates used" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/List of all templates used">
 <pre>These are the templates used in my examples.
 
 {{{ [tag[template]] || tocEntry }}}</pre>
 </div>
-<div created="20131121214338005" creator="Stephan Hradek" modified="20131121214346512" modifier="Stephan Hradek" source-tiddler-title="List Questions" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/List Questions" revision="0" bag="default">
+<div bag="default" created="20131121214338005" creator="Stephan Hradek" modified="20131121214346512" modifier="Stephan Hradek" revision="0" source-tiddler-title="List Questions" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/List Questions">
 <pre>&lt;$list filter=&quot;[tag[Quiz]tags[]] -Quiz +[sort[title]]&quot;&gt;
 ! &lt;$view field=&quot;title&quot;/&gt;
 &lt;$list filter=&quot;[is[current]tagging[]] +[tag[Quiz]] +[sort[title]]&quot;&gt;
@@ -6707,7 +6749,7 @@ $l$$m$$r$
 &lt;/$list&gt;
 &lt;/$list&gt;</pre>
 </div>
-<div created="20131121215309757" creator="Stephan Hradek" modified="20131121215358095" modifier="Stephan Hradek" source-tiddler-title="List unfinished Questions" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/List unfinished Questions" revision="0" bag="default">
+<div bag="default" created="20131121215309757" creator="Stephan Hradek" modified="20131121215358095" modifier="Stephan Hradek" revision="0" source-tiddler-title="List unfinished Questions" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/List unfinished Questions">
 <pre>&lt;$list filter=&quot;[tag[Quiz]!search[@@.answer]tags[]] -Quiz +[sort[title]]&quot;&gt;
 ! &lt;$view field=&quot;title&quot;/&gt;
 &lt;$list filter=&quot;[is[current]tagging[]] +[tag[Quiz]!search[@@.answer]] +[sort[title]]&quot;&gt;
@@ -6715,19 +6757,19 @@ $l$$m$$r$
 &lt;/$list&gt;
 &lt;/$list&gt;</pre>
 </div>
-<div created="20140416202853871" creator="Stephan Hradek" modified="20140416203104845" modifier="Stephan Hradek" source-tiddler-title="listTransclude" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/listTransclude" revision="0" bag="default">
+<div bag="default" created="20140416202853871" creator="Stephan Hradek" modified="20140416203104845" modifier="Stephan Hradek" revision="0" source-tiddler-title="listTransclude" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/listTransclude">
 <pre>&lt;$list filter=&quot;[is[current]]&quot;&gt;
 &lt;$transclude/&gt;
 &lt;/$list&gt;</pre>
 </div>
-<div created="20140110155254756" creator="Stephan Hradek" modified="20140127091749355" modifier="Stephan Hradek" source-tiddler-title="Macro to Javascript Bookmarklet" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Macro to Javascript Bookmarklet" revision="0" bag="default">
+<div bag="default" created="20140110155254756" creator="Stephan Hradek" modified="20140127091749355" modifier="Stephan Hradek" revision="0" source-tiddler-title="Macro to Javascript Bookmarklet" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Macro to Javascript Bookmarklet">
 <pre>This [[bookmarklet]] will search in the current textarea for a wikitext macro. It then replaces the textarea's content with a javascript version of that macro.
 
 [[Show|macro2js]] &lt;$macrocall $name=&quot;bookmarklet&quot; tiddler=&quot;macro2js&quot; /&gt;
 
 </pre>
 </div>
-<div created="20140128205325298" creator="Stephan Hradek" modified="20140128205808800" modifier="Stephan Hradek" source-tiddler-title="Magic" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Magic" revision="0" bag="default">
+<div bag="default" created="20140128205325298" creator="Stephan Hradek" modified="20140128205808800" modifier="Stephan Hradek" revision="0" source-tiddler-title="Magic" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Magic">
 <pre>According to 
 
 &lt;&lt;&lt; [[Arthur C. Clarke|http://en.wikipedia.org/wiki/Arthur_C._Clarke]]
@@ -6740,25 +6782,25 @@ Links:
 * [[Yello - Beyond Mirrors|http://www.youtube.com/watch?v=AxNvO-jHuQo]]
 </pre>
 </div>
-<div created="20140105120658174" creator="Stephan Hradek" modified="20140105120722469" modifier="Stephan Hradek" source-tiddler-title="Math Joke 1" source-wiki-id="tw5magick" tags="tw5magick joke math" title="$:/tw5magick/Math Joke 1" revision="0" bag="default">
+<div bag="default" created="20140105120658174" creator="Stephan Hradek" modified="20140105120722469" modifier="Stephan Hradek" revision="0" source-tiddler-title="Math Joke 1" source-wiki-id="tw5magick" tags="tw5magick joke math" title="$:/tw5magick/Math Joke 1">
 <pre>Mathematics is made of 50 percent formulas, 50 percent proofs, and 50 percent imagination. </pre>
 </div>
-<div created="20140105120910794" creator="Stephan Hradek" modified="20140105120929904" modifier="Stephan Hradek" source-tiddler-title="Math Joke 2" source-wiki-id="tw5magick" tags="tw5magick math joke" title="$:/tw5magick/Math Joke 2" revision="0" bag="default">
+<div bag="default" created="20140105120910794" creator="Stephan Hradek" modified="20140105120929904" modifier="Stephan Hradek" revision="0" source-tiddler-title="Math Joke 2" source-wiki-id="tw5magick" tags="tw5magick math joke" title="$:/tw5magick/Math Joke 2">
 <pre>Math is like love; a simple idea, but it can get complicated. </pre>
 </div>
-<div created="20140105121008653" creator="Stephan Hradek" modified="20140105121022636" modifier="Stephan Hradek" source-tiddler-title="Math Joke 3" source-wiki-id="tw5magick" tags="tw5magick math joke" title="$:/tw5magick/Math Joke 3" revision="0" bag="default">
+<div bag="default" created="20140105121008653" creator="Stephan Hradek" modified="20140105121022636" modifier="Stephan Hradek" revision="0" source-tiddler-title="Math Joke 3" source-wiki-id="tw5magick" tags="tw5magick math joke" title="$:/tw5magick/Math Joke 3">
 <pre>God is real, unless proclaimed integer. </pre>
 </div>
-<div created="20140105121057788" creator="Stephan Hradek" modified="20140105121113589" modifier="Stephan Hradek" source-tiddler-title="Math Joke 4" source-wiki-id="tw5magick" tags="tw5magick math joke" title="$:/tw5magick/Math Joke 4" revision="0" bag="default">
+<div bag="default" created="20140105121057788" creator="Stephan Hradek" modified="20140105121113589" modifier="Stephan Hradek" revision="0" source-tiddler-title="Math Joke 4" source-wiki-id="tw5magick" tags="tw5magick math joke" title="$:/tw5magick/Math Joke 4">
 <pre>An chemist, a physicist, and a mathematician are stranded on an island when a can of food rolls ashore. The chemist and the physicist comes up with many ingenious ways to open the can. Then suddenly the mathematician gets a bright idea: &quot;Assume we have a can opener ...&quot; </pre>
 </div>
-<div created="20140113083917524" creator="Stephan Hradek" modified="20140113125459801" modifier="Stephan Hradek" phone="12345" source-tiddler-title="Max" source-wiki-id="tw5magick" street="Dogstreet" tags="tw5magick person" title="$:/tw5magick/Max" town="Spoonerville" revision="0" bag="default">
+<div bag="default" created="20140113083917524" creator="Stephan Hradek" modified="20140113125459801" modifier="Stephan Hradek" phone="12345" revision="0" source-tiddler-title="Max" source-wiki-id="tw5magick" street="Dogstreet" tags="tw5magick person" title="$:/tw5magick/Max" town="Spoonerville">
 <pre></pre>
 </div>
-<div created="20140113083917524" creator="Stephan Hradek" modified="20140113125318131" modifier="Stephan Hradek" phone="4242" source-tiddler-title="Mickey Mouse" source-wiki-id="tw5magick" street="Cleverstreet" tags="tw5magick person" title="$:/tw5magick/Mickey Mouse" town="Mouseton" revision="0" bag="default">
+<div bag="default" created="20140113083917524" creator="Stephan Hradek" modified="20140113125318131" modifier="Stephan Hradek" phone="4242" revision="0" source-tiddler-title="Mickey Mouse" source-wiki-id="tw5magick" street="Cleverstreet" tags="tw5magick person" title="$:/tw5magick/Mickey Mouse" town="Mouseton">
 <pre></pre>
 </div>
-<div created="20140121214026710" creator="Stephan Hradek" modified="20140121215148405" modifier="Stephan Hradek" source-tiddler-title="my TOC" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/my TOC" revision="0" bag="default">
+<div bag="default" created="20140121214026710" creator="Stephan Hradek" modified="20140121215148405" modifier="Stephan Hradek" revision="0" source-tiddler-title="my TOC" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/my TOC">
 <pre>\define showToc(template)
 &lt;$list filter=&quot;
 [[Tiddlers]]
@@ -6771,24 +6813,24 @@ Links:
 
 &lt;$list filter=&quot;[is[current]] -[[my TOC]]&quot;&gt;&lt;$macrocall $name=&quot;showToc&quot; template={{!!title}}/&gt;&lt;/$list&gt;</pre>
 </div>
-<div created="20140111211821752" creator="Stephan Hradek" modified="20140111212319211" modifier="Stephan Hradek" source-tiddler-title="mysimplesamplemacro" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/mysimplesamplemacro" revision="0" bag="default">
+<div bag="default" created="20140111211821752" creator="Stephan Hradek" modified="20140111212319211" modifier="Stephan Hradek" revision="0" source-tiddler-title="mysimplesamplemacro" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/mysimplesamplemacro">
 <pre>\define _mysimplesamplemacro(name)
 Hi! My name is $name$!
 \end
 
 &lt;$macrocall $name=&quot;_mysimplesamplemacro&quot; name={{!!title}}/&gt;</pre>
 </div>
-<div created="20140206084318578" creator="Stephan Hradek" modified="20140206084350605" modifier="Stephan Hradek" source-tiddler-title="New Phone Call button" source-wiki-id="tw5magick" tags="tw5magick button" title="$:/tw5magick/New Phone Call button" revision="0" bag="default">
+<div bag="default" created="20140206084318578" creator="Stephan Hradek" modified="20140206084350605" modifier="Stephan Hradek" revision="0" source-tiddler-title="New Phone Call button" source-wiki-id="tw5magick" tags="tw5magick button" title="$:/tw5magick/New Phone Call button">
 <pre>&lt;$let tag=&quot;call&quot;&gt;
 &lt;$newtiddler title=&lt;&lt;dateTime &quot;Phone Call YYYY-0MM-0DD 0hh:0mm:0ss&quot;&gt;&gt; skeleton=&quot;base_skeleton&quot; edit=&quot;yes&quot;&gt;New Phone Call&lt;/$newtiddler&gt;
 &lt;/$let&gt;</pre>
 </div>
-<div created="20140206084416637" creator="Stephan Hradek" modified="20140206090532941" modifier="Stephan Hradek" source-tiddler-title="New Staff Meeting button" source-wiki-id="tw5magick" tags="tw5magick button" title="$:/tw5magick/New Staff Meeting button" revision="0" bag="default">
+<div bag="default" created="20140206084416637" creator="Stephan Hradek" modified="20140206090532941" modifier="Stephan Hradek" revision="0" source-tiddler-title="New Staff Meeting button" source-wiki-id="tw5magick" tags="tw5magick button" title="$:/tw5magick/New Staff Meeting button">
 <pre>&lt;$set name=&quot;tag&quot; value=&quot;minutes&quot;&gt;
 &lt;$newtiddler title=&lt;&lt;dateTime &quot;Staff Meeting on YYYY-0MM-0DD&quot;&gt;&gt; skeleton=&quot;base_skeleton&quot; edit=&quot;yes&quot;&gt;New Staff Meeting&lt;/$newtiddler&gt;
 &lt;/$set&gt;</pre>
 </div>
-<div created="20131121220242799" creator="Stephan Hradek" modified="20131121220319790" modifier="Stephan Hradek" source-tiddler-title="Nicer Overview of all Questions" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Nicer Overview of all Questions" revision="0" bag="default">
+<div bag="default" created="20131121220242799" creator="Stephan Hradek" modified="20131121220319790" modifier="Stephan Hradek" revision="0" source-tiddler-title="Nicer Overview of all Questions" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Nicer Overview of all Questions">
 <pre>&lt;$list filter=&quot;[tag[Quiz]tags[]] -Quiz +[sort[title]]&quot;&gt;
 ! &lt;$view field=&quot;title&quot;/&gt;
 &lt;$list filter=&quot;[is[current]tagging[]] +[tag[Quiz]] +[sort[title]]&quot;&gt;
@@ -6797,7 +6839,7 @@ Hi! My name is $name$!
 &lt;/$list&gt;
 &lt;/$list&gt;</pre>
 </div>
-<div created="20131121213730481" creator="Stephan Hradek" modified="20131121215510536" modifier="Stephan Hradek" source-tiddler-title="Overview of all Questions" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Overview of all Questions" revision="0" bag="default">
+<div bag="default" created="20131121213730481" creator="Stephan Hradek" modified="20131121215510536" modifier="Stephan Hradek" revision="0" source-tiddler-title="Overview of all Questions" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Overview of all Questions">
 <pre>We have 2 tags for the tiddlers. All are tagged with &quot;Quiz&quot;. Additionally they have their source website as a tag.
 
 So it would be nice to have a list of all websites an a link to all their questions.
@@ -6815,7 +6857,7 @@ Here TW5's widgets are required.
 
 [[look at the Overview|List Questions]] then continue with [[Overview of unfinished Questions]]</pre>
 </div>
-<div created="20131121215020043" creator="Stephan Hradek" modified="20131121215545924" modifier="Stephan Hradek" source-tiddler-title="Overview of unfinished Questions" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Overview of unfinished Questions" revision="0" bag="default">
+<div bag="default" created="20131121215020043" creator="Stephan Hradek" modified="20131121215545924" modifier="Stephan Hradek" revision="0" source-tiddler-title="Overview of unfinished Questions" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Overview of unfinished Questions">
 <pre>In this example, we have all the answers as I &quot;borrowed&quot; the questions from existing quizzes. But let's assume we create our own questions and don't have all the answers yet.
 
 Wouldn't it be good to get a list of all questions missing an answer?
@@ -6835,13 +6877,13 @@ Here we go:
 
 </pre>
 </div>
-<div created="20140113085400838" creator="Stephan Hradek" modified="20140116123752055" modifier="Stephan Hradek" source-tiddler-title="Person DB" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Person DB" revision="0" bag="default">
+<div bag="default" created="20140113085400838" creator="Stephan Hradek" modified="20140116123752055" modifier="Stephan Hradek" revision="0" source-tiddler-title="Person DB" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Person DB">
 <pre>&lt;$edit-text tiddler=&quot;$:/temp/PersonDBeditPerson&quot; tag=&quot;input&quot; type=&quot;text&quot;/&gt; &lt;$set name=&quot;tags&quot; value=&quot;person&quot;&gt;&lt;$newtiddler title={{$:/temp/PersonDBeditPerson}} skeleton=&quot;personSkeleton&quot; edit=&quot;no&quot; class=&quot;btn-invisible&quot;&gt;{{$:/core/images/new-button}}&lt;/$newtiddler&gt;&lt;/$set&gt;
 
 &lt;ul&gt;&lt;$list filter=&quot;[tag[person]sort[title]]&quot;&gt;&lt;li&gt;{{!!title||personEntry}}&lt;/li&gt;&lt;/$list&gt;&lt;/ul&gt;
 </pre>
 </div>
-<div created="20140113142659151" creator="Stephan Hradek" description="Displays a tiddler title along with a small edit button." modified="20140116124414552" modifier="Stephan Hradek" source-tiddler-title="personEntry" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/personEntry" revision="0" bag="default">
+<div bag="default" created="20140113142659151" creator="Stephan Hradek" description="Displays a tiddler title along with a small edit button." modified="20140116124414552" modifier="Stephan Hradek" revision="0" source-tiddler-title="personEntry" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/personEntry">
 <pre>\define editbutton()
 &lt;span title=&quot;edit details&quot;&gt;&lt;$button set=&quot;$:/temp/PersonDBeditPerson&quot; setTo={{!!title}} class=&quot;btn-invisible&quot;&gt;{{$:/core/images/edit-button}}&lt;/$button&gt;&lt;/span&gt;
 \end
@@ -6855,20 +6897,20 @@ Here we go:
 
 &lt;$link&gt;&lt;$view field=&quot;title&quot;/&gt;&lt;/$link&gt; &lt;&lt;editbutton&gt;&gt; &lt;&lt;editfield&gt;&gt;</pre>
 </div>
-<div created="20140113125522369" creator="Stephan Hradek" modified="20140113144823802" modifier="Stephan Hradek" source-tiddler-title="Persons by town" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Persons by town" revision="0" bag="default">
+<div bag="default" created="20140113125522369" creator="Stephan Hradek" modified="20140113144823802" modifier="Stephan Hradek" revision="0" source-tiddler-title="Persons by town" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Persons by town">
 <pre>&lt;$list filter=&quot;[tag[person]!town[]each[town]sort[town]]&quot;&gt;
 ! &lt;$view field=&quot;town&quot;/&gt;
 &lt;ul&gt;&lt;$list filter=&quot;[town{!!town}]&quot;&gt;&lt;li&gt;{{!!title||personEntry}}&lt;/li&gt;&lt;/$list&gt;&lt;/ul&gt;
 &lt;/$list&gt;</pre>
 </div>
-<div created="20140113083917524" creator="Stephan Hradek" modified="20140113100146426" modifier="Stephan Hradek" phone="" source-tiddler-title="personSkeleton" source-wiki-id="tw5magick" street="" tags="tw5magick tags:" title="$:/tw5magick/personSkeleton" town="" revision="0" bag="default">
+<div bag="default" created="20140113083917524" creator="Stephan Hradek" modified="20140113100146426" modifier="Stephan Hradek" phone="" revision="0" source-tiddler-title="personSkeleton" source-wiki-id="tw5magick" street="" tags="tw5magick tags:" title="$:/tw5magick/personSkeleton" town="">
 <pre></pre>
 </div>
-<div created="20140121213748320" creator="Stephan Hradek" modified="20140121215820716" modifier="Stephan Hradek" source-tiddler-title="Plugins" source-wiki-id="tw5magick" tags="tw5magick Wikipedia" title="$:/tw5magick/Plugins" revision="0" bag="default">
+<div bag="default" created="20140121213748320" creator="Stephan Hradek" modified="20140121215820716" modifier="Stephan Hradek" revision="0" source-tiddler-title="Plugins" source-wiki-id="tw5magick" tags="tw5magick Wikipedia" title="$:/tw5magick/Plugins">
 <pre>In addition to containing text, a tiddler can be a [[Plug-in (computing)|plugin]] with additional JavaScript and CSS to extend TiddlyWiki.  As a result, TiddlyWiki is used in a wide variety of adaptations and uses beyond that of a [[personal wiki]].
 </pre>
 </div>
-<div created="20140111081628843" creator="Stephan Hradek" description="Explaining how to activate a custom view template for labeled tiddlers. Showing also an example." modified="20140127092039915" modifier="Stephan Hradek" source-tiddler-title="Putting common stuff into tiddlers" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/Putting common stuff into tiddlers" revision="0" bag="default">
+<div bag="default" created="20140111081628843" creator="Stephan Hradek" description="Explaining how to activate a custom view template for labeled tiddlers. Showing also an example." modified="20140127092039915" modifier="Stephan Hradek" revision="0" source-tiddler-title="Putting common stuff into tiddlers" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/Putting common stuff into tiddlers">
 <pre>Sometimes you have certain tiddlers which should display common stuff. My quiz questions here for example have a common footer linking to the previous and next question.
 
 I did this by creating the tiddler QuizionLinkage and tagging it `$:/tags/ViewTemplate`.
@@ -6879,7 +6921,7 @@ Should I want it to appear at the top, I would need to change the `list` field o
 
 Please not that the linkage to the previous and next question ''does not work in this form with TW prior and up to 5.0.7beta'' without changing the [[previous|$:/core/modules/filters/previous.js]] and [[next|$:/core/modules/filters/next.js]] filters.</pre>
 </div>
-<div created="20131121203829390" creator="Stephan Hradek" modified="20140105142221216" modifier="Stephan Hradek" source-tiddler-title="Quiz.CSS" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Quiz.CSS" type="text/plain" revision="0" bag="default">
+<div bag="default" created="20131121203829390" creator="Stephan Hradek" modified="20140105142221216" modifier="Stephan Hradek" revision="0" source-tiddler-title="Quiz.CSS" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Quiz.CSS" type="text/plain">
 <pre>/*
    This will put a question mark, encoded in the &quot;letter-salad&quot; below, befor each question
 */
@@ -6909,13 +6951,13 @@ p.answer:hover {
     color: inherit;
 }</pre>
 </div>
-<div created="20140105141805100" creator="Stephan Hradek" modified="20140127090224369" modifier="Stephan Hradek" source-tiddler-title="QuizionLinkage" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/QuizionLinkage" revision="0" bag="default">
+<div bag="default" created="20140105141805100" creator="Stephan Hradek" modified="20140127090224369" modifier="Stephan Hradek" revision="0" source-tiddler-title="QuizionLinkage" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/QuizionLinkage">
 <pre>&lt;$list filter=&quot;[is[current]tag[Quiz]]&quot;&gt;&lt;hr&gt;
 &lt;$list filter=&quot;[tag[Quiz]previous[]]&quot;&gt;Back to &lt;$link&gt;&lt;$view field=&quot;title&quot;/&gt;&lt;/$link&gt;&lt;br&gt;&lt;/$list&gt;
 &lt;$list filter=&quot;[tag[Quiz]next[]]&quot;&gt;Next &lt;$link&gt;&lt;$view field=&quot;title&quot;/&gt;&lt;/$link&gt;&lt;/$list&gt;
 &lt;/$list&gt;</pre>
 </div>
-<div created="20140114170004978" creator="Stephan Hradek" description="A great trick invented by Alberto Molina to search and replace tags." modified="20141106170635901" modifier="Stephan Hradek" source-tiddler-title="RenameTags" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/RenameTags" revision="0" bag="default">
+<div bag="default" created="20140114170004978" creator="Stephan Hradek" description="A great trick invented by Alberto Molina to search and replace tags." modified="20141106170635901" modifier="Stephan Hradek" revision="0" source-tiddler-title="RenameTags" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/RenameTags">
 <pre>This great trick was shown to the tiddlywiki google group by [[Alberto Molina|https://groups.google.com/forum/#!topic/tiddlywiki/OCntQ79DuwM]]. I enhanced it a bit.
 
 |!Search tag: | &lt;$edit-text tiddler=&quot;$:/temp/RenameTags/search&quot; tag=&quot;input&quot; type=&quot;text&quot;/&gt; |
@@ -6940,58 +6982,58 @@ p.answer:hover {
 &lt;/$list&gt;
 &lt;/$reveal&gt;</pre>
 </div>
-<div created="20131127111200006" creator="Stephan Hradek" description="Just a handy bookmarklet which will reveal all the passwords on any website." modified="20140111134520139" modifier="Stephan Hradek" source-tiddler-title="Reveal Passwords Bookmarklet" source-wiki-id="tw5magick" tags="tw5magick bookmarklet toc" title="$:/tw5magick/Reveal Passwords Bookmarklet" revision="0" bag="default">
+<div bag="default" created="20131127111200006" creator="Stephan Hradek" description="Just a handy bookmarklet which will reveal all the passwords on any website." modified="20140111134520139" modifier="Stephan Hradek" revision="0" source-tiddler-title="Reveal Passwords Bookmarklet" source-wiki-id="tw5magick" tags="tw5magick bookmarklet toc" title="$:/tw5magick/Reveal Passwords Bookmarklet">
 <pre>This [[bookmarklet]] is handy from time to time. It will change all password fields on the current page to text fields, thus displaying any passwords typed in. Clicking the bookmark a second time will hide the passwords again.
 
 [[Show|Reveal Passwords]] &lt;$macrocall $name=&quot;bookmarklet&quot; tiddler=&quot;Reveal Passwords&quot; /&gt;
 
 </pre>
 </div>
-<div created="20131121214550242" creator="Stephan Hradek" modified="20140127085527515" modifier="Stephan Hradek" source-tiddler-title="SF Question 01" source-wiki-id="tw5magick" tags="tw5magick Quiz [[My own question]]" title="$:/tw5magick/SF Question 01" revision="0" bag="default">
+<div bag="default" created="20131121214550242" creator="Stephan Hradek" modified="20140127085527515" modifier="Stephan Hradek" revision="0" source-tiddler-title="SF Question 01" source-wiki-id="tw5magick" tags="tw5magick Quiz [[My own question]]" title="$:/tw5magick/SF Question 01">
 <pre>@@.question
 What's half the truth?
 @@</pre>
 </div>
-<div created="20131121214721648" creator="Stephan Hradek" modified="20140127085542504" modifier="Stephan Hradek" source-tiddler-title="SF Question 02" source-wiki-id="tw5magick" tags="tw5magick Quiz [[My own question]]" title="$:/tw5magick/SF Question 02" revision="0" bag="default">
+<div bag="default" created="20131121214721648" creator="Stephan Hradek" modified="20140127085542504" modifier="Stephan Hradek" revision="0" source-tiddler-title="SF Question 02" source-wiki-id="tw5magick" tags="tw5magick Quiz [[My own question]]" title="$:/tw5magick/SF Question 02">
 <pre>@@.question
 Who wrote the story &quot;Blade Runner&quot; is based on?
 @@</pre>
 </div>
-<div created="20131121214813455" creator="Stephan Hradek" modified="20140105152707549" modifier="Stephan Hradek" source-tiddler-title="SF Question 03" source-wiki-id="tw5magick" tags="tw5magick Quiz [[My own question]]" title="$:/tw5magick/SF Question 03" revision="0" bag="default">
+<div bag="default" created="20131121214813455" creator="Stephan Hradek" modified="20140105152707549" modifier="Stephan Hradek" revision="0" source-tiddler-title="SF Question 03" source-wiki-id="tw5magick" tags="tw5magick Quiz [[My own question]]" title="$:/tw5magick/SF Question 03">
 <pre>@@.question
 What's the name of the story &quot;Blade Runner&quot; is based on?
 @@</pre>
 </div>
-<div created="20140416204207086" creator="Stephan Hradek" modified="20140416204401385" modifier="Stephan Hradek" source-tiddler-title="Shopping List" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Shopping List" revision="0" bag="default">
+<div bag="default" created="20140416204207086" creator="Stephan Hradek" modified="20140416204401385" modifier="Stephan Hradek" revision="0" source-tiddler-title="Shopping List" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Shopping List">
 <pre>* {{ Cupcake Ingredients||asList }}
 </pre>
 </div>
-<div created="20140416203305224" creator="Stephan Hradek" modified="20140416203336613" modifier="Stephan Hradek" source-tiddler-title="shopping list" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/shopping list" revision="0" bag="default">
+<div bag="default" created="20140416203305224" creator="Stephan Hradek" modified="20140416203336613" modifier="Stephan Hradek" revision="0" source-tiddler-title="shopping list" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/shopping list">
 <pre>* shopping list {{
 cupcake ingredients||listTransclude
 }}
 </pre>
 </div>
-<div created="20140107133259057" creator="Stephan Hradek" modified="20140107134430948" modifier="Stephan Hradek" source-tiddler-title="ShowFavicon" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/ShowFavicon" revision="0" bag="default">
+<div bag="default" created="20140107133259057" creator="Stephan Hradek" modified="20140107134430948" modifier="Stephan Hradek" revision="0" source-tiddler-title="ShowFavicon" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/ShowFavicon">
 <pre>\define image(baseurl)
 &lt;img src=&quot;$baseurl$/favicon.ico&quot;/&gt;
 \end
 &lt;$macrocall $name=&quot;image&quot; baseurl={{!!title}}/&gt;</pre>
 </div>
-<div color="white" created="20140111143540341" creator="Stephan Hradek" description="Displays a text formatted as a tag." modified="20140116124529068" modifier="Stephan Hradek" source-tiddler-title="showtag" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/showtag" revision="0" bag="default">
+<div bag="default" color="white" created="20140111143540341" creator="Stephan Hradek" description="Displays a text formatted as a tag." modified="20140116124529068" modifier="Stephan Hradek" revision="0" source-tiddler-title="showtag" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/showtag">
 <pre>\define _showtag(color)
 &lt;span style=&quot;background-color:$color$&quot; class=&quot;tw-tag-label&quot;&gt;&lt;$view field=&quot;title&quot;/&gt;&lt;/span&gt;
 \end
 
 &lt;$macrocall $name=&quot;_showtag&quot; color={{!!color}}/&gt;</pre>
 </div>
-<div created="20131121180726184" creator="Stephan Hradek" modified="20131121180744068" modifier="Stephan Hradek" source-tiddler-title="SiteSubtitle" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/SiteSubtitle" revision="0" bag="default">
+<div bag="default" created="20131121180726184" creator="Stephan Hradek" modified="20131121180744068" modifier="Stephan Hradek" revision="0" source-tiddler-title="SiteSubtitle" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/SiteSubtitle">
 <pre>Some tricks and snippets for ~TiddlyWiki 5</pre>
 </div>
-<div created="20131121180716848" creator="Stephan Hradek" modified="20131121180720231" modifier="Stephan Hradek" source-tiddler-title="SiteTitle" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/SiteTitle" revision="0" bag="default">
+<div bag="default" created="20131121180716848" creator="Stephan Hradek" modified="20131121180720231" modifier="Stephan Hradek" revision="0" source-tiddler-title="SiteTitle" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/SiteTitle">
 <pre>TW5 Magick</pre>
 </div>
-<div created="20140116210927756" creator="Stephan Hradek" modified="20140117131436349" modifier="Stephan Hradek" source-tiddler-title="slider" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/slider" revision="0" bag="default">
+<div bag="default" created="20140116210927756" creator="Stephan Hradek" modified="20140117131436349" modifier="Stephan Hradek" revision="0" source-tiddler-title="slider" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/slider">
 <pre>\define slider(label)
 &lt;$button popup=&quot;$:/state/$label$&quot; class=&quot;btn-invisible tw-slider&quot;&gt;&lt;$reveal type=&quot;match&quot; text=&quot;&quot; default=&quot;&quot; state=&quot;$:/state/$label$&quot;&gt;&amp;#x229E;&lt;/$reveal&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot; default=&quot;&quot; state=&quot;$:/state/$label$&quot;&gt;&amp;#x229F;&lt;/$reveal&gt; {{$label$||unwikified}}&lt;/$button&gt;
 &lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot; default=&quot;&quot; state=&quot;$:/state/$label$&quot; animate=&quot;yes&quot;&gt;
@@ -7001,7 +7043,7 @@ cupcake ingredients||listTransclude
 
 &lt;$macrocall $name=&quot;slider&quot; label={{!!title}}/&gt;</pre>
 </div>
-<div created="20140117095919771" creator="Stephan Hradek" description="A fix for Jeremy's slider macro." modified="20140127092310585" modifier="Stephan Hradek" source-tiddler-title="slider macro fix" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/slider macro fix" revision="0" bag="default">
+<div bag="default" created="20140117095919771" creator="Stephan Hradek" description="A fix for Jeremy's slider macro." modified="20140127092310585" modifier="Stephan Hradek" revision="0" source-tiddler-title="slider macro fix" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/slider macro fix">
 <pre>''Note:'' The fix was only required in TW5 prior to 5.0.7beta.
 
 The slider Macro once shown by Jeremy on the groups does not always produce the expected result. Especially not when the label is a WikiWord. To work around this, I changed the macro a bit. The label is now transcluded using the [[unwikified]] template. This is its source:
@@ -7025,7 +7067,7 @@ And this is how to use the macro:
 &lt;&lt;slider &quot;MyTest&quot; &quot;{{GettingStarted}}&quot;&gt;&gt;
 ```</pre>
 </div>
-<div created="20140116210750583" creator="Stephan Hradek" description="Recreating the slider macro." modified="20140117103939795" modifier="Stephan Hradek" source-tiddler-title="slider macro global version" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/slider macro global version" revision="0" bag="default">
+<div bag="default" created="20140116210750583" creator="Stephan Hradek" description="Recreating the slider macro." modified="20140117103939795" modifier="Stephan Hradek" revision="0" source-tiddler-title="slider macro global version" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/slider macro global version">
 <pre>The [[global Macro|A global Macro - with limitations]] technique can be used to recreate sliders with the limitation that the label needs to be the title of the tiddler which should slide in.
 
 It is used like this:
@@ -7048,7 +7090,7 @@ If you want to use it, make sure to copy both required templates:
 * [[unwikified]]
 </pre>
 </div>
-<div created="20131121215608120" creator="Stephan Hradek" modified="20131121220410185" modifier="Stephan Hradek" source-tiddler-title="Spicing up the overview" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Spicing up the overview" revision="0" bag="default">
+<div bag="default" created="20131121215608120" creator="Stephan Hradek" modified="20131121220410185" modifier="Stephan Hradek" revision="0" source-tiddler-title="Spicing up the overview" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Spicing up the overview">
 <pre>The unfinished questiosn are also listed in our Overview. What if we could mark them there?
 
 In my real world task I put the language flags behind each of my questions in the overview. Let's here put an exclamation mark behind each question having an answer.
@@ -7065,7 +7107,7 @@ In my real world task I put the language flags behind each of my questions in th
 
 [[Take a look at the nicer Overview|Nicer Overview of all Questions]]</pre>
 </div>
-<div created="20131121211549026" creator="Stephan Hradek" modified="20140127085455568" modifier="Stephan Hradek" source-tiddler-title="Styling the Questions" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Styling the Questions" revision="0" bag="default">
+<div bag="default" created="20131121211549026" creator="Stephan Hradek" modified="20140127085455568" modifier="Stephan Hradek" revision="0" source-tiddler-title="Styling the Questions" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Styling the Questions">
 <pre>In order for the questions and answers not to look to boring, let's put a question mark in front of the questions and an exclamation mark in front of the answers. In my real task &quot;question&quot; and &quot;answer&quot; were in fact the 2 languages and I had flags where we now have question mark and exclamation mark.
 
 As we already did put @&amp;#64;.question and @&amp;#64;.answer around the 2 parts, we have some CSS classes assigned to the HTML elements. So it is now simply a matter of some trickfull CSS. See [[Quiz.CSS]].
@@ -7076,7 +7118,7 @@ Example:
 
 Next: [[Overview of all Questions]]</pre>
 </div>
-<div created="20140111134920141" creator="Stephan Hradek" description="Showing how the table of content was created." modified="20140116120421419" modifier="Stephan Hradek" source-tiddler-title="Table of Content creation" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/Table of Content creation" revision="0" bag="default">
+<div bag="default" created="20140111134920141" creator="Stephan Hradek" description="Showing how the table of content was created." modified="20140116120421419" modifier="Stephan Hradek" revision="0" source-tiddler-title="Table of Content creation" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/Table of Content creation">
 <pre>For the table of content I simply used list transclusion. This is the code of the [[Content]] tiddler:
 
 {{Content||code}}
@@ -7087,20 +7129,20 @@ Every tiddlertitle is transcluded using the [[tocEntry]] template:
 
 {{tocEntry || code}}</pre>
 </div>
-<div color="#bb0000" created="20140116123006313" creator="Stephan Hradek" modified="20140116123126974" modifier="Stephan Hradek" source-tiddler-title="template" source-wiki-id="tw5magick" tags="tw5magick tag" title="$:/tw5magick/template" revision="0" bag="default">
+<div bag="default" color="#bb0000" created="20140116123006313" creator="Stephan Hradek" modified="20140116123126974" modifier="Stephan Hradek" revision="0" source-tiddler-title="template" source-wiki-id="tw5magick" tags="tw5magick tag" title="$:/tw5magick/template">
 <pre>{{!!title||showtag}}</pre>
 </div>
-<div created="20140104043140897" creator="Stephan Hradek" modified="20140104043306081" modifier="Stephan Hradek" source-tiddler-title="The Macro" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/The Macro" revision="0" bag="default">
+<div bag="default" created="20140104043140897" creator="Stephan Hradek" modified="20140104043306081" modifier="Stephan Hradek" revision="0" source-tiddler-title="The Macro" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/The Macro">
 <pre>\define mysamplemacro(name:&quot;Bugs Bunny&quot;,address:&quot;Rabbit Hole Hill&quot;)
 Hi, I'm $name$ and I live in $address$
 \end
 
 &lt;$list filter=&quot;[is[current]!title[The Macro]]&quot;&gt;&lt;$transclude/&gt;&lt;/$list&gt;</pre>
 </div>
-<div alias="|Darwinism|NeoDarwinism|NaturalSelection|natural selection|theory of evolution|" created="20140208182812833" creator="Stephan Hradek" modified="20140208190855306" modifier="Stephan Hradek" source-tiddler-title="The Original" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/The Original" revision="0" bag="default">
+<div alias="|Darwinism|NeoDarwinism|NaturalSelection|natural selection|theory of evolution|" bag="default" created="20140208182812833" creator="Stephan Hradek" modified="20140208190855306" modifier="Stephan Hradek" revision="0" source-tiddler-title="The Original" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/The Original">
 <pre>This is the tiddler &quot;The Original&quot;.</pre>
 </div>
-<div created="20140104043312437" creator="Stephan Hradek" modified="20140104043434763" modifier="Stephan Hradek" source-tiddler-title="The Tiddler" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/The Tiddler" revision="0" bag="default">
+<div bag="default" created="20140104043312437" creator="Stephan Hradek" modified="20140104043434763" modifier="Stephan Hradek" revision="0" source-tiddler-title="The Tiddler" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/The Tiddler">
 <pre>&lt;&lt;mysamplemacro&gt;&gt;
 
 &lt;&lt;mysamplemacro &quot;Donald Duck&quot;&gt;&gt;
@@ -7108,7 +7150,7 @@ Hi, I'm $name$ and I live in $address$
 &lt;&lt;mysamplemacro &quot;Mickey Mouse&quot; &quot;Mouse House&quot;&gt;&gt;
 </pre>
 </div>
-<div created="20140121213622882" creator="Stephan Hradek" modified="20140121215820087" modifier="Stephan Hradek" source-tiddler-title="Tiddlers" source-wiki-id="tw5magick" tags="tw5magick Wikipedia" title="$:/tw5magick/Tiddlers" revision="0" bag="default">
+<div bag="default" created="20140121213622882" creator="Stephan Hradek" modified="20140121215820087" modifier="Stephan Hradek" revision="0" source-tiddler-title="Tiddlers" source-wiki-id="tw5magick" tags="tw5magick Wikipedia" title="$:/tw5magick/Tiddlers">
 <pre>TiddlyWiki content is divided into a series of components called ''tiddlers''. Each tiddler is stored inside an HTML [[Span and div|division]] that contains the source text and [[meta data]] in [[wiki markup]]. For example, the following could be the HTML source code for the beginning of this section written as a tiddler:
 
 ```
@@ -7123,7 +7165,7 @@ Hi, I'm $name$ and I live in $address$
 ```
 </pre>
 </div>
-<div created="20131203113627167" creator="Stephan Hradek" modified="20131204140958171" modifier="Stephan Hradek" source-tiddler-title="tiddlyspot upload script" source-wiki-id="tw5magick" tags="tw5magick backup script unix perl" title="$:/tw5magick/tiddlyspot upload script" revision="0" bag="default">
+<div bag="default" created="20131203113627167" creator="Stephan Hradek" modified="20131204140958171" modifier="Stephan Hradek" revision="0" source-tiddler-title="tiddlyspot upload script" source-wiki-id="tw5magick" tags="tw5magick backup script unix perl" title="$:/tw5magick/tiddlyspot upload script">
 <pre>This uploadscript is useful for Linux/UNIX/CygWIN users.
 
 While you can do a simple backup/download of your tiddlyspot with just using curl:
@@ -7175,16 +7217,16 @@ $req-&gt;authorization_basic($user, $pass);
 print $ua-&gt;request($req)-&gt;as_string;
 ```</pre>
 </div>
-<div created="20140128191725948" creator="Stephan Hradek" modified="20140128191754388" modifier="Stephan Hradek" source-tiddler-title="TiddlyWiki" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/TiddlyWiki" revision="0" bag="default">
+<div bag="default" created="20140128191725948" creator="Stephan Hradek" modified="20140128191754388" modifier="Stephan Hradek" revision="0" source-tiddler-title="TiddlyWiki" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/TiddlyWiki">
 <pre>{{!!title}} can be found on http://tiddlywiki.com</pre>
 </div>
-<div color="teal" created="20140111140145312" creator="Stephan Hradek" modified="20140111140204973" modifier="Stephan Hradek" source-tiddler-title="toc" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/toc" revision="0" bag="default">
+<div bag="default" color="teal" created="20140111140145312" creator="Stephan Hradek" modified="20140111140204973" modifier="Stephan Hradek" revision="0" source-tiddler-title="toc" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/toc">
 <pre></pre>
 </div>
-<div created="20140116120024371" creator="Stephan Hradek" description="Displays a tiddler's title alongside with its description." modified="20140116124643498" modifier="Stephan Hradek" source-tiddler-title="tocEntry" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/tocEntry" revision="0" bag="default">
+<div bag="default" created="20140116120024371" creator="Stephan Hradek" description="Displays a tiddler's title alongside with its description." modified="20140116124643498" modifier="Stephan Hradek" revision="0" source-tiddler-title="tocEntry" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/tocEntry">
 <pre>&lt;dt&gt;&lt;$link&gt;&lt;$view field=&quot;title&quot;/&gt;&lt;/$link&gt;&lt;/dt&gt;&lt;dd&gt;&lt;$transclude field=&quot;description&quot;/&gt;&lt;/dd&gt;</pre>
 </div>
-<div created="20131223103944416" creator="Stephan Hradek" description="Showing how to use templates to transclude tiddlers in different formats." modified="20140111134415740" modifier="Stephan Hradek" source-tiddler-title="Transcluding a full Tiddler" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/Transcluding a full Tiddler" revision="0" bag="default">
+<div bag="default" created="20131223103944416" creator="Stephan Hradek" description="Showing how to use templates to transclude tiddlers in different formats." modified="20140111134415740" modifier="Stephan Hradek" revision="0" source-tiddler-title="Transcluding a full Tiddler" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/Transcluding a full Tiddler">
 <pre>I just wanted to transclude a tiddler fully, meaning: I wanted to have its title as a headline.
 
 Here is how I did it:
@@ -7218,7 +7260,7 @@ Inspect the template tiddlers here:
 * [[code]]
 * [[ShowFavicon]]</pre>
 </div>
-<div created="20140107134526739" creator="Stephan Hradek" modified="20140107135730141" modifier="Stephan Hradek" source-tiddler-title="Transcluding a non-existing Tiddler" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Transcluding a non-existing Tiddler" revision="0" bag="default">
+<div bag="default" created="20140107134526739" creator="Stephan Hradek" modified="20140107135730141" modifier="Stephan Hradek" revision="0" source-tiddler-title="Transcluding a non-existing Tiddler" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Transcluding a non-existing Tiddler">
 <pre>As stupid as it might sound, but it's possible to transclude non-existing tiddlers and it might even be useful!
 
 For example: There is no tiddler `http://tiddlywiki.com` anywhere in this wiki. But I can transclude it to show its favicon by using [[ShowFavicon]] as its template:
@@ -7229,7 +7271,7 @@ For example: There is no tiddler `http://tiddlywiki.com` anywhere in this wiki. 
 
 renders as a nice little icon {{http://tiddlywiki.com||ShowFavicon}}.</pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152626190" modifier="Stephan Hradek" source-tiddler-title="TV &amp; Film 01" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/TV &amp; Film 01" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152626190" modifier="Stephan Hradek" revision="0" source-tiddler-title="TV &amp; Film 01" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/TV &amp; Film 01">
 <pre>@@.question
 Which actor was the first to play Doctor Who?
 @@
@@ -7239,7 +7281,7 @@ William Hartnell
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140127085558779" modifier="Stephan Hradek" source-tiddler-title="TV &amp; Film 02" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/TV &amp; Film 02" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140127085558779" modifier="Stephan Hradek" revision="0" source-tiddler-title="TV &amp; Film 02" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/TV &amp; Film 02">
 <pre>@@.question
 The Eastenders theme tune was given lyrics and released as a single in 1986 by Anita Dobson – but what was the sing called?
 @@
@@ -7249,7 +7291,7 @@ Anyone Can Fall In Love
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140127085607900" modifier="Stephan Hradek" source-tiddler-title="TV &amp; Film 03" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/TV &amp; Film 03" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140127085607900" modifier="Stephan Hradek" revision="0" source-tiddler-title="TV &amp; Film 03" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/TV &amp; Film 03">
 <pre>@@.question
 Which actor played the original ‘Granddad’ in Only Fools and Horses?
 @@
@@ -7259,7 +7301,7 @@ Lennard Pearce
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140127085617501" modifier="Stephan Hradek" source-tiddler-title="TV &amp; Film 04" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/TV &amp; Film 04" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140127085617501" modifier="Stephan Hradek" revision="0" source-tiddler-title="TV &amp; Film 04" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/TV &amp; Film 04">
 <pre>@@.question
 In 2008, Kate Winslet finally won an Academy Award for Best Actress – but which film was it for?
 @@
@@ -7269,7 +7311,7 @@ The Reader
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140127085624927" modifier="Stephan Hradek" source-tiddler-title="TV &amp; Film 05" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/TV &amp; Film 05" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140127085624927" modifier="Stephan Hradek" revision="0" source-tiddler-title="TV &amp; Film 05" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/TV &amp; Film 05">
 <pre>@@.question
 The first three films of which child actress were Tiger Bay (1959), Pollyanna (1960) and The Parent Trap (1961)?
 @@
@@ -7279,7 +7321,7 @@ Hayley Mills
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140127085632593" modifier="Stephan Hradek" source-tiddler-title="TV &amp; Film 06" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/TV &amp; Film 06" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140127085632593" modifier="Stephan Hradek" revision="0" source-tiddler-title="TV &amp; Film 06" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/TV &amp; Film 06">
 <pre>@@.question
 Which actress links ‘The Darling Buds of May’ and ‘Rosemary and Thyme’?
 @@
@@ -7289,7 +7331,7 @@ Pam Ferris
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152658658" modifier="Stephan Hradek" source-tiddler-title="TV &amp; Film 07" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/TV &amp; Film 07" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152658658" modifier="Stephan Hradek" revision="0" source-tiddler-title="TV &amp; Film 07" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/TV &amp; Film 07">
 <pre>@@.question
 What was the name of the sequel to the 1986 film Highlander?
 @@
@@ -7299,7 +7341,7 @@ Highlander II: The Quickening
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152648125" modifier="Stephan Hradek" source-tiddler-title="TV &amp; Film 08" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/TV &amp; Film 08" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152648125" modifier="Stephan Hradek" revision="0" source-tiddler-title="TV &amp; Film 08" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/TV &amp; Film 08">
 <pre>@@.question
 And which band recorded the soundtrack to the first Highlander film?
 @@
@@ -7309,7 +7351,7 @@ Queen
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152638177" modifier="Stephan Hradek" source-tiddler-title="TV &amp; Film 09" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/TV &amp; Film 09" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152638177" modifier="Stephan Hradek" revision="0" source-tiddler-title="TV &amp; Film 09" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/TV &amp; Film 09">
 <pre>@@.question
 In the 1994 Disney film the Lion King, which actor provided the voice of the evil lion ‘Scar’?
 @@
@@ -7319,7 +7361,7 @@ Jeremy Irons
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720533" modifier="Stephan Hradek" source-tiddler-title="TV &amp; Film 10" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/TV &amp; Film 10" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720533" modifier="Stephan Hradek" revision="0" source-tiddler-title="TV &amp; Film 10" source-wiki-id="tw5magick" tags="tw5magick Quiz readymadepubquiz.com" title="$:/tw5magick/TV &amp; Film 10">
 <pre>@@.question
 In the film Mary Poppins, who played Mrs Banks, mother to Jane and Michael?
 @@
@@ -7329,7 +7371,7 @@ Glynis Johns
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20140105152030434" modifier="Stephan Hradek" source-tiddler-title="TV &amp; Film 11" source-wiki-id="tw5magick" tags="tw5magick Quiz freepubquiz.weebly.com" title="$:/tw5magick/TV &amp; Film 11" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20140105152030434" modifier="Stephan Hradek" revision="0" source-tiddler-title="TV &amp; Film 11" source-wiki-id="tw5magick" tags="tw5magick Quiz freepubquiz.weebly.com" title="$:/tw5magick/TV &amp; Film 11">
 <pre>@@.question
 Which bar did Sam Malone run?
 @@
@@ -7339,7 +7381,7 @@ Cheers
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720538" modifier="Stephan Hradek" source-tiddler-title="TV &amp; Film 12" source-wiki-id="tw5magick" tags="tw5magick Quiz freepubquiz.weebly.com" title="$:/tw5magick/TV &amp; Film 12" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720538" modifier="Stephan Hradek" revision="0" source-tiddler-title="TV &amp; Film 12" source-wiki-id="tw5magick" tags="tw5magick Quiz freepubquiz.weebly.com" title="$:/tw5magick/TV &amp; Film 12">
 <pre>@@.question
 The Nags Head was the pub in which classic British comedy series?
 @@
@@ -7349,7 +7391,7 @@ Only Fools And Horses
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720539" modifier="Stephan Hradek" source-tiddler-title="TV &amp; Film 13" source-wiki-id="tw5magick" tags="tw5magick Quiz freepubquiz.weebly.com" title="$:/tw5magick/TV &amp; Film 13" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720539" modifier="Stephan Hradek" revision="0" source-tiddler-title="TV &amp; Film 13" source-wiki-id="tw5magick" tags="tw5magick Quiz freepubquiz.weebly.com" title="$:/tw5magick/TV &amp; Film 13">
 <pre>@@.question
 What is the name of the pub in Coronation Street?
 @@
@@ -7359,7 +7401,7 @@ The Rovers Return
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720539" modifier="Stephan Hradek" source-tiddler-title="TV &amp; Film 14" source-wiki-id="tw5magick" tags="tw5magick Quiz freepubquiz.weebly.com" title="$:/tw5magick/TV &amp; Film 14" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720539" modifier="Stephan Hradek" revision="0" source-tiddler-title="TV &amp; Film 14" source-wiki-id="tw5magick" tags="tw5magick Quiz freepubquiz.weebly.com" title="$:/tw5magick/TV &amp; Film 14">
 <pre>@@.question
 Which cartoon has a bar called 'Moes'?
 @@
@@ -7369,7 +7411,7 @@ The Simpsons
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720540" modifier="Stephan Hradek" source-tiddler-title="TV &amp; Film 15" source-wiki-id="tw5magick" tags="tw5magick Quiz freepubquiz.weebly.com" title="$:/tw5magick/TV &amp; Film 15" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720540" modifier="Stephan Hradek" revision="0" source-tiddler-title="TV &amp; Film 15" source-wiki-id="tw5magick" tags="tw5magick Quiz freepubquiz.weebly.com" title="$:/tw5magick/TV &amp; Film 15">
 <pre>@@.question
 Which chief medical officer and coronor could be found drinking in 'Dannys Bar'?
 @@
@@ -7379,7 +7421,7 @@ Quincy
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720540" modifier="Stephan Hradek" source-tiddler-title="TV &amp; Film 16" source-wiki-id="tw5magick" tags="tw5magick Quiz freepubquiz.weebly.com" title="$:/tw5magick/TV &amp; Film 16" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720540" modifier="Stephan Hradek" revision="0" source-tiddler-title="TV &amp; Film 16" source-wiki-id="tw5magick" tags="tw5magick Quiz freepubquiz.weebly.com" title="$:/tw5magick/TV &amp; Film 16">
 <pre>@@.question
 What TV show featured Dave, the landlord of the Winchester Club?
 @@
@@ -7389,7 +7431,7 @@ Minder
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720540" modifier="Stephan Hradek" source-tiddler-title="TV &amp; Film 17" source-wiki-id="tw5magick" tags="tw5magick Quiz freepubquiz.weebly.com" title="$:/tw5magick/TV &amp; Film 17" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720540" modifier="Stephan Hradek" revision="0" source-tiddler-title="TV &amp; Film 17" source-wiki-id="tw5magick" tags="tw5magick Quiz freepubquiz.weebly.com" title="$:/tw5magick/TV &amp; Film 17">
 <pre>@@.question
 Which sci-fi show had Whoopi Goldberg as the mysterious Guynan running a bar called the 'Ten Forward'?
 @@
@@ -7399,7 +7441,7 @@ Star Trek - The Next Generation
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720541" modifier="Stephan Hradek" source-tiddler-title="TV &amp; Film 18" source-wiki-id="tw5magick" tags="tw5magick Quiz freepubquiz.weebly.com" title="$:/tw5magick/TV &amp; Film 18" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720541" modifier="Stephan Hradek" revision="0" source-tiddler-title="TV &amp; Film 18" source-wiki-id="tw5magick" tags="tw5magick Quiz freepubquiz.weebly.com" title="$:/tw5magick/TV &amp; Film 18">
 <pre>@@.question
 The strip bar 'Bada Bing' was run by Tony in which TV show?
 @@
@@ -7409,7 +7451,7 @@ The Sopranos
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720541" modifier="Stephan Hradek" source-tiddler-title="TV &amp; Film 19" source-wiki-id="tw5magick" tags="tw5magick Quiz freepubquiz.weebly.com" title="$:/tw5magick/TV &amp; Film 19" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720541" modifier="Stephan Hradek" revision="0" source-tiddler-title="TV &amp; Film 19" source-wiki-id="tw5magick" tags="tw5magick Quiz freepubquiz.weebly.com" title="$:/tw5magick/TV &amp; Film 19">
 <pre>@@.question
 Which Scottish comedy about two older men featured 'The Clansmen' run by 'That Bawbag'?
 @@
@@ -7419,7 +7461,7 @@ Still Game
 @@
 </pre>
 </div>
-<div created="20131121123456789" creator="Stephan Hradek" modified="20131121203720542" modifier="Stephan Hradek" source-tiddler-title="TV &amp; Film 20" source-wiki-id="tw5magick" tags="tw5magick Quiz freepubquiz.weebly.com" title="$:/tw5magick/TV &amp; Film 20" revision="0" bag="default">
+<div bag="default" created="20131121123456789" creator="Stephan Hradek" modified="20131121203720542" modifier="Stephan Hradek" revision="0" source-tiddler-title="TV &amp; Film 20" source-wiki-id="tw5magick" tags="tw5magick Quiz freepubquiz.weebly.com" title="$:/tw5magick/TV &amp; Film 20">
 <pre>@@.question
 Where could you get a pint in 'Heartbeat'?
 @@
@@ -7429,7 +7471,7 @@ Aidenfield Arms
 @@
 </pre>
 </div>
-<div created="20131125152000002" creator="Stephan Hradek" description="Some useful bookmarklets for inserting TiddlyWiki format codes." modified="20140111134652466" modifier="Stephan Hradek" source-tiddler-title="TW5 Format Bookmarklets" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/TW5 Format Bookmarklets" revision="0" bag="default">
+<div bag="default" created="20131125152000002" creator="Stephan Hradek" description="Some useful bookmarklets for inserting TiddlyWiki format codes." modified="20140111134652466" modifier="Stephan Hradek" revision="0" source-tiddler-title="TW5 Format Bookmarklets" source-wiki-id="tw5magick" tags="tw5magick toc" title="$:/tw5magick/TW5 Format Bookmarklets">
 <pre>''Note:'' Updated the &quot;Bullets&quot; and &quot;List&quot; bookmarklet to not insert characters in empty lines.
 
 Create a Bookmarklet Folder in your Bookmark Bar and call it &quot;TW5&quot; (or whatever you like).
@@ -7441,7 +7483,7 @@ Then drag these [[bookmarklets|bookmarklet]] to that folder:
 
 After that you will be able to set TW5 Markup code around any selection in a textarea by simply selecting the appropriate bookmarklet.</pre>
 </div>
-<div created="20140128190928332" creator="Stephan Hradek" modified="20140128205205461" modifier="Stephan Hradek" source-tiddler-title="TW5 Magick" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/TW5 Magick" revision="0" bag="default">
+<div bag="default" created="20140128190928332" creator="Stephan Hradek" modified="20140128205205461" modifier="Stephan Hradek" revision="0" source-tiddler-title="TW5 Magick" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/TW5 Magick">
 <pre>Some things in TiddlyWiki seem like [[Magic]]. As my preferred nick is [[Skeeve|http://en.wikipedia.org/wiki/MythAdventures]], I felt that TW5 Magick is a proper name for this collection of some of the &quot;magic&quot; tricks one can do with TiddlyWiki.
 
 This collection was created while working with TiddlyWiki 5, reading the [[TiddlyWiki Google Group|https://groups.google.com/forum/#!forum/tiddlywiki]] and the [[TiddlyWikiDev Group|https://groups.google.com/forum/#!forum/tiddlywikidev]] and trying to solve problems presented there.
@@ -7450,10 +7492,10 @@ The tricks presented here are mostly possible with the bare TiddlyWiki 5 without
 
 But there is also a place, where I collected some plugins and macros for TiddlyWiki 5: [[TiddlyStuff|http://tiddlystuff.tiddlyspot.com]].</pre>
 </div>
-<div created="20140117101802794" creator="Stephan Hradek" modified="20140117102052993" modifier="Stephan Hradek" source-tiddler-title="unwikified" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/unwikified" revision="0" bag="default">
+<div bag="default" created="20140117101802794" creator="Stephan Hradek" modified="20140117102052993" modifier="Stephan Hradek" revision="0" source-tiddler-title="unwikified" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/unwikified">
 <pre>&lt;$view field=&quot;title&quot;/&gt;</pre>
 </div>
-<div created="20131223110643661" creator="Stephan Hradek" modified="20131223111026121" modifier="Stephan Hradek" source-tiddler-title="Use the template tiddler" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Use the template tiddler" revision="0" bag="default">
+<div bag="default" created="20131223110643661" creator="Stephan Hradek" modified="20131223111026121" modifier="Stephan Hradek" revision="0" source-tiddler-title="Use the template tiddler" source-wiki-id="tw5magick" tags="tw5magick" title="$:/tw5magick/Use the template tiddler">
 <pre>Use the template tiddler by transcluding it, using the `full`-template:
 
 ```
@@ -7467,7 +7509,7 @@ This is the result:
 &lt;&lt;&lt;
 </pre>
 </div>
-<div created="20140113085653136" creator="Stephan Hradek" description="Displays a [[Person DB]]'s entry." modified="20140116124611419" modifier="Stephan Hradek" source-tiddler-title="viewPerson" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/viewPerson" revision="0" bag="default">
+<div bag="default" created="20140113085653136" creator="Stephan Hradek" description="Displays a [[Person DB]]'s entry." modified="20140116124611419" modifier="Stephan Hradek" revision="0" source-tiddler-title="viewPerson" source-wiki-id="tw5magick" tags="tw5magick template" title="$:/tw5magick/viewPerson">
 <pre>&lt;$list filter=&quot;[is[current]tag[person]]&quot;&gt;
 |!Street |{{!!street}} |
 |!Town |{{!!town}} |
@@ -7475,9 +7517,8 @@ This is the result:
 &lt;/$list&gt;
 </pre>
 </div>
-<div created="20141221163203443" modified="20141221191642435" tags="" title="About" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>
-! Purpose
+<div bag="default" created="20141221163203443" modified="20141221191642435" revision="0" tags="" title="About" type="text/vnd.tiddlywiki">
+<pre>! Purpose
 
 This wiki provides a search engine for {{TiddlyWiki}} community wikis. The list of indexed wikis is shown below. See technical details in [[Implementation]].
 
@@ -7495,7 +7536,7 @@ This is an unofficial and experimental wiki. It is, of course, provided without 
 
 </pre>
 </div>
-<div created="20141214202822571" creator="Erwan" modified="20141215004154104" modifier="Erwan" tags="" title="CommunitySearch" revision="0" bag="default">
+<div bag="default" created="20141214202822571" creator="Erwan" modified="20141215004154104" modifier="Erwan" revision="0" tags="" title="CommunitySearch">
 <pre>\define lingo-base() $:/language/Search/
 &lt;$linkcatcher to=&quot;$:/temp/advancedsearch&quot;&gt;
 
@@ -7534,7 +7575,7 @@ Search for tiddlers in the community wikis:
 &lt;/$reveal&gt;
 </pre>
 </div>
-<div created="20141222175528807" modified="20141222175538655" tags="" title="CommunityTags" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div bag="default" created="20141222175528807" modified="20141222175538655" revision="0" tags="" title="CommunityTags" type="text/vnd.tiddlywiki">
 <pre>&lt;$list filter=&quot;[has[source-wiki-id]tags[]!is[system]sort[title]] -[&lt;currentTiddler&gt;]&quot;&gt;
   &lt;$transclude tiddler=&quot;$:/core/ui/TagTemplate&quot;/&gt;
   &lt;small class=&quot;tc-menu-list-count&quot;&gt;
@@ -7543,7 +7584,7 @@ Search for tiddlers in the community wikis:
 &lt;/$list&gt;
 </pre>
 </div>
-<div created="20141222182704958" modified="20141222184528488" tags="" title="CommunityWikis" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div bag="default" created="20141222182704958" modified="20141231144847372" revision="0" tags="" title="CommunityWikis" type="text/vnd.tiddlywiki">
 <pre>&lt;ul&gt;
 &lt;$list filter=&quot;[tag[community-wiki]sort[title]]&quot;&gt;
   &lt;li&gt;
@@ -7551,16 +7592,69 @@ Search for tiddlers in the community wikis:
       &lt;strong&gt;&lt;$view field=&quot;title&quot;/&gt;&lt;/strong&gt;
     &lt;/$link&gt;&lt;br/&gt;
     &lt;a href={{!!wiki-address}} target=&quot;_blank&quot;&gt;&lt;$view field=&quot;wiki-address&quot;/&gt;&lt;/a&gt;&lt;br/&gt;
+    TW version {{||$:/CommunityWikiTWVersionInfo
+}}&lt;br/&gt;
+
+@@font-style: italic;
+&lt;$count filter=&quot;[source-wiki-id&lt;currentTiddler&gt;sort[title]]&quot; /&gt; 
+tiddlers. Latest modification 
+&lt;$list filter=&quot;[source-wiki-id&lt;currentTiddler&gt;sort[created]!limit[1]] +[reverse[]]&quot; emptyMessage=&quot;a little bug here&quot;&gt;
+  &lt;$view field=&quot;modified&quot; format=&quot;relativedate&quot;/&gt;.
+&lt;/$list&gt;
+@@
+&lt;br/&gt;
     &lt;$transclude tiddler=&quot;$:/core/ui/TagTemplate&quot;/&gt;
   &lt;/li&gt;
 &lt;/$list&gt;
 &lt;/ul&gt;</pre>
 </div>
-<div created="20141221191426464" modified="20141221191537823" tags="" title="Contact" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div bag="default" created="20141221191426464" modified="20141221191537823" revision="0" tags="" title="Contact" type="text/vnd.tiddlywiki">
 <pre>If you see any issue with this wiki, want to add your own wiki to the sources, want your wiki to be removed from the sources, or for any other reason, you can contact the author: mailto:erwan.more@@mail.com (replace the second ``@`` with a ``g``, it will probably work better).
 </pre>
 </div>
-<div created="20141214005400000" creator="Erwan" modified="20141222191853627" title="GettingStarted" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div bag="default" created="20141222174553788" draft.of="$:/CommunityWikiPresentationTemplate" draft.title="$:/CommunityWikiPresentationTemplate" modified="20141231144435727" revision="0" tags="" title="Draft of '$:/CommunityWikiPresentationTemplate'" type="text/vnd.tiddlywiki">
+<pre>
+!!! Address
+
+{{!!wiki-address}}
+
+!!! TW version
+
+{{||$:/CommunityWikiTWVersionInfo}}
+
+!!! Latest modifications
+
+&lt;$list filter=&quot;[source-wiki-id&lt;currentTiddler&gt;sort[created]!limit[5]] +[reverse[]]&quot; emptyMessage=&quot;a little bug here&quot;&gt;
+  &lt;$view field=&quot;modified&quot; format=&quot;relativedate&quot;/&gt;&lt;$transclude tiddler=&quot;$:/core/ui/ListItemTemplate&quot;/&gt;
+&lt;/$list&gt;
+
+!!! Tags
+
+&lt;$list filter=&quot;[source-wiki-id&lt;currentTiddler&gt;tags[]!is[system]sort[title]] -[&lt;currentTiddler&gt;]&quot;&gt;
+  &lt;$transclude tiddler=&quot;$:/core/ui/TagTemplate&quot;/&gt;
+  &lt;small class=&quot;tc-menu-list-count&quot;&gt;
+    &lt;$count filter=&quot;[all[current]tagging[]]&quot;/&gt;
+  &lt;/small&gt;&lt;br/&gt;
+&lt;/$list&gt;
+
+!!! Tiddlers
+
+&lt;$count filter=&quot;[source-wiki-id&lt;currentTiddler&gt;sort[title]]&quot; /&gt; indexed tiddlers.
+
+&lt;$button set=&quot;$:/PresentationTiddlerShowTiddlers&quot; setTo=&quot;show&quot;&gt;Show tiddlers&lt;/$button&gt;
+&lt;$button set=&quot;$:/PresentationTiddlerShowTiddlers&quot; setTo=&quot;hide&quot;&gt;Hide tiddlers&lt;/$button&gt;
+
+&lt;$reveal type=&quot;match&quot; state=&quot;$:/PresentationTiddlerShowTiddlers&quot; text=&quot;show&quot;&gt;
+
+&lt;$list filter=&quot;[source-wiki-id&lt;currentTiddler&gt;sort[title]]&quot;&gt;
+  &lt;$transclude tiddler=&quot;$:/core/ui/ListItemTemplate&quot; /&gt;
+&lt;/$list&gt;
+
+&lt;/$reveal&gt;
+
+</pre>
+</div>
+<div bag="default" created="20141214005400000" creator="Erwan" modified="20141222191853627" revision="0" title="GettingStarted" type="text/vnd.tiddlywiki">
 <pre>! Search
 
 {{CommunitySearch}}
@@ -7573,7 +7667,7 @@ You can also browse the index [[by tags|CommunityTags]] or [[by wiki|CommunityWi
 
 </pre>
 </div>
-<div created="20141221191203963" modified="20141222153331151" tags="" title="Implementation" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div bag="default" created="20141221191203963" modified="20141222153331151" revision="0" tags="" title="Implementation" type="text/vnd.tiddlywiki">
 <pre>!! Offline
 
 A [[Bash script|https://github.com/erwanm/tw-aggregator/blob/master/bin/tw-aggregator.sh]] downloads the referenced wikis, converts their non-system tiddlers to system tiddlers, and generates a new wiki using {{TiddlyWiki}} &lt;a href=&quot;http://tiddlywiki.com/#TiddlyWiki%20on%20Node.js&quot;&gt;Node.js edition&lt;/a&gt;. 
@@ -7587,17 +7681,18 @@ Pure {{TiddlyWiki}}: the user can search the content gathered from the indexed w
 The whole project is available on Github: https://github.com/erwanm/tw-aggregator
 </pre>
 </div>
-<div created="20141221164250868" modified="20141221164403119" tags="" title="TiddlyWiki" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div bag="default" created="20141221164250868" modified="20141221164403119" revision="0" tags="" title="TiddlyWiki" type="text/vnd.tiddlywiki">
 <pre>&lt;a href=&quot;http://tiddlywiki.com&quot;&gt;~TiddlyWiki&lt;/a&gt;
 </pre>
 </div>
-<div created="20141231151548000" tags="community-wiki" title="tw5magick" type="text/vnd.tiddlywiki" wiki-address="http://tw5magick.tiddlyspot.com/" wiki-tw-version="5.0.7-beta" revision="0" bag="default">
+<div bag="default" created="20141231151548000" modified="20141231142029261" revision="0" tags="community-wiki" title="tw5magick" type="text/vnd.tiddlywiki" wiki-address="http://tw5magick.tiddlyspot.com/" wiki-tw-version="5.0.7-beta">
 <pre>
+[[$:/CommunityWikiPresentationTemplate]]
 
 {{||$:/CommunityWikiPresentationTemplate}}
 </pre>
 </div>
-<div created="20141221163448239" modified="20141222182908626" tags="" title="Version" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div bag="default" created="20141221163448239" modified="20141222182908626" revision="0" tags="" title="Version" type="text/vnd.tiddlywiki">
 <pre>\define getMostRecent()
   &lt;$list filter=&quot;[tag[community-wiki]sort[created]!limit[1]]&quot; emptyMessage=&quot;a little bug here&quot;&gt;
     &lt;$view field=&quot;created&quot;  format=&quot;relativedate&quot;/&gt;

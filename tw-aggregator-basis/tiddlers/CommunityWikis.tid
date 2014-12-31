@@ -1,5 +1,5 @@
 created: 20141222182704958
-modified: 20141222184528488
+modified: 20141231144833454
 tags: 
 title: CommunityWikis
 type: text/vnd.tiddlywiki
@@ -11,6 +11,17 @@ type: text/vnd.tiddlywiki
       <strong><$view field="title"/></strong>
     </$link><br/>
     <a href={{!!wiki-address}} target="_blank"><$view field="wiki-address"/></a><br/>
+    TW version {{||$:/CommunityWikiTWVersionInfo
+}}<br/>
+
+@@font-style: italic;
+<$count filter="[source-wiki-id<currentTiddler>sort[title]]" /> 
+tiddlers. Latest modification 
+<$list filter="[source-wiki-id<currentTiddler>sort[created]!limit[1]] +[reverse[]]" emptyMessage="a little bug here">
+  <$view field="modified" format="relativedate"/>.
+</$list>
+@@
+<br/>
     <$transclude tiddler="$:/core/ui/TagTemplate"/>
   </li>
 </$list>

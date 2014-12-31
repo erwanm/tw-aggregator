@@ -1,0 +1,19 @@
+created: 20141231144013357
+modified: 20141231144039864
+tags: 
+title: $:/CommunityWikiTWVersionInfo
+type: text/vnd.tiddlywiki
+
+<$set name=version value={{!!wiki-tw-version}}>
+  <strong>
+  <$list filter="[<version>prefix[5.1]]">
+    <$text text=<<version>>/>
+  </$list>
+  <$list filter="[<version>!prefix[5.1]]">
+    <$text text=<<version>>/>
+    @@color:orange;
+      [obsolete version!]
+    @@
+  </$list>
+  </strong>
+</$set>
