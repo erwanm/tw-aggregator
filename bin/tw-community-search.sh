@@ -62,26 +62,31 @@ if [ -z "$workDir" ]; then
 else
     removeWorkDir=0
 fi
+exitCode=0
 if [ $skipHarvest -ne 1 ]; then
     tw-harvest.sh "$wikiListFile" "$workDir"
+    exitCode="$?"
 fi
-echo "Preparing output wiki..."
-if [ -d "$workDir/output-wiki" ]; then
-    rm -rf "$workDir/output-wiki"
+
+if [ $exitCode -eq 0 ]; then
+    echo "Preparing output wiki..."
+    if [ -d "$workDir/output-wiki" ]; then
+	rm -rf "$workDir/output-wiki"
+    fi
+    tiddlywiki "$workDir/output-wiki" --init server >/dev/null
+    mkdir "$workDir"/output-wiki/tiddlers
+    cp "$inputWikiBasis"/tiddlers/* "$workDir"/output-wiki/tiddlers
+
+    tw-convert-regular-tiddlers.sh "$workDir" "$workDir/output-wiki"
+    tw-generate-presentation-tiddlers.sh  "$workDir" "$workDir/output-wiki"
+
+
+    total=$(ls "$workDir"/output-wiki/tiddlers/*.tid | wc -l)
+    echo "Converting the output wiki to standalone html"
+    tiddlywiki "$workDir/output-wiki" --rendertiddler "$:/plugins/tiddlywiki/tiddlyweb/save/offline" "output.html" text/plain
+    mv "$workDir/output-wiki/output/output.html" "$outputFilename"
+    if [ $removeWorkDir -ne 0 ]; then
+	rm -rf "$workDir"
+    fi
+    echo "Done. $total tiddlers harvested, result in $outputFilename"
 fi
-tiddlywiki "$workDir/output-wiki" --init server >/dev/null
-mkdir "$workDir"/output-wiki/tiddlers
-cp "$inputWikiBasis"/tiddlers/* "$workDir"/output-wiki/tiddlers
-
-tw-convert-regular-tiddlers.sh "$workDir" "$workDir/output-wiki"
-tw-generate-presentation-tiddlers.sh  "$workDir" "$workDir/output-wiki"
-
-
-total=$(ls "$workDir"/output-wiki/tiddlers/*.tid | wc -l)
-echo "Converting the output wiki to standalone html"
-tiddlywiki "$workDir/output-wiki" --rendertiddler "$:/plugins/tiddlywiki/tiddlyweb/save/offline" "output.html" text/plain
-mv "$workDir/output-wiki/output/output.html" "$outputFilename"
-if [ $removeWorkDir -ne 0 ]; then
-    rm -rf "$workDir"
-fi
-echo "Done. $total tiddlers harvested, result in $outputFilename"

@@ -6,7 +6,6 @@ http://tiddlystuff.tiddlyspot.com/
 http://tw5magick.tiddlyspot.com/
 http://www.giffmex.org/tw5mall.htm TW5Mall
 http://dl.dropboxusercontent.com/u/118970/wiki/tw5tribalknowledge.html TW5TribalKnowledge
-https://drive.google.com/open?id=0Bydfk9tNRJHBc3FvclFBMzRreTQ&authuser=0 GSD5
 http://eucaly-tw5.tiddlyspot.com/
 http://tiddlyclip.tiddlyspot.com/
 http://tw5.scholars.tiddlyspot.com/
@@ -35,3 +34,4 @@ http://tidtoc.tiddlyspot.com
 http://twiz.tiddlyspot.com/
 http://giffmex.org/TiddlyQuickly.html
 http://hangouts.tiddlyspace.com
+https://drive.google.com/uc?export=download&id=0Bydfk9tNRJHBc3FvclFBMzRreTQ GSD5
