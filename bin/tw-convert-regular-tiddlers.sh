@@ -59,9 +59,9 @@ function writeTags {
 		echo -n " $tag"
 	    fi
 	else
-	    if [  "${tag:0:2}" == '$(' ] || [  "${tag:(-2)}" == ')$' ]; then
-		echo "DEBUG found varialbe in tags: '$tag'" 1>&2
-	    fi
+#	    if [  "${tag:0:2}" == '$(' ] || [  "${tag:(-2)}" == ')$' ]; then
+#		echo "DEBUG found varialbe in tags: '$tag'" 1>&2
+#	    fi
 	    if [[ ! $tag =~ $regex ]] && [  "${tag:0:2}" != '$(' ] && [  "${tag:(-2)}" != ')$' ]; then # keep it if not a system tag, otherwise ignore it # added bug fix #8: ignore also if variable
 		echo -n " $tag"
 	    fi
