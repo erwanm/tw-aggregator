@@ -92,7 +92,7 @@ for lineNo in $(seq 1 $nbLines); do
 	echo "wiki $wikiNo/$nbSites: '$name'; fetching '$address'"
 	wget -q "$address" # download the wiki
 	if [ ! -f index.html ]; then # if file not named index.html, rename it
-	    mv ${address##*/} index.html
+	    mv ${address##*/} index.html 2>/dev/null
 	fi
 	if [ $? -ne 0 ] || [ ! -f index.html ]; then # if error, ignore this wiki
 	    echo "Warning: something wrong when fetching '$address'" 1>&2
