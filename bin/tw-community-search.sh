@@ -6,22 +6,22 @@ inputWikiBasis="tw-aggregator-basis"
 removeWorkDir=1
 skipHarvest=0
 workDir=
+indexableWikiAddressListTiddler="$:/indexableWikiAddressList"
 
 function usage {
-    echo "Usage: $progName [options] <list file>"
+    echo "Usage: $progName [options] [wiki basis path]"
     echo
-    echo "  First harvests the collection of wikis provided in <list file>, which"
-    echo "  contains lines of the form:"
-    echo "  <wiki address> [ <wiki short name> [<presentation tiddler title>] ]"
-    echo "  Then extracts the non-system tiddlers and copies them as system"
-    echo "  tiddlers in the output wiki (with various checks and adaptations)."
-    echo "  The 'empty' wiki core (which contains the basic tiddlers, e.g. the"
-    echo "  search form and specific code) must exist: it is expected by default"
-    echo "  in the current directory under the name '$inputWikiBasis'"
+    echo "  [wiki basis path] is the path to the community search wiki skeleton." 
+    echo "  This wiki contains a tiddler '$indexableWikiAddressListTiddler'"
+    echo "  which is rendered in order to obtain the list of wikis addresses;"
+    echo "  then these wikis are harvested (downloaded and converted to node.js);"
+    echo "  Then the script extracts the non-system tiddlers and copies them as"
+    echo "  system tiddlers in the output wiki (with various checks/adaptations)."
+    echo "  The 'wiki basis' is is expected by default in the current directory"
+    echo "  under the name '$inputWikiBasis'"
     echo
     echo "Options:"
     echo "  -h this help message"
-    echo "  -b <wiki basis path>. Default: $inputWikiBasis."
     echo "  -o <standalone html output filename>. Default: $outputFilename."
     echo "  -k keep working dir (for debugging purpose mostly)"
     echo "  -d <working dir> use this path as working directory instead of"
@@ -34,11 +34,10 @@ function usage {
 
 
 
-while getopts 'hb:o:kd:s' option ; do
+while getopts 'ho:kd:s' option ; do
     case $option in
 	"h" ) usage
 	      exit 0;;
-	"b" ) inputWikiBasis="$OPTARG";;
 	"o" ) outputFilename="$OPTARG";;
 	"k" ) removeWorkDir=0;;
 	"s" ) skipHarvest=1;;
@@ -50,12 +49,14 @@ while getopts 'hb:o:kd:s' option ; do
     esac
 done
 shift $(($OPTIND - 1)) # skip options already processed above
-if [ $# -ne 1 ]; then
-    echo "Error: 1 parameters expected, $# found." 1>&2
+if [ $# -ne 0 ] && [ $# -ne 1 ]; then
+    echo "Error: 0 or 1 parameters expected, $# found." 1>&2
     usage 1>&2
     exit 1
 fi
-wikiListFile="$1"
+if [ $# -eq 1 ]; then
+    inputWikiBasis="$1"
+fi
 
 if [ -z "$workDir" ]; then
     workDir=$(mktemp -d)
@@ -64,6 +65,7 @@ else
 fi
 exitCode=0
 if [ $skipHarvest -ne 1 ]; then
+    tw-extract-list-of-indexable-wikis.sh "$inputWikiBasis" "$indexableWikiAddressListTiddler"
     tw-harvest.sh "$wikiListFile" "$workDir"
     exitCode="$?"
 fi

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-progName="tw-scrap.sh"
+progName="tw-harvest.sh"
 
 
 function usage {
