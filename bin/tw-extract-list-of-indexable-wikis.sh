@@ -37,6 +37,6 @@ targetTiddler="$2"
 
 htmlList=$(mktemp)
 tiddlywiki "$wikiBasisPath" --output $(dirname "$htmlList") --rendertiddler "$targetTiddler" $(basename "$htmlList")
-cat "$htmlList" | grep -v ">" | grep -v "<" | grep -v "^\s*$" | sed 's/^\s*//g'
+cat "$htmlList" | grep -v ">" | grep -v "<" | grep -v "^\s*$" | sed 's/^\s*//g' | sed 's/&amp;/&/g'
 rm -f $htmlList
 

@@ -6,7 +6,7 @@ inputWikiBasis="tw-aggregator-basis"
 removeWorkDir=1
 skipHarvest=0
 workDir=
-indexableWikiAddressListTiddler="$:/indexableWikiAddressList"
+indexableWikiAddressListTiddler="$:/IndexableWikiAddressList"
 
 function usage {
     echo "Usage: $progName [options] [wiki basis path]"
@@ -63,10 +63,12 @@ if [ -z "$workDir" ]; then
 else
     removeWorkDir=0
 fi
+
+wikiListFile="$workDir/wikis.list"
+tw-extract-list-of-indexable-wikis.sh "$inputWikiBasis" "$indexableWikiAddressListTiddler" >"$wikiListFile"
+
 exitCode=0
 if [ $skipHarvest -ne 1 ]; then
-    wikiListFile="$workDir/wikis.list"
-    tw-extract-list-of-indexable-wikis.sh "$inputWikiBasis" "$indexableWikiAddressListTiddler" >"$wikiListFile"
     tw-harvest.sh "$wikiListFile" "$workDir"
     exitCode="$?"
 fi
@@ -81,7 +83,7 @@ if [ $exitCode -eq 0 ]; then
     cp "$inputWikiBasis"/tiddlers/* "$workDir"/output-wiki/tiddlers
 
     tw-convert-regular-tiddlers.sh "$workDir" "$workDir/output-wiki"
-    tw-generate-presentation-tiddlers.sh  "$workDir" "$workDir/output-wiki"
+    cat "$wikiListFile" | cut -d " " -f 2 |  tw-update-presentation-tiddlers.sh  "$workDir" "$workDir/output-wiki"
 
 
     total=$(ls "$workDir"/output-wiki/tiddlers/*.tid | wc -l)
