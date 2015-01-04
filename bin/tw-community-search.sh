@@ -65,7 +65,8 @@ else
 fi
 exitCode=0
 if [ $skipHarvest -ne 1 ]; then
-    tw-extract-list-of-indexable-wikis.sh "$inputWikiBasis" "$indexableWikiAddressListTiddler"
+    wikiListFile="$workDir/wikis.list"
+    tw-extract-list-of-indexable-wikis.sh "$inputWikiBasis" "$indexableWikiAddressListTiddler" >"$wikiListFile"
     tw-harvest.sh "$wikiListFile" "$workDir"
     exitCode="$?"
 fi
