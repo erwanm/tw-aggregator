@@ -1,11 +1,12 @@
+color: #1cc975
 created: 20141222182704958
-modified: 20141231194811035
-tags: 
+modified: 20150104162736838
+tags: TWCSCore
 title: CommunityWikis
 type: text/vnd.tiddlywiki
 
 <ul>
-<$list filter="[tag[community-wiki]sort[title]]">
+<$list filter="[tag[CommunityWikis]sort[title]]">
   <li>
     <$link to=<<currentTiddler>>>
       <strong><$view field="title"/></strong>
