@@ -1,11 +1,11 @@
 created: 20141221163448239
-modified: 20141231145915945
-tags: 
+modified: 20150105192901521
+tags: TWCSCore
 title: Version
 type: text/vnd.tiddlywiki
 
 \define getMostRecent()
-  <$list filter="[tag[community-wiki]sort[created]!limit[1]]" emptyMessage="a little bug here">
+  <$list filter="[tag[CommunityWikis]sort[created]!limit[1]]" emptyMessage="a little bug here">
     <$view field="created"  format="relativedate"/>
   </$list>
 \end
@@ -25,7 +25,7 @@ This wiki uses an index generated <<getMostRecent>>.
 
 * <<nbTiddlers>> tiddlers
 * <<nbTags>> distinct tags
-* from <$count filter="[tag[community-wiki]]"/> wikis
+* from <$count filter="[tag[WikiAuthors]has[licence]]"/> wiki authors
 
 are indexed.
 

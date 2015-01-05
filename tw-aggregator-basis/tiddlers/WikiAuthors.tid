@@ -1,0 +1,20 @@
+color: #1cc975
+created: 20150104160233908
+modified: 20150105005447980
+title: WikiAuthors
+type: text/vnd.tiddlywiki
+
+<ul>
+<$list filter="[tag[WikiAuthors]has[licence]]" variable="currentAuthor">
+    <li>
+      <$link to=<<currentAuthor>>>
+        <$text text=<<currentAuthor>>/>
+      </$link>
+    </li>
+    <ul>
+      <$list filter="[tag<currentAuthor>tag[CommunityWikis]]">
+        <li>{{||$:/CommunityWikiShortDescription}}</li>
+      </$list>
+    </ul>
+</$list>
+</ul>
