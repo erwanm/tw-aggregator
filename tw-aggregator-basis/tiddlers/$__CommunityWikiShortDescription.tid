@@ -1,0 +1,22 @@
+created: 20150105002709937
+modified: 20150105005256922
+tags: TWCSCore
+title: $:/CommunityWikiShortDescription
+type: text/vnd.tiddlywiki
+
+<$link to=<<currentTiddler>>>
+  <strong><$view field="title"/></strong>
+</$link><br/>
+<a href={{!!wiki-address}} target="_blank"><$view field="wiki-address"/></a><br/>
+TW version {{||$:/CommunityWikiTWVersionInfo
+}}<br/>
+
+@@font-style: italic;
+<$count filter="[source-wiki-id<currentTiddler>sort[title]]" /> 
+tiddlers. Latest modification 
+<$list filter="[source-wiki-id<currentTiddler>sort[created]!limit[1]] +[reverse[]]" emptyMessage="unknown">
+  <$view field="modified" format="relativedate"/>.
+</$list>
+@@
+<br/>
+<$transclude tiddler="$:/core/ui/TagTemplate"/>
