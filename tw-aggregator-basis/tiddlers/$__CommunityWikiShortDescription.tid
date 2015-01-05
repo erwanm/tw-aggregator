@@ -1,5 +1,5 @@
 created: 20150105002709937
-modified: 20150105005256922
+modified: 20150105011050675
 tags: TWCSCore
 title: $:/CommunityWikiShortDescription
 type: text/vnd.tiddlywiki
@@ -8,6 +8,13 @@ type: text/vnd.tiddlywiki
   <strong><$view field="title"/></strong>
 </$link><br/>
 <a href={{!!wiki-address}} target="_blank"><$view field="wiki-address"/></a><br/>
+by 
+<$list filter="[all[current]tags[]] -CommunityWikis" variable="author">
+  <$link to=<<author>>>
+  	<$text text=<<author>>/>
+  </$link>
+</$list>
+<br/>
 TW version {{||$:/CommunityWikiTWVersionInfo
 }}<br/>
 

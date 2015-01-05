@@ -5,7 +5,7 @@ title: $:/IndexableWikiAddressList
 type: text/vnd.tiddlywiki
 
 
-<$list filter="[tag[WikiAuthor]has[licence]]">
+<$list filter="[tag[WikiAuthors]has[licence]]">
   <$list filter="[tag[CommunityWikis]tag<currentTiddler>]">
     <$view field="wiki-address"/> <$view field="title"/>
   </$list>

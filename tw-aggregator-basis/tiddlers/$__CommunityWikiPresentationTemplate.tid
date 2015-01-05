@@ -1,5 +1,5 @@
 created: 20141222174553788
-modified: 20150104140518171
+modified: 20150105012112631
 tags: TWCSCore
 title: $:/CommunityWikiPresentationTemplate
 type: text/vnd.tiddlywiki
@@ -7,6 +7,16 @@ type: text/vnd.tiddlywiki
 !!! Address
 
 {{!!wiki-address}}
+
+!!!Author
+
+<$list filter="[all[current]tags[]] -CommunityWikis" variable="author">
+  <$link to=<<author>>>
+  	<$text text=<<author>>/>
+  </$link>
+</$list>
+<br/>
+
 
 !!! TW version
 

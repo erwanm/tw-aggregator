@@ -6,7 +6,7 @@ title: CommunityWikis
 type: text/vnd.tiddlywiki
 
 <ul>
-<$list filter="[tag[WikiAuthor]has[licence]]">
+<$list filter="[tag[WikiAuthors]has[licence]]">
   <$list filter="[tag[CommunityWikis]tag<currentTiddler>]">
     <li>
       {{||$:/CommunityWikiShortDescription}}

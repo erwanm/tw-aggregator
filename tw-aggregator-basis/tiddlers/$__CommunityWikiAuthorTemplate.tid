@@ -1,12 +1,15 @@
 created: 20150104141304073
-modified: 20150104153030356
+modified: 20150105011806634
 tags: TWCSCore
 title: $:/CommunityWikiAuthorTemplate
 type: text/vnd.tiddlywiki
 
 
-{{{[all[current]tagging[]tag[CommunityWikis]]}}}
-
-@@font-size: 75%;
+<ul>
+<$list filter="[all[current]tagging[]tag[CommunityWikis]]">
+  <li>{{||$:/CommunityWikiShortDescription}}</li>
+</$list>
+</ul>
+@@font-size: 80%;
 Authorised indexing: {{!!licence}}
 @@

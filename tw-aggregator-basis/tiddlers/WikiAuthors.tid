@@ -1,11 +1,11 @@
 color: #1cc975
 created: 20150104160233908
 modified: 20150105005447980
-title: WikiAuthor
+title: WikiAuthors
 type: text/vnd.tiddlywiki
 
 <ul>
-<$list filter="[tag[WikiAuthor]has[licence]]" variable="currentAuthor">
+<$list filter="[tag[WikiAuthors]has[licence]]" variable="currentAuthor">
     <li>
       <$link to=<<currentAuthor>>>
         <$text text=<<currentAuthor>>/>
