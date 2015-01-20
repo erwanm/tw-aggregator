@@ -1,11 +1,11 @@
 created: 20141221163448239
-modified: 20150105192901521
+modified: 20150120193124638
 tags: TWCSCore
 title: Version
 type: text/vnd.tiddlywiki
 
 \define getMostRecent()
-  <$list filter="[tag[CommunityWikis]sort[created]!limit[1]]" emptyMessage="a little bug here">
+  <$list filter="[[LastUpdate]]" emptyMessage="a little bug here">
     <$view field="created"  format="relativedate"/>
   </$list>
 \end

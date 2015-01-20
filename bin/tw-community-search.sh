@@ -32,6 +32,18 @@ function usage {
 
 
 
+#
+# arguments of the form "field: value"
+#
+function writeTiddlerHeader {
+    theDate=$(date +"%Y%m%d%H%M%S")
+    echo "created: ${theDate}000"
+    while [ $# -gt 0 ]; do
+	echo "$1"
+	shift
+    done
+    echo
+}
 
 
 while getopts 'ho:kd:s' option ; do
@@ -84,7 +96,8 @@ if [ $exitCode -eq 0 ]; then
 
     tw-convert-regular-tiddlers.sh "$workDir" "$workDir/output-wiki"
     cat "$wikiListFile" | cut -d " " -f 2 |  tw-update-presentation-tiddlers.sh  "$workDir" "$workDir/output-wiki"
-
+    # special tiddler to record the date of the last update
+    writeTiddlerHeader "title: LastUpdate" "tags: TWCSCore" >"$workDir/output-wiki/tiddlers/LastUpdate.tid"
 
     total=$(ls "$workDir"/output-wiki/tiddlers/*.tid | wc -l)
     echo "Converting the output wiki to standalone html"
