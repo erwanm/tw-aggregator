@@ -1,9 +1,9 @@
 color: #db4a9a
 created: 20150104155632177
-licence: 
-modified: 20150105185230982
+licence: email
+modified: 20150120175847354
 tags: WikiAuthors
-title: RichSchumaker
+title: RichShumaker
 type: text/vnd.tiddlywiki
 
 {{||$:/CommunityWikiAuthorTemplate}}
