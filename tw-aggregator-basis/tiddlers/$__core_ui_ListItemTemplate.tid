@@ -1,5 +1,5 @@
 created: 20141222144931364
-modified: 20141222170847779
+modified: 20150128194839912
 tags: 
 title: $:/core/ui/ListItemTemplate
 type: text/vnd.tiddlywiki
@@ -21,9 +21,9 @@ type: text/vnd.tiddlywiki
   <div class="tc-menu-list-item">
     <$set name="from-tiddler" value={{!!source-wiki-id}}>
       <$list filter="[<from-tiddler>get[wiki-address]]" variable="address">
-        <$set name="tiddler-title" value={{!!source-tiddler-title}}>
+        <$set name="tiddler-title" value={{!!source-tiddler-title-as-link}}>
           <a href=<<concat-tiddler-link>> target="_blank">
-            <$text text=<<tiddler-title>>/> @<$text text=<<from-tiddler>>/>
+            <$text text={{!!source-tiddler-title-as-text}}/> @<$text text=<<from-tiddler>>/>
           </a>
         </$set>
       </$list>

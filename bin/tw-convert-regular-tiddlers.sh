@@ -38,6 +38,26 @@ function isPluginThemeOrJavascript {
 }
 
 
+#
+# from http://stackoverflow.com/questions/296536/urlencode-from-a-bash-script
+#
+rawurlencode() {
+  local string="${1}"
+  local strlen=${#string}
+  local encoded=""
+
+  for (( pos=0 ; pos<strlen ; pos++ )); do
+     c=${string:$pos:1}
+     case "$c" in
+        [-_.~a-zA-Z0-9] ) o="${c}" ;;
+        * )               printf -v o '%%%02x' "'$c"
+     esac
+     encoded+="${o}"
+  done
+  echo "${encoded}"    # You can either set a return variable (FASTER) 
+#  REPLY="${encoded}"   #+or echo the result (EASIER)... or both... :p
+}
+
 
 function writeTags {
     local name="$1"
@@ -111,7 +131,12 @@ for wikiDir in "$collectedWikisDir"/*; do
 		    oldTags=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^tags:" | sed 's/^tags: //g')
 		    writeTags "$name" "$oldTags" >>"$dest"
 		    echo "source-wiki-id: $name" >>"$dest" # store custom fields in order to recompute the original address
-		    echo "source-tiddler-title: $oldTitle" >>"$dest" 
+		    # url-encode the title, in case it contains characters like # (see github bug #24)
+		    # also keep the non-encoded title (named source-tiddler-title-as-text), to display it in a user-friendly readable text
+		    # without the prefix '$:/<wiki name>/' (maybe possible to user remove-suffix instead ?? regexp ?)
+		    echo "source-tiddler-title-as-text: $oldTitle" >>"$dest"   
+		    echo -n "source-tiddler-title-as-link: " >>"$dest"
+		    rawurlencode "$oldTitle" >>"$dest"  # new version with url-encoding
 		    tail -n +$firstBlankLineNo "$tiddlerFile" >>"$dest"
 		fi
 	    done
