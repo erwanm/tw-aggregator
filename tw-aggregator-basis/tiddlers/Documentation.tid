@@ -1,0 +1,14 @@
+created: 20150131140341668
+modified: 20150131141052117
+tags: 
+title: Documentation
+type: text/vnd.tiddlywiki
+
+
+//Warning: this part is a work in progress!//
+
+The documentation is divided into three parts:
+
+* UserDocumentation explains how to use this wiki.
+* AuthorDocumentation is intended for community authors who have a wiki indexed by this search system (or who want to have their wiki indexed).
+* DeveloperDocumentation is intended for people who want to contribute to this project or want to install their own TW aggregator system.

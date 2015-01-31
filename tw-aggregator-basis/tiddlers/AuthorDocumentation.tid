@@ -1,0 +1,31 @@
+created: 20150131144602353
+modified: 20150131150521239
+tags: Documentation
+title: AuthorDocumentation
+type: text/vnd.tiddlywiki
+
+
+! Principle
+
+//Please read this if you are worried about your content not being displayed as you intended it to be!//
+
+The scripts which generate this wiki download the wikis and extract their tiddlers, does some cleanup/post-processing and generates the search wiki. The system ignores:
+
+* System tiddlers,
+* Plugin and themes tiddlers,
+* //[future feature] blacklist//
+
+Regular tiddlers which are collected are converted to system tiddlers, so that they are not visible to the user of the search wiki. They can still be accessed via the Advanced Search box, but we can reasonably assume that only skilled users interested in the implementation would use this possibility.
+
+Thus the only (simple) ways for a user to access the content in one of the collected tiddlers is through:
+
+* the community search box,
+* the tags,
+* other direct links.
+
+In all these cases the links, which would normally point to the corresponding system tiddlers, are converted to external links to the original tiddlers (i.e. a permalink which points to the tiddler in your wiki).
+
+! Features
+
+* FollowUrl
+* [Future] Blacklist/whitelist
