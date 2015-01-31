@@ -1,0 +1,14 @@
+color: #1cc975
+created: 20150131140341668
+modified: 20150131212606678
+tags: TWCSCore Documentation
+title: Documentation
+type: text/vnd.tiddlywiki
+
+//Warning: this part is a work in progress!//
+
+The documentation is divided into three parts:
+
+* UserDocumentation explains how to use this wiki.
+* AuthorDocumentation is intended for wiki authors who have a wiki indexed by this search system (or who want to!).
+* DeveloperDocumentation is intended for people who want to contribute to this project or want to install their own TW aggregator system.

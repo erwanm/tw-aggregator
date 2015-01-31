@@ -1,0 +1,17 @@
+created: 20141221191203963
+modified: 20150131143602962
+tags: TWCSCore
+title: ImplementationOverview
+type: text/vnd.tiddlywiki
+
+!! Offline
+
+A [[set of Bash scripts|https://github.com/erwanm/tw-aggregator/tree/master/bin]] downloads the referenced wikis, converts their non-system tiddlers to system tiddlers, and generates a new wiki using {{TiddlyWiki}} [[Node.js edition|http://tiddlywiki.com/#TiddlyWiki%20on%20Node.js]].
+
+!! Online
+
+Pure {{TiddlyWiki}}: the user can search the content gathered from the indexed wikis using a [[custom search box|CommunitySearch]]. The results are displayed as links to the original tiddler (using a custom version of the shadow tiddler [[$:/core/ui/ListItemTemplate]]). 
+
+!! Project
+
+The whole project is available on Github: https://github.com/erwanm/tw-aggregator
