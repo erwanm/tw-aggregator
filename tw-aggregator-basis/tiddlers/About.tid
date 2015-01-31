@@ -1,13 +1,15 @@
 created: 20141221163203443
-modified: 20150131143646496
+modified: 20150131212322711
 tags: TWCSCore
 title: About
 type: text/vnd.tiddlywiki
 
 ! Purpose
 
-This wiki provides a search engine for {{TiddlyWiki}} community wikis. The list of indexed wikis is shown below. See technical details in [[ImplementationOverview]].
+This wiki provides a search engine for {{TiddlyWiki}} community wikis. The list of indexed wikis is shown below. 
 
+* See a brief technical explanation in [[ImplementationOverview]].
+* See the [[Documentation]]
 
 ! Warning
 

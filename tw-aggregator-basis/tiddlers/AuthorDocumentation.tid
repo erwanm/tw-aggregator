@@ -1,31 +1,50 @@
 created: 20150131144602353
-modified: 20150131150521239
-tags: Documentation
+modified: 20150131214932784
+tags: Documentation TWCSCore
 title: AuthorDocumentation
 type: text/vnd.tiddlywiki
 
 
-! Principle
+! Agreement
+
+No content is indexed by this system without the explicit agreement of their author.
+
+If you are the author of a wiki and wish to have its content indexed by this search engine, please [[tell me!|Contact]] 
+
+
+
+! How it works 
+
+''... and why your content is well taken care of!''
 
 //Please read this if you are worried about your content not being displayed as you intended it to be!//
 
-The scripts which generate this wiki download the wikis and extract their tiddlers, does some cleanup/post-processing and generates the search wiki. The system ignores:
+The scripts which generate this wiki proceed as follows:
+
+# download the wikis specified in [[$:/IndexableWikiAddressList]]
+# extract the tiddlers
+# do some filtering/processing 
+# generate the search wiki.
+
+In step 3, the system ignores:
 
 * System tiddlers,
 * Plugin and themes tiddlers,
 * //[future feature] blacklist//
 
-Regular tiddlers which are collected are converted to system tiddlers, so that they are not visible to the user of the search wiki. They can still be accessed via the Advanced Search box, but we can reasonably assume that only skilled users interested in the implementation would use this possibility.
+Regular tiddlers which are collected are converted to system tiddlers, so that they are not visible to the user of the search wiki. They can still be accessed via the //Advanced Search// box, but we can reasonably assume that only skilled users interested in the implementation would use this possibility.
 
-Thus the only (simple) ways for a user to access the content in one of the collected tiddlers is through:
+As a consequence, the only (simple) ways for a user to access the content in one of the collected tiddlers is through:
 
 * the community search box,
 * the tags,
 * other direct links.
 
-In all these cases the links, which would normally point to the corresponding system tiddlers, are converted to external links to the original tiddlers (i.e. a permalink which points to the tiddler in your wiki).
+In all these cases the links, which would normally point to the corresponding system tiddlers in this wiki, are converted to external links to the original tiddlers (that is, each link is a permalink which points to the tiddler in your wiki). This is achieved through a custom version of the shadow tiddler [[$:/core/ui/ListItemTemplate]]. 
 
 ! Features
+
+In order to make the process as automatized as possible, the following features allow the wiki author to control some aspects of the indexing:
 
 * FollowUrl
 * [Future] Blacklist/whitelist
