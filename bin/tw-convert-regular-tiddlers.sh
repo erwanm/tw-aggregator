@@ -14,6 +14,10 @@ function usage {
     echo "  Plugin/theme tiddlers are ignored, as well as tiddler with type"
     echo "  application/javascript."
     echo
+    echo "  Additionally, if a tiddler contains a field 'follow' with value"
+    echo "  'YES' and a field 'url', then the url is printed to STDOUT as:"
+    echo "  <original wiki name> <url new wiki>"
+    echo
     echo "Options:"
     echo "  -h this help message"
     echo    
@@ -36,6 +40,8 @@ function isPluginThemeOrJavascript {
 	return 0
     fi
 }
+
+
 
 
 #
@@ -93,6 +99,27 @@ function writeTags {
 
 
 
+
+#
+#
+#
+function followUrlTiddler  {
+    local tiddlerFile="$1"
+    local firstBlankLineNo="$2"
+    local sourceWikiName="$3"
+    local tiddlerDir="$4"
+
+    follow=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^follow:" | sed 's/^follow: //g')
+    if [ "${follow,,}" == "yes" ]; then
+	url=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^url:" | sed 's/^url: //g')
+	title=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^title:" | sed 's/^title: //g')
+	if [ ! -z "$url" ] && [ ! -f "$tiddlerDir/$title.tid" ] ; then # second condition to ensure the wiki hasn't been already extracted
+	    echo "$sourceWikiName $url $title"
+	fi
+    fi
+}
+
+
 while getopts 'h' option ; do
     case $option in
 	"h" ) usage
@@ -138,6 +165,7 @@ for wikiDir in "$collectedWikisDir"/*; do
 		    echo -n "source-tiddler-title-as-link: " >>"$dest"
 		    rawurlencode "$oldTitle" >>"$dest"  # new version with url-encoding
 		    tail -n +$firstBlankLineNo "$tiddlerFile" >>"$dest"
+		    followUrlTiddler "$tiddlerFile" $firstBlankLineNo "$name" "$targetWiki/tiddlers"
 		fi
 	    done
 	fi

@@ -7,7 +7,7 @@ function usage {
     echo
     echo "  <wiki basis path> contains a tiddler <indexable wikis tiddler>"
     echo "  which is rendered in order to obtain the list of wikis addresses."
-    echo "  The addresses are extracted are printed to STDOUT."
+    echo "  The  extracted addresses are printed to STDOUT."
     echo
     echo "Options:"
     echo "  -h this help message"

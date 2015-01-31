@@ -46,6 +46,14 @@ function writeTiddlerHeader {
 }
 
 
+function findWikiAuthor {
+    local tiddlersPath="$1"
+    local wikiName="$2"
+    authorTag=$(grep "^tags: " "$tiddlersPath/$wikiName.tid" | sed 's/^tags: //' | sed 's/CommunityWikis//')
+    echo $authorTag
+}
+
+
 while getopts 'ho:kd:s' option ; do
     case $option in
 	"h" ) usage
@@ -79,6 +87,7 @@ fi
 wikiListFile="$workDir/wikis.list"
 tw-extract-list-of-indexable-wikis.sh "$inputWikiBasis" "$indexableWikiAddressListTiddler" >"$wikiListFile"
 
+
 exitCode=0
 if [ $skipHarvest -ne 1 ]; then
     tw-harvest.sh "$wikiListFile" "$workDir"
@@ -94,8 +103,31 @@ if [ $exitCode -eq 0 ]; then
     mkdir "$workDir"/output-wiki/tiddlers
     cp "$inputWikiBasis"/tiddlers/* "$workDir"/output-wiki/tiddlers
 
-    tw-convert-regular-tiddlers.sh "$workDir" "$workDir/output-wiki"
-    cat "$wikiListFile" | cut -d " " -f 2 |  tw-update-presentation-tiddlers.sh  "$workDir" "$workDir/output-wiki"
+    while [ -s  "$wikiListFile" ] && [ $exitCode -eq 0 ] ; do # loop for sub-wikis (field 'follow')
+	subwikiListFile="$workDir/subwikis.list"
+	tw-convert-regular-tiddlers.sh "$workDir" "$workDir/output-wiki" >"$subwikiListFile"
+	cat "$wikiListFile" | cut -d " " -f 2 |  tw-update-presentation-tiddlers.sh  "$workDir" "$workDir/output-wiki"
+	nbSubWikis=$(cat "$subwikiListFile" | wc -l)
+	echo " $nbSubWikis sub-wikis to follow."
+#	cat "$subwikiListFile"
+	if [ $nbSubWikis -gt 0 ]; then
+	    cat "$subwikiListFile" | while read line; do
+		sourceWiki=$(echo "$line" | cut -d " " -f 1)
+		address=$(echo "$line" | cut -d " " -f 2)
+		title=$(echo "$line" | cut -d " " -f 3)
+		author=$(findWikiAuthor "$workDir/output-wiki/tiddlers" "$sourceWiki")
+		echo "  Generating new community wiki tiddler: '$title' by '$author' at '$address'"
+		writeTiddlerHeader "title: $title" "tags: CommunityWikis $author" "type: text/vnd.tiddlywiki" "wiki-address: $address" >"$workDir/output-wiki/tiddlers/$title.tid"
+		echo "{{||\$:/CommunityWikiAuthorTemplate}}" >>"$workDir/output-wiki/tiddlers/$title.tid"
+	    done
+	    cut -d " " -f 2,3 "$subwikiListFile" > "$wikiListFile"
+	    tw-harvest.sh "$wikiListFile" "$workDir"
+	    exitCode="$?"
+	else 
+	    rm -f "$wikiListFile"
+	fi
+    done
+
     # special tiddler to record the date of the last update
     writeTiddlerHeader "title: LastUpdate" "tags: TWCSCore" >"$workDir/output-wiki/tiddlers/LastUpdate.tid"
 
