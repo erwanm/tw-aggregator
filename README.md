@@ -14,3 +14,5 @@ Setup
 
 The offline process is done by a few Bash scripts located in the bin/ directory.
 It should work from any Linux environment. The directory bin/ should be added to the $PATH environment variable.
+
+See more details in the documentation provided in the wiki at https://rawgit.com/erwanm/tw-aggregator/master/tw-community-search.html
