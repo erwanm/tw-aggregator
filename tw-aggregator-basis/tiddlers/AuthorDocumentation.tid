@@ -1,9 +1,8 @@
 created: 20150131144602353
-modified: 20150131214932784
+modified: 20150201190108068
 tags: Documentation TWCSCore
 title: AuthorDocumentation
 type: text/vnd.tiddlywiki
-
 
 ! Agreement
 
@@ -29,8 +28,9 @@ The scripts which generate this wiki proceed as follows:
 In step 3, the system ignores:
 
 * System tiddlers,
-* Plugin and themes tiddlers,
-* //[future feature] blacklist//
+* Plugin and themes tiddlers
+
+Additionally, you can explicitly tell the system which tiddlers to take into account using the WhitelistFeature.
 
 Regular tiddlers which are collected are converted to system tiddlers, so that they are not visible to the user of the search wiki. They can still be accessed via the //Advanced Search// box, but we can reasonably assume that only skilled users interested in the implementation would use this possibility.
 
@@ -46,5 +46,5 @@ In all these cases the links, which would normally point to the corresponding sy
 
 In order to make the process as automatized as possible, the following features allow the wiki author to control some aspects of the indexing:
 
-* FollowUrl
-* [Future] Blacklist/whitelist
+* FollowUrlFeature: {{FollowUrlFeature!!description}}
+* WhitelistFeature: {{WhitelistFeature!!description}}

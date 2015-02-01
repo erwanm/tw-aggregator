@@ -1,0 +1,44 @@
+created: 20150201182004732
+description: With this feature you can tell the indexing script which tiddlers to index in your wiki.
+modified: 20150201190001811
+title: WhitelistFeature
+type: text/vnd.tiddlywiki
+
+! Description
+
+{{!!description}}
+
+! Usage
+
+By default, when a wiki is indexed, all its regular tiddlers are taken into account (i.e. all tiddlers except system tiddlers, plugin tiddlers and theme tiddlers).
+
+It is possible to adjust the indexing mechanism to your needs by creating a system tiddler named ``$:/CommunitySearchIndexableTiddlers`` in your wiki. Only the tiddlers listed in this one will be indexed, any other will be ignored. You would typically define the content of ``$:/CommunitySearchIndexableTiddlers`` with a [[filter||http://tiddlywiki.com/#Introduction%20to%20Filters]]. For instance, the filter
+
+```
+{{{[tag[public]]}}}
+```
+
+would make the indexing script consider only the tiddlers tagged ''public''.
+
+
+Caution: ``$:/CommunitySearchIndexableTiddlers`` should only contain a list of tiddlers; any other content might cause the indexing script to fail to index your wiki properly.
+
+!! Examples
+
+If you prefer to use a field in your tiddlers:
+
+```
+{{{[field:indexable[yes]]}}}
+```
+
+If a blacklist strategy suits you better:
+
+```
+{{{[!tag[private]]}}}
+```
+
+If you only want to keep a few specific tiddlers from indexing:
+
+```
+{{{[all[tiddlers]] -MyPrivateTiddler1 -[[MyPrivateTiddler2]]}}}
+```
