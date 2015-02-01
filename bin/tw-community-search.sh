@@ -105,8 +105,8 @@ if [ $exitCode -eq 0 ]; then
 
     while [ -s  "$wikiListFile" ] && [ $exitCode -eq 0 ] ; do # loop for sub-wikis (field 'follow')
 	subwikiListFile="$workDir/subwikis.list"
-	tw-convert-regular-tiddlers.sh "$workDir" "$workDir/output-wiki" >"$subwikiListFile"
-	cat "$wikiListFile" | cut -d " " -f 2 |  tw-update-presentation-tiddlers.sh  "$workDir" "$workDir/output-wiki"
+	cat "$wikiListFile" | cut -d " " -f 2 | tw-convert-regular-tiddlers.sh "$workDir" "$workDir/output-wiki" >"$subwikiListFile"
+	cat "$wikiListFile" | cut -d " " -f 2 | tw-update-presentation-tiddlers.sh  "$workDir" "$workDir/output-wiki"
 	nbSubWikis=$(cat "$subwikiListFile" | wc -l)
 	echo " $nbSubWikis sub-wikis to follow."
 #	cat "$subwikiListFile"

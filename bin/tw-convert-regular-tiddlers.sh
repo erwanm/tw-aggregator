@@ -7,6 +7,9 @@ whitelistSpecialTiddlerFilename=$(echo "$whitelistSpecialTiddler" | sed 's/^$:\/
 function usage {
     echo "Usage: $progName [options] <collected wikis dir> <target wiki dir>"
     echo
+    echo "  Reads a list of wiki ids from STDIN; each <wiki id> corresponds to"
+    echo "  a directory <collected wikis dir>/<wiki id> (previously collected"
+    echo "  with tw-harvest.sh), containing the tiddlers."
     echo "  The following steps are applied to every regular tiddler:"
     echo "  * convert to system tiddler"
     echo "  * rename as \$:/<wiki-name>/<title>"
@@ -16,9 +19,11 @@ function usage {
     echo "  Plugin/theme tiddlers are ignored, as well as tiddler with type"
     echo "  application/javascript."
     echo
-    echo "  Additionally, if a tiddler contains a field 'follow' with value"
-    echo "  'YES' and a field 'url', then the url is printed to STDOUT as:"
-    echo "  <original wiki name> <url new wiki>"
+    echo "  - if a tiddler contains a field 'follow' with value 'YES' and a"
+    echo "    field 'url', then the url is printed to STDOUT as:"
+    echo "    <original wiki name> <url new wiki>"
+    echo "  - if the wiki contains a tiddler '$whitelistSpecialTiddler', then"
+    echo "    only the tiddlers listed in this tiddler are processed."
     echo
     echo "Options:"
     echo "  -h this help message"
@@ -109,13 +114,13 @@ function followUrlTiddler  {
     local tiddlerFile="$1"
     local firstBlankLineNo="$2"
     local sourceWikiName="$3"
-    local tiddlerDir="$4"
+    local outputWikiDir="$4"
 
     follow=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^follow:" | sed 's/^follow: //g')
     if [ "${follow,,}" == "yes" ]; then
 	url=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^url:" | sed 's/^url: //g')
 	title=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^title:" | sed 's/^title: //g')
-	if [ ! -z "$url" ] && [ ! -f "$tiddlerDir/$title.tid" ] ; then # second condition to ensure the wiki hasn't been already extracted
+	if [ ! -z "$url" ] && [ ! -f "$outputWikiDir/tiddlers/$title.tid" ] ; then # second condition to ensure the wiki hasn't been already extracted
 	    echo "$sourceWikiName $url $title"
 	fi
     fi
@@ -142,41 +147,59 @@ collectedWikisDir="$1"
 targetWiki="$2"
 
 regex="^\\\$__"
-for wikiDir in "$collectedWikisDir"/*; do
+while read name; do
+    wikiDir="$collectedWikisDir/$name"
     if [ -d "$wikiDir" ]; then
-	if [ "$(basename "$targetWiki")" != "$(basename "$wikiDir")" ]; then # skip target wiki
-	    name=$(basename "$wikiDir")
-	    if [ -f "$wikiDir/tiddlers/$whitelistSpecialTiddlerFilename.tid" ]; then
-		tw-print-from-rendered-tiddler.sh "$wikiDir" "$whitelistSpecialTiddler" > TODOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-
-TODO
-
-	    else
-	    fi
-	    for tiddlerFile in "$wikiDir"/tiddlers/*.tid; do
-		firstBlankLineNo=$(cat "$tiddlerFile" | grep -n "^$" | head -n 1 | cut -f 1 -d ":")
-		basef=$(basename "$tiddlerFile")
-		isPluginThemeOrJavascript "$tiddlerFile" "$firstBlankLineNo"
-		if [ $? -eq 0 ] && [[ ! $basef =~ $regex ]]; then # ignore plugins/themes and system tiddlers
-#		    echo "debug regular '$basef'" 1>&2
-		    dest="$targetWiki/tiddlers/\$__${name}_$basef"
-		    oldTitle=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^title:" | sed 's/^title: //g')
-		    newTitle="\$:/$name/$oldTitle" # convert title to system tiddler with wiki id prefix
-		    echo "title: $newTitle" >"$dest"
-		    head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep -v "^title:" | grep -v "^tags:" >>"$dest" # copy fields except title and tags
-		    oldTags=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^tags:" | sed 's/^tags: //g')
-		    writeTags "$name" "$oldTags" >>"$dest"
-		    echo "source-wiki-id: $name" >>"$dest" # store custom fields in order to recompute the original address
-		    # url-encode the title, in case it contains characters like # (see github bug #24)
-		    # also keep the non-encoded title (named source-tiddler-title-as-text), to display it in a user-friendly readable text
-		    # without the prefix '$:/<wiki name>/' (maybe possible to user remove-suffix instead ?? regexp ?)
-		    echo "source-tiddler-title-as-text: $oldTitle" >>"$dest"   
-		    echo -n "source-tiddler-title-as-link: " >>"$dest"
-		    rawurlencode "$oldTitle" >>"$dest"  # new version with url-encoding
-		    tail -n +$firstBlankLineNo "$tiddlerFile" >>"$dest"
-		    followUrlTiddler "$tiddlerFile" $firstBlankLineNo "$name" "$targetWiki/tiddlers"
+	echo "Processing wiki '$name'" 1>&2
+	tiddlersList=$(mktemp)
+	if [ -f "$wikiDir/tiddlers/$whitelistSpecialTiddlerFilename.tid" ]; then
+	    tw-print-from-rendered-tiddler.sh "$wikiDir" "$whitelistSpecialTiddler" | while read title; do
+		if [ -f "$wikiDir/tiddlers/$title.tid" ]; then
+		    echo "$wikiDir/tiddlers/$title.tid"
+		else 
+		    f=$(grep "^title: $title$" "$wikiDir"/tiddlers/*.tid | cut -d ":" -f 1) # assuming only one possibility!
+		    if [ -z "$f" ]; then
+			echo "Warning: no tiddler titled '$title' found in wiki '$name'" 1>&2
+		    else
+			echo "$f"
+		    fi
 		fi
-	    done
+	    done > "$tiddlersList"
+	else
+	    ls "$wikiDir"/tiddlers/*.tid | while read f; do
+		if [ -f "$f" ]; then
+		    echo "$f"
+		else
+		    echo "Warning: cannot open file '$f' in wiki '$name'" 1>&2
+		fi
+	    done >"$tiddlersList"
 	fi
+	cat "$tiddlersList" | while read tiddlerFile; do
+	    firstBlankLineNo=$(cat "$tiddlerFile" | grep -n "^$" | head -n 1 | cut -f 1 -d ":")
+	    basef=$(basename "$tiddlerFile")
+	    isPluginThemeOrJavascript "$tiddlerFile" "$firstBlankLineNo"
+	    if [ $? -eq 0 ] && [[ ! $basef =~ $regex ]]; then # ignore plugins/themes and system tiddlers
+		#		    echo "debug regular '$basef'" 1>&2
+		dest="$targetWiki/tiddlers/\$__${name}_$basef"
+		oldTitle=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^title:" | sed 's/^title: //g')
+		newTitle="\$:/$name/$oldTitle" # convert title to system tiddler with wiki id prefix
+		echo "title: $newTitle" >"$dest"
+		head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep -v "^title:" | grep -v "^tags:" >>"$dest" # copy fields except title and tags
+		oldTags=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^tags:" | sed 's/^tags: //g')
+		writeTags "$name" "$oldTags" >>"$dest"
+		echo "source-wiki-id: $name" >>"$dest" # store custom fields in order to recompute the original address
+		# url-encode the title, in case it contains characters like # (see github bug #24)
+		# also keep the non-encoded title (named source-tiddler-title-as-text), to display it in a user-friendly readable text
+		# without the prefix '$:/<wiki name>/' (maybe possible to user remove-suffix instead ?? regexp ?)
+		echo "source-tiddler-title-as-text: $oldTitle" >>"$dest"   
+		echo -n "source-tiddler-title-as-link: " >>"$dest"
+		rawurlencode "$oldTitle" >>"$dest"  # new version with url-encoding
+		tail -n +$firstBlankLineNo "$tiddlerFile" >>"$dest"
+		followUrlTiddler "$tiddlerFile" $firstBlankLineNo "$name" "$targetWiki"
+	    fi
+	done
+	rm -f "$tiddlersList"
+    else
+	echo "Warning: no directory '$wikiDir', wiki '$name' ignored." 1>&2
     fi
 done
