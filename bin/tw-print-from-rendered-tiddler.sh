@@ -1,13 +1,13 @@
 #!/bin/bash
 
-progName="tw-extract-list-of-indexable-wikis.sh"
+progName="tw-print-from-rendered-tiddler.sh"
 
 function usage {
-    echo "Usage: $progName [options] <wiki basis path> <indexable wikis tiddler>"
+    echo "Usage: $progName [options] <wiki basis path> <tiddler>"
     echo
-    echo "  <wiki basis path> contains a tiddler <indexable wikis tiddler>"
-    echo "  which is rendered in order to obtain the list of wikis addresses."
-    echo "  The  extracted addresses are printed to STDOUT."
+    echo "  <wiki basis path> contains a tiddler <tiddler>"
+    echo "  which is rendered, and its content is printed to STDOUT"
+    echo "  (after being cleaned from html tags)."
     echo
     echo "Options:"
     echo "  -h this help message"
@@ -36,7 +36,8 @@ targetTiddler="$2"
 
 
 htmlList=$(mktemp)
+#echo $htmlList
 tiddlywiki "$wikiBasisPath" --output $(dirname "$htmlList") --rendertiddler "$targetTiddler" $(basename "$htmlList")
-cat "$htmlList" | grep -v ">" | grep -v "<" | grep -v "^\s*$" | sed 's/^\s*//g' | sed 's/&amp;/\&/g'
+cat "$htmlList" | sed 's/<[^>]*>/\n/g' | grep -v "^\s*$" | sed 's/^\s*//g' | sed 's/&amp;/\&/g' # dirty...
 rm -f $htmlList
 

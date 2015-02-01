@@ -1,6 +1,8 @@
 #!/bin/bash
 
 progName="tw-convert-regular-tiddlers.sh"
+whitelistSpecialTiddler="\$__CommunitySearchIndexableTiddlers"
+
 
 function usage {
     echo "Usage: $progName [options] <collected wikis dir> <target wiki dir>"
@@ -144,6 +146,10 @@ for wikiDir in "$collectedWikisDir"/*; do
     if [ -d "$wikiDir" ]; then
 	if [ "$(basename "$targetWiki")" != "$(basename "$wikiDir")" ]; then # skip target wiki
 	    name=$(basename "$wikiDir")
+	    if [ -f "$wikiDir/tiddlers/$whitelistSpecialTiddler.tid" ]; then
+		
+	    else
+	    fi
 	    for tiddlerFile in "$wikiDir"/tiddlers/*.tid; do
 		firstBlankLineNo=$(cat "$tiddlerFile" | grep -n "^$" | head -n 1 | cut -f 1 -d ":")
 		basef=$(basename "$tiddlerFile")

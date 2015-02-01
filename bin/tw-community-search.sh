@@ -85,7 +85,7 @@ else
 fi
 
 wikiListFile="$workDir/wikis.list"
-tw-extract-list-of-indexable-wikis.sh "$inputWikiBasis" "$indexableWikiAddressListTiddler" >"$wikiListFile"
+tw-print-from-rendered-tiddler.sh "$inputWikiBasis" "$indexableWikiAddressListTiddler" >"$wikiListFile"
 
 
 exitCode=0
