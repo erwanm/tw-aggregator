@@ -1,12 +1,11 @@
 created: 20150104180947685
-modified: 20150104190221948
+modified: 20150206193227728
 tags: TWCSCore
 title: $:/IndexableWikiAddressList
 type: text/vnd.tiddlywiki
 
-
 <$list filter="[tag[WikiAuthors]has[licence]]">
   <$list filter="[tag[CommunityWikis]tag<currentTiddler>]">
-    <$view field="wiki-address"/> <$view field="title"/>
+    <$view field="wiki-address"/>|<$view field="title"/><br/>
   </$list>
 </$list>

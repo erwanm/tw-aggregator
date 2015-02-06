@@ -1,6 +1,7 @@
 #!/bin/bash
 
 progName="tw-print-from-rendered-tiddler.sh"
+keepHtmlFilename=
 
 function usage {
     echo "Usage: $progName [options] <wiki basis path> <tiddler>"
@@ -11,14 +12,16 @@ function usage {
     echo
     echo "Options:"
     echo "  -h this help message"
+    echo "  -k <html file> keep the temporary html file"
     echo    
 }
 
 
-while getopts 'h' option ; do
+while getopts 'hk:' option ; do
     case $option in
 	"h" ) usage
 	      exit 0;;
+	"k" ) keepHtmlFilename=$OPTARG;;
         "?" )
             echo "Error, unknow option." 1>&2
             usage 1>&2
@@ -36,8 +39,11 @@ targetTiddler="$2"
 
 
 htmlList=$(mktemp)
-#echo $htmlList
 tiddlywiki "$wikiBasisPath" --output $(dirname "$htmlList") --rendertiddler "$targetTiddler" $(basename "$htmlList")
 cat "$htmlList" | sed 's/<[^>]*>/\n/g' | grep -v "^\s*$" | sed 's/^\s*//g' | sed 's/&amp;/\&/g' # dirty...
-rm -f $htmlList
+if [ -z "$keepHtmlFilename" ]; then
+    rm -f $htmlList
+else
+    mv $htmlList  "$keepHtmlFilename"
+fi
 
