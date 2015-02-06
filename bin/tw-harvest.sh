@@ -90,11 +90,21 @@ for lineNo in $(seq 1 $nbLines); do
 	fi
 	echo "$address" > "$name.address"
 	echo "wiki $wikiNo/$nbSites: '$name'; fetching '$address'"
-	wget -q "$address" # download the wiki
-	if [ ! -f index.html ]; then # if file not named index.html, rename it
-	    mv ${address##*/} index.html 2>/dev/null
+	exitCode=0
+	if [ "${address:0:4}" == "http" ]; then
+	    wget -q "$address" # download the wiki
+	    exitCode="$?"
+	    if [ ! -f index.html ]; then # if file not named index.html, rename it
+		mv ${address##*/} index.html 2>/dev/null
+	    fi
+	else   # otherwise assuming it's a local standalone html file  # WARNING: Path must be absolute!!!!
+	    if [ -f "$address" ]; then
+		cp "$address" index.html
+	    else
+		exitCode=1
+	    fi
 	fi
-	if [ $? -ne 0 ] || [ ! -f index.html ]; then # if error, ignore this wiki
+	if [ $exitCode -ne 0 ] || [ ! -f index.html ]; then # if error, ignore this wiki
 	    echo "Warning: something wrong when fetching '$address'" 1>&2
 	else
 	    tiddlywiki "$name" --init server >/dev/null # create temporary node.js wiki 
