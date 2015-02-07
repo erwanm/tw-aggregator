@@ -49,7 +49,8 @@ while read name; do
 	echo -n "wiki-tw-version: " >> "$newContent"
 	cat "$wikiDir.version" >> "$newContent"
 	if [ -e "$wikiDir.presentation" ]; then
-	    tail -n +$firstBlankNo  "$wikiDir.presentation" >> "$newContent"
+	    firstBlankNo2=$(cat "$wikiDir.presentation" | grep -n "^$" | head -n 1 | cut -f 1 -d ":")
+	    tail -n +$firstBlankNo2  "$wikiDir.presentation" >> "$newContent"
 	fi
 	echo -e "\n\n{{||\$:/CommunityWikiPresentationTemplate}}"  >> "$newContent"
 	cat "$newContent" >"$targetWiki/tiddlers/$name.tid"

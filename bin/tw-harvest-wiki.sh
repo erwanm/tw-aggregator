@@ -22,20 +22,6 @@ function usage {
 }
 
 
-function absolutePath {
-    target="$1"
-    if [ -d "$target" ]; then
-	pushd "$target" >/dev/null
-    else
-	pushd $(dirname "$target") >/dev/null
-    fi
-    path=$(pwd)
-    if [ ! -d "$target" ]; then
-	path="$path/$(basename "$target")"
-    fi
-    echo "$path"
-    popd  >/dev/null
-}
 
 #
 # returns a (quite) user-friendly name without '/' characters from a wiki address.
@@ -84,25 +70,25 @@ fi
 exitCode=0
 if [ "${address:0:4}" == "http" ]; then
     wget -P "$destDir" -q "$address" # download the wiki
-    exitCode="$?"
-    if [ $exitCode -eq 0 ] && [ ! -f index.html ]; then # if file not named index.html, rename it
-	mv "$destDir/${address##*/}" "$destDir"/index.html 2>/dev/null
+    if [ $? -ne 0 ]; then
+	echo "Warning: an error occured when trying to fetch wiki at '$address'" 1>&2
+	exit 1
     fi
-else   # otherwise assuming it's a local standalone html file  # WARNING: Path must be absolute!!!!
+    if [ ! -f "$destDir"/index.html ]; then # if file not named index.html, rename it
+	mv "$destDir/${address##*/}" "$destDir"/index.html
+    fi
+else   # otherwise, assuming it's a local standalone html file 
     if [ -f "$address" ]; then
 	cp "$address" "$destDir"/index.html
     else
-	exitCode=1
+	echo "Warning: no local wiki found at '$address'" 1>&2
+	exit 1
     fi
 fi
-if [ $exitCode -ne 0 ] || [ ! -f index.html ]; then # if error, ignore this wiki
-    echo "Warning: something wrong when fetching '$address', no file found." 1>&2
-else
-    pushd "$destDir"  >/dev/null
-    tiddlywiki "$name" --init server >/dev/null # create temporary node.js wiki 
-    tiddlywiki "$name" --load index.html >/dev/null # convert standalone to tid files
-    # extract wiki version
-    grep "<meta name=\"tiddlywiki-version\"" index.html | sed 's/ /\n/g' | grep "^content=" | cut -d '"' -f 2 >"$name.version"
-    rm -f index.html
-    popd >/dev/null
-fi
+pushd "$destDir"  >/dev/null
+tiddlywiki "$name" --init server >/dev/null # create temporary node.js wiki 
+tiddlywiki "$name" --load index.html >/dev/null # convert standalone to tid files
+# extract wiki version
+grep "<meta name=\"tiddlywiki-version\"" index.html | sed 's/ /\n/g' | grep "^content=" | cut -d '"' -f 2 >"$name.version"
+rm -f index.html
+popd >/dev/null

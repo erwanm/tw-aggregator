@@ -121,7 +121,7 @@ function followUrlTiddler  {
 	url=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^url:" | sed 's/^url: //g')
 	title=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^title:" | sed 's/^title: //g')
 	if [ ! -z "$url" ] && [ ! -f "$outputWikiDir/tiddlers/$title.tid" ] ; then # second condition to ensure the wiki hasn't been already extracted
-	    echo "$sourceWikiName $url $title"
+	    echo "$sourceWikiName|$url|$title"
 	fi
     fi
 }
