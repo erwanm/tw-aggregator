@@ -1,9 +1,9 @@
 created: 20150105003557423
-modified: 20150105003639794
+modified: 20150207235155546
 tags: TWCSCore
 title: $:/AnyWikiAddressList
 type: text/vnd.tiddlywiki
 
   <$list filter="[tag[CommunityWikis]]">
-    <$view field="wiki-address"/> <$view field="title"/>
+    <$view field="wiki-address"/>|<$view field="title"/><br/>
   </$list>
