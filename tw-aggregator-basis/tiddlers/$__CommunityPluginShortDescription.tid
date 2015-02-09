@@ -1,0 +1,18 @@
+created: 20150209010604819
+modified: 20150209015306420
+tags: TWCSCore
+title: $:/CommunityPluginShortDescription
+type: text/vnd.tiddlywiki
+
+<$link to=<<currentTiddler>>>
+  <strong><$view field="title"/></strong>
+</$link><br/>
+Wiki: 
+<$list filter="[all[current]tags[]] -CommunityPlugins" variable="author">
+  <$link to=<<author>>>
+  	<$text text=<<author>>/>
+  </$link>
+</$list>
+<br/>
+Version: {{!!version}}<br/>
+Title: {{!!source-tiddler-title-as-text}}<br/>

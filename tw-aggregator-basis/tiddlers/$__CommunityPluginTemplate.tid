@@ -1,0 +1,29 @@
+created: 20150209005818510
+modified: 20150209015952155
+tags: TWCSCore
+title: $:/CommunityPluginTemplate
+type: text/vnd.tiddlywiki
+
+!!! Description
+
+{{!!description}}
+
+!!! Author
+
+TODO
+
+!!!Wiki
+
+<$list filter="[all[current]tags[]] -CommunityPlugins" variable="author">
+  <$link to=<<author>>>
+  	<$text text=<<author>>/>
+  </$link>
+</$list>
+<br/>
+
+
+!!! Version
+
+{{!!version}}
+
+

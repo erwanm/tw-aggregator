@@ -7,6 +7,7 @@ removeWorkDir=1
 skipHarvest=0
 workDir=
 indexableWikiAddressListTiddler="$:/IndexableWikiAddressList"
+anyWikiAddressListTiddler="$:/AnyWikiAddressList"
 
 function usage {
     echo "Usage: $progName [options] [wiki basis path]"
@@ -84,13 +85,15 @@ else
     removeWorkDir=0
 fi
 
-wikiListFile="$workDir/wikis.list"
-tw-print-from-rendered-tiddler.sh "$inputWikiBasis" "$indexableWikiAddressListTiddler" >"$wikiListFile"
+indexableWikiListFile="$workDir/indexable-wikis.list"
+anyWikiListFile="$workDir/all-wikis.list"
+tw-print-from-rendered-tiddler.sh "$inputWikiBasis" "$indexableWikiAddressListTiddler" >"$indexableWikiListFile"
+tw-print-from-rendered-tiddler.sh "$inputWikiBasis" "$anyWikiAddressListTiddler" >"$anyWikiListFile"
 
 
 exitCode=0
 if [ $skipHarvest -ne 1 ]; then
-    tw-harvest-list.sh "$wikiListFile" "$workDir"
+    tw-harvest-list.sh "$anyWikiListFile" "$workDir"
     exitCode="$?"
 fi
 
@@ -103,10 +106,11 @@ if [ $exitCode -eq 0 ]; then
     mkdir "$workDir"/output-wiki/tiddlers
     cp "$inputWikiBasis"/tiddlers/* "$workDir"/output-wiki/tiddlers
 
-    while [ -s  "$wikiListFile" ] && [ $exitCode -eq 0 ] ; do # loop for sub-wikis (field 'follow')
+    # remark: the loop is for "follow url" option; this option is available only for indexable wikis (not other wikis, taken into account only for plugins)
+    while [ -s  "$indexableWikiListFile" ] && [ $exitCode -eq 0 ] ; do # loop for sub-wikis (field 'follow')
 	subwikiListFile="$workDir/subwikis.list"
-	cat "$wikiListFile" | cut -d "|" -f 2 | tw-convert-regular-tiddlers.sh "$workDir" "$workDir/output-wiki" >"$subwikiListFile"
-	cat "$wikiListFile" | cut -d "|" -f 2 | tw-update-presentation-tiddlers.sh  "$workDir" "$workDir/output-wiki"
+	cat "$indexableWikiListFile" | cut -d "|" -f 2 | tw-convert-regular-tiddlers.sh "$workDir" "$workDir/output-wiki" >"$subwikiListFile"
+	cat "$indexableWikiListFile" | cut -d "|" -f 2 | tw-update-presentation-tiddlers.sh  "$workDir" "$workDir/output-wiki"
 	nbSubWikis=$(cat "$subwikiListFile" | wc -l)
 	echo " $nbSubWikis sub-wikis to follow."
 #	cat "$subwikiListFile"
@@ -120,13 +124,16 @@ if [ $exitCode -eq 0 ]; then
 		writeTiddlerHeader "title: $title" "tags: CommunityWikis $author" "type: text/vnd.tiddlywiki" "wiki-address: $address" >"$workDir/output-wiki/tiddlers/$title.tid"
 		echo "{{||\$:/CommunityWikiAuthorTemplate}}" >>"$workDir/output-wiki/tiddlers/$title.tid"
 	    done
-	    cut -d "|" -f 2,3 "$subwikiListFile" > "$wikiListFile"
-	    tw-harvest-list.sh "$wikiListFile" "$workDir"
+	    cut -d "|" -f 2,3 "$subwikiListFile" > "$indexableWikiListFile"
+	    tw-harvest-list.sh "$indexableWikiListFile" "$workDir"
 	    exitCode="$?"
 	else 
-	    rm -f "$wikiListFile"
+	    rm -f "$indexableWikiListFile"
 	fi
     done
+    echo "Extracting plugins..."
+    cat "$anyWikiListFile" | cut -d "|" -f 2 | tw-extract-plugins-info.sh "$workDir" "$workDir/output-wiki"
+    
 
     # special tiddler to record the date of the last update
     writeTiddlerHeader "title: LastUpdate" "tags: TWCSCore" >"$workDir/output-wiki/tiddlers/LastUpdate.tid"

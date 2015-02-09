@@ -1,0 +1,18 @@
+color: #1cc975
+created: 20150209010429338
+modified: 20150209014556118
+tags: TWCSCore
+title: CommunityPlugins
+type: text/vnd.tiddlywiki
+
+<ul>
+<$list filter="[tag[WikiAuthors]]" variable="author">
+  <$list filter="[tag[CommunityWikis]tag<author>]" variable="wiki">
+    <$list filter="[tag[CommunityPlugins]tag<wiki>]">
+      <li>
+        {{||$:/CommunityPluginShortDescription}}
+      </li>
+    </$list>
+  </$list>
+</$list>
+</ul>
