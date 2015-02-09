@@ -98,7 +98,7 @@ while read name; do
 		echo -n "source-tiddler-title-as-link: " >>"$dest"
 		rawurlencode "$oldTitle" >>"$dest"  # new version with url-encoding
 		echo "tags: $name CommunityPlugins" >>"$dest"
-		echo "type: text/vnd.tiddlywiki"
+		echo "type: text/vnd.tiddlywiki"  >>"$dest"
 		echo  >>"$dest"
 		echo "{{||\$:/CommunityPluginTemplate}}" >>"$dest"
 	    fi
