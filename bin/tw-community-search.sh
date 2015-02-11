@@ -9,6 +9,7 @@ workDir=
 indexableWikiAddressListTiddler="$:/IndexableWikiAddressList"
 anyWikiAddressListTiddler="$:/AnyWikiAddressList"
 
+
 function usage {
     echo "Usage: $progName [options] [wiki basis path]"
     echo
@@ -131,9 +132,10 @@ if [ $exitCode -eq 0 ]; then
 	    rm -f "$indexableWikiListFile"
 	fi
     done
-    echo "Extracting plugins..."
-    cat "$anyWikiListFile" | cut -d "|" -f 2 | tw-extract-plugins-info.sh "$workDir" "$workDir/output-wiki"
-    
+    echo "Generating the plugins directory..."
+    pluginTiddlersList="$workDir/plugin-tiddlers.list"
+    cat "$anyWikiListFile" | tw-list-plugin-tiddlers.sh "$workDir" > "$pluginTiddlersList" #"$workDir/output-wiki"
+    tw-extract-and-update-official-plugin-list.sh "$workDir" "$workDir/output-wiki" "$pluginTiddlersList"
 
     # special tiddler to record the date of the last update
     writeTiddlerHeader "title: LastUpdate" "tags: TWCSCore" >"$workDir/output-wiki/tiddlers/LastUpdate.tid"
