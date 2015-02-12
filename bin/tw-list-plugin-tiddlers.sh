@@ -11,7 +11,7 @@ function usage {
     echo "  tw-harvest.sh), containing the tiddlers."
     echo 
     echo "  Every plugin tiddler found is printed to STDOUT with:"
-    echo "  <wiki id> <tiddler file> <plugin title> <end header col no>"
+    echo "  <wiki address> <plugin title> <wiki id> <tiddler file> <end header col no>"
     echo
     echo "Options:"
     echo "  -h this help message"
@@ -86,7 +86,7 @@ while read line; do
 	    isPlugin "$tiddlerFile" "$firstBlankLineNo"
 	    if [ $? -eq 1 ]; then
 		pluginTitle=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^title: " | sed 's/^title: //')
-		echo -e "$address\t$name\t$tiddlerFile\t$pluginTitle\t$firstBlankLineNo"
+		echo -e "$address\t$pluginTitle\t$name\t$tiddlerFile\t$firstBlankLineNo"
 	    fi
 	done
 	rm -f "$tiddlersList"

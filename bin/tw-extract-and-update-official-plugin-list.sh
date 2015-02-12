@@ -131,12 +131,15 @@ for tiddlerFile in $sourceWiki/*.tid; do
 	if [ ! -z "$hasCategoryField" ]; then
 #	    echo "DEBUG: $tiddlerFile" 1>&2
 	    pluginTitle=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^plugin_tiddler: " | sed 's/^plugin_tiddler: //')
-	    pluginLine=$(grep "\s$pluginTitle\s" "$pluginListFile")
-
-TODO:	    match on two conditions: same wiki address + same plugin title
-
-	    pluginWiki=$(echo "$pluginLine" | cut -f 2)
-	    pluginFile=$(echo "$pluginLine" | cut -f 2)
+	    pluginAddress=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^wiki: " | sed 's/^wiki: //' | sed 's/#.*//')
+	    pluginLine=$(grep "^$pluginAddress\s$pluginTitle\s" "$pluginListFile")
+	    if [ -z "$pluginLine" ]; then
+		echo "Warning: cannot find plugin '$pluginTitle' from wiki '$pluginAddress' in '$pluginListFile'" 1>&2
+	    else
+		echo "OK: plugin '$pluginTitle' from wiki '$pluginAddress' in '$pluginListFile'" 1>&2
+		pluginWiki=$(echo "$pluginLine" | cut -f 3)
+		pluginFile=$(echo "$pluginLine" | cut -f 4)
+	    fi
 	    
 	fi
     fi
