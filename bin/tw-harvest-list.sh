@@ -70,7 +70,7 @@ for lineNo in $(seq 1 $nbLines); do
     address=$(echo "$row" | cut -f 1 -d "|")
     name=$(echo "$row" | cut -f 2 -d "|")
     presentationTiddler=$(echo "$row" | cut -f 3 -d "|")
-    #    echo "$address" > "$name.address" # not used anymore
+#    echo "DEBUG: $address" 1>&2
     echo "wiki $wikiNo/$nbSites: '$name'; fetching '$address'"
     if [ -z "$name" ]; then
 	tw-harvest-wiki.sh "$destDir" "$address"
@@ -95,6 +95,8 @@ for lineNo in $(seq 1 $nbLines); do
 	else
 	    echo "Warning: no site subtitle in '$name' (no presentation tiddler)" 1>&2
 	fi
+    else
+	echo "Warning: something went wrong: 'tw-harvest-wiki.sh \"$destDir\" \"$address\"' returned exit code $exitCode" 1>&2
     fi
     wikiNo=$(( $wikiNo + 1 ))
 done

@@ -39,7 +39,7 @@ targetTiddler="$2"
 
 
 htmlList=$(mktemp)
-tiddlywiki "$wikiBasisPath" --output $(dirname "$htmlList") --rendertiddler "$targetTiddler" $(basename "$htmlList")
+tiddlywiki "$wikiBasisPath" --output $(dirname "$htmlList") --rendertiddler "$targetTiddler" $(basename "$htmlList") >/dev/null
 cat "$htmlList" | sed 's/<[^>]*>/\n/g' | grep -v "^\s*$" | sed 's/^\s*//g' | sed 's/&amp;/\&/g' # dirty...
 if [ -z "$keepHtmlFilename" ]; then
     rm -f $htmlList
