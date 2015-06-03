@@ -1,5 +1,5 @@
 created: 20141221163203443
-modified: 20150131212322711
+modified: 20150603233049169
 tags: TWCSCore
 title: About
 type: text/vnd.tiddlywiki
@@ -11,9 +11,7 @@ This wiki provides a search engine for {{TiddlyWiki}} community wikis. The list 
 * See a brief technical explanation in [[ImplementationOverview]].
 * See the [[Documentation]]
 
-! Warning
 
-This is an unofficial and experimental wiki. It is, of course, provided without warranty of any kind.
 
 
 ! Contact
@@ -22,3 +20,5 @@ This is an unofficial and experimental wiki. It is, of course, provided without 
 
 {{Version}}
 
+---
+//This is an unofficial and experimental wiki. It is, of course, provided without warranty of any kind.//
