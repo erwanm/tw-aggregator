@@ -1,5 +1,5 @@
 created: 20141231144013357
-modified: 20150104140548133
+modified: 20150819165546070
 tags: TWCSCore
 title: $:/CommunityWikiTWVersionInfo
 type: text/vnd.tiddlywiki
@@ -12,7 +12,7 @@ type: text/vnd.tiddlywiki
   <$list filter="[<version>prefix[5.0]]">
     <$text text=<<version>>/>
     @@color:orange;
-      [obsolete version!]
+      [obsolete version]
     @@
   </$list>
   <$list filter="[<version>!prefix[5.0]!prefix[5.1]]">

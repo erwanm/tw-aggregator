@@ -1,5 +1,5 @@
 created: 20141222174553788
-modified: 20150105012112631
+modified: 20150819165329583
 tags: TWCSCore
 title: $:/CommunityWikiPresentationTemplate
 type: text/vnd.tiddlywiki
@@ -24,7 +24,7 @@ type: text/vnd.tiddlywiki
 
 !!! Latest modifications
 
-<$list filter="[source-wiki-id<currentTiddler>sort[created]!limit[5]] +[reverse[]]" emptyMessage="unknown">
+<$list filter="[source-wiki-id<currentTiddler>sort[modified]!limit[5]] +[reverse[]]" emptyMessage="unknown">
   <$view field="modified" format="relativedate"/><$transclude tiddler="$:/core/ui/ListItemTemplate"/>
 </$list>
 

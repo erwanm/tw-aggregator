@@ -9,8 +9,10 @@ function usage {
     echo "  corresponding presentation tiddler in <target wiki dir> based"
     echo "  on the info in <collected wikis dir>."
     echo
-    echo "  The additional info is TW version and the so-called "
-    echo "  'presentation', which is actually the wiki subtitle."
+    echo "  The additional info is:"
+    echo "    - TW version for this wiki"
+    echo "    - the so called 'presentation', which is actually the wiki subtitle."
+    echo "    - the date of latest modification"
     echo
     echo "Options:"
     echo "  -h this help message"
@@ -48,6 +50,8 @@ while read name; do
 	head -n $(( $firstBlankLineNo - 2 )) "$tiddler" > "$newContent"
 	echo -n "wiki-tw-version: " >> "$newContent"
 	cat "$wikiDir.version" >> "$newContent"
+	latestModif=$(grep "modified: " "$wikiDir"/*tid | cut -f 2 -d " " | sort | tail -n 1)
+	echo "wiki-latest-modification: $latestModif"
 	if [ -e "$wikiDir.presentation" ]; then
 	    firstBlankNo2=$(cat "$wikiDir.presentation" | grep -n "^$" | head -n 1 | cut -f 1 -d ":")
 	    tail -n +$firstBlankNo2  "$wikiDir.presentation" >> "$newContent"
