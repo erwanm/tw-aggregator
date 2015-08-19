@@ -83,6 +83,19 @@ fi
 if [ -z "$workDir" ]; then
     workDir=$(mktemp -d)
 else
+    if [ $skipHarvest -ne 1 ]; then
+	if [ -d "$workDir" ]; then
+	    echo "Warning: removing any previous content in '$workDir'" 1>&2
+	    rm -rf "$workDir"/*
+	else
+	    mkdir "$workDir"
+	fi
+    else
+	if [ ! -d "$workDir" ]; then
+	    echo "Error: '$workDir' does not exist but option '-s' supplied" 1>&2
+	    exit 2
+	fi
+    fi
     removeWorkDir=0
 fi
 
@@ -126,8 +139,10 @@ if [ $exitCode -eq 0 ]; then
 		echo "{{||\$:/CommunityWikiAuthorTemplate}}" >>"$workDir/output-wiki/tiddlers/$title.tid"
 	    done
 	    cut -d "|" -f 2,3 "$subwikiListFile" > "$indexableWikiListFile"
-	    tw-harvest-list.sh "$indexableWikiListFile" "$workDir"
-	    exitCode="$?"
+	    if [ $skipHarvest -ne 1 ]; then
+		tw-harvest-list.sh "$indexableWikiListFile" "$workDir"
+		exitCode="$?"
+	    fi
 	else 
 	    rm -f "$indexableWikiListFile"
 	fi
