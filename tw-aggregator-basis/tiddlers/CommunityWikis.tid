@@ -1,16 +1,14 @@
 color: #1cc975
 created: 20141222182704958
-modified: 20150105005309572
+modified: 20150819224426620
 tags: TWCSCore
 title: CommunityWikis
 type: text/vnd.tiddlywiki
 
 <ul>
-<$list filter="[tag[WikiAuthors]has[licence]]">
-  <$list filter="[tag[CommunityWikis]tag<currentTiddler>]">
+ <$list filter="[tag[WikiAuthors]has[licence]tagging[]!has[empty-wiki]!sort[wiki-latest-modification]]">
     <li>
       {{||$:/CommunityWikiShortDescription}}
     </li>
-  </$list>
 </$list>
 </ul>

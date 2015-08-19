@@ -42,19 +42,23 @@ targetWiki="$2"
 while read name; do
     wikiDir="$collectedWikisDir/$name"
     tiddler="$targetWiki/tiddlers/$name.tid"
-    if [ ! -d "$wikiDir" ] || [ ! -e "$tiddler" ]; then
-	echo "Warning: no dir '$wikiDir' found or no file '$tiddler' found, the two must exist. Ignoring wiki '$name' in $progName" 1>&2
+    if [ ! -e "$tiddler" ]; then
+	echo "Bug: no file '$tiddler' found. Ignoring wiki '$name' in $progName" 1>&2
     else
 	newContent=$(mktemp)
 	firstBlankNo=$(cat "$tiddler" | grep -n "^$" | head -n 1 | cut -f 1 -d ":")
 	head -n $(( $firstBlankLineNo - 2 )) "$tiddler" > "$newContent"
-	echo -n "wiki-tw-version: " >> "$newContent"
-	cat "$wikiDir.version" >> "$newContent"
-	latestModif=$(grep "modified: " "$wikiDir"/*tid | cut -f 2 -d " " | sort | tail -n 1)
-	echo "wiki-latest-modification: $latestModif"
-	if [ -e "$wikiDir.presentation" ]; then
-	    firstBlankNo2=$(cat "$wikiDir.presentation" | grep -n "^$" | head -n 1 | cut -f 1 -d ":")
-	    tail -n +$firstBlankNo2  "$wikiDir.presentation" >> "$newContent"
+	if [ ! -d "$wikiDir" ]; then
+	    echo "empty-wiki: true" >> "$newContent" 
+	else
+	    echo -n "wiki-tw-version: " >> "$newContent" 
+	    cat "$wikiDir.version" >> "$newContent"
+	    latestModif=$(grep "modified: " "$wikiDir"/tiddlers/*tid | cut -f 3 -d ":" | sed 's/^ //g' | grep "^[0-9]*$" | sort | tail -n 1)
+	    echo "wiki-latest-modification: $latestModif" >> "$newContent"
+	    if [ -e "$wikiDir.presentation" ]; then
+		firstBlankNo2=$(cat "$wikiDir.presentation" | grep -n "^$" | head -n 1 | cut -f 1 -d ":")
+		tail -n +$firstBlankNo2  "$wikiDir.presentation" >> "$newContent"
+	    fi
 	fi
 	echo -e "\n\n{{||\$:/CommunityWikiPresentationTemplate}}"  >> "$newContent"
 	cat "$newContent" >"$targetWiki/tiddlers/$name.tid"
