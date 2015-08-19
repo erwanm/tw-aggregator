@@ -104,7 +104,6 @@ anyWikiListFile="$workDir/all-wikis.list"
 tw-print-from-rendered-tiddler.sh "$inputWikiBasis" "$indexableWikiAddressListTiddler" >"$indexableWikiListFile"
 tw-print-from-rendered-tiddler.sh "$inputWikiBasis" "$anyWikiAddressListTiddler" >"$anyWikiListFile"
 
-
 exitCode=0
 if [ $skipHarvest -ne 1 ]; then
     tw-harvest-list.sh "$anyWikiListFile" "$workDir"
@@ -157,7 +156,7 @@ if [ $exitCode -eq 0 ]; then
 
     total=$(ls "$workDir"/output-wiki/tiddlers/*.tid | wc -l)
     echo "Converting the output wiki to standalone html"
-    tiddlywiki "$workDir/output-wiki" --rendertiddler "$:/plugins/tiddlywiki/tiddlyweb/save/offline" "output.html" text/plain
+    tiddlywiki "$workDir/output-wiki" --rendertiddler "$:/plugins/tiddlywiki/tiddlyweb/save/offline" "output.html" text/plain >/dev/null
     mv "$workDir/output-wiki/output/output.html" "$outputFilename"
     if [ $removeWorkDir -ne 0 ]; then
 	rm -rf "$workDir"
