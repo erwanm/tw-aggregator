@@ -1,12 +1,13 @@
 created: 20141221163448239
-modified: 20150120193124638
+modified: 20150819225604421
 tags: TWCSCore
 title: Version
 type: text/vnd.tiddlywiki
 
 \define getMostRecent()
-  <$list filter="[[LastUpdate]]" emptyMessage="a little bug here">
-    <$view field="created"  format="relativedate"/>
+  <$list filter="[title[LastUpdate]]" emptyMessage="there's a little bug here">
+    <$view field="created"  template="DDth MMM YYYY at hh:mm" format="date"/>
+    (<$view field="created"  format="relativedate"/>).
   </$list>
 \end
 
@@ -18,18 +19,14 @@ type: text/vnd.tiddlywiki
   <$count filter="[has[source-wiki-id]tags[]!is[system]sort[title]] -[<currentTiddler>]">
 \end
 
+\define nbWikis()
+  <$count filter="[tag[WikiAuthors]has[licence]tagging[]!has[empty-wiki]]"/>
+\end
 
-! Search Wiki Version
-
-This wiki uses an index generated <<getMostRecent>>. 
+A full re-indexing of the content is performed daily. The last update was done on the <<getMostRecent>> 
+The wiki currently indexes:
 
 * <<nbTiddlers>> tiddlers
 * <<nbTags>> distinct tags
+* <<nbWikis>> wikis
 * from <$count filter="[tag[WikiAuthors]has[licence]]"/> wiki authors
-
-are indexed.
-
-
-The following wikis are indexed:
-
-{{CommunityWikis}}
