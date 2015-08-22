@@ -1,14 +1,16 @@
 color: #1cc975
 created: 20141222182704958
-modified: 20150819224426620
+modified: 20150822145315764
 tags: TWCSCore
 title: CommunityWikis
 type: text/vnd.tiddlywiki
 
+The underlying list of plugins is maintained by JedCarty. See the original <a href="http://inmysocks.tiddlyspot.com/#Plugin%20twCard">list by category</a> on his wiki [[inmysocks]].
+
 <ul>
- <$list filter="[tag[WikiAuthors]has[licence]tagging[]!has[empty-wiki]!sort[wiki-latest-modification]]">
-    <li>
-      {{||$:/CommunityWikiShortDescription}}
-    </li>
-</$list>
+  <$list filter="[tag[WikiAuthors]tagging[]tagging[]tag[CommunityPlugins]]">
+      <li>
+        {{||$:/CommunityPluginShortDescription}}
+      </li>
+  </$list>
 </ul>

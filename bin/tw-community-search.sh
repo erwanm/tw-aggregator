@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source tw-lib.sh
+
 progName="tw-community-search.sh"
 outputFilename=${progName%.sh}.html
 inputWikiBasis="tw-aggregator-basis"
@@ -34,18 +36,6 @@ function usage {
 
 
 
-#
-# arguments of the form "field: value"
-#
-function writeTiddlerHeader {
-    theDate=$(date +"%Y%m%d%H%M%S")
-    echo "created: ${theDate}000"
-    while [ $# -gt 0 ]; do
-	echo "$1"
-	shift
-    done
-    echo
-}
 
 
 function findWikiAuthor {
@@ -134,7 +124,13 @@ if [ $exitCode -eq 0 ]; then
 		title=$(echo "$line" | cut -d "|" -f 3)
 		author=$(findWikiAuthor "$workDir/output-wiki/tiddlers" "$sourceWiki")
 		echo "  Generating new community wiki tiddler: '$title' by '$author' at '$address'"
-		writeTiddlerHeader "title: $title" "tags: CommunityWikis $author" "type: text/vnd.tiddlywiki" "wiki-address: $address" >"$workDir/output-wiki/tiddlers/$title.tid"
+		tiddlerFile="$workDir/output-wiki/tiddlers/$title.tid"
+		writeCreatedTodayField >"$tiddlerFile"
+		echo "title: $title" >>"$tiddlerFile"
+		echo "tags: CommunityWikis $author" >>"$tiddlerFile"
+		echo "type: text/vnd.tiddlywiki" >>"$tiddlerFile"
+		echo "wiki-address: $address" >>"$tiddlerFile"
+		echo  >>"$tiddlerFile"
 		echo "{{||\$:/CommunityWikiAuthorTemplate}}" >>"$workDir/output-wiki/tiddlers/$title.tid"
 	    done
 	    cut -d "|" -f 2,3 "$subwikiListFile" > "$indexableWikiListFile"
@@ -146,13 +142,19 @@ if [ $exitCode -eq 0 ]; then
 	    rm -f "$indexableWikiListFile"
 	fi
     done
-    echo "Generating the plugins directory..."
-    pluginTiddlersList="$workDir/plugin-tiddlers.list"
-    cat "$anyWikiListFile" | tw-list-plugin-tiddlers.sh "$workDir" > "$pluginTiddlersList" #"$workDir/output-wiki"
-    tw-extract-and-update-official-plugin-list.sh "$workDir" "$workDir/output-wiki" "$pluginTiddlersList"
 
     # special tiddler to record the date of the last update
-    writeTiddlerHeader "title: LastUpdate" "tags: TWCSCore" >"$workDir/output-wiki/tiddlers/LastUpdate.tid"
+    tiddlerFile="$workDir/output-wiki/tiddlers/LastUpdate.tid"
+    writeCreatedTodayField >"$tiddlerFile"
+    echo "title: LastUpdate" >>"$tiddlerFile"
+    echo "tags: TWCSCore"  >>"$tiddlerFile"
+
+    echo "Generating the plugins directory, part 1: searching extracted plugins"
+    pluginTiddlersList="$workDir/plugin-tiddlers.list"
+    cat "$anyWikiListFile" | tw-list-plugin-tiddlers.sh "$workDir" "$workDir/output-wiki" > "$pluginTiddlersList" 
+    echo "Generating the plugins directory, part 2: extracting curated list of plugins for matching"
+    tw-extract-and-update-official-plugin-list.sh "$workDir" "$workDir/output-wiki" "$pluginTiddlersList"
+
 
     total=$(ls "$workDir"/output-wiki/tiddlers/*.tid | wc -l)
     echo "Converting the output wiki to standalone html"

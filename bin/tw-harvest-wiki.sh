@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source tw-lib.sh
+
 progName="tw-harvest.sh"
 
 

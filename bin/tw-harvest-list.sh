@@ -2,6 +2,7 @@
 
 progName="tw-harvest.sh"
 
+source tw-lib.sh
 
 function usage {
     echo "Usage: $progName [options] <list file> <dest dir>"
@@ -15,21 +16,6 @@ function usage {
     echo    
 }
 
-
-function absolutePath {
-    target="$1"
-    if [ -d "$target" ]; then
-	pushd "$target" >/dev/null
-    else
-	pushd $(dirname "$target") >/dev/null
-    fi
-    path=$(pwd)
-    if [ ! -d "$target" ]; then
-	path="$path/$(basename "$target")"
-    fi
-    echo "$path"
-    popd  >/dev/null
-}
 
 
 
