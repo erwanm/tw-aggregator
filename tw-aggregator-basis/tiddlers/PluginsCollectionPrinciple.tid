@@ -1,0 +1,29 @@
+created: 20150822215235564
+modified: 20150822223337361
+tags: 
+title: PluginsCollectionPrinciple
+type: text/vnd.tiddlywiki
+
+
+A collection of available plugins is provided in CommunityPlugins. 
+
+!! Method
+
+The aggregator collects plugins automatically from the public wikis, tagged {{CommunityWikis||$:/core/ui/TagTemplate}}. The actual plugins are not copied: the system only extracts their information and stores their location. But there can be several occurrences of the same plugin in different wikis, because there is no way to automatically determine whether the plugin is simply imported or if it is authored by the wiki owner. This is why this list of plugins is then matched against JedCarty's <a href="http://inmysocks.tiddlyspot.com/#Plugin%20twCard">list by category</a>. if a match is found, (same plugin name and same wiki origin) the corresponding plugin tiddler is tagged with {{CommunityPlugins||$:/core/ui/TagTemplate}}.
+
+!! Unmatched plugins
+
+The information collected for the other plugins is stored, but not made visible, because it is incomplete (no link to the origin wiki) or confusing (multiple instances, and possibly multiple versions). Nevertheless these plugins are accessible:
+
+!!! Plugins collected in the wikis but not in Jed's list
+
+Each such plugin entry is stored as a system tiddler (prefixed with the wiki id, similarly to regular content tiddlers) with a field ``extracted-plugin``. It also contains the same fields as regular tiddlers, used to provide a link to the source tiddler. As explained above, there can be multiple instances of the same plugin.
+
+!!! Plugins in Jed's list for which no match is found
+
+Each such plugin entry is stored as a regular tiddler with a field ``source-wiki-address``. It also contains the same info as plugins in the CommunityPlugins list, but without the tag {{CommunityPlugins||$:/core/ui/TagTemplate}}.
+
+!! But then Jed's list is much more useful, plus it has a much nicer interface!
+
+Right now this is true! For //standard users//, the list of plugins is not as useful as Jed's original list. Future improvements should help with that, but also the current version is meant help Jed (or anyone else) maintain the list and fix possible mistakes. I tried to make this easier by providing this [[$:/UnmatchedPlugins]] tiddler (work in progress).
+

@@ -1,0 +1,64 @@
+created: 20150822223351439
+modified: 20150822234021504
+title: $:/UnmatchedPlugins
+type: text/vnd.tiddlywiki
+
+
+This is meant to help fixing mistakes and omissions in Jed's <a href="http://inmysocks.tiddlyspot.com/#Plugin%20twCard">list by category</a>.
+
+! Unexploitable entries in Jed's list
+
+Possible issues:
+
+* Missing ``plugin_tiddler`` field
+* Missing ``wiki`` field
+* ``plugin_tiddler`` value does not start with ``$:/`` (unlikely)
+
+Such entries are listed in the special tiddler [[$:/SourcePluginsFieldError]]. Content:
+
+{{$:/SourcePluginsFieldError}}
+
+! Entries in Jed's list for which the system did not find a match
+
+
+
+! Match on plugin title but not on wiki (possible ambiguity)
+
+<ul>
+  <$list filter="[has[source-wiki-address]!tag[CommunityPlugins]]">
+    <$set name="plugin" value={{!!canonical-name}}>
+    <$set name="jedscard" value=<<currentTiddler>>>
+      <li> <$link to={{!!title}}><$text text={{!!title}}/></$link> + {{!!source-wiki-address}}
+        <ul>
+          <$list filter="[has[extracted-plugin]field:source-tiddler-title-as-text<plugin>]">
+            <li><$link to={{!!title}}><$text text={{!!title}}/></$link>
+              <ul>
+                <li>
+                  <$set name="wiki" value={{!!source-wiki-id}}>
+                    <$list filter="[<wiki>get[wiki-address]]" variable="address">
+                      <<address>>
+                    </$list>
+                  </$set>
+                </li>
+              </ul>
+            </li>
+          </$list>
+        </ul>
+      </li>
+   </$set>
+   </$set>
+</$list>
+</ul>
+
+! Plugins found with no corresponding entry in Jed's list
+
+In this case we only consider the plugins for which there is no entry with the same plugin title, ignoring the wiki address. These cases are plugins which don't appear in the source list at all.
+
+<$list filter="[has[extracted-plugin]]">
+   <$set name="plugintitle" value={{!!source-tiddler-title-as-text}}>
+    <$list filter="[has[source-wiki-address]field:canonical-name<plugintitle>]">
+      
+    </$list>
+  </$set>
+</$list>
+

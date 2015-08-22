@@ -1,38 +1,54 @@
 created: 20150209005818510
-modified: 20150822172629266
+modified: 20150822211515697
 tags: TWCSCore
 title: $:/CommunityPluginTemplate
 type: text/vnd.tiddlywiki
 
 \define pluginAuthor()
   <$set name="wiki-tiddler" value={{!!source-wiki-id}}>
-    <$list filter="[<wiki-tiddler>tags[]] -CommunityWikis" variable="author">
-      <$link to=<<author>>>
-  	  <$text text=<<author>>/>
-      </$link>
+    <$list filter="[<wiki-tiddler>tags[]] -CommunityWikis">
+      {{||$:/core/ui/TagTemplate}}
     </$list>
   </$set>
 \end
 
 ! <$text text={{!!canonical-name}}/>
 
-Wiki: {{!!source-wiki-id}}<br/>
-Version: {{!!plugin-version}}<br/>
-{{||$:/core/ui/ListItemTemplate}}
-
-
-!!! Category
+!! Category
 
 {{!!category}}
 
+!! Wiki
 
-!!! Description
+<$link to={{!!source-wiki-id}}><$text text={{!!source-wiki-id}}/></$link>
+
+!! Version
+
+{{!!plugin-version}}
+
+
+!! Link to plugin
+
+{{||$:/core/ui/ListItemTemplate}}
+
+
+!! Description
+
+//From plugin://
 
 {{!!plugin-description}}
 
-!!! Author
+//From JedCarty's list://
+
+{{!!short-description}}
+
+!! Author
+
+//From plugin://
 
 {{!!plugin-author}}
+
+//Wiki author://
 
 <<pluginAuthor>>
 

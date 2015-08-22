@@ -1,5 +1,5 @@
 created: 20150209010604819
-modified: 20150822172731256
+modified: 20150822210112599
 tags: TWCSCore
 title: $:/CommunityPluginShortDescription
 type: text/vnd.tiddlywiki
@@ -7,7 +7,8 @@ type: text/vnd.tiddlywiki
 <$link to=<<currentTiddler>>>
   <strong><$view field="title"/></strong>
 </$link><br/>
-Canonical name: <$text text={{!!source-tiddler-title-as-text}}/><br/>
-Wiki: <$link to={{!!source-wiki-id}}><$text text={{!!source-wiki-id}}/></$link><br/>
-Version: {{!!plugin-version}}<br/>
+From wiki 
+<$list filter="[all[current]get[source-wiki-id]]">
+  {{||$:/core/ui/TagTemplate}}
+</$list>
 {{||$:/core/ui/ListItemTemplate}}
