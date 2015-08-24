@@ -164,28 +164,6 @@ rawurlencode() {
 }
 
 
-#
-# prints a tiddler fields to STDOUT, with possible exceptions.
-# remark: if title is not excluded, it is copied as well (in this case the target tiddler 
-#         filename should be identical to the source tiddler)
-#
-# firstBlankLineNo is optional
-#
-function printTiddlerFields {
-    local sourceTiddlerFile="$1"
-    local excludeFields="$2"
-    local firstBlankLineNo="$3"
-
-    if [ -z "$firstBlankLineNo" ]; then
-	firstBlankLineNo=$(getFirstBlankLineNo "$sourceTiddlerFile")
-    fi
-    command=" cat "
-    for field in $excludeFields; do
-	command="$command | grep -v '^$field: ' "
-    done
-    head -n $(( $firstBlankLineNo - 1 )) "$sourceTiddlerFile" | eval "$command"
-}
-
 
 #
 # Generates a "TWCS tiddler" from a source tiddler, i.e. a system tiddler:
@@ -218,7 +196,14 @@ function cloneAsTWCSTiddler {
     oldTitle=$(extractField "title" "$sourceTiddlerFile" "$firstBlankLineNo")
     newTitle="\$:/$wikiId/$oldTitle" # convert title to system tiddler with wiki id prefix
     echo "title: $newTitle" >"$targetTiddler"
-    printTiddlerFields "$sourceTiddlerFile" "title tags $excludeFields" "$firstBlankLineNo" >>"$targetTiddler"
+
+     # copy fields except title and tags (+ excluded fields if any)
+    command=" cat "
+    for field in $excludeFields; do
+	command="$command | grep -v '^$field: ' "
+    done
+    head -n $(( $firstBlankLineNo - 1 )) "$sourceTiddlerFile" | grep -v '^title: ' | grep -v '^tags: ' | eval "$command" >>"$targetTiddler"
+
     oldTags=$(extractField "tags" "$sourceTiddlerFile" "$firstBlankLineNo")
     writeTagsIfNotSystem  "$wikiId" "$oldTags" >>"$targetTiddler"
     echo "source-wiki-id: $wikiId" >>"$targetTiddler" # store custom fields in order to recompute the original address
@@ -235,9 +220,3 @@ function cloneAsTWCSTiddler {
 }
 
 
-#
-# as the name sugests. reads from STDIN, writes to STDOUT
-#
-function removeTrailingSlash {
-    while read x; do echo "${x%/}"; done
-}

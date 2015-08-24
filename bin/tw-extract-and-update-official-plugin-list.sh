@@ -9,11 +9,9 @@ pluginOfficialListListingTiddler="twCard_Listing_-_Plugins"
 pluginOfficialListTag="Plugin twCard"
 pluginOfficialListTemplateTiddler="Plugin_Info_Template"
 
-pluginTargetMissingTitleOrAddressTitle="\$:/SourcePluginsFieldError"
-pluginTargetMissingTitleOrAddressFile="\$__SourcePluginsFieldError.tid"
-pluginTargetMissingTitleOrAddressTags="TWCSCore"
-
-pluginOkTag="CommunityPlugins"
+#pluginTargetMissingTitleOrAddressTitle="\$:/SourcePluginsFieldError"
+#pluginTargetMissingTitleOrAddressFile="\$__SourcePluginsFieldError.tid"
+#pluginTargetMissingTitleOrAddressTags="TWCSCore"
 
 
 
@@ -28,14 +26,6 @@ function usage {
     echo "Options:"
     echo "  -h this help message"
     echo    
-}
-
-function writePluginInfo {
-    local wikiId="$1"
-    local pluginTiddlerFile="$2"
-    local firstBlankLineNo="$3"
-    local targetTiddlerFile="$4"
-
 }
 
 
@@ -65,12 +55,15 @@ if [ ! -f "$sourceWiki/$pluginOfficialListListingTiddler.tid" ]; then
     exit 3
 fi
 
-targetTiddlerFile="$targetWiki/tiddlers/$pluginTargetMissingTitleOrAddressFile"
-writeCreatedTodayField   >"$targetTiddlerFile"
-echo "title: $pluginTargetMissingTitleOrAddressTitle" >>"$targetTiddlerFile"
-echo "tags: $pluginTargetMissingTitleOrAddressTags"  >>"$targetTiddlerFile"
-echo "type: text/vnd.tiddlywiki"   >>"$targetTiddlerFile"
-echo  >>"$targetTiddlerFile"
+#targetTiddlerFile="$targetWiki/tiddlers/$pluginTargetMissingTitleOrAddressFile"
+#writeCreatedTodayField   >"$targetTiddlerFile"
+#echo "title: $pluginTargetMissingTitleOrAddressTitle" >>"$targetTiddlerFile"
+#echo "tags: $pluginTargetMissingTitleOrAddressTags"  >>"$targetTiddlerFile"
+#echo "type: text/vnd.tiddlywiki"   >>"$targetTiddlerFile"
+#echo  >>"$targetTiddlerFile"
+
+jedsWikiList=$(mktemp)
+echo "DEBUG: temp Jed's wiki list = $jedsWikiList" 1>&2
 
 # PART 1: extracting relevant tiddlers from Jed's wiki and generating corresponding "plugin tidders"
 
@@ -78,77 +71,80 @@ echo  >>"$targetTiddlerFile"
 for tiddlerFile in $sourceWiki/*.tid; do 
     firstBlankLineNo=$(cat "$tiddlerFile" | grep -n "^$" | head -n 1 | cut -f 1 -d ":")
     hasPluginTag=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^tags:.*\[\[$pluginOfficialListTag\]\]")
-    if [ ! -z "$hasPluginTag" ] && [ "$tiddlerFile" != "$sourceWiki/$pluginOfficialListListingTiddler.tid" ] && [ "$tiddlerFile" != "$sourceWiki/$pluginOfficialListTemplateTiddler.tid" ]; then
+    if [ ! -z "$hasPluginTag" ] ; then
 	category=$(extractField "category" "$tiddlerFile" "$firstBlankLineNo")
-	if [ ! -z "$category" ]; then
-#	    echo "DEBUG: processing $tiddlerFile" 1>&2
-	    pluginTitle=$(extractField "plugin_tiddler" "$tiddlerFile" $firstBlankLineNo)
-	    pluginAddress=$(extractField "wiki" "$tiddlerFile" $firstBlankLineNo)
-	    if [ -z "$pluginTitle" ] || [ -z "$pluginAddress" ] || [ ${pluginTitle:0:3} != "\$:/" ]; then
-#		echo "DEBUG: missing field, excluding $tiddlerFile" 1>&2
-		sourceTiddlerTitle=$(extractField "title" "$tiddlerFile" $firstBlankLineNo)
-		echo "* [[$sourceTiddlerTitle]]" >>"$targetWiki/tiddlers/$pluginTargetMissingTitleOrAddressFile"
-	    else
-		pluginName=$(extractField "name" "$tiddlerFile" $firstBlankLineNo)
-		pluginDescr=$(extractField "short_description" "$tiddlerFile" $firstBlankLineNo)
-		targetTiddlerTitle=${pluginTitle:3}
-		targetTiddlerFile="$targetWiki/tiddlers/$(echo "$targetTiddlerTitle" | tr '/' '_').tid"
-		if [ -f "$targetTiddlerFile" ]; then
-		    echo "Warning: file $targetTiddlerFile already exists! overwriting it..." 1>&2
-		fi
-		writeCreatedTodayField   >"$targetTiddlerFile"
-		echo "title: $targetTiddlerTitle" >>"$targetTiddlerFile"
-		echo "source-wiki-address: $pluginAddress" >>"$targetTiddlerFile"
-		echo "canonical-name: $pluginTitle" >>"$targetTiddlerFile"
-		echo "name: $pluginName" >>"$targetTiddlerFile"
-		echo "short-description: $pluginDescr" >>"$targetTiddlerFile"
-		echo "category: $category" >>"$targetTiddlerFile"
-		echo "type: text/vnd.tiddlywiki" >>"$targetTiddlerFile"
-	    fi
+	if [ -z "$category" ] ||  [ "$tiddlerFile" != "$sourceWiki/$pluginOfficialListListingTiddler.tid" ] || [ "$tiddlerFile" != "$sourceWiki/$pluginOfficialListTemplateTiddler.tid" ]; then
+#	    cp "$tiddlerFile" "$targetWiki/tiddlers/"
+	    echo "DEBUG: ignoring $tiddlerFile (not a plugin twCard tiddler)" 1>&2
 	else
-	    echo "Warning: no category plugin, ignoring tiddler file '$tiddlerFile'"
+	    #	    echo "DEBUG: processing $tiddlerFile" 1>&2
+	    targetTiddler="$targetWiki/tiddlers/$(basename "$tiddlerFile")"
+	    tags=$(extractField "tags" "$tiddlerFile" $firstBlankLineNo)
+	    printTiddlerFields "$tiddlerFile" "tags" $firstBlankLineNo >"$targetTiddler"
+	    echo "$tags CommunityPlugins" >>"$targetTiddler"
+	    pluginTitle=$(extractField "plugin_tiddler" "$tiddlerFile" $firstBlankLineNo)
+	    
+	    if [ -z "$pluginTitle" ] || [ ${pluginTitle:0:3} != "\$:/" ]; then
+		echo "twcs-error: invalid/missing value for field 'plugin_tiddler'" >>"$targetTiddler"
+		#		echo "DEBUG: missing field, excluding $tiddlerFile" 1>&2
+		#		sourceTiddlerTitle=$(extractField "title" "$tiddlerFile" $firstBlankLineNo)
+		#		echo "* [[$sourceTiddlerTitle]]" >>"$targetWiki/tiddlers/$pluginTargetMissingTitleOrAddressFile"
+	    else
+		echo "$pluginTitle" # written to "$jedsWikiList" file
+		pluginAddress=$(extractField "wiki" "$tiddlerFile" $firstBlankLineNo | removeTrailingSlash)
+		if [ -z "$pluginAddress" ]; then
+		    echo "twcs-error: error 1: missing value for field 'wiki'" >>"$targetTiddler"
+		    echo  >>"$targetTiddler"
+		    echo  "{{||$:/CommunityPluginError}}" >>"$targetTiddler"
+		else
+		    line=$(grep "^$pluginAddress\s$pluginTitle\s" "$pluginListFile")
+		    if [ -z "$line" ]; then # no full match found...
+			matchLines=$(grep "\s$pluginTitle\s" "$pluginListFile" | wc -l)
+			if [ $matchLines -eq 0 ]; then # no partial match found
+			    echo "twcs-error: error 2: no match found on plugin title (unknown wiki?)" >>"$targetTiddler"
+			else
+			    echo "twcs-error: error 3: found only partial match (plugin title ok), check wiki address" >>"$targetTiddler"
+			fi
+			echo  >>"$targetTiddler"
+			echo  "{{||$:/CommunityPluginError}}" >>"$targetTiddler"
+		    else
+			wikiId=$(echo "$line" | cut -f 3)
+			#			originalTiddlerFile=$(echo "$line" | cut -f 4)
+			outputTiddlerFile=$(echo "$line" | cut -f 5)
+			firstBlankLineNo=$(echo "$line" | cut -f 6)
+			echo "twcs-wiki-id: $wikiId" >>"$targetTiddler"
+			echo "twcs-tiddler-title-as-text: $(extractField source-tiddler-title-as-text "$outputTiddlerFile" "$firstBlankLineNo")" >>"$targetTiddler"
+			echo "twcs-tiddler-title-as-link: $(extractField source-tiddler-title-as-link "$outputTiddlerFile" "$firstBlankLineNo")" >>"$targetTiddler"
+			echo "twcs-description: $(extractField description "$outputTiddlerFile" "$firstBlankLineNo")" >>"$targetTiddler"
+			echo "twcs-author: $(extractField author "$outputTiddlerFile" "$firstBlankLineNo")" >>"$targetTiddler"
+			echo "twcs-version: $(extractField version "$outputTiddlerFile" "$firstBlankLineNo")" >>"$targetTiddler"
+			echo >> "$targetTiddler"
+			echo '{{||$:/CommunityPluginTemplate}}' >> "$targetTiddler"
+		    fi
+		fi
+	    fi
 	fi
     fi
-done
+done | sort >"$jedsWikiList"
 
-# PART 2: try to match the plugins actually found in the scrapped wikis against the source plugin tiddlers from Jed's list
-# principle:
-# If the plugin tiddler file exists and the plugin source wiki is the same, then it's a
-#  match, tag tiddler with CommunityPlugins; otherwise ignore.
-# As a result, there are XX cases for unmatched plugins:
-#  - in Jed's list but not found in theextracted wikis -> the wiki is not in my list
-#    or there's a different address. In this case a non-system tiddler named after the
-#    plugin exists but does not have the CommunityWikis tag.
-#  - in extracted wikis but not in Jed's list -> it's an imported plugin or there's a
-#    different address. In this case there is a system tiddler with field extracted-plugin
-#    but no matching wiki.
+extractedPluginsList=$(mktemp)
+cut -f 2 "$pluginListFile" | sort -u >"$extractedPluginsList"
+comm -13 "$jedsWikiList" "$extractedPluginsList" | while read plugin; do
+    echo "DEBUG found unmatched extracted plugin: '$plugin'" 1>&2
+    title="Unknown plugin '$plugin'"
+    pluginAsFile=$(echo "$title" | tr '$:/' '___')
+    targetTiddler="$targetWiki/tiddlers/$pluginAsFile"
+    echo "title: $title" >"$targetTiddler"
+    writeCreatedTodayField >>"$targetTiddler"
+    echo "category: unknown" >>"$targetTiddler"
+    echo "plugin_tiddler: $plugin" >>"$targetTiddler"
+    echo "tags: [[$pluginOfficialListTag]] CommunityPlugins"  >>"$targetTiddler"
+    echo "twcs-error: error 4: found unknown plugin" >>"$targetTiddler"
+    echo >>"$targetTiddler"
+    echo '{{||$:/CommunityPluginTemplate}}' >> "$targetTiddler"
 
-cat  "$pluginListFile" | while read line; do
-    wikiAddress=$(echo "$line" | cut -f 1)
-    canonicalName=$(echo "$line" | cut -f 2)
-    wikiId=$(echo "$line" | cut -f 3)
-    originalTiddlerFile=$(echo "$line" | cut -f 4)
-    outputTiddlerFile=$(echo "$line" | cut -f 5)
-    firstBlankLineNo=$(echo "$line" | cut -f 6)
-    targetTiddlerTitle=${canonicalName:3}
-    targetTiddlerFile="$targetWiki/tiddlers/$(echo "$targetTiddlerTitle" | tr '/' '_').tid"
-#    echo "DEBUG: looking for $canonicalName, wiki=$wikiAddress, wikiId=$wikiId, originalTiddlerFile=$originalTiddlerFile, outputTiddlerFile=$outputTiddlerFile, targetTiddlerFile=$targetTiddlerFile" 1>&2
-    if [ -f "$targetTiddlerFile" ]; then # target plugin tiddler exists from Jed's list
-	sourcePluginAddress=$(extractField "source-wiki-address" "$targetTiddlerFile" 100)
-	if [ "$sourcePluginAddress" == "$wikiAddress" ]; then # MATCH FOUND
-#	    echo "DEBUG MATCH FOUND" 1>&2
-	    echo "plugin-description: $(extractField description "$outputTiddlerFile" "$firstBlankLineNo")" >>"$targetTiddlerFile"
-	    echo "plugin-author: $(extractField author "$outputTiddlerFile" "$firstBlankLineNo")" >>"$targetTiddlerFile"
-	    echo "plugin-version: $(extractField version "$outputTiddlerFile" "$firstBlankLineNo")" >>"$targetTiddlerFile"
-	    echo "source-wiki-id: $wikiId" >>"$targetTiddlerFile"
-	    echo "source-tiddler-title-as-text: $(extractField source-tiddler-title-as-text "$outputTiddlerFile" "$firstBlankLineNo")" >>"$targetTiddlerFile"
-	    echo "source-tiddler-title-as-link: $(extractField source-tiddler-title-as-link "$outputTiddlerFile" "$firstBlankLineNo")" >>"$targetTiddlerFile"
-	    echo "tags: [[$wikiId]] $pluginOkTag" >> "$targetTiddlerFile"
-	    echo >> "$targetTiddlerFile"
-	    echo '{{||$:/CommunityPluginTemplate}}' >> "$targetTiddlerFile"
-#	else
-#	    echo "DEBUG file exists but different wiki address" 1>&2
-	fi
-    fi
 done
+echo "DEBUG: leaving tmp files; jed's=$jedsWikiList, extracted=$extractedPluginsList " 1>&2
+exit 0
+rm -f "$extractedPluginsList"  "$jedsWikiList"
 
