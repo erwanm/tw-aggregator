@@ -10,7 +10,7 @@ skipHarvest=0
 workDir=
 indexableWikiAddressListTiddler="$:/IndexableWikiAddressList"
 anyWikiAddressListTiddler="$:/AnyWikiAddressList"
-
+testWikiAddressListTiddler="$:/TestWikiAddressList"
 
 function usage {
     echo "Usage: $progName [options] [wiki basis path]"
@@ -31,6 +31,7 @@ function usage {
     echo "  -d <working dir> use this path as working directory instead of"
     echo "     creating a temporary dir. -k is implied."
     echo "  -s skip harvest part (to be used with -d)"
+    echo "  -t use test list of wikis instead of full list (= debug mode)"
     echo    
 }
 
@@ -46,7 +47,7 @@ function findWikiAuthor {
 }
 
 
-while getopts 'ho:kd:s' option ; do
+while getopts 'ho:kd:st' option ; do
     case $option in
 	"h" ) usage
 	      exit 0;;
@@ -54,6 +55,8 @@ while getopts 'ho:kd:s' option ; do
 	"k" ) removeWorkDir=0;;
 	"s" ) skipHarvest=1;;
 	"d" ) workDir="$OPTARG";;
+	"t" ) indexableWikiAddressListTiddler="$testWikiAddressListTiddler"
+	      anyWikiAddressListTiddler="$testWikiAddressListTiddler";;
         "?" )
             echo "Error, unknow option." 1>&2
             usage 1>&2
