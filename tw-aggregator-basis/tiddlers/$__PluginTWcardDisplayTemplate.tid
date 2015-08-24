@@ -1,0 +1,9 @@
+created: 20150824232342955
+modified: 20150824232435610
+tags: TWCSCore
+title: $:/PluginTWcardDisplayTemplate
+type: text/vnd.tiddlywiki
+
+<$set name=pluginTitle filter='[<currentTiddler>get[title]]+[removeprefix[TWcard - Plugin - ]]'>
+<tr><td><$view field=name/></td><td>{{!!revision}} </td><td><$view field=maintainer/></td><td>{{!!short_description}}</td><td>{{!!wiki}}</td></tr>
+</$set>

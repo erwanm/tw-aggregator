@@ -1,18 +1,52 @@
 color: #1cc975
 created: 20150209010429338
-modified: 20150822203526864
+modified: 20150824232720989
 tags: TWCSCore
 title: CommunityPlugins
 type: text/vnd.tiddlywiki
 
+\define thisMakeMaintainerField()
+maintainer[$(ThisMaintainer)$]
+\end
 
-These plugins are collected based on JedCarty's <a href="http://inmysocks.tiddlyspot.com/#Plugin%20twCard">list by category</a>.
+\define thisMakeCategoryField()
+category[$(ThisCategory)$]
+\end
+
+\define thisMakeList()
+<table>
+<$list filter='[$(CategoryEntry)$$(MaintainerEntry)$tag[Plugin twCard]has[category]sort[category]each[category]]'>
+<tr><th colspan=5 align="left">{{!!category}} Plugins</th></tr>
+<tr><th>Name</th><th>Version</th><th>Maintainer</th><th>Description</th><th>Wiki</th></tr>
+<$set name=currentCategory value={{!!category}}>
+<$list filter='[$(MaintainerEntry)$tag[Plugin twCard]category<currentCategory>sort[title]]' template="$:/PluginTWcardDisplayTemplate">
+
+</$list>
+</$set>
+</$list>
+</table>
+\end
 
 
-<ul>
-  <$list filter="[tag[WikiAuthors]tagging[]tag[CommunityWikis]tagging[]tag[CommunityPlugins]]">
-      <li>
-        {{||$:/CommunityPluginShortDescription}}
-      </li>
-  </$list>
-</ul>
+These plugins are collected based on JedCarty's <a href="http://inmysocks.tiddlyspot.com/#Plugin%20twCard">list</a>.
+
+
+Select maintainer: <$select field='maintainer'>
+<option value=''>All</option>
+<$list filter='[!is[current]tag[Plugin twCard]each[maintainer]get[maintainer]sort[title]]-[[twCard Listing - Plugins]]' variable=ThisMaintainer>
+<option value=<<thisMakeMaintainerField>>><$view tiddler=<<ThisMaintainer>> field='title'/></option>
+</$list>
+</$select>
+
+Select category: <$select field='category'>
+<option value=''>All</option>
+<$list filter='[!is[current]tag[Plugin twCard]each[category]get[category]sort[title]]-[[twCard Listing - Plugins]]' variable=ThisCategory>
+<option value=<<thisMakeCategoryField>>><$view tiddler=<<ThisCategory>> field='title'/></option>
+</$list>
+</$select>
+
+<$set name=MaintainerEntry value={{!!maintainer}}>
+<$set name=CategoryEntry value={{!!category}}>
+<<thisMakeList>>
+</$set>
+</$set>
