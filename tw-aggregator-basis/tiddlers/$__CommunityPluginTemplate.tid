@@ -1,5 +1,5 @@
 created: 20150209005818510
-modified: 20150825235849323
+modified: 20150826115441292
 tags: TWCSCore
 title: $:/CommunityPluginTemplate
 type: text/vnd.tiddlywiki
@@ -35,6 +35,7 @@ Message: //{{!!twcs-error}}//<br/>
 |Author |//plugin// |{{!!twcs-author}} |
 |~|//Jed's list// |{{!!maintainer}} |
 |~|//wiki// |<<pluginAuthor>> |
-|Wiki |<$link to={{!!twcs-wiki-id}}><$text text={{!!twcs-wiki-id}}/></$link> |<|
+|Wiki |//tiddler// |<$link to={{!!twcs-wiki-id}}><$text text={{!!twcs-wiki-id}}/></$link> |
+|~|//link// |{{!!wiki}} |
 |Link |<<sourceLink>> |<|
 

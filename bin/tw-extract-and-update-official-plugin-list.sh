@@ -94,19 +94,15 @@ for tiddlerFile in $sourceWiki/*.tid; do
 		pluginAddress=$(extractField "wiki" "$tiddlerFile" $firstBlankLineNo | removeTrailingSlash)
 		if [ -z "$pluginAddress" ]; then
 		    echo "twcs-error: error 2: missing value for field 'wiki'" >>"$targetTiddler"
-		    echo  >>"$targetTiddler"
-		    echo  "{{||$:/CommunityPluginTemplate}}" >>"$targetTiddler"
 		else
 		    line=$(grep "^$pluginAddress\s$pluginTitle\s" "$pluginListFile")
 		    if [ -z "$line" ]; then # no full match found...
 			matchLines=$(grep "\s$pluginTitle\s" "$pluginListFile" | wc -l)
 			if [ $matchLines -eq 0 ]; then # no partial match found
-			    echo "twcs-error: error 3: no match found on plugin title (unknown wiki?)" >>"$targetTiddler"
+			    echo "twcs-error: error 3: no match found on plugin title (unknown wiki? discontinued plugin?)" >>"$targetTiddler"
 			else
 			    echo "twcs-error: error 4: found only partial match (plugin title ok), check wiki address" >>"$targetTiddler"
 			fi
-			echo  >>"$targetTiddler"
-			echo  "{{||$:/CommunityPluginTemplate}}" >>"$targetTiddler"
 		    else
 			echo "DEBUG: full match for '$pluginTitle' " 1>&2
 			wikiId=$(echo "$line" | cut -f 3)
@@ -121,11 +117,12 @@ for tiddlerFile in $sourceWiki/*.tid; do
 			echo "twcs-description: $(extractField description "$outputTiddlerFile" "$firstBlankLineNo")" >>"$targetTiddler"
 			echo "twcs-author: $(extractField author "$outputTiddlerFile" "$firstBlankLineNo")" >>"$targetTiddler"
 			echo "twcs-version: $(extractField version "$outputTiddlerFile" "$firstBlankLineNo")" >>"$targetTiddler"
-			echo >> "$targetTiddler"
-			echo '{{||$:/CommunityPluginTemplate}}' >> "$targetTiddler"
 		    fi
 		fi
 	    fi
+	    echo  >>"$targetTiddler"
+	    echo  "{{||$:/CommunityPluginTemplate}}" >>"$targetTiddler"
+
 	fi
     fi
 done | sort >"$jedsWikiList"

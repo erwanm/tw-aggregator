@@ -1,5 +1,5 @@
 created: 20150825235950248
-modified: 20150826000021903
+modified: 20150826114732529
 tags: TWCSCore
 title: $:/RevealCandidateExtractedPlugins
 type: text/vnd.tiddlywiki
@@ -10,7 +10,10 @@ Show potential matching candidates among extracted plugins:
     <$button set=<<my-state>> setTo="show">Show</$button>
   </$reveal>
   <$reveal type="match" state=<<my-state>> text="show">
-    <$button set=<<my-state>> setTo="hide">Hide</$button>
-    <$list filter="[has[extracted-plugin]field:source-tiddler-title-as-text{!!plugin_tiddler}]"/>
+    <$button set=<<my-state>> setTo="hide">Hide</$button><br/>
+
+    <$list filter="[has[extracted-plugin]field:source-tiddler-title-as-text{!!plugin_tiddler}]" emptyMessage="no match found.">
+      <$link><$text text={{!!title}}/></$link><br/>
+    </$list>
   </$reveal>
 </$set>

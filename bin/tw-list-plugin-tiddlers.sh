@@ -63,7 +63,7 @@ while read line; do
 		targetTiddler=$(cloneAsTWCSTiddler "$tiddlerFile" "$targetWiki/tiddlers" "$firstBlankLineNo" "$name" 0 "plugin-type type")
 		echo "extracted-plugin: true" >>"$targetTiddler"
 		echo >>"$targetTiddler"
-		echo "{{||CommunityExtractedPlugin}}" >>"$targetTiddler"
+		echo '{{||$:/CommunityExtractedPlugin}}' >>"$targetTiddler"
 		# 2. add to list
 		pluginTitle=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^title: " | sed 's/^title: //')
 		targetFirstBlankLineNo=$(getFirstBlankLineNo "$targetTiddler")
