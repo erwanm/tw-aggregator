@@ -130,13 +130,15 @@ done | sort >"$jedsWikiList"
 extractedPluginsList=$(mktemp)
 cut -f 2 "$pluginListFile" | sort -u >"$extractedPluginsList"
 comm -13 "$jedsWikiList" "$extractedPluginsList" | while read plugin; do
-    echo "DEBUG found unmatched extracted plugin: '$plugin'" 1>&2
     title="Unknown plugin '$plugin'"
-    pluginAsFile=$(echo "$title" | tr '$:/' '___')
-    targetTiddler="$targetWiki/tiddlers/$pluginAsFile"
+    pluginAsFile=$(echo "$title" | tr ':/' '__')
+    targetTiddler="$targetWiki/tiddlers/$pluginAsFile.tid"
+    echo "DEBUG found unmatched extracted plugin: '$plugin' targetFile=$targetTiddler" 1>&2
     echo "title: $title" >"$targetTiddler"
+    echo "name: unknown" >>"$targetTiddler"
+    echo "short_description: $plugin" >>"$targetTiddler"
     writeCreatedTodayField >>"$targetTiddler"
-    echo "category: unknown" >>"$targetTiddler"
+    echo "category: Unknown" >>"$targetTiddler"
     echo "plugin_tiddler: $plugin" >>"$targetTiddler"
     echo "tags: [[$pluginOfficialListTag]] CommunityPlugins"  >>"$targetTiddler"
     echo "twcs-error: error 5: unknown plugin found" >>"$targetTiddler"
