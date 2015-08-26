@@ -1,10 +1,9 @@
 color: #1cc975
 created: 20150209010429338
-modified: 20150825222316305
-tags: TWCSCore Contents
+modified: 20150826180808352
+tags: TWCSCore TWCSContents
 title: CommunityPlugins
 type: text/vnd.tiddlywiki
-
 
 \define thisMakeCategoryField()
 category[$(ThisCategory)$]
@@ -25,7 +24,7 @@ category[$(ThisCategory)$]
 \end
 
 
-These plugins are collected based on JedCarty's <a href="http://inmysocks.tiddlyspot.com/#Plugin%20twCard">list</a>.
+These plugins are collected based on JedCarty's <a href="http://inmysocks.tiddlyspot.com/#Plugin%20twCard">list</a>. See how in the [[documentation|PluginsCollection]].
 
 
 Select category: <$select field='category'>

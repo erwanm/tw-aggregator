@@ -1,5 +1,5 @@
 created: 20150822215235564
-modified: 20150826171710127
+modified: 20150826175401260
 tags: UserDocumentation
 title: PluginsCollection
 type: text/vnd.tiddlywiki
@@ -31,3 +31,4 @@ An "error" is when Jed's list and the extracted plugins don't match:
 
 This is why the detailed plugin tiddler might show a warning message and miss some of the info. Normally such discrepancies will be solved by Jed or yours truly sooner or later. 
 
+A list of all the errors can be found in [[$:/PluginIssues]].
