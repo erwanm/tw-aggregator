@@ -1,0 +1,33 @@
+created: 20150822215235564
+modified: 20150826171710127
+tags: UserDocumentation
+title: PluginsCollection
+type: text/vnd.tiddlywiki
+
+
+
+A collection of available plugins is provided in CommunityPlugins. 
+
+!! Method
+
+The aggregator automatically collects two things:
+
+* All plugins are extracted from the public wikis (everything tagged {{CommunityWikis||$:/core/ui/TagTemplate}}). however the actual plugins are not copied, the system only extracts the fields describing the plugin (author, version, etc.) and stores the location.
+* A specific curated list is extracted from JedCarty's <a href="http://inmysocks.tiddlyspot.com/#Plugin%20twCard">list by category</a>. 
+
+Jed's data is used primarily to obtain the source location of a plugin (usually the author's wiki), because there is no way to automatically determine whether a plugin is simply imported or if it is authored by the wiki owner. Additionally, the matching of the two sources can help fixing various issues:
+
+* Mistakes/outdated info in Jed's list,
+* New/unknown wiki found in Jed's list but not in the aggregator sources,
+* New/unknown plugin found in the extracted wikis but not in Jed's list.
+* ...
+
+!! Possible errors
+
+An "error" is when Jed's list and the extracted plugins don't match:
+
+* A full match is when there is a match on both the plugin title and the source wiki address.
+* A partial match is when only the two plugin titles match. In this case it is unclear which of the source wikis found automatically is the real origin of the plugin (if there is a single wiki, we can't be sure that this is the origin).
+
+This is why the detailed plugin tiddler might show a warning message and miss some of the info. Normally such discrepancies will be solved by Jed or yours truly sooner or later. 
+
