@@ -1,6 +1,7 @@
 created: 20150201163952179
 description: With this feature you can have multiple wikis indexed without registering each individually to this search engine. You can add or remove a wiki from indexing anytime you want.
-modified: 20150201183008959
+modified: 20150825223210372
+tags: AuthorDocumentation
 title: FollowUrlFeature
 type: text/vnd.tiddlywiki
 

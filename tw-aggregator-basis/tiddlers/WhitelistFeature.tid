@@ -1,6 +1,7 @@
 created: 20150201182004732
 description: With this feature you can tell the indexing script which tiddlers to index in your wiki.
-modified: 20150201190001811
+modified: 20150825223322590
+tags: AuthorDocumentation
 title: WhitelistFeature
 type: text/vnd.tiddlywiki
 

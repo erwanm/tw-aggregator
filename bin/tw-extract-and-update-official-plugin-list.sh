@@ -73,7 +73,7 @@ for tiddlerFile in $sourceWiki/*.tid; do
     hasPluginTag=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^tags:.*\[\[$pluginOfficialListTag\]\]")
     if [ ! -z "$hasPluginTag" ] ; then
 	category=$(extractField "category" "$tiddlerFile" "$firstBlankLineNo")
-	if [ -z "$category" ] ||  [ "$tiddlerFile" != "$sourceWiki/$pluginOfficialListListingTiddler.tid" ] || [ "$tiddlerFile" != "$sourceWiki/$pluginOfficialListTemplateTiddler.tid" ]; then
+	if [ -z "$category" ] ||  [ "$tiddlerFile" == "$sourceWiki/$pluginOfficialListListingTiddler.tid" ] || [ "$tiddlerFile" == "$sourceWiki/$pluginOfficialListTemplateTiddler.tid" ]; then
 #	    cp "$tiddlerFile" "$targetWiki/tiddlers/"
 	    echo "DEBUG: ignoring $tiddlerFile (not a plugin twCard tiddler)" 1>&2
 	else
@@ -81,11 +81,11 @@ for tiddlerFile in $sourceWiki/*.tid; do
 	    targetTiddler="$targetWiki/tiddlers/$(basename "$tiddlerFile")"
 	    tags=$(extractField "tags" "$tiddlerFile" $firstBlankLineNo)
 	    printTiddlerFields "$tiddlerFile" "tags" $firstBlankLineNo >"$targetTiddler"
-	    echo "$tags CommunityPlugins" >>"$targetTiddler"
+	    echo "tags: $tags CommunityPlugins" >>"$targetTiddler"
 	    pluginTitle=$(extractField "plugin_tiddler" "$tiddlerFile" $firstBlankLineNo)
 	    
 	    if [ -z "$pluginTitle" ] || [ ${pluginTitle:0:3} != "\$:/" ]; then
-		echo "twcs-error: invalid/missing value for field 'plugin_tiddler'" >>"$targetTiddler"
+		echo "twcs-error: error 1: invalid/missing value for field 'plugin_tiddler'" >>"$targetTiddler"
 		#		echo "DEBUG: missing field, excluding $tiddlerFile" 1>&2
 		#		sourceTiddlerTitle=$(extractField "title" "$tiddlerFile" $firstBlankLineNo)
 		#		echo "* [[$sourceTiddlerTitle]]" >>"$targetWiki/tiddlers/$pluginTargetMissingTitleOrAddressFile"
@@ -93,28 +93,31 @@ for tiddlerFile in $sourceWiki/*.tid; do
 		echo "$pluginTitle" # written to "$jedsWikiList" file
 		pluginAddress=$(extractField "wiki" "$tiddlerFile" $firstBlankLineNo | removeTrailingSlash)
 		if [ -z "$pluginAddress" ]; then
-		    echo "twcs-error: error 1: missing value for field 'wiki'" >>"$targetTiddler"
+		    echo "twcs-error: error 2: missing value for field 'wiki'" >>"$targetTiddler"
 		    echo  >>"$targetTiddler"
-		    echo  "{{||$:/CommunityPluginError}}" >>"$targetTiddler"
+		    echo  "{{||$:/CommunityPluginTemplate}}" >>"$targetTiddler"
 		else
 		    line=$(grep "^$pluginAddress\s$pluginTitle\s" "$pluginListFile")
 		    if [ -z "$line" ]; then # no full match found...
 			matchLines=$(grep "\s$pluginTitle\s" "$pluginListFile" | wc -l)
 			if [ $matchLines -eq 0 ]; then # no partial match found
-			    echo "twcs-error: error 2: no match found on plugin title (unknown wiki?)" >>"$targetTiddler"
+			    echo "twcs-error: error 3: no match found on plugin title (unknown wiki?)" >>"$targetTiddler"
 			else
-			    echo "twcs-error: error 3: found only partial match (plugin title ok), check wiki address" >>"$targetTiddler"
+			    echo "twcs-error: error 4: found only partial match (plugin title ok), check wiki address" >>"$targetTiddler"
 			fi
 			echo  >>"$targetTiddler"
-			echo  "{{||$:/CommunityPluginError}}" >>"$targetTiddler"
+			echo  "{{||$:/CommunityPluginTemplate}}" >>"$targetTiddler"
 		    else
+			echo "DEBUG: full match for '$pluginTitle' " 1>&2
 			wikiId=$(echo "$line" | cut -f 3)
 			#			originalTiddlerFile=$(echo "$line" | cut -f 4)
 			outputTiddlerFile=$(echo "$line" | cut -f 5)
 			firstBlankLineNo=$(echo "$line" | cut -f 6)
 			echo "twcs-wiki-id: $wikiId" >>"$targetTiddler"
-			echo "twcs-tiddler-title-as-text: $(extractField source-tiddler-title-as-text "$outputTiddlerFile" "$firstBlankLineNo")" >>"$targetTiddler"
-			echo "twcs-tiddler-title-as-link: $(extractField source-tiddler-title-as-link "$outputTiddlerFile" "$firstBlankLineNo")" >>"$targetTiddler"
+#			echo "twcs-tiddler-title-as-text: $(extractField source-tiddler-title-as-text "$outputTiddlerFile" "$firstBlankLineNo")" >>"$targetTiddler"
+#			echo -n "twcs-plugin-title-as-link: " >>"$targetTiddler"
+#			rawurlencode "$pluginTitle" >>"$targetTiddler"
+			echo "twcs-extracted-plugin-tiddler: $(extractField title "$outputTiddlerFile" "$firstBlankLineNo")"  >>"$targetTiddler"
 			echo "twcs-description: $(extractField description "$outputTiddlerFile" "$firstBlankLineNo")" >>"$targetTiddler"
 			echo "twcs-author: $(extractField author "$outputTiddlerFile" "$firstBlankLineNo")" >>"$targetTiddler"
 			echo "twcs-version: $(extractField version "$outputTiddlerFile" "$firstBlankLineNo")" >>"$targetTiddler"
@@ -139,7 +142,7 @@ comm -13 "$jedsWikiList" "$extractedPluginsList" | while read plugin; do
     echo "category: unknown" >>"$targetTiddler"
     echo "plugin_tiddler: $plugin" >>"$targetTiddler"
     echo "tags: [[$pluginOfficialListTag]] CommunityPlugins"  >>"$targetTiddler"
-    echo "twcs-error: error 4: found unknown plugin" >>"$targetTiddler"
+    echo "twcs-error: error 5: unknown plugin found" >>"$targetTiddler"
     echo >>"$targetTiddler"
     echo '{{||$:/CommunityPluginTemplate}}' >> "$targetTiddler"
 

@@ -60,7 +60,7 @@ while read line; do
 	    tiddlerType=$(getTiddlerType "$tiddlerFile"  "$firstBlankLineNo")
 	    if [ "$tiddlerType" == "plugin" ]; then
 		# 1. create tiddler in the same way as regular tiddlers
-		targetTiddler=$(cloneAsTWCSTiddler "$tiddlerFile" "$targetWiki/tiddlers" "$firstBlankLineNo" "$name" 0 "plugin-type")
+		targetTiddler=$(cloneAsTWCSTiddler "$tiddlerFile" "$targetWiki/tiddlers" "$firstBlankLineNo" "$name" 0 "plugin-type type")
 		echo "extracted-plugin: true" >>"$targetTiddler"
 		echo >>"$targetTiddler"
 		echo "{{||CommunityExtractedPlugin}}" >>"$targetTiddler"

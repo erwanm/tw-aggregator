@@ -1,9 +1,27 @@
 created: 20150824232342955
-modified: 20150824232435610
+modified: 20150825222402139
 tags: TWCSCore
 title: $:/PluginTWcardDisplayTemplate
 type: text/vnd.tiddlywiki
 
-<$set name=pluginTitle filter='[<currentTiddler>get[title]]+[removeprefix[TWcard - Plugin - ]]'>
-<tr><td><$view field=name/></td><td>{{!!revision}} </td><td><$view field=maintainer/></td><td>{{!!short_description}}</td><td>{{!!wiki}}</td></tr>
-</$set>
+
+\define concat-tiddler-link()
+  $(address)$#$(tiddler-title)$
+\end
+
+\define sourceLink()
+  <$tiddler tiddler={{!!twcs-extracted-plugin-tiddler}}>
+    <$set name="address" filter="[all[current]get[source-wiki-id]get[wiki-address]]">
+    <$set name="tiddler-title" value={{!!source-tiddler-title-as-link}}>
+      <a href=<<concat-tiddler-link>> target="_blank">{{ $:/core/images/chevron-right }}</a>
+    </$set>    
+    </$set>    
+  </$tiddler>
+\end
+
+<tr>
+    <td><$link to=<<currentTiddler>>><$view field=name/></$link></td>
+    <td>{{!!short_description}}</td>
+    <td><$link to={{!!twcs-wiki-id}}><$text text={{!!twcs-wiki-id}}/></$link></td>
+    <td><<sourceLink>></td>
+</tr>

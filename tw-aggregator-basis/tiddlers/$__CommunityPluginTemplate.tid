@@ -1,54 +1,40 @@
 created: 20150209005818510
-modified: 20150822211515697
+modified: 20150825235849323
 tags: TWCSCore
 title: $:/CommunityPluginTemplate
 type: text/vnd.tiddlywiki
 
 \define pluginAuthor()
-  <$set name="wiki-tiddler" value={{!!source-wiki-id}}>
+  <$set name="wiki-tiddler" value={{!!twcs-wiki-id}}>
     <$list filter="[<wiki-tiddler>tags[]] -CommunityWikis">
       {{||$:/core/ui/TagTemplate}}
     </$list>
   </$set>
 \end
 
-! <$text text={{!!canonical-name}}/>
+\define sourceLink()
+  <$tiddler tiddler={{!!twcs-extracted-plugin-tiddler}}>
+    {{||$:/core/ui/ListItemTemplate}}
+  </$tiddler>
+\end
 
-!! Category
+<$list filter="[all[current]has[twcs-error]]">
+@@color:orange;
+''Warning: something went wrong when collecting data about this plugin. Some information might be missing.''<br/>
+Message: //{{!!twcs-error}}//<br/>
+{{||$:/RevealCandidateExtractedPlugins}}
+@@
+</$list>
 
-{{!!category}}
-
-!! Wiki
-
-<$link to={{!!source-wiki-id}}><$text text={{!!source-wiki-id}}/></$link>
-
-!! Version
-
-{{!!plugin-version}}
-
-
-!! Link to plugin
-
-{{||$:/core/ui/ListItemTemplate}}
-
-
-!! Description
-
-//From plugin://
-
-{{!!plugin-description}}
-
-//From JedCarty's list://
-
-{{!!short-description}}
-
-!! Author
-
-//From plugin://
-
-{{!!plugin-author}}
-
-//Wiki author://
-
-<<pluginAuthor>>
+|Name |<strong><$text text={{!!name}}/></strong> |<|
+|Tiddler title |<$text text={{!!plugin_tiddler}}/> |<|
+|Version |{{!!twcs-version}} |<|
+|Category |{{!!category}} |<|
+|Description |//plugin// |{{!!twcs-description}} |
+|~|//Jed's list// |{{!!short_description}} |
+|Author |//plugin// |{{!!twcs-author}} |
+|~|//Jed's list// |{{!!maintainer}} |
+|~|//wiki// |<<pluginAuthor>> |
+|Wiki |<$link to={{!!twcs-wiki-id}}><$text text={{!!twcs-wiki-id}}/></$link> |<|
+|Link |<<sourceLink>> |<|
 

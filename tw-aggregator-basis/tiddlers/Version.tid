@@ -1,5 +1,5 @@
 created: 20141221163448239
-modified: 20150819225604421
+modified: 20150825230903036
 tags: TWCSCore
 title: Version
 type: text/vnd.tiddlywiki
@@ -29,4 +29,5 @@ The wiki currently indexes:
 * <<nbTiddlers>> tiddlers
 * <<nbTags>> distinct tags
 * <<nbWikis>> wikis
+* <$count filter="[tag[CommunityPlugins]]"/> plugins
 * from <$count filter="[tag[WikiAuthors]has[licence]]"/> wiki authors

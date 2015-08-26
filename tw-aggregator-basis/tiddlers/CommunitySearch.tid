@@ -1,8 +1,8 @@
 created: 20141214202822571
 creator: Erwan
-modified: 20150104140237003
+modified: 20150825214534260
 modifier: Erwan
-tags: TWCSCore
+tags: TWCSCore Contents
 title: CommunitySearch
 type: text/vnd.tiddlywiki
 
@@ -25,13 +25,13 @@ Search for tiddlers in the community wikis:
 
 <$reveal state="$:/temp/advancedsearch" type="nomatch" text="">
 
-<$set name="resultCount" value="""<$count filter="[is[system]has[source-wiki-id]search{$:/temp/advancedsearch}] -[[$:/temp/advancedsearch]]"/>""">
+<$set name="resultCount" value="""<$count filter="[is[system]has[source-wiki-id]!has[extracted-plugin]search{$:/temp/advancedsearch}] -[[$:/temp/advancedsearch]]"/>""">
 
 <div class="tc-search-results">
 
 <<lingo System/Matches>>
 
-<$list filter="[is[system]has[source-wiki-id]search{$:/temp/advancedsearch}!sort[modified]limit[250]] -[[$:/temp/advancedsearch]]" template="$:/core/ui/ListItemTemplate"/>
+<$list filter="[is[system]has[source-wiki-id]!has[extracted-plugin]search{$:/temp/advancedsearch}!sort[modified]limit[250]] -[[$:/temp/advancedsearch]]" template="$:/core/ui/ListItemTemplate"/>
 
 </div>
 
