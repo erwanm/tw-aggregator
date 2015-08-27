@@ -63,7 +63,7 @@ fi
 #echo  >>"$targetTiddlerFile"
 
 jedsWikiList=$(mktemp)
-echo "DEBUG: temp Jed's wiki list = $jedsWikiList" 1>&2
+#echo "DEBUG: temp Jed's wiki list = $jedsWikiList" 1>&2
 
 # PART 1: extracting relevant tiddlers from Jed's wiki and generating corresponding "plugin tidders"
 
@@ -75,7 +75,7 @@ for tiddlerFile in $sourceWiki/*.tid; do
 	category=$(extractField "category" "$tiddlerFile" "$firstBlankLineNo")
 	if [ -z "$category" ] ||  [ "$tiddlerFile" == "$sourceWiki/$pluginOfficialListListingTiddler.tid" ] || [ "$tiddlerFile" == "$sourceWiki/$pluginOfficialListTemplateTiddler.tid" ]; then
 #	    cp "$tiddlerFile" "$targetWiki/tiddlers/"
-	    echo "DEBUG: ignoring $tiddlerFile (not a plugin twCard tiddler)" 1>&2
+#	    echo "DEBUG: ignoring $tiddlerFile (not a plugin twCard tiddler)" 1>&2
 	else
 	    #	    echo "DEBUG: processing $tiddlerFile" 1>&2
 	    targetTiddler="$targetWiki/tiddlers/$(basename "$tiddlerFile")"
@@ -104,7 +104,7 @@ for tiddlerFile in $sourceWiki/*.tid; do
 			    echo "twcs-error: error 4: found only partial match (plugin title ok), check wiki address" >>"$targetTiddler"
 			fi
 		    else
-			echo "DEBUG: full match for '$pluginTitle' " 1>&2
+#			echo "DEBUG: full match for '$pluginTitle' " 1>&2
 			wikiId=$(echo "$line" | cut -f 3)
 			#			originalTiddlerFile=$(echo "$line" | cut -f 4)
 			outputTiddlerFile=$(echo "$line" | cut -f 5)
@@ -133,7 +133,7 @@ comm -13 "$jedsWikiList" "$extractedPluginsList" | while read plugin; do
     title="Unknown plugin '$plugin'"
     pluginAsFile=$(echo "$title" | tr ':/' '__')
     targetTiddler="$targetWiki/tiddlers/$pluginAsFile.tid"
-    echo "DEBUG found unmatched extracted plugin: '$plugin' targetFile=$targetTiddler" 1>&2
+#    echo "DEBUG found unmatched extracted plugin: '$plugin' targetFile=$targetTiddler" 1>&2
     echo "title: $title" >"$targetTiddler"
     echo "name: unknown" >>"$targetTiddler"
 #    echo "short_description: $plugin" >>"$targetTiddler"
@@ -147,7 +147,7 @@ comm -13 "$jedsWikiList" "$extractedPluginsList" | while read plugin; do
     echo '{{||$:/CommunityPluginTemplate}}' >> "$targetTiddler"
 
 done
-echo "DEBUG: leaving tmp files; jed's=$jedsWikiList, extracted=$extractedPluginsList " 1>&2
+#echo "DEBUG: leaving tmp files; jed's=$jedsWikiList, extracted=$extractedPluginsList " 1>&2
 exit 0
-rm -f "$extractedPluginsList"  "$jedsWikiList"
+#rm -f "$extractedPluginsList"  "$jedsWikiList"
 

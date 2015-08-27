@@ -1,6 +1,6 @@
 created: 20141214005400000
 creator: Erwan
-modified: 20150826181003008
+modified: 20150827183719652
 tags: TWCSCore TWCSContents
 title: GettingStarted
 type: text/vnd.tiddlywiki
@@ -13,7 +13,13 @@ You can also browse the index [[by tags|CommunityTags]], [[by wiki|CommunityWiki
 
 ''New!'' A [[list of plugins from the community|CommunityPlugins]] is now available!
 
+! Version
 
-{{About}}
+{{Version}}
+
+! See also
+
+* [[What is this?]]
+* [[About]]
 
 
