@@ -1,13 +1,13 @@
 color: #1cc975
 created: 20150131141105441
-modified: 20150826174930784
+modified: 20150827153453068
 tags: TWCSCore TWCSDocumentation
 title: UserDocumentation
 type: text/vnd.tiddlywiki
 
 ! Main usage
 
-This wiki lets you search for some content among a preselected list of {{TiddlyWiki}} wikis. The indexed content is mostly focused on {{TiddlyWiki}} usage, so you would typically use this search system to find information about a particular aspect of {{TiddlyWiki}}. Say for example that you want to learn how to make a table of content, type "table of content" in the [[CommunitySearch box|CommunitySearch]] (also accessible in the default tiddler GettingStarted). The search results are links to various wikis, and point directly to the specific tiddlers containing your request.
+This wiki lets you search for some specific content among a preselected list of {{TiddlyWiki}} wikis. The indexed content is mostly focused on {{TiddlyWiki}} usage, so you would typically use this search system to find information about a particular aspect of {{TiddlyWiki}}. Say for example that you want to learn how to make a table of content, type "table of content" in the [[CommunitySearch box|CommunitySearch]] (also accessible in the default tiddler GettingStarted). The search results are links to various wikis, and point directly to the specific tiddlers containing your request.
 
 ! Community Search or official documentation?
 

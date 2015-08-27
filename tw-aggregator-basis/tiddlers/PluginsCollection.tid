@@ -1,9 +1,8 @@
 created: 20150822215235564
-modified: 20150826175401260
-tags: UserDocumentation
+modified: 20150827174256040
+tags: DeveloperDocumentation
 title: PluginsCollection
 type: text/vnd.tiddlywiki
-
 
 
 A collection of available plugins is provided in CommunityPlugins. 
@@ -12,7 +11,7 @@ A collection of available plugins is provided in CommunityPlugins.
 
 The aggregator automatically collects two things:
 
-* All plugins are extracted from the public wikis (everything tagged {{CommunityWikis||$:/core/ui/TagTemplate}}). however the actual plugins are not copied, the system only extracts the fields describing the plugin (author, version, etc.) and stores the location.
+* All plugins are extracted from the public wikis, i.e. everything tagged {{CommunityWikis||$:/core/ui/TagTemplate}}. However //the actual plugins are not copied//, the system only extracts the fields describing the plugin (author, version, etc.) and stores the location.
 * A specific curated list is extracted from JedCarty's <a href="http://inmysocks.tiddlyspot.com/#Plugin%20twCard">list by category</a>. 
 
 Jed's data is used primarily to obtain the source location of a plugin (usually the author's wiki), because there is no way to automatically determine whether a plugin is simply imported or if it is authored by the wiki owner. Additionally, the matching of the two sources can help fixing various issues:
@@ -22,13 +21,34 @@ Jed's data is used primarily to obtain the source location of a plugin (usually 
 * New/unknown plugin found in the extracted wikis but not in Jed's list.
 * ...
 
+!! How are the plugins represented?
+
+!!! Extracted plugins tiddlers
+
+For each plugin found in the wikis, a system tiddler is generated:
+
+* Its title is `$:/<wiki>/<plugin title>` (same convention as for regular tiddlers)
+* The fields of the tiddlers are copied, in particular //description//, //version//, //author//^^(the other fields are not always provided; even //author// does not always have a value!)^^. //type// and //plugin-type// are not, because they would cause TW to misinterpret the content of the tiddler.
+* The content is replaced with a simple transclusion through [[$:/CommunityExtractedPluginTemplate]].
+* A field stores the location of origin as a link.
+
+If the corresponding "official" plugin tiddler is found (same plugin title), the template shows it together with the corresponding wiki. This is meant to help fix discrepancies between extracted plugins and Jed's list plugins.
+
+!!! "Official" plugin tiddlers
+
+Jed's plugin entries are copied directly //as regular tiddlers// (as opposed to general content, which is stored as system tiddlers). These tiddlers titles start with `twCard Plugin`, and are enriched with more information when possible:
+in the case of a full match, the fields //description//, //version//, //author// as well as the location are copied. Otherwise, depending on the kind of matching, some fields are missing and a field ``twcs-error`` describing the kind of problem is added.
+
+These tiddlers are the ones shown in CommunityPlugins, and clicking on the name opens the full "official plugin" tiddler with more details. Additionally, for non-full matches, a button gives access to the list of extracted plugin tiddlers which match the plugin title (there might not be any). This way it is still possible to access a wiki on which the plugin was found, but there is no warranty that this is the real wiki of origin.
+
+Finally, in the case of extracted plugins for which there is no entry in Jed's list (not even on the plugin title), a placeholder official plugin tiddler is generated. Such tiddlers have no field ``category`` and therefore don't appear in the official list (CommunityPlugins). They are kept "hidden" to avoid any confusion with the curated list. But users and (more importantly) maintainers can access it at  UnknownExtractedPlugins.
+
 !! Possible errors
 
 An "error" is when Jed's list and the extracted plugins don't match:
 
 * A full match is when there is a match on both the plugin title and the source wiki address.
-* A partial match is when only the two plugin titles match. In this case it is unclear which of the source wikis found automatically is the real origin of the plugin (if there is a single wiki, we can't be sure that this is the origin).
+* A partial match is when only the two plugin titles match. In this case it is unclear which of the source wikis found automatically is the real origin of the plugin (even if there is only one wiki, we can't be sure that this is the origin).
 
 This is why the detailed plugin tiddler might show a warning message and miss some of the info. Normally such discrepancies will be solved by Jed or yours truly sooner or later. 
-
 A list of all the errors can be found in [[$:/PluginIssues]].

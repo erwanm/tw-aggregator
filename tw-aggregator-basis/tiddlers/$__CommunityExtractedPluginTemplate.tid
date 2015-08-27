@@ -1,7 +1,7 @@
 created: 20150826111521856
-modified: 20150826145410118
+modified: 20150827171806291
 tags: TWCSCore
-title: $:/CommunityExtractedPlugin
+title: $:/CommunityExtractedPluginTemplate
 type: text/vnd.tiddlywiki
 
 \define pluginAuthor()

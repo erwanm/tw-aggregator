@@ -136,9 +136,10 @@ comm -13 "$jedsWikiList" "$extractedPluginsList" | while read plugin; do
     echo "DEBUG found unmatched extracted plugin: '$plugin' targetFile=$targetTiddler" 1>&2
     echo "title: $title" >"$targetTiddler"
     echo "name: unknown" >>"$targetTiddler"
-    echo "short_description: $plugin" >>"$targetTiddler"
+#    echo "short_description: $plugin" >>"$targetTiddler"
     writeCreatedTodayField >>"$targetTiddler"
-    echo "category: Unknown" >>"$targetTiddler"
+# No category at all (easier to exclude from standard list by category)
+#    echo "category: Unknown" >>"$targetTiddler"
     echo "plugin_tiddler: $plugin" >>"$targetTiddler"
     echo "tags: [[$pluginOfficialListTag]] CommunityPlugins"  >>"$targetTiddler"
     echo "twcs-error: error 5: unknown plugin found" >>"$targetTiddler"
