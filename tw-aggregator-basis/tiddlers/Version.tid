@@ -20,7 +20,7 @@ type: text/vnd.tiddlywiki
 \end
 
 \define nbWikis()
-  <$count filter="[tag[WikiAuthors]has[licence]tagging[]!has[empty-wiki]]"/>
+  <$count filter="[tag[CommunityAuthors]has[licence]tagging[]!has[empty-wiki]]"/>
 \end
 
 A full re-indexing of the content is performed daily. The last update was done on the <<getMostRecent>> 
@@ -30,4 +30,4 @@ The wiki currently indexes:
 * <<nbTags>> distinct tags
 * <<nbWikis>> wikis
 * <$count filter="[tag[CommunityPlugins]]"/> plugins
-* from <$count filter="[tag[WikiAuthors]has[licence]]"/> wiki authors
+* from <$count filter="[tag[CommunityAuthors]has[licence]]"/> wiki authors

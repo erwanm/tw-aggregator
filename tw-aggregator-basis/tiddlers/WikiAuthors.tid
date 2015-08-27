@@ -2,11 +2,11 @@ color: #1cc975
 created: 20150104160233908
 modified: 20150826181035574
 tags: TWCSCore TWCSContents
-title: WikiAuthors
+title: CommunityAuthors
 type: text/vnd.tiddlywiki
 
 <ul>
-<$list filter="[tag[WikiAuthors]has[licence]]" variable="currentAuthor">
+<$list filter="[tag[CommunityAuthors]has[licence]]" variable="currentAuthor">
     <li>
       <$link to=<<currentAuthor>>>
         <$text text=<<currentAuthor>>/>

@@ -6,7 +6,7 @@ title: CommunityWikis
 type: text/vnd.tiddlywiki
 
 <ul>
- <$list filter="[tag[WikiAuthors]has[licence]tagging[]!has[empty-wiki]!sort[wiki-latest-modification]]">
+ <$list filter="[tag[CommunityAuthors]has[licence]tagging[]!has[empty-wiki]!sort[wiki-latest-modification]]">
     <li>
       {{||$:/CommunityWikiShortDescription}}
     </li>

@@ -4,7 +4,7 @@ tags: TWCSCore
 title: $:/IndexableWikiAddressList
 type: text/vnd.tiddlywiki
 
-<$list filter="[tag[WikiAuthors]has[licence]]">
+<$list filter="[tag[CommunityAuthors]has[licence]]">
   <$list filter="[tag[CommunityWikis]tag<currentTiddler>]">
     <$view field="wiki-address"/>|<$view field="title"/><br/>
   </$list>

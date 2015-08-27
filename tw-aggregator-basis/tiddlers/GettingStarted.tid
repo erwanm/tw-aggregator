@@ -9,7 +9,7 @@ type: text/vnd.tiddlywiki
 
 {{CommunitySearch}}
 
-You can also browse the index [[by tags|CommunityTags]], [[by wiki|CommunityWikis]] or [[by author|WikiAuthors]].
+You can also browse the index [[by tags|CommunityTags]], [[by wiki|CommunityWikis]] or [[by author|CommunityAuthors]].
 
 ''New!'' A [[list of plugins from the community|CommunityPlugins]] is now available!
 
