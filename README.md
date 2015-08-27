@@ -6,8 +6,7 @@ The project implements the scraping of a list of TiddlyWiki wikis, from which a 
 Other applications of TW scraping might be considered in the future.
 
 The generated wiki can be accessed directly at:
-https://rawgit.com/erwanm/tw-aggregator/master/tw-community-search.html
-
+http://erwanm.github.io/tw-community-search/
 
 Setup
 -----
