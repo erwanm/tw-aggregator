@@ -4,7 +4,7 @@ source tw-lib.sh
 
 progName="tw-community-search.sh"
 outputFilename=${progName%.sh}.html
-inputWikiBasis="tw-aggregator-basis"
+inputWikiBasis="skeleton"
 removeWorkDir=1
 skipHarvest=0
 workDir=
