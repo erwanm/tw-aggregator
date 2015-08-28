@@ -75,7 +75,7 @@ for tiddlerFile in $sourceWiki/*.tid; do
 	category=$(extractField "category" "$tiddlerFile" "$firstBlankLineNo")
 	if [ -z "$category" ] ||  [ "$tiddlerFile" == "$sourceWiki/$pluginOfficialListListingTiddler.tid" ] || [ "$tiddlerFile" == "$sourceWiki/$pluginOfficialListTemplateTiddler.tid" ]; then
 #	    cp "$tiddlerFile" "$targetWiki/tiddlers/"
-#	    echo "DEBUG: ignoring $tiddlerFile (not a plugin twCard tiddler)" 1>&2
+	    echo "INFO: ignoring $tiddlerFile (not a plugin twCard tiddler)" 1>&2
 	else
 	    #	    echo "DEBUG: processing $tiddlerFile" 1>&2
 	    targetTiddler="$targetWiki/tiddlers/$(basename "$tiddlerFile")"
