@@ -147,11 +147,13 @@ if [ $exitCode -eq 0 ]; then
 	fi
     done
 
-    # write tags tiddlers
+    echo "Generating tags tiddlers"
     cat "$tagsListFile" | sort -u | while read tag; do
-	tiddlerFile="$workDir/output-wiki/tiddlers/$tag"
+	f=$(echo "$tag" | tr ':/' '__')
+	tiddlerFile="$workDir/output-wiki/tiddlers/$f.tid"
 	writeCreatedTodayField >"$tiddlerFile"
 	echo "title: $tag" >>"$tiddlerFile"
+	echo  >>"$tiddlerFile"
 	echo "{{||\$:/CommunityTagTemplate}}" >>"$tiddlerFile"
     done
     rm -f "$tagsListFile"
