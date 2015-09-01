@@ -5,6 +5,7 @@ source tw-lib.sh
 progName="tw-convert-regular-tiddlers.sh"
 whitelistSpecialTiddler="$:/CommunitySearchIndexableTiddlers"
 whitelistSpecialTiddlerFilename=$(echo "$whitelistSpecialTiddler" | sed 's/^$:\//$__/')
+tagsListFile="/dev/null"
 
 function usage {
     echo "Usage: $progName [options] <collected wikis dir> <target wiki dir>"
@@ -29,6 +30,7 @@ function usage {
     echo
     echo "Options:"
     echo "  -h this help message"
+    echo "  -t <tags list file> prints all regular tags found to this file" 
     echo    
 }
 
@@ -52,10 +54,11 @@ function followUrlTiddler  {
 }
 
 
-while getopts 'h' option ; do
+while getopts 'ht:' option ; do
     case $option in
 	"h" ) usage
 	      exit 0;;
+	"t" ) tagsListFile="$OPTARG";;
         "?" )
             echo "Error, unknow option." 1>&2
             usage 1>&2
@@ -103,7 +106,7 @@ while read name; do
 	    firstBlankLineNo=$(getFirstBlankLineNo "$tiddlerFile")
 	    tiddlerType=$(getTiddlerType "$tiddlerFile" "$firstBlankLineNo")
 	    if [ "$tiddlerType" == "text" ] && ! isSystemTiddlerFile "$tiddlerFile"; then # ignore plugins/themes and system tiddlers
-		cloneAsTWCSTiddler "$tiddlerFile" "$targetWiki/tiddlers" "$firstBlankLineNo" "$name" 1 >/dev/null
+		cloneAsTWCSTiddler "$tiddlerFile" "$targetWiki/tiddlers" "$firstBlankLineNo" "$name" 1 "" "$tagsListFile" >/dev/null
 		followUrlTiddler "$tiddlerFile" $firstBlankLineNo "$name" "$targetWiki"
 	    fi
 	done

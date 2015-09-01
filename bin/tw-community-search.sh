@@ -112,10 +112,11 @@ if [ $exitCode -eq 0 ]; then
     mkdir "$workDir"/output-wiki/tiddlers
     cp "$inputWikiBasis"/tiddlers/* "$workDir"/output-wiki/tiddlers
 
+    tagsListFile=$(mktemp)
     # remark: the loop is for "follow url" option; this option is available only for indexable wikis (not other wikis, taken into account only for plugins)
     while [ -s  "$indexableWikiListFile" ] && [ $exitCode -eq 0 ] ; do # loop for sub-wikis (field 'follow')
 	subwikiListFile="$workDir/subwikis.list"
-	cat "$indexableWikiListFile" | cut -d "|" -f 2 | tw-convert-regular-tiddlers.sh "$workDir" "$workDir/output-wiki" >"$subwikiListFile"
+	cat "$indexableWikiListFile" | cut -d "|" -f 2 | tw-convert-regular-tiddlers.sh -t "$tagsListFile" "$workDir" "$workDir/output-wiki" >"$subwikiListFile"
 	cat "$indexableWikiListFile" | cut -d "|" -f 2 | tw-update-presentation-tiddlers.sh  "$workDir" "$workDir/output-wiki"
 	nbSubWikis=$(cat "$subwikiListFile" | wc -l)
 	echo " $nbSubWikis sub-wikis to follow."
@@ -145,6 +146,15 @@ if [ $exitCode -eq 0 ]; then
 	    rm -f "$indexableWikiListFile"
 	fi
     done
+
+    # write tags tiddlers
+    cat "$tagsListFile" | sort -u | while read tag; do
+	tiddlerFile="$workDir/output-wiki/tiddlers/$tag"
+	writeCreatedTodayField >"$tiddlerFile"
+	echo "title: $tag" >>"$tiddlerFile"
+	echo "{{||\$:/CommunityTagTemplate}}" >>"$tiddlerFile"
+    done
+    rm -f "$tagsListFile"
 
     # special tiddler to record the date of the last update
     tiddlerFile="$workDir/output-wiki/tiddlers/LastUpdate.tid"

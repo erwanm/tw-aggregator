@@ -106,12 +106,14 @@ function writeCreatedTodayField {
 #
 # Writes a 'tags' field to STDOUT with content <tags> and each tag in <filteredTags> which
 # is not a system tag (starting with $:/) or a variable (between '$( )$').
+# Additionally every tag in <filteredTags> which passes the filter is appended to <tagsListFile>
 #
-# Both args are optional.
+# <tags> and <filteredTags> are optional (i.e. you can use or the other, or both).
 #
 function writeTagsIfNotSystem {
-    local tags="$1"
-    local filteredTags="$2"
+    local tagsListFile="$1"
+    local tags="$2"
+    local filteredTags="$3"
 
     echo -n "tags: $tags"
     set -- $filteredTags
@@ -127,6 +129,7 @@ function writeTagsIfNotSystem {
 #	    echo "DEBUG: found possible multiword tag='$tag'" 1>&2
 	    if [[ ! ${tag:2} =~ $regex ]]; then # keep it if not a system tag, otherwise ignore it
 		echo -n " $tag"
+		echo "${tag:2}" | sed 's/\]\]//' >>"$tagsListFile"
 	    fi
 	else
 #	    if [  "${tag:0:2}" == '$(' ] || [  "${tag:(-2)}" == ')$' ]; then
@@ -134,6 +137,7 @@ function writeTagsIfNotSystem {
 #	    fi
 	    if [[ ! $tag =~ $regex ]] && [  "${tag:0:2}" != '$(' ] && [  "${tag:(-2)}" != ')$' ]; then # keep it if not a system tag, otherwise ignore it # added bug fix #8: ignore also if variable
 		echo -n " $tag"
+		echo "$tag" >>"$tagsListFile"
 	    fi
 	fi
 	shift
@@ -204,6 +208,7 @@ function printTiddlerFields {
 # line is printed so that fields can be added later.
 #
 # <excludeFields> is optional; if defined, the list of fields it contains are not copied.
+# <tagsListFile> is optional; if defined, regular tags are appended to this file.
 #
 function cloneAsTWCSTiddler {
     local sourceTiddlerFile="$1"
@@ -212,7 +217,11 @@ function cloneAsTWCSTiddler {
     local wikiId="$4"
     local copyTextContent="$5"
     local excludeFields="$6"
+    local tagsListFile="$7"
 
+    if [ -z "$tagsListFile" ]; then
+	tagsListFile="/dev/null"
+    fi
     basef=$(basename "$sourceTiddlerFile")
     targetTiddler="$targetTiddlerDir/\$__${wikiId}_$basef"
     oldTitle=$(extractField "title" "$sourceTiddlerFile" "$firstBlankLineNo")
@@ -220,7 +229,7 @@ function cloneAsTWCSTiddler {
     echo "title: $newTitle" >"$targetTiddler"
     printTiddlerFields "$sourceTiddlerFile" "title tags $excludeFields" "$firstBlankLineNo" >>"$targetTiddler"
     oldTags=$(extractField "tags" "$sourceTiddlerFile" "$firstBlankLineNo")
-    writeTagsIfNotSystem  "$wikiId" "$oldTags" >>"$targetTiddler"
+    writeTagsIfNotSystem "$tagsListFile" "$wikiId" "$oldTags" >>"$targetTiddler"
     echo "source-wiki-id: $wikiId" >>"$targetTiddler" # store custom fields in order to recompute the original address
     # url-encode the title, in case it contains characters like # (see github bug #24)
     # also keep the non-encoded title (named source-tiddler-title-as-text), to display it in a user-friendly readable text
