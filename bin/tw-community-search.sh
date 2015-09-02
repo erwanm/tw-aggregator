@@ -149,7 +149,7 @@ if [ $exitCode -eq 0 ]; then
 
     echo "Generating tags tiddlers"
     cat "$tagsListFile" | sort -u | while read tag; do
-	f=$(echo "$tag" | tr ':/' '__')
+	f=$(echo "$tag" | tr ':/ ' '___')
 	tiddlerFile="$workDir/output-wiki/tiddlers/$f.tid"
 	writeCreatedTodayField >"$tiddlerFile"
 	echo "title: $tag" >>"$tiddlerFile"
