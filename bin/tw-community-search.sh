@@ -151,10 +151,14 @@ if [ $exitCode -eq 0 ]; then
     cat "$tagsListFile" | sort -u | while read tag; do
 	f=$(echo "$tag" | tr ':/ ' '___')
 	tiddlerFile="$workDir/output-wiki/tiddlers/$f.tid"
-	writeCreatedTodayField >"$tiddlerFile"
-	echo "title: $tag" >>"$tiddlerFile"
-	echo  >>"$tiddlerFile"
-	echo "{{||\$:/CommunityTagTemplate}}" >>"$tiddlerFile"
+	if [ -f "$tiddlerFile" ]; then 
+	    echo "Warning: tiddler file '$tiddlerFile' already exists, no community tag tiddler written." 1>&2
+	else
+	    writeCreatedTodayField >"$tiddlerFile"
+	    echo "title: $tag" >>"$tiddlerFile"
+	    echo  >>"$tiddlerFile"
+	    echo "{{||\$:/CommunityTagTemplate}}" >>"$tiddlerFile"
+	fi
     done
     rm -f "$tagsListFile"
 
