@@ -156,6 +156,7 @@ if [ $exitCode -eq 0 ]; then
 	else
 	    writeCreatedTodayField >"$tiddlerFile"
 	    echo "title: $tag" >>"$tiddlerFile"
+	    echo "tags: CommunityTags" >>"$tiddlerFile"
 	    echo  >>"$tiddlerFile"
 	    echo "{{||\$:/CommunityTagTemplate}}" >>"$tiddlerFile"
 	fi
