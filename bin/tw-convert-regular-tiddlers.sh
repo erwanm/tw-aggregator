@@ -5,6 +5,8 @@ source tw-lib.sh
 progName="tw-convert-regular-tiddlers.sh"
 whitelistSpecialTiddler="$:/CommunitySearchIndexableTiddlers"
 whitelistSpecialTiddlerFilename=$(echo "$whitelistSpecialTiddler" | sed 's/^$:\//$__/')
+newsSpecialTiddler="$:/CommunityNewsTiddlers"
+newsSpecialTiddlerFilename=$(echo "$newsSpecialTiddler" | sed 's/^$:\//$__/')
 tagsListFile="/dev/null"
 
 function usage {
@@ -78,30 +80,23 @@ regex="^\\\$__"
 while read name; do
     wikiDir="$collectedWikisDir/$name"
     if [ -d "$wikiDir" ]; then
-	echo "Processing wiki '$name'" 1>&2
+	echo -n "Processing wiki '$name': " 1>&2
 	tiddlersList=$(mktemp)
+	echo -n "listing; " 1>&2
 	if [ -f "$wikiDir/tiddlers/$whitelistSpecialTiddlerFilename.tid" ]; then
 	    tw-print-from-rendered-tiddler.sh "$wikiDir" "$whitelistSpecialTiddler" | while read title; do
-		if [ -f "$wikiDir/tiddlers/$title.tid" ]; then
-		    echo "$wikiDir/tiddlers/$title.tid"
-		else 
-		    f=$(grep "^title: $title$" "$wikiDir"/tiddlers/*.tid | cut -d ":" -f 1) # assuming only one possibility!
-		    if [ -z "$f" ]; then
-			echo "Warning: whitelist: no tiddler titled '$title' found in wiki '$name'" 1>&2
-		    else
-			echo "$f"
-		    fi
-		fi
+		printTiddlerFileFromTitle "$wikiDir" "$title"
 	    done > "$tiddlersList"
 	else
 	    ls "$wikiDir"/tiddlers/*.tid | while read f; do 
 		if [ -f "$f" ]; then # this is to avoid problems later with special characters in filenames; should be made more robust
 		    echo "$f"
 		else
-		    echo "Warning: no file '$f' found in wiki '$name'" 1>&2
+		    echo "Bug: file '$f' listed by 'ls' but not found in wiki '$name'" 1>&2
 		fi
 	    done >"$tiddlersList"
 	fi
+	echo -n "converting; " 1>&2
 	cat "$tiddlersList" | while read tiddlerFile; do
 	    firstBlankLineNo=$(getFirstBlankLineNo "$tiddlerFile")
 	    tiddlerType=$(getTiddlerType "$tiddlerFile" "$firstBlankLineNo")
@@ -111,6 +106,22 @@ while read name; do
 	    fi
 	done
 	rm -f "$tiddlersList"
+	echo "checking for news. " 1>&2
+	if [ -f "$wikiDir/tiddlers/$newsSpecialTiddlerFilename.tid" ]; then
+	    tw-print-from-rendered-tiddler.sh "$wikiDir" "$newsSpecialTiddler" | while read title; do
+#		echo "DEBUG: found news tiddler: '$title' " 1>&2
+		printTiddlerFileFromTitle "$wikiDir" "$title"
+	    done | while read sourceTiddlerFile; do
+#		echo "DEBUG reading news tiddler file '$sourceTiddlerFile'" 1>&2
+		# TODO: not checking if special tiddler (plugin etc.); such a case would be very strange but still possible.
+		firstBlankLineNo=$(getFirstBlankLineNo "$sourceTiddlerFile")
+		# overwriting existing system tiddler only to add the CommunityNews tag 
+		# (still, better than checking if every tiddler is in the news list)
+		cloneAsTWCSTiddler "$sourceTiddlerFile" "$targetWiki/tiddlers" "$firstBlankLineNo" "$name" 1 "" "" "CommunityNews" >/dev/null
+	    done
+#	else
+#	    echo "DEBUG: no news special tiddler '$wikiDir/tiddlers/$newsSpecialTiddlerFilename.tid' found" 1>&2
+	fi
     else
 	echo "Warning: no directory '$wikiDir', wiki '$name' ignored." 1>&2
     fi

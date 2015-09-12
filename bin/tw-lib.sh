@@ -218,6 +218,7 @@ function cloneAsTWCSTiddler {
     local copyTextContent="$5"
     local excludeFields="$6"
     local tagsListFile="$7"
+    local additionalTags="$8"
 
     if [ -z "$tagsListFile" ]; then
 	tagsListFile="/dev/null"
@@ -229,7 +230,7 @@ function cloneAsTWCSTiddler {
     echo "title: $newTitle" >"$targetTiddler"
     printTiddlerFields "$sourceTiddlerFile" "title tags $excludeFields" "$firstBlankLineNo" >>"$targetTiddler"
     oldTags=$(extractField "tags" "$sourceTiddlerFile" "$firstBlankLineNo")
-    writeTagsIfNotSystem "$tagsListFile" "$wikiId" "$oldTags" >>"$targetTiddler"
+    writeTagsIfNotSystem "$tagsListFile" "$wikiId $additionalTags" "$oldTags" >>"$targetTiddler"
     echo "source-wiki-id: $wikiId" >>"$targetTiddler" # store custom fields in order to recompute the original address
     # url-encode the title, in case it contains characters like # (see github bug #24)
     # also keep the non-encoded title (named source-tiddler-title-as-text), to display it in a user-friendly readable text
@@ -238,7 +239,7 @@ function cloneAsTWCSTiddler {
     echo -n "source-tiddler-title-as-link: " >>"$targetTiddler"
     rawurlencode "$oldTitle" >>"$targetTiddler"  # new version with url-encoding
     if [ "$copyTextContent" == "1" ]; then
-	tail -n +$firstBlankLineNo "$tiddlerFile" >>"$targetTiddler"
+	tail -n +$firstBlankLineNo "$sourceTiddlerFile" >>"$targetTiddler"
     fi
     echo "$targetTiddler"
 }
@@ -249,4 +250,26 @@ function cloneAsTWCSTiddler {
 #
 function removeTrailingSlash {
     while read x; do echo "${x%/}"; done
+}
+
+
+#
+# prints the filename corresponding to the tiddler <title> in <wikiDir>/tiddlers
+#
+# TODO check special chars replaced with '_' before using grep
+#
+function printTiddlerFileFromTitle {
+    local wikiDir="$1"
+    local title="$2"
+
+    if [ -f "$wikiDir/tiddlers/$title.tid" ]; then
+	echo "$wikiDir/tiddlers/$title.tid"
+    else 
+	f=$(grep "^title: $title$" "$wikiDir"/tiddlers/*.tid | cut -d ":" -f 1) # assuming only one possibility!
+	if [ -z "$f" ]; then
+	    echo "Warning: no tiddler titled '$title' found in wiki '$name'" 1>&2
+	else
+	    echo "$f"
+	fi
+    fi
 }
