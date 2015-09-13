@@ -67,8 +67,11 @@ for lineNo in $(seq 1 $nbLines); do
     fi
     if [ $exitCode -eq 0 ]; then
 	if [ -z "$presentationTiddler" ]; then
-	    targetTiddler="$destDir/$name/tiddlers/\$__SiteSubtitle.tid"
-	else
+	    targetTiddler="$destDir/$name/tiddlers/\$__CommunitySearchWikiPresentation.tid"
+	    if [ ! -e "$targetTiddler" ]; then
+		targetTiddler="$destDir/$name/tiddlers/\$__SiteSubtitle.tid"
+	    fi
+	else # should never be used now, as far as I remember
 	    if [ -e "$destDir/$name/tiddlers/$presentationTiddler.tid" ]; then
 		targetTiddler="$destDir/$name/tiddlers/$presentationTiddler.tid"
 	    else
@@ -79,7 +82,7 @@ for lineNo in $(seq 1 $nbLines); do
 	if [ -e "$targetTiddler" ]; then
 	    cp "$targetTiddler" "$destDir/$name.presentation"
 	else
-	    echo "Warning: no site subtitle in '$name' (no presentation tiddler)" 1>&2
+	    echo "Warning: no presentation tiddler in '$name'" 1>&2
 	fi
     else
 	echo "Warning: something went wrong: 'tw-harvest-wiki.sh \"$destDir\" \"$address\"' returned exit code $exitCode" 1>&2
