@@ -273,3 +273,15 @@ function printTiddlerFileFromTitle {
 	fi
     fi
 }
+
+
+function writeSimpleTiddler {
+    local title="$1"
+    local text="$2"
+
+    writeCreatedTodayField
+    echo "title: $title"
+    echo
+    echo "$text"
+}
+
