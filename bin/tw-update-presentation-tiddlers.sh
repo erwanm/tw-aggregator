@@ -43,7 +43,7 @@ targetWiki="$2"
 
 while read name; do
     wikiDir="$collectedWikisDir/$name"
-    tiddler="$targetWiki/tiddlers/$name.tid"
+    tiddler=$(echo "$targetWiki/tiddlers/$name.tid" | tr ' ' '_')
     if [ ! -e "$tiddler" ]; then
 	echo "Bug: no file '$tiddler' found. Ignoring wiki '$name' in $progName" 1>&2
     else
