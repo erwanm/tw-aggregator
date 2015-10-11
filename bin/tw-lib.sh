@@ -86,7 +86,8 @@ function getTiddlerType {
 #
 function isSystemTiddlerFile {
     local tiddlerFile=$(basename "$1")
-    if [ ${tiddlerFile:0:3} == '$__' ]; then
+#    echo "DEBUG: '$tiddlerFile'" 1>&2
+    if [ "${tiddlerFile:0:3}" == '$__' ]; then
 	return 0
     else
 	return 1
