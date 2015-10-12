@@ -137,7 +137,8 @@ comm -13 "$jedsWikiList" "$extractedPluginsList" | while read plugin; do
     echo "title: $title" >"$targetTiddler"
     echo "name: unknown" >>"$targetTiddler"
 #    echo "short_description: $plugin" >>"$targetTiddler"
-    writeCreatedTodayField >>"$targetTiddler"
+    # stopped writing creation date, in order to avoid spurious changes in git commit when tiddler existed in previous version.
+#    writeCreatedTodayField >>"$targetTiddler"
 # No category at all (easier to exclude from standard list by category)
 #    echo "category: Unknown" >>"$targetTiddler"
     echo "plugin_tiddler: $plugin" >>"$targetTiddler"
