@@ -154,8 +154,9 @@ if [ $exitCode -eq 0 ]; then
 	if [ -f "$tiddlerFile" ]; then 
 	    echo "Warning: tiddler file '$tiddlerFile' already exists, no community tag tiddler written." 1>&2
 	else
-	    writeCreatedTodayField >"$tiddlerFile"
-	    echo "title: $tag" >>"$tiddlerFile"
+            # removed date to avoid spurious git changes with previously existing tag tidlders
+#	    writeCreatedTodayField >"$tiddlerFile"
+	    echo "title: $tag" >"$tiddlerFile"
 	    echo "tags: CommunityTags" >>"$tiddlerFile"
 	    echo  >>"$tiddlerFile"
 	    echo "{{||\$:/CommunityTagTemplate}}" >>"$tiddlerFile"
