@@ -129,8 +129,9 @@ if [ $exitCode -eq 0 ]; then
 		author=$(findWikiAuthor "$workDir/output-wiki/tiddlers" "$sourceWiki")
 		echo "  Generating new community wiki tiddler: '$title' by '$author' at '$address'"
 		tiddlerFile="$workDir/output-wiki/tiddlers/$title.tid"
-		writeCreatedTodayField >"$tiddlerFile"
-		echo "title: $title" >>"$tiddlerFile"
+		# stopped writing creation date to avoid spurious changes in git commit when the wiki tiddler existed before
+		#writeCreatedTodayField >"$tiddlerFile"
+		echo "title: $title" >"$tiddlerFile"
 		echo "tags: CommunityWikis $author" >>"$tiddlerFile"
 		echo "type: text/vnd.tiddlywiki" >>"$tiddlerFile"
 		echo "wiki-address: $address" >>"$tiddlerFile"
