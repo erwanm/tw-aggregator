@@ -33,6 +33,13 @@ function usage {
     echo "Options:"
     echo "  -h this help message"
     echo "  -t <tags list file> prints all regular tags found to this file" 
+    echo "  -d <checksum filename:list of wikis to apply it to>"
+    echo "     for every wiki specified in the second part of the argument,"
+    echo "     the tiddlers will be checksumed and the checksum will be"
+    echo "     compared with the ones in the ref file (first arg): if this a"
+    echo "     match, the tiddler is ignored (duplicate)."
+    echo "     if the list of wikis starts with '!', then the process is applied"
+    echo "     to all wikis except the ones specified in the list."
     echo    
 }
 
@@ -56,11 +63,18 @@ function followUrlTiddler  {
 }
 
 
-while getopts 'ht:' option ; do
+while getopts 'ht:d:' option ; do
     case $option in
 	"h" ) usage
 	      exit 0;;
 	"t" ) tagsListFile="$OPTARG";;
+	"d" ) checksumFile=${OPTARG%:*}
+	      wikisToCheckForDuplicate=${OPTARG#*:}
+	      duplicateCheckWikisInList=1
+	      if [ "${wikisToCheckForDuplicate:0:1}" == "!" ]; then
+		  wikisToCheckForDuplicate="${wikisToCheckForDuplicate:1}"
+		  duplicateCheckWikisInList=0
+	      fi;;
         "?" )
             echo "Error, unknow option." 1>&2
             usage 1>&2
@@ -78,6 +92,18 @@ targetWiki="$2"
 
 regex="^\\\$__"
 while read name; do
+    checkDup=""
+    if [ ! -z "$wikisToCheckForDuplicate" ]; then
+	for wiki in $wikisToCheckForDuplicate; do
+	    inList=0
+	    if [ "$wiki" == "$name" ]; then
+		inList=1
+	    fi
+	done
+	if [ "$duplicateCheckWikisInList" == "$inList" ]; then
+	    checkDup=1
+	fi
+    fi
     wikiDir="$collectedWikisDir/$name"
     if [ -d "$wikiDir" ]; then
 	echo -n "Processing wiki '$name': " 1>&2
@@ -98,11 +124,20 @@ while read name; do
 	fi
 	echo -n "converting; " 1>&2
 	cat "$tiddlersList" | while read tiddlerFile; do
-	    firstBlankLineNo=$(getFirstBlankLineNo "$tiddlerFile")
-	    tiddlerType=$(getTiddlerType "$tiddlerFile" "$firstBlankLineNo")
-	    if [ "$tiddlerType" == "text" ] && ! isSystemTiddlerFile "$tiddlerFile"; then # ignore plugins/themes and system tiddlers
-		cloneAsTWCSTiddler "$tiddlerFile" "$targetWiki/tiddlers" "$firstBlankLineNo" "$name" 1 "" "$tagsListFile" >/dev/null
-		followUrlTiddler "$tiddlerFile" $firstBlankLineNo "$name" "$targetWiki"
+	    ignoreTiddler=0
+	    if [ -z "$checkDup" ]; then
+		checksum=$(md5sum "$tiddlerFile" | cut -d " " -f 1)
+		if grep "$checksum" "$checksumFile" >/dev/null; then
+		    ignoreTiddler=1
+		fi
+	    fi
+	    if [ $ignoreTiddler -ne 1 ]; then
+		firstBlankLineNo=$(getFirstBlankLineNo "$tiddlerFile")
+		tiddlerType=$(getTiddlerType "$tiddlerFile" "$firstBlankLineNo")
+		if [ "$tiddlerType" == "text" ] && ! isSystemTiddlerFile "$tiddlerFile"; then # ignore plugins/themes and system tiddlers
+		    cloneAsTWCSTiddler "$tiddlerFile" "$targetWiki/tiddlers" "$firstBlankLineNo" "$name" 1 "" "$tagsListFile" >/dev/null
+		    followUrlTiddler "$tiddlerFile" $firstBlankLineNo "$name" "$targetWiki"
+		fi
 	    fi
 	done
 	rm -f "$tiddlersList"

@@ -12,6 +12,14 @@ indexableWikiAddressListTiddler="$:/IndexableWikiAddressList"
 anyWikiAddressListTiddler="$:/AnyWikiAddressList"
 testWikiAddressListTiddler="$:/TestWikiAddressList"
 
+# wikis whose tiddlers might be found as duplicates elsewhere
+potentialDuplicateSourceWikis="tiddlywiki.com"
+# list of target wikis to check for duplicates
+# either one of the two versions below can be used, but not at the same time
+#checkForDuplicatesWikis="cpashow" # wikis to check
+checkForDuplicatesWikis="!$potentialDuplicateSourceWikis" # wikis NOT to check
+duplicateChecksumFile="source-tiddlers.md5"
+
 function usage {
     echo "Usage: $progName [options] [wiki basis path]"
     echo
@@ -103,6 +111,15 @@ if [ $skipHarvest -ne 1 ]; then
     exitCode="$?"
 fi
 
+rm -f "$workDir/$duplicateChecksumFile"
+for wikiSource in $potentialDuplicateSourceWikis; do
+    if [ -d "$workDir/$wikiSource" ]; then
+	md5sum "$workDir/$wikiSource/tiddlers"/* | cut -f 1 -d " " >>"$workDir/$duplicateChecksumFile"
+    else
+	echo "Warning: no directory found for source wiki '$wikiSource' (duplicate detection, source step)" 1>&2
+    fi
+done
+
 if [ $exitCode -eq 0 ]; then
     echo "Preparing output wiki..."
     if [ -d "$workDir/output-wiki" ]; then
@@ -116,7 +133,7 @@ if [ $exitCode -eq 0 ]; then
     # remark: the loop is for "follow url" option; this option is available only for indexable wikis (not other wikis, taken into account only for plugins)
     while [ -s  "$indexableWikiListFile" ] && [ $exitCode -eq 0 ] ; do # loop for sub-wikis (field 'follow')
 	subwikiListFile="$workDir/subwikis.list"
-	cat "$indexableWikiListFile" | cut -d "|" -f 2 | tw-convert-regular-tiddlers.sh -t "$tagsListFile" "$workDir" "$workDir/output-wiki" >"$subwikiListFile"
+	cat "$indexableWikiListFile" | cut -d "|" -f 2 | tw-convert-regular-tiddlers.sh -d "$workDir/$duplicateChecksumFile:$checkForDuplicatesWikis" -t "$tagsListFile" "$workDir" "$workDir/output-wiki" >"$subwikiListFile"
 	cat "$indexableWikiListFile" | cut -d "|" -f 2 | tw-update-presentation-tiddlers.sh  "$workDir" "$workDir/output-wiki"
 	nbSubWikis=$(cat "$subwikiListFile" | wc -l)
 	echo " $nbSubWikis sub-wikis to follow."
