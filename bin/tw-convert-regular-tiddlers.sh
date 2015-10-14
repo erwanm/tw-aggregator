@@ -99,7 +99,6 @@ while read name; do
     checkDup=""
     if [ ! -z "$wikisToCheckForDuplicate" ]; then
 	echo "DEBUG: duplicate detection active"
-	nbDup=0
 	inList=0
 	for wiki in $wikisToCheckForDuplicate; do
 	    if [ "$wiki" == "$name" ]; then
@@ -114,6 +113,7 @@ while read name; do
     wikiDir="$collectedWikisDir/$name"
     if [ -d "$wikiDir" ]; then
 	echo -n "Processing wiki '$name': "
+	nbDup=0
 	tiddlersList=$(mktemp)
 	echo -n "listing; "
 	if [ -f "$wikiDir/tiddlers/$whitelistSpecialTiddlerFilename.tid" ]; then
@@ -138,7 +138,7 @@ while read name; do
 		    ignoreTiddler=1
 		    nbDup=$(( $nbDup + 1 ))
 		fi
-		echo "DEBUG: dup-ignore-tiddler=$ignoreTiddler"
+		echo "DEBUG: dup-ignore-tiddler=$ignoreTiddler; nbDup=$nbDup"
 	    fi
 	    if [ $ignoreTiddler -ne 1 ]; then
 		firstBlankLineNo=$(getFirstBlankLineNo "$tiddlerFile")
