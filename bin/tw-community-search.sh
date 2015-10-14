@@ -133,7 +133,7 @@ if [ $exitCode -eq 0 ]; then
     # remark: the loop is for "follow url" option; this option is available only for indexable wikis (not other wikis, taken into account only for plugins)
     while [ -s  "$indexableWikiListFile" ] && [ $exitCode -eq 0 ] ; do # loop for sub-wikis (field 'follow')
 	subwikiListFile="$workDir/subwikis.list"
-	cat "$indexableWikiListFile" | cut -d "|" -f 2 | tw-convert-regular-tiddlers.sh -d "$workDir/$duplicateChecksumFile:$checkForDuplicatesWikis" -t "$tagsListFile" "$workDir" "$workDir/output-wiki" >"$subwikiListFile"
+	cat "$indexableWikiListFile" | cut -d "|" -f 2 | tw-convert-regular-tiddlers.sh -d "$workDir/$duplicateChecksumFile:$checkForDuplicatesWikis" -t "$tagsListFile" "$workDir" "$workDir/output-wiki" "$subwikiListFile"
 	cat "$indexableWikiListFile" | cut -d "|" -f 2 | tw-update-presentation-tiddlers.sh  "$workDir" "$workDir/output-wiki"
 	nbSubWikis=$(cat "$subwikiListFile" | wc -l)
 	echo " $nbSubWikis sub-wikis to follow."

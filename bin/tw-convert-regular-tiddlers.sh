@@ -10,7 +10,7 @@ newsSpecialTiddlerFilename=$(echo "$newsSpecialTiddler" | sed 's/^$:\//$__/')
 tagsListFile="/dev/null"
 
 function usage {
-    echo "Usage: $progName [options] <collected wikis dir> <target wiki dir>"
+    echo "Usage: $progName [options] <collected wikis dir> <target wiki dir> <follow wikis file>"
     echo
     echo "  Reads a list of wiki ids from STDIN; each <wiki id> corresponds to"
     echo "  a directory <collected wikis dir>/<wiki id> (previously collected"
@@ -25,7 +25,7 @@ function usage {
     echo "  application/javascript."
     echo
     echo "  - if a tiddler contains a field 'follow' with value 'YES' and a"
-    echo "    field 'url', then the url is printed to STDOUT as:"
+    echo "    field 'url', then the url is printed to <follow wikis file> as"
     echo "    <original wiki name> <url new wiki>"
     echo "  - if the wiki contains a tiddler '$whitelistSpecialTiddler', then"
     echo "    only the tiddlers listed in this tiddler are processed."
@@ -74,7 +74,9 @@ while getopts 'ht:d:' option ; do
 	      if [ "${wikisToCheckForDuplicate:0:1}" == "!" ]; then
 		  wikisToCheckForDuplicate="${wikisToCheckForDuplicate:1}"
 		  duplicateCheckWikisInList=0
-	      fi;;
+	      fi
+	      echo "DEBUG: wikisToCheckForDuplicate=$wikisToCheckForDuplicate"
+	      echo "DEBUG: duplicateCheckWikisInList=$duplicateCheckWikisInList" ;;
         "?" )
             echo "Error, unknow option." 1>&2
             usage 1>&2
@@ -82,21 +84,24 @@ while getopts 'ht:d:' option ; do
     esac
 done
 shift $(($OPTIND - 1)) # skip options already processed above
-if [ $# -ne 2 ]; then
+if [ $# -ne 3 ]; then
     echo "Error: 2 parameters expected, $# found." 1>&2
     usage 1>&2
     exit 1
 fi
 collectedWikisDir="$1"
 targetWiki="$2"
+followWikisFile="$3"
 
+rm -f "$followWikisFile"
 regex="^\\\$__"
 while read name; do
     checkDup=""
     if [ ! -z "$wikisToCheckForDuplicate" ]; then
+	echo "DEBUG: duplicate detection active"
 	nbDup=0
+	inList=0
 	for wiki in $wikisToCheckForDuplicate; do
-	    inList=0
 	    if [ "$wiki" == "$name" ]; then
 		inList=1
 	    fi
@@ -104,12 +109,13 @@ while read name; do
 	if [ "$duplicateCheckWikisInList" == "$inList" ]; then
 	    checkDup=1
 	fi
+	echo "DEBUG: wiki $name: inList=$inList; checkDup='$checkDup'"
     fi
     wikiDir="$collectedWikisDir/$name"
     if [ -d "$wikiDir" ]; then
-	echo -n "Processing wiki '$name': " 1>&2
+	echo -n "Processing wiki '$name': "
 	tiddlersList=$(mktemp)
-	echo -n "listing; " 1>&2
+	echo -n "listing; "
 	if [ -f "$wikiDir/tiddlers/$whitelistSpecialTiddlerFilename.tid" ]; then
 	    tw-print-from-rendered-tiddler.sh "$wikiDir" "$whitelistSpecialTiddler" | while read title; do
 		printTiddlerFileFromTitle "$wikiDir" "$title"
@@ -123,7 +129,7 @@ while read name; do
 		fi
 	    done >"$tiddlersList"
 	fi
-	echo -n "converting; " 1>&2
+	echo -n "converting; "
 	cat "$tiddlersList" | while read tiddlerFile; do
 	    ignoreTiddler=0
 	    if [ -z "$checkDup" ]; then
@@ -132,20 +138,21 @@ while read name; do
 		    ignoreTiddler=1
 		    nbDup=$(( $nbDup + 1 ))
 		fi
+		echo "DEBUG: dup-ignore-tiddler=$ignoreTiddler"
 	    fi
 	    if [ $ignoreTiddler -ne 1 ]; then
 		firstBlankLineNo=$(getFirstBlankLineNo "$tiddlerFile")
 		tiddlerType=$(getTiddlerType "$tiddlerFile" "$firstBlankLineNo")
 		if [ "$tiddlerType" == "text" ] && ! isSystemTiddlerFile "$tiddlerFile"; then # ignore plugins/themes and system tiddlers
 		    cloneAsTWCSTiddler "$tiddlerFile" "$targetWiki/tiddlers" "$firstBlankLineNo" "$name" 1 "" "$tagsListFile" >/dev/null
-		    followUrlTiddler "$tiddlerFile" $firstBlankLineNo "$name" "$targetWiki"
+		    followUrlTiddler "$tiddlerFile" $firstBlankLineNo "$name" "$targetWiki" >>"$followWikisFile"
 		fi
 	    fi
 	done
 	rm -f "$tiddlersList"
-	echo "checking for news. " 1>&2
+	echo "checking for news. "
 	if [ $nbDup -gt 0 ]; then
-	    echo "  wiki $name: $nbDup duplicate tiddlers removed" 1>&2
+	    echo "INFO: wiki $name: $nbDup duplicate tiddlers removed"
 	fi
 	if [ -f "$wikiDir/tiddlers/$newsSpecialTiddlerFilename.tid" ]; then
 	    tw-print-from-rendered-tiddler.sh "$wikiDir" "$newsSpecialTiddler" | while read title; do
