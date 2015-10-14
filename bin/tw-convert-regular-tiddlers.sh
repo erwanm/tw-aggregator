@@ -94,6 +94,7 @@ regex="^\\\$__"
 while read name; do
     checkDup=""
     if [ ! -z "$wikisToCheckForDuplicate" ]; then
+	nbDup=0
 	for wiki in $wikisToCheckForDuplicate; do
 	    inList=0
 	    if [ "$wiki" == "$name" ]; then
@@ -129,6 +130,7 @@ while read name; do
 		checksum=$(md5sum "$tiddlerFile" | cut -d " " -f 1)
 		if grep "$checksum" "$checksumFile" >/dev/null; then
 		    ignoreTiddler=1
+		    nbDup=$(( $nbDup + 1 ))
 		fi
 	    fi
 	    if [ $ignoreTiddler -ne 1 ]; then
@@ -142,6 +144,9 @@ while read name; do
 	done
 	rm -f "$tiddlersList"
 	echo "checking for news. " 1>&2
+	if [ $nbDup -gt 0 ]; then
+	    echo "  wiki $name: $nbDup duplicate tiddlers removed" 1>&2
+	fi
 	if [ -f "$wikiDir/tiddlers/$newsSpecialTiddlerFilename.tid" ]; then
 	    tw-print-from-rendered-tiddler.sh "$wikiDir" "$newsSpecialTiddler" | while read title; do
 #		echo "DEBUG: found news tiddler: '$title' " 1>&2
