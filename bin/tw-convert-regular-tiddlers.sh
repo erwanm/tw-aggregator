@@ -74,9 +74,9 @@ while getopts 'ht:d:' option ; do
 	      if [ "${wikisToCheckForDuplicate:0:1}" == "!" ]; then
 		  wikisToCheckForDuplicate="${wikisToCheckForDuplicate:1}"
 		  duplicateCheckWikisInList=0
-	      fi
-	      echo "DEBUG: wikisToCheckForDuplicate=$wikisToCheckForDuplicate"
-	      echo "DEBUG: duplicateCheckWikisInList=$duplicateCheckWikisInList" ;;
+	      fi;;
+#	      echo "DEBUG: wikisToCheckForDuplicate=$wikisToCheckForDuplicate"
+#	      echo "DEBUG: duplicateCheckWikisInList=$duplicateCheckWikisInList" ;;
         "?" )
             echo "Error, unknow option." 1>&2
             usage 1>&2
@@ -98,7 +98,7 @@ regex="^\\\$__"
 while read name; do
     checkDup=""
     if [ ! -z "$wikisToCheckForDuplicate" ]; then
-	echo "DEBUG: duplicate detection active"
+#	echo "DEBUG: duplicate detection active"
 	inList=0
 	for wiki in $wikisToCheckForDuplicate; do
 	    if [ "$wiki" == "$name" ]; then
@@ -108,7 +108,7 @@ while read name; do
 	if [ "$duplicateCheckWikisInList" == "$inList" ]; then
 	    checkDup=1
 	fi
-	echo "DEBUG: wiki $name: inList=$inList; checkDup='$checkDup'"
+#	echo "DEBUG: wiki $name: inList=$inList; checkDup='$checkDup'"
     fi
     wikiDir="$collectedWikisDir/$name"
     if [ -d "$wikiDir" ]; then
@@ -130,15 +130,16 @@ while read name; do
 	    done >"$tiddlersList"
 	fi
 	echo -n "converting; "
+	duplicateTiddlersFile=$(mktemp)
 	cat "$tiddlersList" | while read tiddlerFile; do
 	    ignoreTiddler=0
-	    if [ -z "$checkDup" ]; then
+	    if [ ! -z "$checkDup" ]; then
 		checksum=$(md5sum "$tiddlerFile" | cut -d " " -f 1)
 		if grep "$checksum" "$checksumFile" >/dev/null; then
 		    ignoreTiddler=1
-		    nbDup=$(( $nbDup + 1 ))
+		    echo "$tiddlerFile" >> "$duplicateTiddlersFile"
 		fi
-		echo "DEBUG: dup-ignore-tiddler=$ignoreTiddler; nbDup=$nbDup"
+#		echo "DEBUG: dup-ignore-tiddler=$ignoreTiddler; nbDup=$nbDup"
 	    fi
 	    if [ $ignoreTiddler -ne 1 ]; then
 		firstBlankLineNo=$(getFirstBlankLineNo "$tiddlerFile")
@@ -151,6 +152,8 @@ while read name; do
 	done
 	rm -f "$tiddlersList"
 	echo "checking for news. "
+	nbDup=$(cat "$duplicateTiddlersFile" | wc -l)
+	rm -f "$duplicateTiddlersFile"
 	if [ $nbDup -gt 0 ]; then
 	    echo "INFO: wiki $name: $nbDup duplicate tiddlers removed"
 	fi
