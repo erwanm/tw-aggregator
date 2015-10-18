@@ -19,6 +19,7 @@ potentialDuplicateSourceWikis="tiddlywiki.com"
 #checkForDuplicatesWikis="cpashow" # wikis to check
 checkForDuplicatesWikis="!$potentialDuplicateSourceWikis" # wikis NOT to check
 duplicateChecksumFile="source-tiddlers.md5"
+tagsFilename="community-tags.list"
 
 function usage {
     echo "Usage: $progName [options] [wiki basis path]"
@@ -42,7 +43,6 @@ function usage {
     echo "  -t use test list of wikis instead of full list (= debug mode)"
     echo    
 }
-
 
 
 
@@ -129,7 +129,8 @@ if [ $exitCode -eq 0 ]; then
     mkdir "$workDir"/output-wiki/tiddlers
     cp "$inputWikiBasis"/tiddlers/* "$workDir"/output-wiki/tiddlers
 
-    tagsListFile=$(mktemp)
+    tagsListFile="$workDir/$tagsFilename"
+    rm -f "$tagsListFile"
     # remark: the loop is for "follow url" option; this option is available only for indexable wikis (not other wikis, taken into account only for plugins)
     while [ -s  "$indexableWikiListFile" ] && [ $exitCode -eq 0 ] ; do # loop for sub-wikis (field 'follow')
 	subwikiListFile="$workDir/subwikis.list"
@@ -166,21 +167,7 @@ if [ $exitCode -eq 0 ]; then
     done
 
     echo "Generating tags tiddlers"
-    cat "$tagsListFile" | sort -u | while read tag; do
-	f=$(echo "$tag" | tr ':/ ' '___')
-	tiddlerFile="$workDir/output-wiki/tiddlers/$f.tid"
-	if [ -f "$tiddlerFile" ]; then 
-	    echo "Warning: tiddler file '$tiddlerFile' already exists, no community tag tiddler written." 1>&2
-	else
-            # removed date to avoid spurious git changes with previously existing tag tidlders
-#	    writeCreatedTodayField >"$tiddlerFile"
-	    echo "title: $tag" >"$tiddlerFile"
-	    echo "tags: CommunityTags" >>"$tiddlerFile"
-	    echo  >>"$tiddlerFile"
-	    echo "{{||\$:/CommunityTagTemplate}}" >>"$tiddlerFile"
-	fi
-    done
-    rm -f "$tagsListFile"
+    tw-generate-tag-tiddlers.sh  "$tagsListFile" "$workDir" "$workDir/output-wiki"
 
     # special tiddler to record the date of the last update
     tiddlerFile="$workDir/output-wiki/tiddlers/LastUpdate.tid"
