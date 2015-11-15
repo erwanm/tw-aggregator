@@ -114,6 +114,7 @@ fi
 rm -f "$workDir/$duplicateChecksumFile"
 for wikiSource in $potentialDuplicateSourceWikis; do
     if [ -d "$workDir/$wikiSource" ]; then
+	echo "Computing checksum for wiki $wikiSource..."
 	md5sum "$workDir/$wikiSource/tiddlers"/* | cut -f 1 -d " " >>"$workDir/$duplicateChecksumFile"
     else
 	echo "Warning: no directory found for source wiki '$wikiSource' (duplicate detection, source step)" 1>&2
