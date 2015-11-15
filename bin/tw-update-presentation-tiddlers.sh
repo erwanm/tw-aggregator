@@ -50,9 +50,7 @@ while read name; do
 	newContent=$(mktemp)
 	firstBlankLineNo=$(getFirstBlankLineNo "$tiddler")
 	head -n $(( $firstBlankLineNo - 1 )) "$tiddler" > "$newContent"
-	if [ ! -d "$wikiDir" ]; then
-	    echo "empty-wiki: true" >> "$newContent" 
-	else
+	if [ -d "$wikiDir" ]; then # wikis not found are not processed.
 	    echo -n "wiki-tw-version: " >> "$newContent" 
 	    cat "$wikiDir.version" >> "$newContent"
 	    latestModif=$(grep "modified: " "$wikiDir"/tiddlers/*tid | cut -f 3 -d ":" | sed 's/^ //g' | grep "^[0-9]*$" | sort | tail -n 1)
