@@ -151,9 +151,10 @@ if [ $exitCode -eq 0 ]; then
 		# stopped writing creation date to avoid spurious changes in git commit when the wiki tiddler existed before
 		#writeCreatedTodayField >"$tiddlerFile"
 		echo "title: $title" >"$tiddlerFile"
-		echo "tags: CommunityWikis $author" >>"$tiddlerFile"
+		echo "tags: CommunityWikis" >>"$tiddlerFile"
 		echo "type: text/vnd.tiddlywiki" >>"$tiddlerFile"
 		echo "wiki-address: $address" >>"$tiddlerFile"
+		echo "author: $author" >>"$tiddlerFile"
 		echo  >>"$tiddlerFile"
 		echo "{{||\$:/CommunityWikiAuthorTemplate}}" >>"$workDir/output-wiki/tiddlers/$title.tid"
 	    done
