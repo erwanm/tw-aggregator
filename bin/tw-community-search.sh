@@ -50,8 +50,7 @@ function usage {
 function findWikiAuthor {
     local tiddlersPath="$1"
     local wikiName="$2"
-    authorTag=$(grep "^tags: " "$tiddlersPath/$wikiName.tid" | sed 's/^tags: //' | sed 's/CommunityWikis//')
-    echo $authorTag
+    grep "^author: " "$tiddlersPath/$wikiName.tid" | sed 's/^author: //'
 }
 
 
