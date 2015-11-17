@@ -104,9 +104,10 @@ anyWikiListFile="$workDir/all-wikis.list"
 tw-print-from-rendered-tiddler.sh "$inputWikiBasis" "$indexableWikiAddressListTiddler" >"$indexableWikiListFile"
 tw-print-from-rendered-tiddler.sh "$inputWikiBasis" "$anyWikiAddressListTiddler" >"$anyWikiListFile"
 
+visitedUrlsFile="$workDir/visited-urls.list"
 exitCode=0
 if [ $skipHarvest -ne 1 ]; then
-    tw-harvest-list.sh "$anyWikiListFile" "$workDir"
+    tw-harvest-list.sh "$anyWikiListFile" "$workDir" "$visitedUrlsFile"
     exitCode="$?"
 fi
 
@@ -134,7 +135,7 @@ if [ $exitCode -eq 0 ]; then
     # remark: the loop is for "follow url" option; this option is available only for indexable wikis (not other wikis, taken into account only for plugins)
     while [ -s  "$indexableWikiListFile" ] && [ $exitCode -eq 0 ] ; do # loop for sub-wikis (field 'follow')
 	subwikiListFile="$workDir/subwikis.list"
-	cat "$indexableWikiListFile" | cut -d "|" -f 2 | tw-convert-regular-tiddlers.sh -d "$workDir/$duplicateChecksumFile:$checkForDuplicatesWikis" -t "$tagsListFile" "$workDir" "$workDir/output-wiki" "$subwikiListFile"
+	cat "$indexableWikiListFile" | cut -d "|" -f 2 | tw-convert-regular-tiddlers.sh -d "$workDir/$duplicateChecksumFile:$checkForDuplicatesWikis" -t "$tagsListFile" "$workDir" "$workDir/output-wiki" "$subwikiListFile" "$visitedUrlsFile"
 	cat "$indexableWikiListFile" | cut -d "|" -f 2 | tw-update-presentation-tiddlers.sh  "$workDir" "$workDir/output-wiki"
 	nbSubWikis=$(cat "$subwikiListFile" | wc -l)
 	echo " $nbSubWikis sub-wikis to follow."
@@ -159,7 +160,7 @@ if [ $exitCode -eq 0 ]; then
 	    done
 	    cut -d "|" -f 2,3 "$subwikiListFile" > "$indexableWikiListFile"
 	    if [ $skipHarvest -ne 1 ]; then
-		tw-harvest-list.sh "$indexableWikiListFile" "$workDir"
+		tw-harvest-list.sh "$indexableWikiListFile" "$workDir" "$visitedUrlsFile"
 		exitCode="$?"
 	    fi
 	else 

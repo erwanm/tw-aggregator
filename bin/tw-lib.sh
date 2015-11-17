@@ -23,6 +23,36 @@ function absolutePath {
 }
 
 
+# args: 
+# STDIN = 
+# $1 = <searched item>
+# $2 = <list of items separatated by space (default)>
+# $3 = [separator] if the separator is different from space
+#
+# returns 0 if true, 1 otherwise.
+#
+function memberList {
+    item="$1"
+    list="$2"
+    sep="$3"
+    if [ ! -z "$sep" ]; then
+	list=$(echo "$list" | sed "s/$sep/ /g")
+    fi
+#    echo "memberList: searching '$item' in '$list'" 1>&2
+    set -- $list
+    while [ ! -z "$1" ]; do
+#	echo "memberList: '$item' == '$1' ?" 1>&2
+	if [ "$item" == "$1" ]; then
+#	echo "memberList: '$item' found, returning 0" 1>&2
+	    return 0
+	fi
+	shift
+    done
+#    echo "memberList: end of list, returning 1" 1>&2
+    return 1
+}
+
+
 
 #
 # Returns the line number of the first blank line (i.e. end of header, beginning of content)
@@ -167,6 +197,7 @@ rawurlencode() {
   echo "${encoded}"    # You can either set a return variable (FASTER) 
 #  REPLY="${encoded}"   #+or echo the result (EASIER)... or both... :p
 }
+
 
 
 #

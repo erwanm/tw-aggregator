@@ -5,7 +5,7 @@ progName="tw-harvest.sh"
 source tw-lib.sh
 
 function usage {
-    echo "Usage: $progName [options] <list file> <dest dir>"
+    echo "Usage: $progName [options] <list file> <dest dir> <visited urls file>"
     echo
     echo "  Downloads the collection of wikis provided in <list file>, which"
     echo "  contains lines of the form:"
@@ -30,13 +30,14 @@ while getopts 'h' option ; do
     esac
 done
 shift $(($OPTIND - 1)) # skip options already processed above
-if [ $# -ne 2 ]; then
+if [ $# -ne 3 ]; then
     echo "Error: 2 parameters expected, $# found." 1>&2
     usage 1>&2
     exit 1
 fi
 wikiListFile="$1"
 destDir="$2"
+visitedUrlsFile="$3"
 
 if [ ! -d "$destDir" ]; then
     echo "Error: directory $destDir does not exist." 1>&2
@@ -53,11 +54,12 @@ echo "Reading $nbSites wikis..."
 wikiNo=1
 for lineNo in $(seq 1 $nbLines); do
     row=$(head -n $lineNo "$wikiListFile" | tail -n 1)
-    address=$(echo "$row" | cut -f 1 -d "|")
+    address=$(echo "$row" | cut -f 1 -d "|" | sed 's:/$::')
     name=$(echo "$row" | cut -f 2 -d "|")
     presentationTiddler=$(echo "$row" | cut -f 3 -d "|")
 #    echo "DEBUG: $address" 1>&2
     echo "wiki $wikiNo/$nbSites: '$name'; fetching '$address'"
+    echo "$address" >>"$visitedUrlsFile"
     if [ -z "$name" ]; then
 	tw-harvest-wiki.sh "$destDir" "$address"
 	exitCode=$?
