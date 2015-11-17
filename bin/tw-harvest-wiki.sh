@@ -77,7 +77,8 @@ if [ "${address:0:4}" == "http" ]; then
 	exit 1
     fi
     if [ ! -f "$destDir"/index.html ]; then # if file not named index.html, rename it
-	mv "$destDir/${address##*/}" "$destDir"/index.html
+	decoded=$(echo "$address" | sed 's/%20/ /g') # warning: decodes only spaces!
+	mv "$destDir/${decoded##*/}" "$destDir"/index.html
     fi
 else   # otherwise, assuming it's a local standalone html file 
     if [ -f "$address" ]; then

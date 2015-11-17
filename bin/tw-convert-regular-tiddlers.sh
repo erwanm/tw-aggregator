@@ -10,7 +10,7 @@ newsSpecialTiddlerFilename=$(echo "$newsSpecialTiddler" | sed 's/^$:\//$__/')
 tagsListFile="/dev/null"
 
 function usage {
-    echo "Usage: $progName [options] <collected wikis dir> <target wiki dir> <follow wikis file>"
+    echo "Usage: $progName [options] <collected wikis dir> <target wiki dir> <follow wikis file> <visited urls file>"
     echo
     echo "  Reads a list of wiki ids from STDIN; each <wiki id> corresponds to"
     echo "  a directory <collected wikis dir>/<wiki id> (previously collected"
@@ -51,13 +51,18 @@ function followUrlTiddler  {
     local firstBlankLineNo="$2"
     local sourceWikiName="$3"
     local outputWikiDir="$4"
+    local visitedUrlsFile="$5"
+    local targetUrlsFile="$6"
 
     follow=$(extractField "follow" "$tiddlerFile" "$firstBlankLineNo")
     if [ "${follow,,}" == "yes" ]; then
-	url=$(extractField "url" "$tiddlerFile" "$firstBlankLineNo")
+	url=$(extractField "url" "$tiddlerFile" "$firstBlankLineNo" | sed 's/#.*$//' | sed 's:/$::')
 	title=$(extractField "title" "$tiddlerFile" "$firstBlankLineNo")
-	if [ ! -z "$url" ] && [ ! -f "$outputWikiDir/tiddlers/$title.tid" ] ; then # second condition to ensure the wiki hasn't been already extracted
-	    echo "$sourceWikiName|$url|$title"
+#	echo "DEBUG: title=$title; url=$url" 1>&2
+	# conditions: url must not have been already visited and must not be already planned for visit
+	if [ ! -z "$url" ] && ! grep "$url" "$visitedUrlsFile" && ! cat "$targetUrlsFile" | cut -d "|" -f 2 | grep "^$url$"; then
+#	    echo "DEBUG: ADDING" 1>&2
+	    echo "$sourceWikiName|$url|$title" >>"$targetUrlsFile"
 	fi
     fi
 }
@@ -84,14 +89,15 @@ while getopts 'ht:d:' option ; do
     esac
 done
 shift $(($OPTIND - 1)) # skip options already processed above
-if [ $# -ne 3 ]; then
-    echo "Error: 2 parameters expected, $# found." 1>&2
+if [ $# -ne 4 ]; then
+    echo "Error: 4 parameters expected, $# found." 1>&2
     usage 1>&2
     exit 1
 fi
 collectedWikisDir="$1"
 targetWiki="$2"
 followWikisFile="$3"
+visitedUrlsFile="$4"
 
 rm -f "$followWikisFile"
 regex="^\\\$__"
@@ -133,7 +139,7 @@ while read name; do
 	duplicateTiddlersFile=$(mktemp)
 	cat "$tiddlersList" | while read tiddlerFile; do
 	    ignoreTiddler=0
-	    if [ ! -z "$checkDup" ]; then
+	    if [ ! -z "$checkDup" ] && [ -s "$checksumFile" ]; then
 		checksum=$(md5sum "$tiddlerFile" | cut -d " " -f 1)
 		if grep "$checksum" "$checksumFile" >/dev/null; then
 		    ignoreTiddler=1
@@ -146,7 +152,7 @@ while read name; do
 		tiddlerType=$(getTiddlerType "$tiddlerFile" "$firstBlankLineNo")
 		if [ "$tiddlerType" == "text" ] && ! isSystemTiddlerFile "$tiddlerFile"; then # ignore plugins/themes and system tiddlers
 		    cloneAsTWCSTiddler "$tiddlerFile" "$targetWiki/tiddlers" "$firstBlankLineNo" "$name" 1 "" "$tagsListFile" >/dev/null
-		    followUrlTiddler "$tiddlerFile" $firstBlankLineNo "$name" "$targetWiki" >>"$followWikisFile"
+		    followUrlTiddler "$tiddlerFile" $firstBlankLineNo "$name" "$targetWiki" "$visitedUrlsFile" "$followWikisFile"
 		fi
 	    fi
 	done
