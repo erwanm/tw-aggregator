@@ -60,9 +60,13 @@ function followUrlTiddler  {
 	title=$(extractField "title" "$tiddlerFile" "$firstBlankLineNo")
 #	echo "DEBUG: title=$title; url=$url" 1>&2
 	# conditions: url must not have been already visited and must not be already planned for visit
-	if [ ! -z "$url" ] && ! grep "$url" "$visitedUrlsFile" && ! cat "$targetUrlsFile" | cut -d "|" -f 2 | grep "^$url$" >/dev/null; then
-#	    echo "DEBUG: ADDING" 1>&2
-	    echo "$sourceWikiName|$url|$title" >>"$targetUrlsFile"
+	if [ ! -z "$url" ] && ! grep "$url" "$visitedUrlsFile" >/dev/null && ! cat "$targetUrlsFile" | cut -d "|" -f 2 | grep "^$url$" >/dev/null; then
+	    if [ -f "$outputWikiDir/tiddlers/$title.tid" ]; then
+		echo "Warning: there is already a wiki tiddler for '$title' in the target wiki, ignoring (address: '$url')" 1>&2
+	    else
+#		echo "DEBUG: ADDING" 1>&2
+		echo "$sourceWikiName|$url|$title" >>"$targetUrlsFile"
+	    fi
 	fi
     fi
 }
