@@ -60,7 +60,7 @@ function followUrlTiddler  {
 	title=$(extractField "title" "$tiddlerFile" "$firstBlankLineNo")
 #	echo "DEBUG: title=$title; url=$url" 1>&2
 	# conditions: url must not have been already visited and must not be already planned for visit
-	if [ ! -z "$url" ] && ! grep "$url" "$visitedUrlsFile" && ! cat "$targetUrlsFile" | cut -d "|" -f 2 | grep "^$url$"; then
+	if [ ! -z "$url" ] && ! grep "$url" "$visitedUrlsFile" && ! cat "$targetUrlsFile" | cut -d "|" -f 2 | grep "^$url$" >/dev/null; then
 #	    echo "DEBUG: ADDING" 1>&2
 	    echo "$sourceWikiName|$url|$title" >>"$targetUrlsFile"
 	fi
@@ -100,6 +100,7 @@ followWikisFile="$3"
 visitedUrlsFile="$4"
 
 rm -f "$followWikisFile"
+touch "$followWikisFile"
 regex="^\\\$__"
 while read name; do
     checkDup=""
