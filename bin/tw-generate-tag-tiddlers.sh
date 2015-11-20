@@ -72,7 +72,7 @@ cat "$tagsListFile" | sort | countIdentical >"$countFile"
 cat "$countFile" | while read l; do
     tag=$(echo "$l" | cut -f 1)
     nb=$(echo "$l" | cut -f 2)
-    f=$(echo "$tag" | tr ':/ ' '___')
+    f=$(echo "CommunityTag: $tag" | tr ':/ ' '___')
     tiddlerFile="$outputWiki/tiddlers/$f.tid"
     if [ -f "$tiddlerFile" ]; then 
 	echo "Warning: tiddler file '$tiddlerFile' already exists, no community tag tiddler written." 1>&2
