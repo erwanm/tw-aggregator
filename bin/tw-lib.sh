@@ -293,7 +293,9 @@ function cloneAsTWCSTiddler {
     oldTitle=$(extractField "title" "$sourceTiddlerFile" "$firstBlankLineNo")
     newTitle="\$:/$wikiId/$oldTitle" # convert title to system tiddler with wiki id prefix
     echo "title: $newTitle" >"$targetTiddler"
-    echo "tags: $tags"  >>"$targetTiddler"
+    if [ ! -z "$tags" ]; then
+	echo "tags: $tags"  >>"$targetTiddler"
+    fi
     printTiddlerFields "$sourceTiddlerFile" "title tags $excludeFields" "$firstBlankLineNo" >>"$targetTiddler"
     oldTags=$(extractField "tags" "$sourceTiddlerFile" "$firstBlankLineNo")
     writeTags "original-tags" "$tagsListFile" "$oldTags" >>"$targetTiddler"
