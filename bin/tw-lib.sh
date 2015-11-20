@@ -188,7 +188,7 @@ function writeTags {
     local tagsListFile="$2"
     local tags="$3"
 
-    echo "tags: $tags"
+    echo "$fieldName: $tags"
     set -- $tags
     #    echo "DEBUG TAGS='$tags'" 1>&2
     while [ ! -z "$1" ]; do
