@@ -77,8 +77,9 @@ cat "$countFile" | while read l; do
     if [ -f "$tiddlerFile" ]; then 
 	echo "Warning: tiddler file '$tiddlerFile' already exists, no community tag tiddler written." 1>&2
     else
-	echo "title: $tag" >"$tiddlerFile"
+	echo "title: CommunityTag: $tag" >"$tiddlerFile"
 	echo "tags: CommunityTags" >>"$tiddlerFile"
+	echo "community-tag: $tag" >>"$tiddlerFile"
 	echo "community-tag-count: $nb" >>"$tiddlerFile"
 	echo  >>"$tiddlerFile"
 	echo "{{||\$:/CommunityTagTemplate}}" >>"$tiddlerFile"
