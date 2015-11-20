@@ -228,7 +228,7 @@ function printTiddlerFields {
 #   - with <wikiId> as prefix as its title
 #   - with all the source fields, except for 'title' and 'tags':
 #     - 'title' is modified (see above)
-#     - 'tags' are copied except system tags and variables, and the wikiId is added as tag.
+#     - 'tags' are copied except system tags and variables.
 #   -  with additional fields:
 #     - source-wiki-id
 #     - source-tiddler-title-as-text (user-friendly version)
@@ -262,7 +262,7 @@ function cloneAsTWCSTiddler {
     echo "title: $newTitle" >"$targetTiddler"
     printTiddlerFields "$sourceTiddlerFile" "title tags $excludeFields" "$firstBlankLineNo" >>"$targetTiddler"
     oldTags=$(extractField "tags" "$sourceTiddlerFile" "$firstBlankLineNo")
-    writeTagsIfNotSystem "$tagsListFile" "[[$wikiId]] $additionalTags" "$oldTags" >>"$targetTiddler"
+    writeTagsIfNotSystem "$tagsListFile" "$additionalTags" "$oldTags" >>"$targetTiddler"
     echo "source-wiki-id: $wikiId" >>"$targetTiddler" # store custom fields in order to recompute the original address
     # url-encode the title, in case it contains characters like # (see github bug #24)
     # also keep the non-encoded title (named source-tiddler-title-as-text), to display it in a user-friendly readable text
