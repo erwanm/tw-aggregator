@@ -85,17 +85,13 @@ cat "$countFile" | while read l; do
     wikis=$(echo "$l" | cut -f 3)
     f=$(echo "Tag: $tag" | tr ':/ ' '___')
     tiddlerFile="$outputWiki/tiddlers/$f.tid"
-    if [ -f "$tiddlerFile" ]; then 
-	echo "Warning: tiddler file '$tiddlerFile' already exists, no community tag tiddler written." 1>&2
-    else
-	echo "title: Tag: $tag" >"$tiddlerFile"
-	echo "tags: CommunityTags" >>"$tiddlerFile"
-	echo "community-tag: $tag" >>"$tiddlerFile"
-	echo "community-tag-count: $nb" >>"$tiddlerFile"
-	echo "community-wikis: $wikis" >>"$tiddlerFile"
-	echo  >>"$tiddlerFile"
-	echo "{{||\$:/CommunityTagTemplate}}" >>"$tiddlerFile"
-    fi
+    echo "title: Tag: $tag" >"$tiddlerFile"
+    echo "tags: CommunityTags" >>"$tiddlerFile"
+    echo "community-tag: $tag" >>"$tiddlerFile"
+    echo "community-tag-count: $nb" >>"$tiddlerFile"
+    echo "community-wikis: $wikis" >>"$tiddlerFile"
+    echo  >>"$tiddlerFile"
+    echo "{{||\$:/CommunityTagTemplate}}" >>"$tiddlerFile"
 
     # old version, kept temporarily for people who have bookmarks
     f=$(echo "$tag" | tr ':/ ' '___')
