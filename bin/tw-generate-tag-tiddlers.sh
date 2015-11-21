@@ -91,17 +91,19 @@ cat "$countFile" | while read l; do
     echo "{{||\$:/CommunityTagTemplate}}" >>"$tiddlerFile"
 
     # old version, kept temporarily for people who have bookmarks
-    f=$(echo "$tag" | tr ':/ ' '___')
-    tiddlerFile="$outputWiki/tiddlers/$f.tid"
-    if [ -f "$tiddlerFile" ]; then 
-	echo "Warning: tiddler file '$tiddlerFile' already exists, no community tag tiddler written (old version)." 1>&2
-    else
-	echo "title: $tag" >"$tiddlerFile"
-	echo "new-tiddler: Tag: $tag" >>"$tiddlerFile"
-	echo  >>"$tiddlerFile"
-	echo "{{||\$:/obsoleteCommunityTagTemplate}}" >>"$tiddlerFile"
+    local regex="^\\\$:/"
+    if [[ ! ${tag:2} =~ $regex ]]; then  # no system tags!
+	f=$(echo "$tag" | tr ':/ ' '___')
+	tiddlerFile="$outputWiki/tiddlers/$f.tid"
+	if [ -f "$tiddlerFile" ]; then 
+	    echo "Warning: tiddler file '$tiddlerFile' already exists, no community tag tiddler written (old version)." 1>&2
+	else
+	    echo "title: $tag" >"$tiddlerFile"
+	    echo "new-tiddler: Tag: $tag" >>"$tiddlerFile"
+	    echo  >>"$tiddlerFile"
+	    echo "{{||\$:/obsoleteCommunityTagTemplate}}" >>"$tiddlerFile"
+	fi
     fi
-    
 done
 
 
