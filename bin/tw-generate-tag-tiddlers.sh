@@ -37,7 +37,7 @@ function countIdentical {
 #	echo "DEBUG: read l='$l'; tag='$tag'; wiki='$wiki'; prev='$prev'" 1>&2
 	if [ "$tag" == "$prev" ]; then
 	    nb=$(( $nb + 1 ))
-	    if ! memberList "$wiki" "$currentWikisList"; then
+	    if ! memberList "[[$wiki]]" "$currentWikisList"; then
 		currentWikisList="$currentWikisList [[$wiki]]"
 	    fi
 	else
