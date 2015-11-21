@@ -91,7 +91,7 @@ cat "$countFile" | while read l; do
     echo "{{||\$:/CommunityTagTemplate}}" >>"$tiddlerFile"
 
     # old version, kept temporarily for people who have bookmarks
-    local regex="^\\\$:/"
+    regex="^\\\$:/"
     if [[ ! ${tag:2} =~ $regex ]]; then  # no system tags!
 	f=$(echo "$tag" | tr ':/ ' '___')
 	tiddlerFile="$outputWiki/tiddlers/$f.tid"
