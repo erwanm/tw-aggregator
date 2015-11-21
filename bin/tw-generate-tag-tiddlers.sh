@@ -38,10 +38,7 @@ function countIdentical {
 	if [ "$tag" == "$prev" ]; then
 	    nb=$(( $nb + 1 ))
 	    if ! memberList "$wiki" "$currentWikisList"; then
-		if [[ "$wiki" =~ " "  ]]; then
-		    wiki="[[$wiki]]"
-		fi
-		currentWikisList="$currentWikisList $wiki"
+		currentWikisList="$currentWikisList [[$wiki]]"
 	    fi
 	else
 	    if [ ! -z "$prev" ]; then
