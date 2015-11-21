@@ -34,7 +34,7 @@ function countIdentical {
     while read l; do
 	tag=$(echo "$l" | cut -f 1)
 	wiki=$(echo "$l" | cut -f 2)
-#	echo "DEBUG: read l='$l'; tag='$tag'; wiki='$wiki'; prev='$prev'" 1>&2
+	echo "DEBUG: read l='$l'; tag='$tag'; wiki='$wiki'; prev='$prev'" 1>&2
 	if [ "$tag" == "$prev" ]; then
 	    nb=$(( $nb + 1 ))
 	    if ! memberList "[[$wiki]]" "$currentWikisList"; then
@@ -45,11 +45,11 @@ function countIdentical {
 		echo -e "$prev\t$nb\t$currentWikisList"
 	    fi
 	    prev="$tag"
-	    currentWikisList="$wiki"
+	    currentWikisList="[[$wiki]]"
 	    nb=1
 	fi
     done
-    echo -e "$prev\t$nb"
+    echo -e "$prev\t$nb\t$currentWikisList"
 }
 
 
