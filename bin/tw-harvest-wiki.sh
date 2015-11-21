@@ -71,7 +71,7 @@ fi
 
 exitCode=0
 if [ "${address:0:4}" == "http" ]; then
-    wget -P "$destDir" -q "$address" # download the wiki
+    wget --timeout=60 -P "$destDir" -q "$address" # download the wiki
     if [ $? -ne 0 ]; then
 	echo "Warning: an error occured when trying to fetch wiki at '$address'" 1>&2
 	exit 1
