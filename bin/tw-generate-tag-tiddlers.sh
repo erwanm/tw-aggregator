@@ -30,15 +30,25 @@ function usage {
 #
 function countIdentical {
     local prev=""
+    local currentWikisList=""
     while read l; do
-#	echo "DEBUG: read '$l'; prev='$prev'" 1>&2
-	if [ "$l" == "$prev" ]; then
+	tag=$(echo "$l" | cut -f 1)
+	wiki=$(echo "$l" | cut -f 2)
+#	echo "DEBUG: read l='$l'; tag='$tag'; wiki='$wiki'; prev='$prev'" 1>&2
+	if [ "$tag" == "$prev" ]; then
 	    nb=$(( $nb + 1 ))
+	    if ! memberList "$wiki" "$currentWikisList"; then
+		if [[ "$wiki" =~ " "  ]]; then
+		    wiki="[[$wiki]]"
+		fi
+		currentWikisList="$currentWikisList $wiki"
+	    fi
 	else
 	    if [ ! -z "$prev" ]; then
-		echo -e "$prev\t$nb"
+		echo -e "$prev\t$nb\t$currentWikisList"
 	    fi
-	    prev="$l"
+	    prev="$tag"
+	    currentWikisList="$wiki"
 	    nb=1
 	fi
     done
@@ -72,18 +82,33 @@ cat "$tagsListFile" | sort | countIdentical >"$countFile"
 cat "$countFile" | while read l; do
     tag=$(echo "$l" | cut -f 1)
     nb=$(echo "$l" | cut -f 2)
-    f=$(echo "CommunityTag: $tag" | tr ':/ ' '___')
+    wikis=$(echo "$l" | cut -f 3)
+    f=$(echo "Tag: $tag" | tr ':/ ' '___')
     tiddlerFile="$outputWiki/tiddlers/$f.tid"
     if [ -f "$tiddlerFile" ]; then 
 	echo "Warning: tiddler file '$tiddlerFile' already exists, no community tag tiddler written." 1>&2
     else
-	echo "title: CommunityTag: $tag" >"$tiddlerFile"
+	echo "title: Tag: $tag" >"$tiddlerFile"
 	echo "tags: CommunityTags" >>"$tiddlerFile"
 	echo "community-tag: $tag" >>"$tiddlerFile"
 	echo "community-tag-count: $nb" >>"$tiddlerFile"
+	echo "community-wikis: $wikis" >>"$tiddlerFile"
 	echo  >>"$tiddlerFile"
 	echo "{{||\$:/CommunityTagTemplate}}" >>"$tiddlerFile"
     fi
+
+    # old version, kept temporarily for people who have bookmarks
+    f=$(echo "$tag" | tr ':/ ' '___')
+    tiddlerFile="$outputWiki/tiddlers/$f.tid"
+    if [ -f "$tiddlerFile" ]; then 
+	echo "Warning: tiddler file '$tiddlerFile' already exists, no community tag tiddler written (old version)." 1>&2
+    else
+	echo "title: $tag" >"$tiddlerFile"
+	echo "new-tiddler: Tag: $tag" >>"$tiddlerFile"
+	echo  >>"$tiddlerFile"
+	echo "{{||\$:/obsoleteCommunityTagTemplate}}" >>"$tiddlerFile"
+    fi
+    
 done
 
 

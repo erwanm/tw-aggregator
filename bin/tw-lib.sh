@@ -181,16 +181,17 @@ function writeTagsIfNotSystem {
 #
 # Writes a 'tags' field named <fieldName> to STDOUT with content <tags>.
 # Additionally every tag  is appended to <tagsListFile>
-#
+# If <wikiId> is not empty, it is written as the second column to  <tagsListFile>
 #
 function writeTags {
     local fieldName="$1"
     local tagsListFile="$2"
     local tags="$3"
+    local wikiId="$4"
 
     echo "$fieldName: $tags"
     set -- $tags
-    #    echo "DEBUG TAGS='$tags'" 1>&2
+#    echo "DEBUG TAGS='$tags' wikiId='$wikiId'" 1>&2
     while [ ! -z "$1" ]; do
 	tag="$1"
 	if [ "${tag:0:2}" == "[[" ]; then
@@ -199,9 +200,14 @@ function writeTags {
 		tag="$tag $1"
 	    done
 	    #	    echo "DEBUG: found possible multiword tag='$tag'" 1>&2
-	    echo "${tag:2}" | sed 's/\]\]//' >>"$tagsListFile"
+	    writeTag=$(echo "${tag:2}" | sed 's/\]\]//')
 	else
-	    echo "$tag" >>"$tagsListFile"
+	    writeTag="$tag"
+	fi
+	if [ -z "$wikiId" ]; then
+	    echo "$writeTag" >>"$tagsListFile"
+	else
+	    echo -e "$writeTag\t$wikiId" >>"$tagsListFile"
 	fi
 	shift
     done
@@ -298,7 +304,7 @@ function cloneAsTWCSTiddler {
     fi
     printTiddlerFields "$sourceTiddlerFile" "title tags $excludeFields" "$firstBlankLineNo" >>"$targetTiddler"
     oldTags=$(extractField "tags" "$sourceTiddlerFile" "$firstBlankLineNo")
-    writeTags "original-tags" "$tagsListFile" "$oldTags" >>"$targetTiddler"
+    writeTags "original-tags" "$tagsListFile" "$oldTags" "$wikiId" >>"$targetTiddler"
     echo "source-wiki-id: $wikiId" >>"$targetTiddler" # store custom fields in order to recompute the original address
     # url-encode the title, in case it contains characters like # (see github bug #24)
     # also keep the non-encoded title (named source-tiddler-title-as-text), to display it in a user-friendly readable text
