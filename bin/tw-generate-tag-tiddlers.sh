@@ -75,7 +75,7 @@ outputWiki="$3"
 
 
 countFile="$workDir/community-tags-counts.list"
-cat "$tagsListFile" | sort | countIdentical >"$countFile"
+cat "$tagsListFile" | sort -t$'\t' -k 1,1 | countIdentical >"$countFile"
 cat "$countFile" | while read l; do
     tag=$(echo "$l" | cut -f 1)
     nb=$(echo "$l" | cut -f 2)
