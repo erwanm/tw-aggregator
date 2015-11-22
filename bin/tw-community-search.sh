@@ -105,10 +105,13 @@ tw-print-from-rendered-tiddler.sh "$inputWikiBasis" "$indexableWikiAddressListTi
 tw-print-from-rendered-tiddler.sh "$inputWikiBasis" "$anyWikiAddressListTiddler" >"$anyWikiListFile"
 
 visitedUrlsFile="$workDir/visited-urls.list"
+rm -f "$visitedUrlsFile"
 exitCode=0
 if [ $skipHarvest -ne 1 ]; then
     tw-harvest-list.sh "$anyWikiListFile" "$workDir" "$visitedUrlsFile"
     exitCode="$?"
+else # simulate harvested wiki in order to keep visited-urls list up to date
+    cat "$anyWikiListFile" | cut -f 1 -d "|" | grep "^http" | sed 's:/$::' >>"$visitedUrlsFile"
 fi
 
 rm -f "$workDir/$duplicateChecksumFile"
@@ -162,6 +165,8 @@ if [ $exitCode -eq 0 ]; then
 	    if [ $skipHarvest -ne 1 ]; then
 		tw-harvest-list.sh "$indexableWikiListFile" "$workDir" "$visitedUrlsFile"
 		exitCode="$?"
+	    else # simulate harvested wiki in order to keep visited-urls list up to date
+		cat "$indexableWikiListFile" | cut -f 1 -d "|" | grep "^http" | sed 's:/$::' >>"$visitedUrlsFile"
 	    fi
 	else 
 	    rm -f "$indexableWikiListFile"
@@ -184,7 +189,7 @@ if [ $exitCode -eq 0 ]; then
     tw-extract-and-update-official-plugin-list.sh "$workDir" "$workDir/output-wiki" "$pluginTiddlersList"
 
 
-    total=$(ls "$workDir"/output-wiki/tiddlers/*.tid | wc -l)
+    total=$(ls "$workDir"/output-wiki/tiddlers | wc -l)
     echo "Converting the output wiki to standalone html"
     tiddlywiki "$workDir/output-wiki" --rendertiddler "$:/plugins/tiddlywiki/tiddlyweb/save/offline" "output.html" text/plain >/dev/null
     mv "$workDir/output-wiki/output/output.html" "$outputFilename"
