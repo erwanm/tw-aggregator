@@ -142,7 +142,7 @@ if [ $exitCode -eq 0 ]; then
 	cat "$indexableWikiListFile" | cut -d "|" -f 2 | tw-update-presentation-tiddlers.sh  "$workDir" "$workDir/output-wiki"
 	nbSubWikis=$(cat "$subwikiListFile" | wc -l)
 	echo " $nbSubWikis sub-wikis to follow."
-	cat "$subwikiListFile" >> "$anyWikiListFile" # add to the list of all wikis for plugin extraction
+	cut -f 2,3 -d "|" "$subwikiListFile" >> "$anyWikiListFile" # add to the list of all wikis for plugin extraction
 	if [ $nbSubWikis -gt 0 ]; then
 	    cat "$subwikiListFile" | while read line; do
 		sourceWiki=$(echo "$line" | cut -d "|" -f 1)
