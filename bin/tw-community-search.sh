@@ -196,5 +196,5 @@ if [ $exitCode -eq 0 ]; then
     if [ $removeWorkDir -ne 0 ]; then
 	rm -rf "$workDir"
     fi
-    echo "Done. $total tiddlers harvested, result in $outputFilename"
+    echo "Done. $total tiddlers in result wiki '$outputFilename'"
 fi

@@ -102,7 +102,7 @@ cat "$countFile" | while read l; do
 	    echo "title: $tag" >"$tiddlerFile"
 	    echo "new-tiddler: Tag: $tag" >>"$tiddlerFile"
 	    echo  >>"$tiddlerFile"
-	    echo "{{||\$:/obsoleteCommunityTagTemplate}}" >>"$tiddlerFile"
+	    echo "{{||\$:/ObsoleteCommunityTagTemplate}}" >>"$tiddlerFile"
 	fi
     fi
 done
