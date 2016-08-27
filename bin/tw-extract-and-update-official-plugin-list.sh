@@ -50,24 +50,12 @@ targetWiki="$2"
 pluginListFile="$3"
 
 sourceWiki="$collectedWikisDir/$pluginOfficialListWikiId/tiddlers/"
-if [ ! -f "$sourceWiki/$pluginOfficialListListingTiddler.tid" ]; then
-    echo "Error: no listing tiddler in the plugin source wiki: cannot open '$sourceWiki/$pluginOfficialListListingTiddler.tid'" 1>&2
-    exit 3
-fi
-
-#targetTiddlerFile="$targetWiki/tiddlers/$pluginTargetMissingTitleOrAddressFile"
-#writeCreatedTodayField   >"$targetTiddlerFile"
-#echo "title: $pluginTargetMissingTitleOrAddressTitle" >>"$targetTiddlerFile"
-#echo "tags: $pluginTargetMissingTitleOrAddressTags"  >>"$targetTiddlerFile"
-#echo "type: text/vnd.tiddlywiki"   >>"$targetTiddlerFile"
-#echo  >>"$targetTiddlerFile"
 
 jedsWikiList=$(mktemp)
 #echo "DEBUG: temp Jed's wiki list = $jedsWikiList" 1>&2
 
 # PART 1: extracting relevant tiddlers from Jed's wiki and generating corresponding "plugin tidders"
 
-#cp "$sourceWiki/$pluginOfficialListListingTiddler.tid" "$targetWiki/tiddlers/$pluginTargetListingTiddler.tid"
 for tiddlerFile in $sourceWiki/*.tid; do 
     firstBlankLineNo=$(cat "$tiddlerFile" | grep -n "^$" | head -n 1 | cut -f 1 -d ":")
     hasPluginTag=$(head -n $(( $firstBlankLineNo - 1 )) "$tiddlerFile" | grep "^tags:.*\[\[$pluginOfficialListTag\]\]")
