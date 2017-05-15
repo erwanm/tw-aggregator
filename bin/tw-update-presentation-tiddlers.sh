@@ -44,9 +44,15 @@ targetWiki="$2"
 while read name; do
     wikiDir="$collectedWikisDir/$name"
     tiddler="$targetWiki/tiddlers/$name.tid"
-    if [ ! -e "$tiddler" ]; then
-	echo "Bug: no file '$tiddler' found. Ignoring wiki '$name' in $progName" 1>&2
-    else
+    if [ ! -e "$tiddler" ]; then # not sure what is the correct version, changed a couple of times so I left both
+	name2=$(echo "$name" | tr " " "_")
+	tiddler="$targetWiki/tiddlers/$name2.tid"
+	if [ ! -e "$tiddler" ]; then
+	    echo "Bug: no file '$tiddler' found. Ignoring wiki '$name' in $progName" 1>&2
+	    tiddler=""
+	fi
+    fi
+    if [ ! -z "$tiddler" ]; then
 	newContent=$(mktemp)
 	firstBlankLineNo=$(getFirstBlankLineNo "$tiddler")
 	head -n $(( $firstBlankLineNo - 1 )) "$tiddler" > "$newContent"
